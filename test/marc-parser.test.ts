@@ -76,6 +76,37 @@ test("извлекает сырые поля по данным Directory", async
   assert.equal(record.fields[8]?.raw.at(-1), 0x1e);
 });
 
+test("разбирает контрольное поле", async () => {
+  const source = await readFile(recordUrl);
+  const parser = new Iso2709MarcParser();
+
+  const field = parser.parse(source).fields[0];
+
+  assert.ok(field?.kind === "control");
+  assert.equal(field.tag, "001");
+  assert.deepEqual(field.value, Buffer.from("015316815", "ascii"));
+});
+
+test("разбирает индикаторы и подполя поля данных", async () => {
+  const source = await readFile(recordUrl);
+  const parser = new Iso2709MarcParser();
+
+  const field = parser.parse(source).fields.find(({ tag }) => tag === "020");
+
+  assert.ok(field?.kind === "data");
+  assert.deepEqual(field.indicators, [" ", " "]);
+  assert.deepEqual(
+    field.subfields.map(({ code, value }) => ({
+      code,
+      value: value.toString("utf8"),
+    })),
+    [
+      { code: "a", value: "978-5-8209-2783-6" },
+      { code: "c", value: "500 экз." },
+    ],
+  );
+});
+
 test("проверяет границы сырого поля", async () => {
   const source = Buffer.from(await readFile(recordUrl));
   source.write("9999", 27, "ascii");

@@ -123,6 +123,20 @@ async function logFields(
     await writeToConsole(
       `\nЗапись ${context.recordIndex + 1}, тег ${field.tag}: ${JSON.stringify(text)}\n`,
     );
+
+    if (field.kind === "data") {
+      await writeToConsole(
+        `  Индикаторы: ${JSON.stringify(field.indicators)}\n`,
+      );
+
+      for (const subfield of field.subfields) {
+        const value = decoder.decode(subfield.value);
+
+        await writeToConsole(
+          `  Подполе ${JSON.stringify(subfield.code)}: ${JSON.stringify(value)}\n`,
+        );
+      }
+    }
   }
 }
 

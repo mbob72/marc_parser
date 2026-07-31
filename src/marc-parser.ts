@@ -1,13 +1,19 @@
 import type {
+  MarcControlField,
+  MarcDataField,
   MarcDirectoryEntry,
+  MarcField,
   MarcLeader,
   MarcRawField,
   MarcRecord,
+  MarcSubfield,
 } from "./marc-record.js";
 
 const LEADER_LENGTH = 24;
 const TAG_LENGTH = 3;
 const FIELD_TERMINATOR = 0x1e;
+const SUBFIELD_DELIMITER = 0x1f;
+const INDICATOR_COUNT = 2;
 
 export interface MarcParser {
   parse(record: Buffer): MarcRecord;
@@ -28,12 +34,13 @@ export class Iso2709MarcParser implements MarcParser {
       "baseAddressOfData",
     );
     const directory = parseDirectory(record, leader, baseAddressOfData);
+    const rawFields = parseRawFields(record, directory, baseAddressOfData);
 
     return {
       byteLength: record.length,
       leader,
       directory,
-      fields: parseRawFields(record, directory, baseAddressOfData),
+      fields: rawFields.map(parseField),
     };
   }
 }
@@ -168,6 +175,71 @@ function parseRawFields(
       raw: record.subarray(fieldStart, fieldEnd),
     };
   });
+}
+
+function parseField(field: MarcRawField): MarcField {
+  const content = field.raw.subarray(0, -1);
+
+  if (isControlField(field.tag)) {
+    const controlField: MarcControlField = {
+      ...field,
+      kind: "control",
+      value: content,
+    };
+
+    return controlField;
+  }
+
+  return parseDataField(field, content);
+}
+
+function isControlField(tag: string): boolean {
+  return tag.startsWith("00");
+}
+
+function parseDataField(field: MarcRawField, content: Buffer): MarcDataField {
+  if (content.length < INDICATOR_COUNT) {
+    throw new Error(
+      `Поле данных ${field.tag} короче двух индикаторов: ${content.length} байт.`,
+    );
+  }
+
+  return {
+    ...field,
+    kind: "data",
+    indicators: [
+      content.subarray(0, 1).toString("latin1"),
+      content.subarray(1, 2).toString("latin1"),
+    ],
+    subfields: parseSubfields(content.subarray(INDICATOR_COUNT)),
+  };
+}
+
+function parseSubfields(content: Buffer): MarcSubfield[] {
+  const subfields: MarcSubfield[] = [];
+  let delimiterPosition = content.indexOf(SUBFIELD_DELIMITER);
+
+  while (delimiterPosition !== -1) {
+    const nextDelimiterPosition = content.indexOf(
+      SUBFIELD_DELIMITER,
+      delimiterPosition + 1,
+    );
+    const subfieldEnd =
+      nextDelimiterPosition === -1 ? content.length : nextDelimiterPosition;
+    const rawSubfield = content.subarray(
+      delimiterPosition + 1,
+      subfieldEnd,
+    );
+
+    subfields.push({
+      code: rawSubfield.subarray(0, 1).toString("latin1"),
+      value: rawSubfield.subarray(1),
+    });
+
+    delimiterPosition = nextDelimiterPosition;
+  }
+
+  return subfields;
 }
 
 function parseDecimal(value: string, name: string): number {

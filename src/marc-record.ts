@@ -54,9 +54,28 @@ export interface MarcRawField {
   readonly raw: Buffer;
 }
 
+export interface MarcControlField extends MarcRawField {
+  readonly kind: "control";
+  /** Содержимое контрольного поля без завершающего байта 0x1E. */
+  readonly value: Buffer;
+}
+
+export interface MarcSubfield {
+  readonly code: string;
+  readonly value: Buffer;
+}
+
+export interface MarcDataField extends MarcRawField {
+  readonly kind: "data";
+  readonly indicators: readonly [string, string];
+  readonly subfields: readonly MarcSubfield[];
+}
+
+export type MarcField = MarcControlField | MarcDataField;
+
 export interface MarcRecord {
   readonly byteLength: number;
   readonly leader: MarcLeader;
   readonly directory: readonly MarcDirectoryEntry[];
-  readonly fields: readonly MarcRawField[];
+  readonly fields: readonly MarcField[];
 }
