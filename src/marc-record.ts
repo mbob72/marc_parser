@@ -48,8 +48,15 @@ export interface MarcDirectoryEntry {
   readonly implementationDefined: string;
 }
 
+export interface MarcRawField {
+  readonly tag: string;
+  /** Поле целиком, включая завершающий байт 0x1E. */
+  readonly raw: Buffer;
+}
+
 export interface MarcRecord {
   readonly byteLength: number;
   readonly leader: MarcLeader;
   readonly directory: readonly MarcDirectoryEntry[];
+  readonly fields: readonly MarcRawField[];
 }

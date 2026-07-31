@@ -1,6 +1,7 @@
 import type {
   MarcDirectoryEntry,
   MarcLeader,
+  MarcRawField,
   MarcRecord,
 } from "./marc-record.js";
 
@@ -22,11 +23,17 @@ export class Iso2709MarcParser implements MarcParser {
 
     const rawLeader = record.subarray(0, LEADER_LENGTH).toString("ascii");
     const leader = parseLeader(rawLeader);
+    const baseAddressOfData = parseDecimal(
+      leader.baseAddressOfData,
+      "baseAddressOfData",
+    );
+    const directory = parseDirectory(record, leader, baseAddressOfData);
 
     return {
       byteLength: record.length,
       leader,
-      directory: parseDirectory(record, leader),
+      directory,
+      fields: parseRawFields(record, directory, baseAddressOfData),
     };
   }
 }
@@ -56,12 +63,8 @@ function parseLeader(raw: string): MarcLeader {
 function parseDirectory(
   record: Buffer,
   leader: MarcLeader,
+  baseAddressOfData: number,
 ): MarcDirectoryEntry[] {
-  const baseAddressOfData = parseDecimal(
-    leader.baseAddressOfData,
-    "baseAddressOfData",
-  );
-
   if (baseAddressOfData <= LEADER_LENGTH || baseAddressOfData > record.length) {
     throw new Error(
       `Некорректный baseAddressOfData: ${baseAddressOfData}.`,
@@ -123,6 +126,48 @@ function parseDirectory(
   }
 
   return entries;
+}
+
+function parseRawFields(
+  record: Buffer,
+  directory: readonly MarcDirectoryEntry[],
+  baseAddressOfData: number,
+): MarcRawField[] {
+  return directory.map((entry) => {
+    const fieldLength = parseDecimal(
+      entry.fieldLength,
+      `Длина поля ${entry.tag}`,
+    );
+    const startingCharacterPosition = parseDecimal(
+      entry.startingCharacterPosition,
+      `Начальная позиция поля ${entry.tag}`,
+    );
+
+    if (fieldLength === 0) {
+      throw new Error(`Длина поля ${entry.tag} не может быть равна нулю.`);
+    }
+
+    const fieldStart = baseAddressOfData + startingCharacterPosition;
+    const fieldEnd = fieldStart + fieldLength;
+
+    if (fieldStart >= record.length || fieldEnd > record.length) {
+      throw new Error(
+        `Поле ${entry.tag} выходит за границы MARC-записи: ` +
+          `позиция ${fieldStart}, длина ${fieldLength}.`,
+      );
+    }
+
+    if (record[fieldEnd - 1] !== FIELD_TERMINATOR) {
+      throw new Error(
+        `Поле ${entry.tag} не заканчивается разделителем 0x1E по позиции ${fieldEnd - 1}.`,
+      );
+    }
+
+    return {
+      tag: entry.tag,
+      raw: record.subarray(fieldStart, fieldEnd),
+    };
+  });
 }
 
 function parseDecimal(value: string, name: string): number {

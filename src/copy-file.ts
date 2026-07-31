@@ -3,15 +3,26 @@ import { createReadStream, createWriteStream } from "node:fs";
 import { resolve } from "node:path";
 import { Transform, type TransformCallback } from "node:stream";
 import { pipeline } from "node:stream/promises";
+import { Iso2709MarcParser } from "./marc-parser.js";
 import { MarcParserValidator } from "./marc-parser-validator.js";
+import type { MarcRecordContext } from "./marc-record-processor.js";
 import { MarcRecordSplitter } from "./marc-record-splitter.js";
+import type { MarcRecord } from "./marc-record.js";
 
 const DEFAULT_ENCODING = "utf-8";
 const CHUNK_SIZE = 64 * 1024;
 
-const { decoder, inputPath, outputPath } = parseArgs();
+const { decoder, fieldDecoder, inputPath, outputPath } = parseArgs();
+const marcParser = new Iso2709MarcParser();
 const parserValidator = new MarcParserValidator();
-const recordSplitter = new MarcRecordSplitter(parserValidator);
+const recordSplitter = new MarcRecordSplitter({
+  async process(record, context): Promise<void> {
+    await parserValidator.process(record, context);
+
+    const parsedRecord = marcParser.parse(record);
+    await logFields(parsedRecord, context, fieldDecoder);
+  },
+});
 
 const logRecords = new Transform({
   transform(
@@ -53,6 +64,7 @@ try {
 
 interface Arguments {
   decoder: TextDecoder;
+  fieldDecoder: TextDecoder;
   inputPath: string;
   outputPath: string;
 }
@@ -78,6 +90,7 @@ function parseArgs(): Arguments {
 
   return {
     decoder: createTextDecoder(encoding),
+    fieldDecoder: createTextDecoder(encoding),
     inputPath,
     outputPath,
   };
@@ -95,6 +108,21 @@ function createTextDecoder(encoding: string): TextDecoder {
 async function writeToConsole(text: string): Promise<void> {
   if (text.length > 0 && !process.stdout.write(text)) {
     await once(process.stdout, "drain");
+  }
+}
+
+async function logFields(
+  record: MarcRecord,
+  context: MarcRecordContext,
+  decoder: TextDecoder,
+): Promise<void> {
+  for (const field of record.fields) {
+    const content = field.raw.subarray(0, -1);
+    const text = decoder.decode(content);
+
+    await writeToConsole(
+      `\nЗапись ${context.recordIndex + 1}, тег ${field.tag}: ${JSON.stringify(text)}\n`,
+    );
   }
 }
 

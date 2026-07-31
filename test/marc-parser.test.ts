@@ -59,6 +59,49 @@ test("разбирает записи Directory", async () => {
   });
 });
 
+test("извлекает сырые поля по данным Directory", async () => {
+  const source = await readFile(recordUrl);
+  const parser = new Iso2709MarcParser();
+
+  const record = parser.parse(source);
+
+  assert.equal(record.fields.length, record.directory.length);
+  assert.equal(record.fields[0]?.tag, "001");
+  assert.deepEqual(
+    record.fields[0]?.raw,
+    Buffer.from("015316815\x1e", "ascii"),
+  );
+  assert.equal(record.fields[8]?.tag, "245");
+  assert.equal(record.fields[8]?.raw.length, 726);
+  assert.equal(record.fields[8]?.raw.at(-1), 0x1e);
+});
+
+test("проверяет границы сырого поля", async () => {
+  const source = Buffer.from(await readFile(recordUrl));
+  source.write("9999", 27, "ascii");
+
+  const parser = new Iso2709MarcParser();
+
+  assert.throws(
+    () => parser.parse(source),
+    /Поле 001 выходит за границы MARC-записи/,
+  );
+});
+
+test("проверяет завершающий разделитель сырого поля", async () => {
+  const source = Buffer.from(await readFile(recordUrl));
+  const baseAddressOfData = Number(source.subarray(12, 17).toString("ascii"));
+  const firstFieldLength = Number(source.subarray(27, 31).toString("ascii"));
+  source[baseAddressOfData + firstFieldLength - 1] = 0x20;
+
+  const parser = new Iso2709MarcParser();
+
+  assert.throws(
+    () => parser.parse(source),
+    /Поле 001 не заканчивается разделителем 0x1E/,
+  );
+});
+
 test("проверяет завершающий разделитель Directory", async () => {
   const source = Buffer.from(await readFile(recordUrl));
   const baseAddressOfData = Number(source.subarray(12, 17).toString("ascii"));
