@@ -8,12 +8,17 @@ import { MarcParserValidator } from "./marc-parser-validator.js";
 import type { MarcRecordContext } from "./marc-record-processor.js";
 import { MarcRecordSplitter } from "./marc-record-splitter.js";
 import type { MarcRecord } from "./marc-record.js";
+import {
+  MarcRecordValidator,
+  type MarcValidationResult,
+} from "./marc-validator.js";
 
 const DEFAULT_ENCODING = "utf-8";
 const CHUNK_SIZE = 64 * 1024;
 
 const { decoder, fieldDecoder, inputPath, outputPath } = parseArgs();
 const marcParser = new Iso2709MarcParser();
+const marcValidator = new MarcRecordValidator();
 const parserValidator = new MarcParserValidator();
 const recordSplitter = new MarcRecordSplitter({
   async process(record, context): Promise<void> {
@@ -21,6 +26,10 @@ const recordSplitter = new MarcRecordSplitter({
 
     const parsedRecord = marcParser.parse(record);
     await logFields(parsedRecord, context, fieldDecoder);
+    await logValidationResult(
+      marcValidator.validate(parsedRecord),
+      context,
+    );
   },
 });
 
@@ -137,6 +146,25 @@ async function logFields(
         );
       }
     }
+  }
+}
+
+async function logValidationResult(
+  result: MarcValidationResult,
+  context: MarcRecordContext,
+): Promise<void> {
+  if (result.valid) {
+    await writeToConsole(
+      `  Валидация записи ${context.recordIndex + 1}: ошибок нет.\n`,
+    );
+    return;
+  }
+
+  for (const error of result.errors) {
+    await writeToConsole(
+      `  Ошибка валидации записи ${context.recordIndex + 1} ` +
+        `[${error.rule}]: ${error.message}\n`,
+    );
   }
 }
 

@@ -198,20 +198,21 @@ function isControlField(tag: string): boolean {
 }
 
 function parseDataField(field: MarcRawField, content: Buffer): MarcDataField {
-  if (content.length < INDICATOR_COUNT) {
-    throw new Error(
-      `Поле данных ${field.tag} короче двух индикаторов: ${content.length} байт.`,
-    );
-  }
+  const firstSubfieldPosition = content.indexOf(SUBFIELD_DELIMITER);
+  const indicatorEnd = Math.min(
+    firstSubfieldPosition === -1 ? content.length : firstSubfieldPosition,
+    INDICATOR_COUNT,
+  );
+  const indicators = Array.from(
+    content.subarray(0, indicatorEnd),
+    (byte) => String.fromCharCode(byte),
+  );
 
   return {
     ...field,
     kind: "data",
-    indicators: [
-      content.subarray(0, 1).toString("latin1"),
-      content.subarray(1, 2).toString("latin1"),
-    ],
-    subfields: parseSubfields(content.subarray(INDICATOR_COUNT)),
+    indicators,
+    subfields: parseSubfields(content),
   };
 }
 

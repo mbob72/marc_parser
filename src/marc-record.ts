@@ -67,7 +67,7 @@ export interface MarcSubfield {
 
 export interface MarcDataField extends MarcRawField {
   readonly kind: "data";
-  readonly indicators: readonly [string, string];
+  readonly indicators: readonly string[];
   readonly subfields: readonly MarcSubfield[];
 }
 
