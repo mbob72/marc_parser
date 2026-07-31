@@ -35,7 +35,21 @@ export interface MarcLeader {
   readonly undefinedEntryMapCharacter: string;
 }
 
+export interface MarcDirectoryEntry {
+  /** Полная запись Directory в исходном виде. */
+  readonly raw: string;
+  /** Трёхбайтовый тег связанного переменного поля. */
+  readonly tag: string;
+  /** Длина поля вместе с завершающим байтом 0x1E. */
+  readonly fieldLength: string;
+  /** Смещение поля относительно baseAddressOfData. */
+  readonly startingCharacterPosition: string;
+  /** Часть записи Directory, размер которой задан Leader/22. */
+  readonly implementationDefined: string;
+}
+
 export interface MarcRecord {
   readonly byteLength: number;
   readonly leader: MarcLeader;
+  readonly directory: readonly MarcDirectoryEntry[];
 }
