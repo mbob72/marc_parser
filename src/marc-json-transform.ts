@@ -1,32 +1,43 @@
 import { Transform, type TransformCallback } from "node:stream";
 import type { MarcParser } from "./marc-parser.js";
+import type {
+  MarcProcessingLogger,
+  MarcProcessingStatistics,
+} from "./marc-processing-logger.js";
 import type { MarcRecordContext } from "./marc-record-processor.js";
 import type {
   MarcJsonRecord,
   MarcRecordSerializer,
 } from "./marc-json-serializer.js";
-import type {
-  MarcValidationResult,
-  MarcValidator,
-} from "./marc-validator.js";
-
-export type MarcValidationReporter = (
-  result: MarcValidationResult,
-  context: MarcRecordContext,
-) => void | Promise<void>;
+import type { MarcValidator } from "./marc-validator.js";
 
 export class MarcJsonTransform extends Transform {
   private firstRecord: string | undefined;
   private recordIndex = 0;
   private byteOffset = 0;
+  private validRecords = 0;
+  private recordsWithValidationErrors = 0;
+  private recordsWithParsingErrors = 0;
+  private validationErrors = 0;
 
   constructor(
     private readonly parser: MarcParser,
     private readonly validator: MarcValidator,
     private readonly serializer: MarcRecordSerializer<MarcJsonRecord>,
-    private readonly reportValidation?: MarcValidationReporter,
+    private readonly logger?: MarcProcessingLogger,
   ) {
     super();
+  }
+
+  get statistics(): MarcProcessingStatistics {
+    return {
+      recordsProcessed: this.recordIndex,
+      validRecords: this.validRecords,
+      recordsWithValidationErrors: this.recordsWithValidationErrors,
+      recordsWithParsingErrors: this.recordsWithParsingErrors,
+      validationErrors: this.validationErrors,
+      inputBytes: this.byteOffset,
+    };
   }
 
   override _transform(
@@ -59,20 +70,51 @@ export class MarcJsonTransform extends Transform {
       recordIndex: this.recordIndex,
       byteOffset: this.byteOffset,
     };
-    const record = this.parser.parse(recordBuffer);
+    let record;
+
+    try {
+      record = this.parser.parse(recordBuffer);
+    } catch (error) {
+      await this.logger?.logParsingError(toError(error), context);
+
+      const serializedRecord = JSON.stringify(
+        this.serializer.serializeUnrecognized(),
+        null,
+        2,
+      );
+
+      this.recordsWithParsingErrors += 1;
+
+      return this.finishRecord(serializedRecord, recordBuffer.length);
+    }
+
     const validationResult = this.validator.validate(record);
 
-    await this.reportValidation?.(validationResult, context);
+    await this.logger?.logValidationResult(validationResult, context);
 
     const serializedRecord = JSON.stringify(
       this.serializer.serialize(record, validationResult.errors),
       null,
       2,
     );
+    if (validationResult.valid) {
+      this.validRecords += 1;
+    } else {
+      this.recordsWithValidationErrors += 1;
+      this.validationErrors += validationResult.errors.length;
+    }
+
+    return this.finishRecord(serializedRecord, recordBuffer.length);
+  }
+
+  private finishRecord(
+    serializedRecord: string,
+    recordByteLength: number,
+  ): string | undefined {
     const output = this.appendRecord(serializedRecord);
 
     this.recordIndex += 1;
-    this.byteOffset += recordBuffer.length;
+    this.byteOffset += recordByteLength;
 
     return output;
   }

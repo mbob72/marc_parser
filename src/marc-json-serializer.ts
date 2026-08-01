@@ -6,7 +6,15 @@ import type {
 
 export const UNRECOGNIZED_VALUE = "<unrecognized>";
 
-export type MarcJsonFormat = "BK" | "CF" | "CR" | "MP" | "MU" | "MX" | "VM";
+export type MarcJsonFormat =
+  | "BK"
+  | "CF"
+  | "CR"
+  | "MP"
+  | "MU"
+  | "MX"
+  | "VM"
+  | typeof UNRECOGNIZED_VALUE;
 
 export interface MarcJsonSubfield {
   readonly code: string;
@@ -38,6 +46,8 @@ export interface MarcRecordSerializer<T> {
     record: MarcRecord,
     errors?: readonly MarcValidationError[],
   ): T;
+
+  serializeUnrecognized(): T;
 }
 
 export class MarcJsonSerializer
@@ -61,6 +71,14 @@ export class MarcJsonSerializer
       fields: record.fields.map((field, fieldIndex) =>
         this.serializeField(field, fieldIndex, errors),
       ),
+    };
+  }
+
+  serializeUnrecognized(): MarcJsonRecord {
+    return {
+      leader: UNRECOGNIZED_VALUE,
+      format: UNRECOGNIZED_VALUE,
+      fields: [],
     };
   }
 

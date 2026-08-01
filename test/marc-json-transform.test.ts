@@ -7,7 +7,13 @@ import {
   UNRECOGNIZED_VALUE,
 } from "../src/marc-json-serializer.ts";
 import { MarcJsonTransform } from "../src/marc-json-transform.ts";
-import { Iso2709MarcParser } from "../src/marc-parser.ts";
+import {
+  Iso2709MarcParser,
+  type MarcParser,
+} from "../src/marc-parser.ts";
+import { NullMarcProcessingLogger } from "../src/marc-processing-logger.ts";
+import type { MarcRecordContext } from "../src/marc-record-processor.ts";
+import type { MarcRecord } from "../src/marc-record.ts";
 import {
   MarcRecordValidator,
   type MarcValidationError,
@@ -60,22 +66,54 @@ test("передаёт все ошибки в лог и заменяет пов�
       return { valid: false, errors };
     },
   };
-  let reportedErrors: readonly MarcValidationError[] = [];
+  const logger = new RecordingLogger();
   const transform = new MarcJsonTransform(
     new Iso2709MarcParser(),
     validator,
     new MarcJsonSerializer("utf-8"),
-    (result) => {
-      reportedErrors = result.errors;
-    },
+    logger,
   );
 
   const output = await collectOutput(Readable.from([record]).pipe(transform));
   const json = JSON.parse(output);
 
-  assert.deepEqual(reportedErrors, errors);
+  assert.deepEqual(logger.validationErrors, errors);
   assert.equal(json.leader, UNRECOGNIZED_VALUE);
   assert.equal(json.fields[0]?.code, UNRECOGNIZED_VALUE);
+});
+
+test("заменяет структурно повреждённую запись и продолжает поток", async () => {
+  const record = await readFile(recordUrl);
+  const logger = new RecordingLogger();
+  const transform = new MarcJsonTransform(
+    new FailsSecondParser(),
+    new MarcRecordValidator(),
+    new MarcJsonSerializer("utf-8"),
+    logger,
+  );
+
+  const output = await collectOutput(
+    Readable.from([record, record]).pipe(transform),
+  );
+  const json = JSON.parse(output);
+
+  assert.equal(json.length, 2);
+  assert.equal(json[0]?.leader, "01590cam a2200217 u 4500");
+  assert.deepEqual(json[1], {
+    leader: UNRECOGNIZED_VALUE,
+    format: UNRECOGNIZED_VALUE,
+    fields: [],
+  });
+  assert.equal(logger.parsingErrors.length, 1);
+  assert.equal(logger.parsingErrors[0]?.context.recordIndex, 1);
+  assert.deepEqual(transform.statistics, {
+    recordsProcessed: 2,
+    validRecords: 1,
+    recordsWithValidationErrors: 0,
+    recordsWithParsingErrors: 1,
+    validationErrors: 0,
+    inputBytes: record.length * 2,
+  });
 });
 
 async function transformRecords(records: readonly Buffer[]): Promise<string> {
@@ -96,4 +134,39 @@ async function collectOutput(stream: Readable): Promise<string> {
   }
 
   return Buffer.concat(chunks).toString("utf8");
+}
+
+class RecordingLogger extends NullMarcProcessingLogger {
+  readonly parsingErrors: Array<{
+    error: Error;
+    context: MarcRecordContext;
+  }> = [];
+  validationErrors: readonly MarcValidationError[] = [];
+
+  override logValidationResult(result: MarcValidationResult): void {
+    this.validationErrors = result.errors;
+  }
+
+  override logParsingError(
+    error: Error,
+    context: MarcRecordContext,
+  ): void {
+    this.parsingErrors.push({ error, context });
+  }
+}
+
+class FailsSecondParser implements MarcParser {
+  private readonly parser = new Iso2709MarcParser();
+  private recordIndex = 0;
+
+  parse(record: Buffer): MarcRecord {
+    const recordIndex = this.recordIndex;
+    this.recordIndex += 1;
+
+    if (recordIndex === 1) {
+      throw new Error("Повреждённая Directory.");
+    }
+
+    return this.parser.parse(record);
+  }
 }
