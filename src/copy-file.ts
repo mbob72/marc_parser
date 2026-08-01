@@ -1,13 +1,13 @@
 import { once } from "node:events";
 import { createReadStream, createWriteStream } from "node:fs";
 import { resolve } from "node:path";
-import { Transform, type TransformCallback } from "node:stream";
 import { pipeline } from "node:stream/promises";
+import { MarcJsonSerializer } from "./marc-json-serializer.js";
+import { MarcJsonTransform } from "./marc-json-transform.js";
 import { Iso2709MarcParser } from "./marc-parser.js";
 import { MarcParserValidator } from "./marc-parser-validator.js";
 import type { MarcRecordContext } from "./marc-record-processor.js";
 import { MarcRecordSplitter } from "./marc-record-splitter.js";
-import type { MarcRecord } from "./marc-record.js";
 import {
   MarcRecordValidator,
   type MarcValidationResult,
@@ -16,42 +16,18 @@ import {
 const DEFAULT_ENCODING = "utf-8";
 const CHUNK_SIZE = 64 * 1024;
 
-const { decoder, fieldDecoder, inputPath, outputPath } = parseArgs();
+const { encoding, inputPath, outputPath } = parseArgs();
 const marcParser = new Iso2709MarcParser();
 const marcValidator = new MarcRecordValidator();
 const parserValidator = new MarcParserValidator();
-const recordSplitter = new MarcRecordSplitter({
-  async process(record, context): Promise<void> {
-    await parserValidator.process(record, context);
-
-    const parsedRecord = marcParser.parse(record);
-    await logFields(parsedRecord, context, fieldDecoder);
-    await logValidationResult(
-      marcValidator.validate(parsedRecord),
-      context,
-    );
-  },
-});
-
-const logRecords = new Transform({
-  transform(
-    chunk: Buffer,
-    _encoding: BufferEncoding,
-    callback: TransformCallback,
-  ): void {
-    void writeToConsole(decoder.decode(chunk, { stream: true })).then(
-      () => callback(null, chunk),
-      (error: unknown) => callback(toError(error)),
-    );
-  },
-
-  flush(callback: TransformCallback): void {
-    void writeToConsole(decoder.decode()).then(
-      () => callback(),
-      (error: unknown) => callback(toError(error)),
-    );
-  },
-});
+const recordSplitter = new MarcRecordSplitter(parserValidator);
+const jsonSerializer = new MarcJsonSerializer(encoding);
+const jsonTransform = new MarcJsonTransform(
+  marcParser,
+  marcValidator,
+  jsonSerializer,
+  logValidationResult,
+);
 
 const inputStream = createReadStream(inputPath, {
   highWaterMark: CHUNK_SIZE,
@@ -63,7 +39,7 @@ try {
   await pipeline(
     inputStream,
     recordSplitter,
-    logRecords,
+    jsonTransform,
     createWriteStream(outputPath),
   );
 } catch (error) {
@@ -72,8 +48,7 @@ try {
 }
 
 interface Arguments {
-  decoder: TextDecoder;
-  fieldDecoder: TextDecoder;
+  encoding: string;
   inputPath: string;
   outputPath: string;
 }
@@ -97,17 +72,18 @@ function parseArgs(): Arguments {
     process.exit(1);
   }
 
+  validateEncoding(encoding);
+
   return {
-    decoder: createTextDecoder(encoding),
-    fieldDecoder: createTextDecoder(encoding),
+    encoding,
     inputPath,
     outputPath,
   };
 }
 
-function createTextDecoder(encoding: string): TextDecoder {
+function validateEncoding(encoding: string): void {
   try {
-    return new TextDecoder(encoding);
+    new TextDecoder(encoding);
   } catch {
     console.error(`Кодировка ${JSON.stringify(encoding)} не поддерживается.`);
     process.exit(1);
@@ -117,35 +93,6 @@ function createTextDecoder(encoding: string): TextDecoder {
 async function writeToConsole(text: string): Promise<void> {
   if (text.length > 0 && !process.stdout.write(text)) {
     await once(process.stdout, "drain");
-  }
-}
-
-async function logFields(
-  record: MarcRecord,
-  context: MarcRecordContext,
-  decoder: TextDecoder,
-): Promise<void> {
-  for (const field of record.fields) {
-    const content = field.raw.subarray(0, -1);
-    const text = decoder.decode(content);
-
-    await writeToConsole(
-      `\nЗапись ${context.recordIndex + 1}, тег ${field.tag}: ${JSON.stringify(text)}\n`,
-    );
-
-    if (field.kind === "data") {
-      await writeToConsole(
-        `  Индикаторы: ${JSON.stringify(field.indicators)}\n`,
-      );
-
-      for (const subfield of field.subfields) {
-        const value = decoder.decode(subfield.value);
-
-        await writeToConsole(
-          `  Подполе ${JSON.stringify(subfield.code)}: ${JSON.stringify(value)}\n`,
-        );
-      }
-    }
   }
 }
 

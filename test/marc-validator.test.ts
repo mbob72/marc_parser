@@ -87,8 +87,12 @@ test("собирает нарушения всех правил", async () => {
 
   const result = new MarcRecordValidator().validate(invalidRecord);
   const rules = new Set(result.errors.map(({ rule }) => rule));
+  const indicatorError = result.errors.find(
+    ({ rule }) => rule === "IN-G3",
+  );
 
   assert.equal(result.valid, false);
+  assert.equal(indicatorError?.indicatorIndex, 0);
   assert.deepEqual(
     rules,
     new Set([

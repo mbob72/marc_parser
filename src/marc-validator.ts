@@ -20,6 +20,7 @@ export interface MarcValidationError {
   readonly message: string;
   readonly fieldIndex?: number;
   readonly tag?: string;
+  readonly indicatorIndex?: number;
   readonly subfieldIndex?: number;
 }
 
@@ -146,6 +147,7 @@ function validateDataField(
         rule: "IN-G3",
         fieldIndex,
         tag: field.tag,
+        indicatorIndex,
         message:
           `Индикатор ${indicatorIndex + 1} поля ${field.tag} ` +
           `имеет недопустимое значение ${JSON.stringify(indicator)}.`,
