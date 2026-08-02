@@ -47,7 +47,7 @@ jobs:
 
           - platform: Windows x64
             os: windows-latest
-            target: bun-windows-x64-baseline
+            target: bun-windows-x64
             executable: marc-parser-windows-x64.exe
             archive: marc-parser-windows-x64.zip
 
