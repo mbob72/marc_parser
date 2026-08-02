@@ -1,0 +1,159 @@
+name: Build and publish release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    name: Validate release tag
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate tag against package version
+        run: node scripts/verify-release-tag.mjs "$GITHUB_REF_NAME"
+
+  build:
+    name: Build ${{ matrix.platform }}
+    needs: validate
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: Linux x64
+            os: ubuntu-latest
+            target: bun-linux-x64-baseline
+            executable: marc-parser-linux-x64
+            archive: marc-parser-linux-x64.tar.gz
+
+          - platform: Windows x64
+            os: windows-latest
+            target: bun-windows-x64-baseline
+            executable: marc-parser-windows-x64.exe
+            archive: marc-parser-windows-x64.zip
+
+          - platform: macOS ARM64
+            os: macos-latest
+            target: bun-darwin-arm64
+            executable: marc-parser-macos-arm64
+            archive: marc-parser-macos-arm64.tar.gz
+
+          - platform: macOS x64
+            os: macos-15-intel
+            target: bun-darwin-x64-baseline
+            executable: marc-parser-macos-x64
+            archive: marc-parser-macos-x64.tar.gz
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build and run unit tests
+        run: npm run check
+
+      - name: Build standalone executable
+        run: >-
+          npm run build:binary --
+          --target=${{ matrix.target }}
+          --outfile=release/${{ matrix.executable }}
+
+      - name: Add ad-hoc signature on macOS
+        if: runner.os == 'macOS'
+        run: |
+          codesign --force --sign - "release/${{ matrix.executable }}"
+          codesign --verify --verbose=2 "release/${{ matrix.executable }}"
+
+      - name: Smoke-test standalone executable
+        run: node scripts/smoke-test.mjs "release/${{ matrix.executable }}"
+
+      - name: Create tar.gz archive
+        if: runner.os != 'Windows'
+        run: >-
+          tar -czf "release/${{ matrix.archive }}"
+          -C release "${{ matrix.executable }}"
+
+      - name: Create ZIP archive
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: >-
+          Compress-Archive
+          -LiteralPath "release/${{ matrix.executable }}"
+          -DestinationPath "release/${{ matrix.archive }}"
+
+      - name: Generate build provenance
+        if: github.event.repository.visibility == 'public'
+        uses: actions/attest@v4
+        with:
+          subject-path: release/${{ matrix.archive }}
+
+      - name: Upload release archive
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ matrix.archive }}
+          path: release/${{ matrix.archive }}
+          if-no-files-found: error
+          retention-days: 7
+
+  release:
+    name: Publish GitHub Release
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download release archives
+        uses: actions/download-artifact@v5
+        with:
+          pattern: marc-parser-*
+          path: release-assets
+          merge-multiple: true
+
+      - name: Generate SHA-256 checksums
+        working-directory: release-assets
+        run: sha256sum marc-parser-* > SHA256SUMS
+
+      - name: Show release contents
+        run: ls -lh release-assets
+
+      - name: Create or update GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" release-assets/* --clobber
+          else
+            gh release create "$GITHUB_REF_NAME" release-assets/* \
+              --verify-tag \
+              --generate-notes \
+              --title "MARC Parser $GITHUB_REF_NAME"
+          fi
