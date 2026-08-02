@@ -1,6 +1,17 @@
 import { spawn } from "node:child_process";
-import { basename, resolve } from "node:path";
+import { readFile } from "node:fs/promises";
+import { createRequire } from "node:module";
+import { basename, dirname, resolve } from "node:path";
 
+const require = createRequire(import.meta.url);
+const bunPackageJsonPath = require.resolve("bun/package.json");
+const bunPackageJson = JSON.parse(
+  await readFile(bunPackageJsonPath, "utf8"),
+);
+const bunExecutable = resolveBunExecutable(
+  bunPackageJsonPath,
+  bunPackageJson,
+);
 const options = parseArgs(process.argv.slice(2));
 const bunArguments = [
   "build",
@@ -13,8 +24,18 @@ if (options.target) {
   bunArguments.push(`--target=${options.target}`);
 }
 
-const exitCode = await run("bun", bunArguments);
+const exitCode = await run(bunExecutable, bunArguments);
 process.exitCode = exitCode;
+
+function resolveBunExecutable(packageJsonPath, packageJson) {
+  const relativeExecutable = packageJson.bin?.bun;
+
+  if (typeof relativeExecutable !== "string") {
+    throw new Error("Пакет bun не объявляет исполняемый файл bin.bun.");
+  }
+
+  return resolve(dirname(packageJsonPath), relativeExecutable);
+}
 
 function parseArgs(args) {
   let outfile = "release/marc-parser";

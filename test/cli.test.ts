@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
+import { APP_VERSION } from "../src/version.ts";
 
 const projectDirectory = fileURLToPath(new URL("..", import.meta.url));
 
@@ -17,7 +18,7 @@ test("--version выводит версию и завершается успеш
   const result = await runCli("--version");
 
   assert.equal(result.exitCode, 0);
-  assert.equal(result.stdout.trim(), "marc-parser 0.1.0");
+  assert.equal(result.stdout.trim(), `marc-parser ${APP_VERSION}`);
   assert.equal(result.stderr, "");
 });
 
