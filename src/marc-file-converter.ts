@@ -1,9 +1,11 @@
 import { randomUUID } from "node:crypto";
 import { once } from "node:events";
 import { createReadStream, createWriteStream } from "node:fs";
-import { rename, unlink } from "node:fs/promises";
+import { open, rename, unlink } from "node:fs/promises";
 import { basename, dirname, join } from "node:path";
 import { pipeline } from "node:stream/promises";
+import { AlephSequentialMarcParser } from "./aleph-sequential-parser.js";
+import { AlephSequentialRecordSplitter } from "./aleph-sequential-record-splitter.js";
 import { MarcJsonSerializer } from "./marc-json-serializer.js";
 import { MarcJsonTransform } from "./marc-json-transform.js";
 import { Iso2709MarcParser } from "./marc-parser.js";
@@ -26,7 +28,10 @@ export interface ConvertMarcFileOptions {
   readonly outputPath: string;
   readonly logger?: MarcProcessingLogger;
   readonly chunkSize?: number;
+  readonly inputFormat?: MarcInputFormat;
 }
+
+export type MarcInputFormat = "auto" | "iso2709" | "aleph-sequential";
 
 export async function convertMarcFile(
   options: ConvertMarcFileOptions,
@@ -37,8 +42,13 @@ export async function convertMarcFile(
     outputPath,
     logger,
     chunkSize = DEFAULT_CHUNK_SIZE,
+    inputFormat = "auto",
   } = options;
-  const jsonOutputPath = addJsonExtension(outputPath);
+  const resolvedInputFormat = await resolveInputFormat(inputPath, inputFormat);
+  const jsonOutputPath = addSourceFormatJsonExtension(
+    outputPath,
+    resolvedInputFormat,
+  );
   const parsingErrorsOutputPath = addParsingErrorsPrefix(jsonOutputPath);
 
   if (
@@ -50,7 +60,9 @@ export async function convertMarcFile(
 
   const temporaryOutputPath = createTemporaryOutputPath(jsonOutputPath);
   const jsonTransform = new MarcJsonTransform(
-    new Iso2709MarcParser(),
+    resolvedInputFormat === "aleph-sequential"
+      ? new AlephSequentialMarcParser()
+      : new Iso2709MarcParser(),
     new MarcRecordValidator(),
     new MarcJsonSerializer(encoding),
     logger,
@@ -66,7 +78,9 @@ export async function convertMarcFile(
 
     await pipeline(
       inputStream,
-      new MarcRecordSplitter(new MarcParserValidator()),
+      resolvedInputFormat === "aleph-sequential"
+        ? new AlephSequentialRecordSplitter()
+        : new MarcRecordSplitter(new MarcParserValidator()),
       jsonTransform,
       createWriteStream(temporaryOutputPath, { flags: "wx" }),
     );
@@ -98,10 +112,45 @@ export async function convertMarcFile(
   }
 }
 
+async function resolveInputFormat(
+  inputPath: string,
+  requestedFormat: MarcInputFormat,
+): Promise<Exclude<MarcInputFormat, "auto">> {
+  if (requestedFormat !== "auto") {
+    return requestedFormat;
+  }
+
+  const handle = await open(inputPath, "r");
+  try {
+    const prefix = Buffer.alloc(10);
+    const { bytesRead } = await handle.read(prefix, 0, prefix.length, 0);
+    const value = prefix.subarray(0, bytesRead).toString("ascii");
+
+    return /^[0-9]{9}\t/.test(value) ? "aleph-sequential" : "iso2709";
+  } finally {
+    await handle.close();
+  }
+}
+
 export function addJsonExtension(outputPath: string): string {
   return outputPath.toLowerCase().endsWith(JSON_EXTENSION)
     ? outputPath
     : `${outputPath}${JSON_EXTENSION}`;
+}
+
+export function addSourceFormatJsonExtension(
+  outputPath: string,
+  inputFormat: Exclude<MarcInputFormat, "auto">,
+): string {
+  const withJsonExtension = addJsonExtension(outputPath);
+  const withoutJsonExtension = withJsonExtension.slice(
+    0,
+    -JSON_EXTENSION.length,
+  );
+  const withoutOldMarker = withoutJsonExtension.replace(/\.(?:iso|aleph)$/i, "");
+  const marker = inputFormat === "aleph-sequential" ? "aleph" : "iso";
+
+  return `${withoutOldMarker}.${marker}${JSON_EXTENSION}`;
 }
 
 export function addParsingErrorsPrefix(outputPath: string): string {

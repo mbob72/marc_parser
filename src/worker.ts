@@ -2,7 +2,7 @@ import type { ConsumeMessage } from "amqplib";
 import { createReadStream, createWriteStream } from "node:fs";
 import { mkdtemp, rm, stat } from "node:fs/promises";
 import { tmpdir } from "node:os";
-import { basename, extname, join } from "node:path";
+import { basename, join } from "node:path";
 import { pipeline } from "node:stream/promises";
 import { pathToFileURL } from "node:url";
 import type { ConversionJobMessage, JobSummary } from "./job.js";
@@ -95,35 +95,43 @@ export async function handleMessage(
     const directory = await mkdtemp(join(tmpdir(), `marc-job-${job.id}-`));
 
     try {
+      const jsonInputSuffix =
+        job.direction === "json-to-iso"
+          ? readJsonContainerSuffix(job.originalFilename)
+          : undefined;
       const inputPath = join(
         directory,
-        job.direction === "json-to-iso" ? "input.json" : "input.mrc",
+        job.direction === "json-to-iso"
+          ? `input${jsonInputSuffix}`
+          : "input.mrc",
       );
       const requestedOutputPath = join(
         directory,
-        job.direction === "json-to-iso" ? "result.mrc" : "result.json",
+        job.direction === "json-to-iso" ? "result" : "result.json",
       );
       await pipeline(
         await objectStore.get(job.inputObjectKey),
         createWriteStream(inputPath, { flags: "wx" }),
       );
 
-      const convert =
-        job.direction === "json-to-iso"
-          ? convertMarcJsonFile
-          : convertMarcFile;
-      const conversionSummary = await convert({
+      const commonOptions = {
         encoding: job.encoding,
         inputPath,
         outputPath: requestedOutputPath,
         logger: new NullMarcProcessingLogger(),
-      });
-      const outputExtension =
-        job.direction === "json-to-iso" ? ".mrc" : ".json";
-      const outputObjectKey = `outputs/${job.id}${outputExtension}`;
+      };
+      const conversionSummary =
+        job.direction === "json-to-iso"
+          ? await convertMarcJsonFile(commonOptions)
+          : await convertMarcFile({
+              ...commonOptions,
+              inputFormat: job.inputFormat,
+            });
+      const outputSuffix = readOutputSuffix(conversionSummary.outputPath);
+      const outputObjectKey = `outputs/${job.id}${outputSuffix}`;
       const outputFilename = createOutputFilename(
         job.originalFilename,
-        outputExtension,
+        outputSuffix,
       );
       const outputStatistics = await stat(conversionSummary.outputPath);
 
@@ -131,10 +139,7 @@ export async function handleMessage(
         outputObjectKey,
         createReadStream(conversionSummary.outputPath),
         {
-          "Content-Type":
-            job.direction === "json-to-iso"
-              ? "application/marc"
-              : "application/x-ndjson; charset=utf-8",
+          "Content-Type": contentTypeForSuffix(outputSuffix),
         },
         outputStatistics.size,
       );
@@ -170,15 +175,49 @@ export async function handleMessage(
 
 function createOutputFilename(
   inputFilename: string,
-  outputExtension: ".json" | ".mrc",
+  outputSuffix: string,
 ): string {
   const safeBasename = basename(inputFilename).replace(/[\r\n"]/g, "_");
-  const extension = extname(safeBasename);
-  const stem = extension
-    ? safeBasename.slice(0, -extension.length)
-    : safeBasename;
+  const stem = safeBasename.replace(
+    /(?:\.(?:iso|aleph)\.(?:json|ndjson)|\.[^.]+)$/i,
+    "",
+  );
 
-  return `${stem || "result"}${outputExtension}`;
+  return `${stem || "result"}${outputSuffix}`;
+}
+
+function readJsonContainerSuffix(
+  filename: string,
+): ".iso.json" | ".aleph.json" {
+  const normalized = basename(filename).toLowerCase();
+  if (/\.aleph\.(?:json|ndjson)$/.test(normalized)) {
+    return ".aleph.json";
+  }
+  if (/\.iso\.(?:json|ndjson)$/.test(normalized)) {
+    return ".iso.json";
+  }
+  throw new Error(
+    "Имя JSON-файла должно содержать маркер исходного формата .iso или .aleph.",
+  );
+}
+
+function readOutputSuffix(path: string): string {
+  const filename = basename(path).toLowerCase();
+  for (const suffix of [".aleph.json", ".iso.json", ".mrc", ".iso", ".dat"]) {
+    if (filename.endsWith(suffix)) {
+      return suffix;
+    }
+  }
+  throw new Error(
+    `Не удалось определить формат результата ${JSON.stringify(path)}.`,
+  );
+}
+
+function contentTypeForSuffix(suffix: string): string {
+  if (suffix.endsWith(".json")) {
+    return "application/x-ndjson; charset=utf-8";
+  }
+  return suffix === ".dat" ? "application/octet-stream" : "application/marc";
 }
 
 function errorMessage(error: unknown): string {

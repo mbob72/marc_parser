@@ -10,6 +10,10 @@ export const JOB_STATUSES = [
 export type JobStatus = (typeof JOB_STATUSES)[number];
 export const CONVERSION_DIRECTIONS = ["iso-to-json", "json-to-iso"] as const;
 export type ConversionDirection = (typeof CONVERSION_DIRECTIONS)[number];
+export const SERVICE_MARC_FORMATS = ["aleph-sequential", "iso2709"] as const;
+export type ServiceMarcFormat = (typeof SERVICE_MARC_FORMATS)[number];
+export const DEFAULT_SERVICE_MARC_FORMAT: ServiceMarcFormat =
+  "aleph-sequential";
 export type JobSummary = Omit<MarcProcessingSummary, "outputPath">;
 
 export interface ConversionJob {
@@ -18,6 +22,7 @@ export interface ConversionJob {
   readonly originalFilename: string;
   readonly encoding: string;
   readonly direction: ConversionDirection;
+  readonly inputFormat: ServiceMarcFormat;
   readonly inputObjectKey: string;
   readonly inputBytes: number;
   readonly outputObjectKey: string | null;

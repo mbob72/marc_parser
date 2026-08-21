@@ -75,6 +75,8 @@ export type MarcField = MarcControlField | MarcDataField;
 
 export interface MarcRecord {
   readonly byteLength: number;
+  /** Идентификатор первой колонки Aleph sequential, если применимо. */
+  readonly sourceRecordId?: string;
   readonly leader: MarcLeader;
   readonly directory: readonly MarcDirectoryEntry[];
   readonly fields: readonly MarcField[];

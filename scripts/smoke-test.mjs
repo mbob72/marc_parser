@@ -21,7 +21,7 @@ async function smokeTest(binaryPath, inputPath) {
     join(tmpdir(), "marc-parser-smoke-"),
   );
   const outputPath = join(temporaryDirectory, "result");
-  const jsonOutputPath = `${outputPath}.json`;
+  const jsonOutputPath = `${outputPath}.iso.json`;
 
   try {
     const version = await run(binaryPath, ["--version"], false);

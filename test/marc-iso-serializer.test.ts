@@ -49,6 +49,20 @@ test("кодирует значения ISO 2709 в Windows-1251", () => {
   assert.equal(roundTrip.format, json.format);
 });
 
+test("сохраняет реальные Aleph-форматы нормативных и сериальных записей", () => {
+  for (const format of ["AN", "AU", "SE"]) {
+    const iso = new MarcIsoSerializer("utf-8").serialize({
+      leader: "00000nam a2200000 i 4500",
+      format,
+      fields: [],
+    });
+    const record = new Iso2709MarcParser().parse(iso);
+    const roundTrip = new MarcJsonSerializer("utf-8").serialize(record);
+
+    assert.equal(roundTrip.format, format);
+  }
+});
+
 test("отклоняет заглушки, которые нельзя представить в ISO 2709", () => {
   assert.throws(
     () =>

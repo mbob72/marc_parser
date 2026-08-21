@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { Readable } from "node:stream";
 import test from "node:test";
-import { buildApi } from "../src/api.ts";
+import { buildApi, resultContentType } from "../src/api.ts";
 import type { ConversionJob, ConversionJobMessage } from "../src/job.ts";
 
 test("POST /jobs сохраняет файл и публикует задание", async (context) => {
@@ -20,6 +20,7 @@ test("POST /jobs сохраняет файл и публикует задани�
           originalFilename: input.originalFilename,
           encoding: input.encoding,
           direction: input.direction,
+          inputFormat: input.inputFormat,
           inputObjectKey: input.inputObjectKey,
           inputBytes: input.inputBytes,
           outputObjectKey: null,
@@ -74,6 +75,7 @@ test("POST /jobs сохраняет файл и публикует задани�
   assert.equal(body.filename, "records.mrc");
   assert.equal(body.encoding, "utf-8");
   assert.equal(body.direction, "iso-to-json");
+  assert.equal(body.format, "aleph-sequential");
   assert.equal(body.inputBytes, 6);
   assert.match(body.jobId, /^[0-9a-f-]{36}$/);
   assert.deepEqual(published, [{ jobId: body.jobId, attempt: 1 }]);
@@ -192,11 +194,71 @@ test("POST /jobs передаёт направление JSON → ISO в зад�
   assert.equal(createdDirection, "json-to-iso");
 });
 
+test("POST /jobs принимает явный формат ISO 2709", async (context) => {
+  let createdFormat: string | null = null;
+  const app = await buildApi({
+    logger: false,
+    maxUploadBytes: 1024,
+    database: {
+      async ping() {},
+      async createJob(input) {
+        createdFormat = input.inputFormat;
+        return {
+          ...input,
+          status: "queued" as const,
+          outputObjectKey: null,
+          outputFilename: null,
+          summary: null,
+          error: null,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        };
+      },
+      async getJob() { return null; },
+      async markFailed() {},
+    },
+    queue: { async publish() {} },
+    objectStore: {
+      async put(_key, stream) { for await (const _chunk of stream) {} },
+      async get() { return Readable.from(""); },
+      async remove() {},
+    },
+  });
+  context.after(() => app.close());
+
+  const response = await app.inject({
+    method: "POST",
+    url: "/jobs",
+    headers: { "content-type": "multipart/form-data; boundary=marc-boundary" },
+    payload: createMultipartBody(
+      "marc-boundary",
+      Buffer.from("record"),
+      "utf-8",
+      undefined,
+      "iso2709",
+    ),
+  });
+
+  assert.equal(response.statusCode, 202);
+  assert.equal(response.json().format, "iso2709");
+  assert.equal(createdFormat, "iso2709");
+});
+
+test("выбирает MIME результата по контейнеру", () => {
+  assert.equal(
+    resultContentType("records.aleph.json"),
+    "application/x-ndjson; charset=utf-8",
+  );
+  assert.equal(resultContentType("records.mrc"), "application/marc");
+  assert.equal(resultContentType("records.dat"), "application/octet-stream");
+});
+
 function createMultipartBody(
   boundary: string,
   file: Buffer,
   encoding = "utf-8",
   direction?: string,
+  format?: string,
 ): Buffer {
   return Buffer.concat([
     Buffer.from(
@@ -222,6 +284,14 @@ function createMultipartBody(
               'Content-Disposition: form-data; name="direction"',
               "",
               direction,
+            ]
+          : []),
+        ...(format
+          ? [
+              `--${boundary}`,
+              'Content-Disposition: form-data; name="format"',
+              "",
+              format,
             ]
           : []),
         `--${boundary}--`,

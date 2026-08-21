@@ -7,12 +7,15 @@ import type {
 export const UNRECOGNIZED_VALUE = "<unrecognized>";
 
 export type MarcJsonFormat =
+  | "AN"
+  | "AU"
   | "BK"
   | "CF"
   | "CR"
   | "MP"
   | "MU"
   | "MX"
+  | "SE"
   | "VM"
   | typeof UNRECOGNIZED_VALUE;
 
@@ -39,6 +42,8 @@ export interface MarcJsonRecord {
   readonly leader: string;
   readonly format: MarcJsonFormat;
   readonly fields: readonly MarcJsonField[];
+  /** Первая девятизначная колонка Aleph sequential. */
+  readonly recordId?: string;
 }
 
 export interface MarcRecordSerializer<T> {
@@ -64,6 +69,9 @@ export class MarcJsonSerializer
     errors: readonly MarcValidationError[] = [],
   ): MarcJsonRecord {
     return {
+      ...(record.sourceRecordId === undefined
+        ? {}
+        : { recordId: record.sourceRecordId }),
       leader: hasRule(errors, "LD-02")
         ? UNRECOGNIZED_VALUE
         : record.leader.raw,
@@ -111,7 +119,7 @@ export class MarcJsonSerializer
 
     // Aleph exports encountered in practice may retain service-field
     // decorations around the value. Accept one unambiguous format token.
-    const tokens = value.match(/(?:BK|CF|CR|MP|MU|MX|VM)/g) ?? [];
+    const tokens = value.match(/(?:AN|AU|BK|CF|CR|MP|MU|MX|SE|VM)/g) ?? [];
     return tokens.length === 1 && isMarcJsonFormat(tokens[0]!)
       ? tokens[0]!
       : UNRECOGNIZED_VALUE;
@@ -225,5 +233,16 @@ export function isMarcJsonFormat(value: string): value is Exclude<
   MarcJsonFormat,
   typeof UNRECOGNIZED_VALUE
 > {
-  return ["BK", "CF", "CR", "MP", "MU", "MX", "VM"].includes(value);
+  return [
+    "AN",
+    "AU",
+    "BK",
+    "CF",
+    "CR",
+    "MP",
+    "MU",
+    "MX",
+    "SE",
+    "VM",
+  ].includes(value);
 }

@@ -6,8 +6,9 @@ ISO 2709 ↔ MARC-JSON/NDJSON. Детальные правила профиля 
 
 ## Три части решения
 
-1. **Потоковое ядро.** `convertMarcFile` формирует NDJSON из ISO 2709, а
-   `convertMarcJsonFile` собирает ISO 2709 из строк NDJSON.
+1. **Потоковое ядро.** `convertMarcFile` формирует NDJSON из ISO 2709 или
+   Aleph sequential, а `convertMarcJsonFile` по маркеру имени собирает ISO
+   2709 или Aleph sequential из строк NDJSON.
 2. **Инфраструктура выпуска.** Из CLI собираются standalone-бинарники
    для Linux, Windows и macOS. Матрица платформ задана в
    [release workflow](../.github/workflows/release.yml#L28-L65), а запуск Bun с
@@ -15,7 +16,8 @@ ISO 2709 ↔ MARC-JSON/NDJSON. Детальные правила профиля 
 3. **Асинхронный сервис.** API принимает файл, сохраняет его и публикует
    задание в RabbitMQ
    ([загрузка и публикация](../src/api.ts#L59-L143)). Worker получает
-   исходник из MinIO, выбирает поток по `direction` и сохраняет результат
+   исходник из MinIO, выбирает поток по `direction`, а прямой контейнер — по
+   сохранённому `input_format` (по умолчанию `aleph-sequential`), и сохраняет результат
    ([обработка задания](../src/worker.ts)). PostgreSQL хранит
    статус и статистику
    ([схема задания](../src/job-database.ts#L34-L52)), а API отдаёт статус и
@@ -42,16 +44,17 @@ CLI запускает `main` с аргументами процесса
 
 ## Сборка потока конвертации
 
-### ISO → NDJSON
+### ISO/Aleph sequential → NDJSON
 
 `convertMarcFile` готовит имена файлов, создаёт зависимости и соединяет
 этапы в `pipeline`:
 
 ```text
 ReadStream
-  -> MarcRecordSplitter + MarcParserValidator
+  -> автоопределение первых 10 байтов
+  -> MarcRecordSplitter или AlephSequentialRecordSplitter
   -> MarcJsonTransform
-       -> Iso2709MarcParser
+       -> Iso2709MarcParser или AlephSequentialMarcParser
        -> MarcRecordValidator
        -> MarcJsonSerializer
   -> WriteStream временного JSON
@@ -65,6 +68,11 @@ ReadStream
 [строках 52–57](../src/marc-file-converter.ts#L52-L57), а сам конвейер — в
 [строках 67–72](../src/marc-file-converter.ts#L67-L72). Такая композиция не загружает
 весь файл в память: в каждый момент обрабатывается чанк или одна MARC-запись.
+Сервис использует тот же `convertMarcFile`, поэтому поддержка `.dat` не
+дублируется в worker. В отличие от CLI, worker не применяет автоопределение:
+API сохраняет multipart-поле `format` в `conversion_jobs.input_format`, а
+worker передаёт его как `inputFormat`. Default сервиса — `aleph-sequential`;
+для ISO 2709 клиент указывает `format=iso2709`.
 
 Результат сначала пишется во временный файл, а после успешного завершения
 переименовывается в итоговый
@@ -73,24 +81,22 @@ ReadStream
 ([выбор итогового имени](../src/marc-file-converter.ts#L74-L80),
 [формирование пути](../src/marc-file-converter.ts#L101-L116)).
 
-### NDJSON → ISO
+### NDJSON → исходный контейнер
 
 ```text
-ReadStream UTF-8 NDJSON
+ReadStream UTF-8 .iso.json или .aleph.json
   -> MarcJsonToIsoTransform (одна непустая строка = одна запись)
        -> JSON.parse + проверка модели
-       -> MarcIsoSerializer
-          -> FMT и поля
-          -> Directory
-          -> пересчитанный Leader
-  -> WriteStream временного ISO
+       -> MarcIsoSerializer или MarcAlephSequentialSerializer
+  -> WriteStream временного .mrc/.dat
   -> атомарное переименование
 ```
 
-Обратный поток находится в
-[`convertMarcJsonFile`](../src/marc-json-file-converter.ts). Значения MARC
-кодируются выбранной кодировкой через `iconv-lite`; сам NDJSON всегда читается
-как UTF-8. Ошибка содержит номер строки и не публикует частичный ISO-файл.
+Обратный поток находится в [`convertMarcJsonFile`](../src/marc-json-file-converter.ts).
+Маркер `.iso.json` выбирает `MarcIsoSerializer`, `.aleph.json` —
+`MarcAlephSequentialSerializer`; немаркированное имя отклоняется. Значения
+MARC кодируются выбранной кодировкой через `iconv-lite`; сам NDJSON всегда
+читается как UTF-8. Ошибка содержит номер строки и не публикует частичный файл.
 
 ## Разделение файла на MARC-записи
 
@@ -118,9 +124,17 @@ ReadStream UTF-8 NDJSON
 конвейер с ошибкой
 ([строки 30–41](../src/marc-record-splitter.ts#L30-L41)).
 
+`AlephSequentialRecordSplitter` работает с формой
+`9 цифр + TAB + поля с четырёхзначной байтовой длиной`. Он перемещается по
+длинам полей и проверяет перевод строки только между полями. Это не позволяет
+переводу строки внутри значения преждевременно завершить запись. После
+выделения записи `AlephSequentialMarcParser` преобразует `LDR`, `FMT`,
+индикаторы, `$$`-подполя и `^`-пробелы во внутреннее ISO-представление; далее
+используются общий валидатор и сериализатор.
+
 ## Парсинг, валидация и сериализация одной записи
 
-`MarcJsonTransform` получает от `MarcRecordSplitter` целую MARC-запись. Метод `_transform`
+`MarcJsonTransform` получает от выбранного splitter целую MARC-запись. Метод `_transform`
 делегирует её обработку в `convertRecord`
 ([строки 43–52](../src/marc-json-transform.ts#L43-L52)).
 Каждый вызов выдаёт законченную строку NDJSON. Пустой вход не требует
@@ -200,6 +214,6 @@ ReadStream UTF-8 NDJSON
 
 | Ситуация | Поведение | Результат |
 | --- | --- | --- |
-| Невозможно выделить целую запись или нарушены её границы | `MarcRecordSplitter` / `MarcParserValidator` завершают `pipeline` с ошибкой | Выходной файл не публикуется |
+| Невозможно выделить целую запись или нарушены её границы | Выбранный splitter / framing validator завершают `pipeline` с ошибкой | Выходной файл не публикуется |
 | Отдельная запись не парсится | `MarcJsonTransform` логирует ошибку и добавляет заглушку | Обработка продолжается, имя JSON получает `pErrors_` |
 | Запись разобрана, но не проходит валидацию | Ошибки логируются, некорректные части заменяются `"<unrecognized>"` | Обработка продолжается, ошибки учитываются в статистике |

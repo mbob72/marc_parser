@@ -13,6 +13,7 @@ import test, { type TestContext } from "node:test";
 import {
   addJsonExtension,
   addParsingErrorsPrefix,
+  addSourceFormatJsonExtension,
   convertMarcFile,
 } from "../src/marc-file-converter.ts";
 import {
@@ -32,7 +33,7 @@ test("validation error добавляет .json без префикса", async 
   const source = await readFile(recordUrl);
   const inputPath = join(directory, "validation-error.mrc");
   const requestedOutputPath = join(directory, "result.txt");
-  const outputPath = `${requestedOutputPath}.json`;
+  const outputPath = `${requestedOutputPath}.iso.json`;
 
   await writeFile(inputPath, corruptFirstIndicator(source));
   await writeFile(outputPath, "previous result");
@@ -59,7 +60,7 @@ test("parser error создаёт заглушку и добавляет pErrors
   const directory = await createTemporaryDirectory(context);
   const source = await readFile(recordUrl);
   const inputPath = join(directory, "parser-error.mrc");
-  const outputPath = join(directory, "result.json");
+  const outputPath = join(directory, "result.iso.json");
   const parsingErrorsOutputPath = addParsingErrorsPrefix(outputPath);
 
   await writeFile(
@@ -95,7 +96,7 @@ test("фатальная framing error сохраняет старый резу�
   const directory = await createTemporaryDirectory(context);
   const source = await readFile(recordUrl);
   const inputPath = join(directory, "framing-error.mrc");
-  const outputPath = join(directory, "result.json");
+  const outputPath = join(directory, "result.iso.json");
   const corruptedSource = Buffer.from(source);
 
   corruptedSource.write("abcde", 0, "ascii");
@@ -134,6 +135,17 @@ test("добавляет расширение .json при необходимо�
   );
   assert.equal(addJsonExtension("/tmp/result.json"), "/tmp/result.json");
   assert.equal(addJsonExtension("/tmp/result.JSON"), "/tmp/result.JSON");
+});
+
+test("добавляет в имя JSON маркер исходного контейнера", () => {
+  assert.equal(
+    addSourceFormatJsonExtension("/tmp/result.json", "iso2709"),
+    "/tmp/result.iso.json",
+  );
+  assert.equal(
+    addSourceFormatJsonExtension("/tmp/result.iso.json", "aleph-sequential"),
+    "/tmp/result.aleph.json",
+  );
 });
 
 async function createTemporaryDirectory(

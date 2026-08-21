@@ -15,7 +15,7 @@ const jsonRecordUrl = new URL(
 test("конвертирует несколько строк NDJSON в несколько ISO-записей", async (context) => {
   const directory = await createTemporaryDirectory(context);
   const record = JSON.stringify(JSON.parse(await readFile(jsonRecordUrl, "utf8")));
-  const inputPath = join(directory, "records.ndjson");
+  const inputPath = join(directory, "records.iso.ndjson");
   const isoPath = join(directory, "records.mrc");
   const jsonPath = join(directory, "round-trip.json");
   await writeFile(inputPath, `${record}\n${record}\n`);
@@ -34,7 +34,9 @@ test("конвертирует несколько строк NDJSON в неск�
     logger: new NullMarcProcessingLogger(),
     chunkSize: 11,
   });
-  const lines = (await readFile(jsonPath, "utf8")).trimEnd().split("\n");
+  const lines = (await readFile(toJson.outputPath, "utf8"))
+    .trimEnd()
+    .split("\n");
 
   assert.equal(toIso.recordsProcessed, 2);
   assert.equal(toJson.recordsProcessed, 2);
@@ -49,7 +51,7 @@ test("конвертирует несколько строк NDJSON в неск�
 test("ошибка во второй строке не заменяет существующий ISO-файл", async (context) => {
   const directory = await createTemporaryDirectory(context);
   const record = JSON.stringify(JSON.parse(await readFile(jsonRecordUrl, "utf8")));
-  const inputPath = join(directory, "records.ndjson");
+  const inputPath = join(directory, "records.iso.ndjson");
   const outputPath = join(directory, "records.mrc");
   await writeFile(inputPath, `${record}\n{bad json}\n`);
   await writeFile(outputPath, "previous result");
@@ -63,6 +65,21 @@ test("ошибка во второй строке не заменяет суще
     /Строка 2/,
   );
   assert.equal(await readFile(outputPath, "utf8"), "previous result");
+});
+
+test("отклоняет JSON без маркера исходного контейнера в имени", async (context) => {
+  const directory = await createTemporaryDirectory(context);
+  const inputPath = join(directory, "records.json");
+  await writeFile(inputPath, "{}\n");
+
+  await assert.rejects(
+    convertMarcJsonFile({
+      encoding: "utf-8",
+      inputPath,
+      outputPath: join(directory, "records"),
+    }),
+    /\.iso\.json.*\.aleph\.json/,
+  );
 });
 
 async function createTemporaryDirectory(context: TestContext): Promise<string> {

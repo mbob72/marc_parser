@@ -4,6 +4,7 @@ import type {
   ConversionJob,
   JobStatus,
   JobSummary,
+  ServiceMarcFormat,
 } from "./job.js";
 
 interface JobRow {
@@ -12,6 +13,7 @@ interface JobRow {
   readonly original_filename: string;
   readonly encoding: string;
   readonly direction: ConversionDirection;
+  readonly input_format: ServiceMarcFormat;
   readonly input_object_key: string;
   readonly input_bytes: string;
   readonly output_object_key: string | null;
@@ -27,6 +29,7 @@ export interface CreateJobInput {
   readonly originalFilename: string;
   readonly encoding: string;
   readonly direction: ConversionDirection;
+  readonly inputFormat: ServiceMarcFormat;
   readonly inputObjectKey: string;
   readonly inputBytes: number;
 }
@@ -50,6 +53,9 @@ export class JobDatabase {
         direction text NOT NULL DEFAULT 'iso-to-json' CHECK (
           direction IN ('iso-to-json', 'json-to-iso')
         ),
+        input_format text NOT NULL DEFAULT 'aleph-sequential' CHECK (
+          input_format IN ('aleph-sequential', 'iso2709')
+        ),
         input_object_key text NOT NULL,
         input_bytes bigint NOT NULL,
         output_object_key text,
@@ -63,6 +69,10 @@ export class JobDatabase {
     await this.pool.query(`
       ALTER TABLE conversion_jobs
       ADD COLUMN IF NOT EXISTS direction text NOT NULL DEFAULT 'iso-to-json'
+    `);
+    await this.pool.query(`
+      ALTER TABLE conversion_jobs
+      ADD COLUMN IF NOT EXISTS input_format text NOT NULL DEFAULT 'aleph-sequential'
     `);
   }
 
@@ -79,10 +89,11 @@ export class JobDatabase {
           original_filename,
           encoding,
           direction,
+          input_format,
           input_object_key,
           input_bytes
         )
-        VALUES ($1, 'queued', $2, $3, $4, $5, $6)
+        VALUES ($1, 'queued', $2, $3, $4, $5, $6, $7)
         RETURNING *
       `,
       [
@@ -90,6 +101,7 @@ export class JobDatabase {
         input.originalFilename,
         input.encoding,
         input.direction,
+        input.inputFormat,
         input.inputObjectKey,
         input.inputBytes,
       ],
@@ -182,6 +194,7 @@ function mapRow(row: JobRow): ConversionJob {
     originalFilename: row.original_filename,
     encoding: row.encoding,
     direction: row.direction,
+    inputFormat: row.input_format,
     inputObjectKey: row.input_object_key,
     inputBytes: Number(row.input_bytes),
     outputObjectKey: row.output_object_key,

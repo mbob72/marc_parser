@@ -102,7 +102,7 @@ function parseJsonRecord(value: unknown): MarcJsonRecord {
 
   if (typeof value.format !== "string" || !isMarcJsonFormat(value.format)) {
     throw new Error(
-      "Поле format должно иметь значение BK, CF, CR, MP, MU, MX или VM.",
+      "Поле format должно иметь значение AN, AU, BK, CF, CR, MP, MU, MX, SE или VM.",
     );
   }
 

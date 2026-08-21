@@ -12,9 +12,11 @@ import { join } from "node:path";
 import { Transform } from "node:stream";
 import { pipeline } from "node:stream/promises";
 import { pathToFileURL } from "node:url";
-import type { ConversionJob } from "./job.js";
+import type { ConversionJob, ServiceMarcFormat } from "./job.js";
 import {
   CONVERSION_DIRECTIONS,
+  DEFAULT_SERVICE_MARC_FORMAT,
+  SERVICE_MARC_FORMATS,
   type ConversionDirection,
 } from "./job.js";
 import { JobDatabase } from "./job-database.js";
@@ -66,6 +68,7 @@ export async function buildApi(
     const inputObjectKey = `inputs/${jobId}`;
     let encoding = "utf-8";
     let direction: ConversionDirection = "iso-to-json";
+    let inputFormat: ServiceMarcFormat = DEFAULT_SERVICE_MARC_FORMAT;
     let originalFilename: string | null = null;
     let inputBytes = 0;
     let fileWasUploaded = false;
@@ -81,6 +84,9 @@ export async function buildApi(
           if (part.fieldname === "direction") {
             direction = parseDirection(String(part.value));
           }
+          if (part.fieldname === "format") {
+            inputFormat = parseInputFormat(String(part.value));
+          }
           continue;
         }
 
@@ -92,7 +98,7 @@ export async function buildApi(
           );
         }
 
-        originalFilename = part.filename || "records.mrc";
+        originalFilename = part.filename || "records.dat";
         fileUploadStarted = true;
 
         uploadDirectory = await mkdtemp(join(tmpdir(), `marc-upload-${jobId}-`));
@@ -138,6 +144,7 @@ export async function buildApi(
         originalFilename,
         encoding,
         direction,
+        inputFormat,
         inputObjectKey,
         inputBytes,
       });
@@ -194,13 +201,10 @@ export async function buildApi(
 
       const stream = await dependencies.objectStore.get(job.outputObjectKey);
       const filename = job.outputFilename ?? `${job.id}.json`;
-      const isJson = filename.toLowerCase().endsWith(".json");
 
       reply.header(
         "Content-Type",
-        isJson
-          ? "application/x-ndjson; charset=utf-8"
-          : "application/marc",
+        resultContentType(filename),
       );
       reply.header(
         "Content-Disposition",
@@ -232,6 +236,16 @@ export async function buildApi(
   return app;
 }
 
+export function resultContentType(filename: string): string {
+  const normalized = filename.toLowerCase();
+  if (normalized.endsWith(".json")) {
+    return "application/x-ndjson; charset=utf-8";
+  }
+  return normalized.endsWith(".dat")
+    ? "application/octet-stream"
+    : "application/marc";
+}
+
 async function findJob(
   database: Pick<JobDatabase, "getJob">,
   jobId: string,
@@ -259,6 +273,7 @@ function toPublicJob(job: ConversionJob): Record<string, unknown> {
     filename: job.originalFilename,
     encoding: job.encoding,
     direction: job.direction,
+    format: job.inputFormat,
     inputBytes: job.inputBytes,
     summary: job.summary,
     error: job.error,
@@ -279,6 +294,16 @@ function parseDirection(value: string): ConversionDirection {
   throw new ApiError(
     400,
     `Направление ${JSON.stringify(value)} не поддерживается.`,
+  );
+}
+
+function parseInputFormat(value: string): ServiceMarcFormat {
+  if (SERVICE_MARC_FORMATS.includes(value as ServiceMarcFormat)) {
+    return value as ServiceMarcFormat;
+  }
+  throw new ApiError(
+    400,
+    `Формат ${JSON.stringify(value)} не поддерживается. Ожидается aleph-sequential или iso2709.`,
   );
 }
 

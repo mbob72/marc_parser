@@ -4,15 +4,16 @@ import { readFile } from "node:fs/promises";
 import { Readable } from "node:stream";
 import test from "node:test";
 import type { ConversionJob, JobSummary } from "../src/job.ts";
+import { AlephSequentialMarcParser } from "../src/aleph-sequential-parser.ts";
 import { MarcJsonSerializer } from "../src/marc-json-serializer.ts";
 import { Iso2709MarcParser } from "../src/marc-parser.ts";
 import { handleMessage } from "../src/worker.ts";
 
 const JOB_ID = "5de1669a-1aa1-4e0d-8f9e-7bc71afccaa7";
 
-test("worker конвертирует объект, сохраняет результат и подтверждает job", async () => {
+test("worker по выбранному формату конвертирует Aleph и подтверждает job", async () => {
   const source = await readFile(
-    new URL("../docs/015316815/015316815.mrc", import.meta.url),
+    new URL("./fixtures/aleph-sequential-real.dat", import.meta.url),
   );
   const outputs = new Map<string, Buffer>();
   const acknowledged: ConsumeMessage[] = [];
@@ -25,10 +26,11 @@ test("worker конвертирует объект, сохраняет резу�
   const job: ConversionJob = {
     id: JOB_ID,
     status: "queued",
-    originalFilename: "records.mrc",
+    originalFilename: "records.dat",
     encoding: "utf-8",
     direction: "iso-to-json",
-    inputObjectKey: `inputs/${JOB_ID}.mrc`,
+    inputFormat: "aleph-sequential",
+    inputObjectKey: `inputs/${JOB_ID}.dat`,
     inputBytes: source.length,
     outputObjectKey: null,
     outputFilename: null,
@@ -94,14 +96,16 @@ test("worker конвертирует объект, сохраняет резу�
   assert.equal(processingWasMarked, true);
   assert.deepEqual(acknowledged, [rawMessage]);
   assert.ok(completed);
-  assert.equal(completed.outputObjectKey, `outputs/${JOB_ID}.json`);
-  assert.equal(completed.outputFilename, "records.json");
-  assert.equal(completed.summary.recordsProcessed, 1);
+  assert.equal(completed.outputObjectKey, `outputs/${JOB_ID}.aleph.json`);
+  assert.equal(completed.outputFilename, "records.aleph.json");
+  assert.equal(completed.summary.recordsProcessed, 3);
   assert.equal(completed.summary.recordsWithParsingErrors, 0);
 
-  const result = outputs.get(`outputs/${JOB_ID}.json`);
+  const result = outputs.get(`outputs/${JOB_ID}.aleph.json`);
   assert.ok(result);
-  assert.equal(JSON.parse(result.toString()).leader, "01590cam a2200217 u 4500");
+  const first = JSON.parse(result.toString().split("\n")[0]!);
+  assert.equal(first.recordId, "000000001");
+  assert.equal(first.format, "BK");
 });
 
 test("worker конвертирует NDJSON в ISO 2709 и сохраняет .mrc", async () => {
@@ -117,9 +121,10 @@ test("worker конвертирует NDJSON в ISO 2709 и сохраняет .
   const job: ConversionJob = {
     id: JOB_ID,
     status: "queued",
-    originalFilename: "records.ndjson",
+    originalFilename: "records.iso.ndjson",
     encoding: "utf-8",
     direction: "json-to-iso",
+    inputFormat: "aleph-sequential",
     inputObjectKey: `inputs/${JOB_ID}`,
     inputBytes: source.length,
     outputObjectKey: null,
@@ -181,4 +186,70 @@ test("worker конвертирует NDJSON в ISO 2709 и сохраняет .
   assert.equal(record.fields[0]?.tag, "FMT");
   assert.equal(roundTrip.format, "BK");
   assert.deepEqual(roundTrip.fields, json.fields);
+});
+
+test("worker выбирает Aleph по имени .aleph.json и сохраняет .dat", async () => {
+  const fixture = await readFile(
+    new URL("./fixtures/aleph-sequential-real.dat", import.meta.url),
+  );
+  const firstLineEnd = fixture.indexOf(0x0a) + 1;
+  const original = fixture.subarray(0, firstLineEnd);
+  const json = new MarcJsonSerializer("utf-8").serialize(
+    new AlephSequentialMarcParser().parse(original),
+  );
+  const source = Buffer.from(`${JSON.stringify(json)}\n`, "utf8");
+  const outputs = new Map<string, Buffer>();
+  let completedFilename: string | null = null;
+  const job: ConversionJob = {
+    id: JOB_ID,
+    status: "queued",
+    originalFilename: "records.aleph.json",
+    encoding: "utf-8",
+    direction: "json-to-iso",
+    inputFormat: "aleph-sequential",
+    inputObjectKey: `inputs/${JOB_ID}`,
+    inputBytes: source.length,
+    outputObjectKey: null,
+    outputFilename: null,
+    summary: null,
+    error: null,
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  };
+
+  await handleMessage(
+    { jobId: JOB_ID, attempt: 1 },
+    {} as ConsumeMessage,
+    {
+      async getJob() { return job; },
+      async markProcessing() {},
+      async markQueuedForRetry() { throw new Error("retry не ожидался"); },
+      async markCompleted(_id, _key, outputFilename) {
+        completedFilename = outputFilename;
+      },
+      async markFailed() { throw new Error("failure не ожидался"); },
+    },
+    {
+      async get() { return Readable.from(source); },
+      async put(key, stream) {
+        const chunks: Buffer[] = [];
+        for await (const chunk of stream) chunks.push(Buffer.from(chunk));
+        outputs.set(key, Buffer.concat(chunks));
+      },
+    },
+    {
+      async publish() { throw new Error("retry publish не ожидался"); },
+      acknowledge() {},
+      reject() { throw new Error("reject не ожидался"); },
+    },
+    3,
+  );
+
+  assert.equal(completedFilename, "records.dat");
+  const restored = outputs.get(`outputs/${JOB_ID}.dat`);
+  assert.ok(restored);
+  const roundTrip = new MarcJsonSerializer("utf-8").serialize(
+    new AlephSequentialMarcParser().parse(restored),
+  );
+  assert.deepEqual(roundTrip, json);
 });

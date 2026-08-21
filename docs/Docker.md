@@ -80,6 +80,7 @@ curl -fsS \
   -F file=@fixture/nlm-catplus-20251201-1mb.mrc \
   -F encoding=utf-8 \
   -F direction=iso-to-json \
+  -F format=iso2709 \
   http://localhost:3000/jobs \
   | tee /tmp/marc-job.json \
   | jq
@@ -95,6 +96,7 @@ API отвечает кодом `202 Accepted`. Начальное состоя�
   "filename": "nlm-catplus-20251201-1mb.mrc",
   "encoding": "utf-8",
   "direction": "iso-to-json",
+  "format": "iso2709",
   "inputBytes": 1011909
 }
 ```
@@ -134,14 +136,14 @@ curl -fsS "http://localhost:3000/jobs/$job_id" | jq
 
 ```bash
 curl -fsS \
-  -o result.json \
+  -o result.iso.json \
   "http://localhost:3000/jobs/$job_id/result"
 ```
 
 Проверить синтаксис каждой строки NDJSON:
 
 ```bash
-jq -c . result.json >/dev/null
+jq -c . result.iso.json >/dev/null
 ```
 
 Команда ничего не выводит и завершается с кодом `0`, если JSON корректен.
@@ -149,7 +151,7 @@ jq -c . result.json >/dev/null
 Проверить количество записей:
 
 ```bash
-wc -l < result.json
+wc -l < result.iso.json
 ```
 
 Для `nlm-catplus-20251201-1mb.mrc` ожидается:
@@ -158,13 +160,13 @@ wc -l < result.json
 655
 ```
 
-### Проверка JSON → ISO
+### Проверка JSON → исходный контейнер
 
 Использовать полученный NDJSON как вход обратного задания:
 
 ```bash
 curl -fsS \
-  -F file=@result.json \
+  -F file=@result.iso.json \
   -F encoding=utf-8 \
   -F direction=json-to-iso \
   http://localhost:3000/jobs \
@@ -172,8 +174,10 @@ curl -fsS \
   | jq
 ```
 
-После статуса `completed` скачать `/jobs/<jobId>/result`. Имя результата имеет
-расширение `.mrc`, а ответ — MIME `application/marc`.
+После статуса `completed` скачать `/jobs/<jobId>/result`. Для
+`result.iso.json` имя результата имеет расширение `.mrc`, а ответ — MIME
+`application/marc`. Имя `result.aleph.json` выбирает результат `.dat` с MIME
+`application/octet-stream`; JSON без маркера `.iso`/`.aleph` отклоняется.
 
 ## Проверка очередей
 
@@ -210,8 +214,10 @@ MinIO Console доступна по адресу `http://localhost:9001`:
 В bucket `marc-jobs` находятся:
 
 - `inputs/<jobId>` — исходные файлы обоих направлений;
-- `outputs/<jobId>.json` — результаты ISO → NDJSON;
-- `outputs/<jobId>.mrc` — результаты NDJSON → ISO.
+- `outputs/<jobId>.iso.json` — результаты ISO → NDJSON;
+- `outputs/<jobId>.aleph.json` — результаты Aleph → NDJSON;
+- `outputs/<jobId>.mrc` — результаты `.iso.json` → ISO;
+- `outputs/<jobId>.dat` — результаты `.aleph.json` → Aleph sequential.
 
 ## Проверка PostgreSQL
 
@@ -220,7 +226,7 @@ MinIO Console доступна по адресу `http://localhost:9001`:
 ```bash
 docker compose exec -T postgres \
   psql -U marc -d marc_parser -c \
-  "SELECT id, status, direction, original_filename, input_bytes, created_at
+  "SELECT id, status, direction, input_format, original_filename, input_bytes, created_at
    FROM conversion_jobs
    ORDER BY created_at DESC
    LIMIT 10;"

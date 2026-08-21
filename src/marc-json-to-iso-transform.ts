@@ -1,9 +1,12 @@
 import { StringDecoder } from "node:string_decoder";
 import { Transform, type TransformCallback } from "node:stream";
-import { MarcIsoSerializer } from "./marc-iso-serializer.js";
 import type { MarcProcessingStatistics } from "./marc-processing-logger.js";
 
-/** Converts one compact MARC-JSON object per line (NDJSON) to ISO 2709. */
+export interface MarcBinarySerializer {
+  serialize(value: unknown): Buffer;
+}
+
+/** Converts one compact MARC-JSON object per line to a binary MARC container. */
 export class MarcJsonToIsoTransform extends Transform {
   private readonly decoder = new StringDecoder("utf8");
   private pending = "";
@@ -11,7 +14,7 @@ export class MarcJsonToIsoTransform extends Transform {
   private recordsProcessed = 0;
   private inputBytes = 0;
 
-  constructor(private readonly serializer: MarcIsoSerializer) {
+  constructor(private readonly serializer: MarcBinarySerializer) {
     super();
   }
 
