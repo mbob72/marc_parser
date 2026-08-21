@@ -130,6 +130,23 @@ curl http://localhost:3000/jobs/<jobId>
 curl -OJ http://localhost:3000/jobs/<jobId>/result
 ```
 
+Задание и связанные с ним объекты MinIO хранятся сутки. Сборщик запускается
+при старте API и затем каждые 12 часов. Завершённое или упавшее задание можно
+удалить раньше вручную:
+
+```bash
+curl -X DELETE http://localhost:3000/jobs/<jobId>
+```
+
+Внеплановый проход сборщика запускается отдельным методом:
+
+```bash
+curl -X POST http://localhost:3000/maintenance/cleanup
+```
+
+Метод возвращает числа просмотренных, удалённых и не удалённых из-за ошибок
+заданий в полях `scanned`, `deleted` и `failed`.
+
 Дополнительные локальные интерфейсы:
 
 - RabbitMQ Management: `http://localhost:15672`, логин/пароль `marc`;

@@ -31,6 +31,7 @@ export interface ConversionJob {
   readonly error: string | null;
   readonly createdAt: Date;
   readonly updatedAt: Date;
+  readonly expiresAt: Date;
 }
 
 export interface ConversionJobMessage {

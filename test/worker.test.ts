@@ -38,6 +38,7 @@ test("worker по выбранному формату конвертирует A
     error: null,
     createdAt: new Date(),
     updatedAt: new Date(),
+    expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000),
   };
   const rawMessage = {} as ConsumeMessage;
 
@@ -133,6 +134,7 @@ test("worker конвертирует NDJSON в ISO 2709 и сохраняет .
     error: null,
     createdAt: new Date(),
     updatedAt: new Date(),
+    expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000),
   };
   const rawMessage = {} as ConsumeMessage;
 
@@ -215,6 +217,7 @@ test("worker выбирает Aleph по имени .aleph.json и сохран�
     error: null,
     createdAt: new Date(),
     updatedAt: new Date(),
+    expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000),
   };
 
   await handleMessage(

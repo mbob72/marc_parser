@@ -20,6 +20,7 @@ import {
   type ConversionDirection,
 } from "./job.js";
 import { JobDatabase } from "./job-database.js";
+import { JobGarbageCollector } from "./job-garbage-collector.js";
 import { JobQueue } from "./job-queue.js";
 import { ObjectStore } from "./object-store.js";
 import { loadServiceConfig } from "./service-config.js";
@@ -31,9 +32,15 @@ interface ApiDependencies {
   >;
   readonly queue: Pick<JobQueue, "publish">;
   readonly objectStore: Pick<ObjectStore, "put" | "get" | "remove">;
+  readonly garbageCollector: Pick<
+    JobGarbageCollector,
+    "collect" | "deleteJob"
+  >;
   readonly maxUploadBytes: number;
   readonly logger?: boolean;
 }
+
+const GARBAGE_COLLECTION_INTERVAL_MS = 12 * 60 * 60 * 1000;
 
 class ApiError extends Error {
   constructor(
@@ -61,6 +68,10 @@ export async function buildApi(
   app.get("/health", async () => {
     await dependencies.database.ping();
     return { status: "ok" };
+  });
+
+  app.post("/maintenance/cleanup", async () => {
+    return dependencies.garbageCollector.collect();
   });
 
   app.post("/jobs", async (request, reply) => {
@@ -183,6 +194,30 @@ export async function buildApi(
     },
   );
 
+  app.delete<{ Params: { jobId: string } }>(
+    "/jobs/:jobId",
+    async (request, reply) => {
+      if (!isUuid(request.params.jobId)) {
+        return reply.code(400).send({ error: "Некорректный jobId." });
+      }
+
+      const result = await dependencies.garbageCollector.deleteJob(
+        request.params.jobId,
+      );
+
+      if (result === "not-found") {
+        return reply.code(404).send({ error: "Задание не найдено." });
+      }
+      if (result === "not-finished") {
+        return reply.code(409).send({
+          error: "Можно удалить только завершённое или упавшее задание.",
+        });
+      }
+
+      return reply.code(204).send();
+    },
+  );
+
   app.get<{ Params: { jobId: string } }>(
     "/jobs/:jobId/result",
     async (request, reply) => {
@@ -279,6 +314,7 @@ function toPublicJob(job: ConversionJob): Record<string, unknown> {
     error: job.error,
     createdAt: job.createdAt,
     updatedAt: job.updatedAt,
+    expiresAt: job.expiresAt,
     ...(job.status === "completed"
       ? { resultUrl: `/jobs/${job.id}/result` }
       : {}),
@@ -355,8 +391,10 @@ async function main(): Promise<void> {
   const config = loadServiceConfig();
   const database = new JobDatabase(config.postgresUrl);
   const objectStore = new ObjectStore(config.minio);
+  const garbageCollector = new JobGarbageCollector(database, objectStore);
   let queue: JobQueue | null = null;
   let app: FastifyInstance | null = null;
+  let garbageCollectionTimer: NodeJS.Timeout | null = null;
 
   try {
     await database.initialize();
@@ -366,10 +404,29 @@ async function main(): Promise<void> {
       database,
       queue,
       objectStore,
+      garbageCollector,
       maxUploadBytes: config.maxUploadBytes,
     });
 
+    const collectGarbage = async (): Promise<void> => {
+      try {
+        const result = await garbageCollector.collect();
+        app?.log.info(result, "Сборка мусора завершена");
+      } catch (error) {
+        app?.log.error(error, "Не удалось выполнить сборку мусора");
+      }
+    };
+    await collectGarbage();
+    garbageCollectionTimer = setInterval(
+      () => void collectGarbage(),
+      GARBAGE_COLLECTION_INTERVAL_MS,
+    );
+    garbageCollectionTimer.unref();
+
     const shutdown = async (): Promise<void> => {
+      if (garbageCollectionTimer) {
+        clearInterval(garbageCollectionTimer);
+      }
       await app?.close();
       await queue?.close();
       await database.close();

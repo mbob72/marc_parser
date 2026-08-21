@@ -219,6 +219,19 @@ MinIO Console доступна по адресу `http://localhost:9001`:
 - `outputs/<jobId>.mrc` — результаты `.iso.json` → ISO;
 - `outputs/<jobId>.dat` — результаты `.aleph.json` → Aleph sequential.
 
+Записи заданий и оба связанных объекта хранятся сутки. API запускает сборщик
+при старте и далее каждые 12 часов. Его можно запустить вне расписания:
+
+```bash
+curl -fsS -X POST http://localhost:3000/maintenance/cleanup | jq
+```
+
+Завершённое или упавшее задание можно удалить явно:
+
+```bash
+curl -i -X DELETE "http://localhost:3000/jobs/$job_id"
+```
+
 ## Проверка PostgreSQL
 
 Посмотреть последние задания:

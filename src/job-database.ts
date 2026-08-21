@@ -22,6 +22,7 @@ interface JobRow {
   readonly error: string | null;
   readonly created_at: Date;
   readonly updated_at: Date;
+  readonly expires_at: Date;
 }
 
 export interface CreateJobInput {
@@ -63,7 +64,8 @@ export class JobDatabase {
         summary jsonb,
         error text,
         created_at timestamptz NOT NULL DEFAULT now(),
-        updated_at timestamptz NOT NULL DEFAULT now()
+        updated_at timestamptz NOT NULL DEFAULT now(),
+        expires_at timestamptz NOT NULL DEFAULT (now() + interval '24 hours')
       )
     `);
     await this.pool.query(`
@@ -73,6 +75,25 @@ export class JobDatabase {
     await this.pool.query(`
       ALTER TABLE conversion_jobs
       ADD COLUMN IF NOT EXISTS input_format text NOT NULL DEFAULT 'aleph-sequential'
+    `);
+    await this.pool.query(`
+      ALTER TABLE conversion_jobs
+      ADD COLUMN IF NOT EXISTS expires_at timestamptz
+    `);
+    await this.pool.query(`
+      UPDATE conversion_jobs
+      SET expires_at = created_at + interval '24 hours'
+      WHERE expires_at IS NULL
+    `);
+    await this.pool.query(`
+      ALTER TABLE conversion_jobs
+      ALTER COLUMN expires_at SET DEFAULT (now() + interval '24 hours'),
+      ALTER COLUMN expires_at SET NOT NULL
+    `);
+    await this.pool.query(`
+      CREATE INDEX IF NOT EXISTS conversion_jobs_expires_at_idx
+      ON conversion_jobs (expires_at)
+      WHERE status IN ('completed', 'failed')
     `);
   }
 
@@ -174,6 +195,34 @@ export class JobDatabase {
     );
   }
 
+  async getExpiredJobs(now: Date): Promise<ConversionJob[]> {
+    const result = await this.pool.query<JobRow>(
+      `
+        SELECT *
+        FROM conversion_jobs
+        WHERE expires_at <= $1
+          AND status IN ('completed', 'failed')
+        ORDER BY expires_at
+      `,
+      [now],
+    );
+
+    return result.rows.map(mapRow);
+  }
+
+  async deleteFinishedJob(id: string): Promise<boolean> {
+    const result = await this.pool.query(
+      `
+        DELETE FROM conversion_jobs
+        WHERE id = $1
+          AND status IN ('completed', 'failed')
+      `,
+      [id],
+    );
+
+    return result.rowCount === 1;
+  }
+
   async close(): Promise<void> {
     await this.pool.end();
   }
@@ -203,5 +252,6 @@ function mapRow(row: JobRow): ConversionJob {
     error: row.error,
     createdAt: row.created_at,
     updatedAt: row.updated_at,
+    expiresAt: row.expires_at,
   };
 }

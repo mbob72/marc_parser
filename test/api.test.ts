@@ -11,6 +11,7 @@ test("POST /jobs сохраняет файл и публикует задани�
   const app = await buildApi({
     logger: false,
     maxUploadBytes: 1024,
+    garbageCollector: noopGarbageCollector(),
     database: {
       async ping() {},
       async createJob(input) {
@@ -29,6 +30,7 @@ test("POST /jobs сохраняет файл и публикует задани�
           error: null,
           createdAt: new Date("2026-01-01T00:00:00Z"),
           updatedAt: new Date("2026-01-01T00:00:00Z"),
+          expiresAt: new Date("2026-01-02T00:00:00Z"),
         };
         return currentJob;
       },
@@ -90,6 +92,7 @@ test("POST /jobs удаляет загрузку при неподдержива
   const app = await buildApi({
     logger: false,
     maxUploadBytes: 1024,
+    garbageCollector: noopGarbageCollector(),
     database: {
       async ping() {},
       async createJob() {
@@ -140,6 +143,7 @@ test("POST /jobs передаёт направление JSON → ISO в зад�
   const app = await buildApi({
     logger: false,
     maxUploadBytes: 1024,
+    garbageCollector: noopGarbageCollector(),
     database: {
       async ping() {},
       async createJob(input) {
@@ -153,6 +157,7 @@ test("POST /jobs передаёт направление JSON → ISO в зад�
           error: null,
           createdAt: new Date(),
           updatedAt: new Date(),
+          expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000),
         };
       },
       async getJob() {
@@ -199,6 +204,7 @@ test("POST /jobs принимает явный формат ISO 2709", async (co
   const app = await buildApi({
     logger: false,
     maxUploadBytes: 1024,
+    garbageCollector: noopGarbageCollector(),
     database: {
       async ping() {},
       async createJob(input) {
@@ -212,6 +218,7 @@ test("POST /jobs принимает явный формат ISO 2709", async (co
           error: null,
           createdAt: new Date(),
           updatedAt: new Date(),
+          expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000),
         };
       },
       async getJob() { return null; },
@@ -252,6 +259,97 @@ test("выбирает MIME результата по контейнеру", () 
   assert.equal(resultContentType("records.mrc"), "application/marc");
   assert.equal(resultContentType("records.dat"), "application/octet-stream");
 });
+
+test("POST /maintenance/cleanup запускает сборщик", async (context) => {
+  let cleanupWasCalled = false;
+  const app = await buildApi({
+    logger: false,
+    maxUploadBytes: 1024,
+    database: unavailableDatabase(),
+    queue: { async publish() {} },
+    objectStore: unavailableObjectStore(),
+    garbageCollector: {
+      async collect() {
+        cleanupWasCalled = true;
+        return { scanned: 3, deleted: 2, failed: 1 };
+      },
+      async deleteJob() { return "not-found"; },
+    },
+  });
+  context.after(() => app.close());
+
+  const response = await app.inject({
+    method: "POST",
+    url: "/maintenance/cleanup",
+  });
+
+  assert.equal(response.statusCode, 200);
+  assert.equal(cleanupWasCalled, true);
+  assert.deepEqual(response.json(), { scanned: 3, deleted: 2, failed: 1 });
+});
+
+test("DELETE /jobs/:jobId удаляет завершённое задание", async (context) => {
+  const deleted: string[] = [];
+  const app = await buildApi({
+    logger: false,
+    maxUploadBytes: 1024,
+    database: unavailableDatabase(),
+    queue: { async publish() {} },
+    objectStore: unavailableObjectStore(),
+    garbageCollector: {
+      async collect() { return { scanned: 0, deleted: 0, failed: 0 }; },
+      async deleteJob(id) {
+        deleted.push(id);
+        return id === "efef4d3d-41ce-4d67-9b79-0db6d46170da"
+          ? "not-finished"
+          : "deleted";
+      },
+    },
+  });
+  context.after(() => app.close());
+
+  const response = await app.inject({
+    method: "DELETE",
+    url: "/jobs/5de1669a-1aa1-4e0d-8f9e-7bc71afccaa7",
+  });
+
+  assert.equal(response.statusCode, 204);
+  assert.deepEqual(deleted, ["5de1669a-1aa1-4e0d-8f9e-7bc71afccaa7"]);
+
+  const processingResponse = await app.inject({
+    method: "DELETE",
+    url: "/jobs/efef4d3d-41ce-4d67-9b79-0db6d46170da",
+  });
+  assert.equal(processingResponse.statusCode, 409);
+});
+
+function noopGarbageCollector() {
+  return {
+    async collect() {
+      return { scanned: 0, deleted: 0, failed: 0 };
+    },
+    async deleteJob() {
+      return "not-found" as const;
+    },
+  };
+}
+
+function unavailableDatabase() {
+  return {
+    async ping() {},
+    async createJob(): Promise<never> { throw new Error("Недоступно в тесте"); },
+    async getJob() { return null; },
+    async markFailed() {},
+  };
+}
+
+function unavailableObjectStore() {
+  return {
+    async put(): Promise<never> { throw new Error("Недоступно в тесте"); },
+    async get(): Promise<never> { throw new Error("Недоступно в тесте"); },
+    async remove(): Promise<never> { throw new Error("Недоступно в тесте"); },
+  };
+}
 
 function createMultipartBody(
   boundary: string,
