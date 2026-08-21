@@ -28,7 +28,30 @@ test("преобразует MARC-запись в эталонную JSON-стр
 
   const actual = new MarcJsonSerializer("utf-8").serialize(record);
 
-  assert.deepEqual(actual, JSON.parse(expectedJson));
+  assert.deepEqual(actual, {
+    ...JSON.parse(expectedJson),
+    format: UNRECOGNIZED_VALUE,
+  });
+});
+
+test("берёт format из служебного поля FMT и не выводит FMT в fields", async () => {
+  const source = await readFile(marcRecordUrl);
+  const parsed = new Iso2709MarcParser().parse(source);
+  const formatField = {
+    kind: "control" as const,
+    tag: "FMT",
+    raw: Buffer.from("BK\x1e", "ascii"),
+    value: Buffer.from("BK", "ascii"),
+  };
+  const record: MarcRecord = {
+    ...parsed,
+    fields: [formatField, ...parsed.fields],
+  };
+
+  const actual = new MarcJsonSerializer("utf-8").serialize(record);
+
+  assert.equal(actual.format, "BK");
+  assert.equal(actual.fields.some(({ code }) => code === "FMT"), false);
 });
 
 test("декодирует значения из Windows-1251", async () => {

@@ -73,9 +73,10 @@ test("parser error создаёт заглушку и добавляет pErrors
     outputPath,
     logger: new NullMarcProcessingLogger(),
   });
-  const json = JSON.parse(
-    await readFile(parsingErrorsOutputPath, "utf8"),
-  );
+  const json = (await readFile(parsingErrorsOutputPath, "utf8"))
+    .trimEnd()
+    .split("\n")
+    .map((line) => JSON.parse(line));
 
   assert.equal(summary.outputPath, parsingErrorsOutputPath);
   assert.equal(summary.recordsProcessed, 2);

@@ -85,6 +85,24 @@ function validateLeader(
         `ожидалось ${JSON.stringify(expectedLength)}.`,
     });
   }
+
+  if (["c", "n"].includes(record.leader.descriptiveCatalogingForm)) {
+    errors.push({
+      rule: "LD-02",
+      message:
+        `Leader/18 содержит недопустимый для схемы РГБ код ` +
+        `${JSON.stringify(record.leader.descriptiveCatalogingForm)}.`,
+    });
+  }
+
+  if (["a", "b", "c"].includes(record.leader.multipartResourceRecordLevel)) {
+    errors.push({
+      rule: "LD-02",
+      message:
+        `Leader/19 содержит недопустимый для схемы РГБ код ` +
+        `${JSON.stringify(record.leader.multipartResourceRecordLevel)}.`,
+    });
+  }
 }
 
 function validateDirectory(

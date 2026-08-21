@@ -108,3 +108,24 @@ test("собирает нарушения всех правил", async () => {
     ]),
   );
 });
+
+test("отклоняет отсутствующие в схеме РГБ коды Leader/18 и Leader/19", async () => {
+  const source = await readFile(recordUrl);
+  const parsed = new Iso2709MarcParser().parse(source);
+  const record: MarcRecord = {
+    ...parsed,
+    leader: {
+      ...parsed.leader,
+      raw: `${parsed.leader.raw.slice(0, 18)}ca${parsed.leader.raw.slice(20)}`,
+      descriptiveCatalogingForm: "c",
+      multipartResourceRecordLevel: "a",
+    },
+  };
+
+  const result = new MarcRecordValidator().validate(record);
+
+  assert.equal(result.valid, false);
+  assert.equal(result.errors.filter(({ rule }) => rule === "LD-02").length, 2);
+  assert.match(result.errors[0]?.message ?? "", /Leader\/18/);
+  assert.match(result.errors[1]?.message ?? "", /Leader\/19/);
+});

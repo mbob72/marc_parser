@@ -9,6 +9,7 @@ import type { ConversionJobMessage, JobSummary } from "./job.js";
 import { JobDatabase } from "./job-database.js";
 import { JobQueue } from "./job-queue.js";
 import { convertMarcFile } from "./marc-file-converter.js";
+import { convertMarcJsonFile } from "./marc-json-file-converter.js";
 import { NullMarcProcessingLogger } from "./marc-processing-logger.js";
 import { ObjectStore } from "./object-store.js";
 import { loadServiceConfig } from "./service-config.js";
@@ -94,27 +95,47 @@ export async function handleMessage(
     const directory = await mkdtemp(join(tmpdir(), `marc-job-${job.id}-`));
 
     try {
-      const inputPath = join(directory, "input.mrc");
-      const requestedOutputPath = join(directory, "result.json");
+      const inputPath = join(
+        directory,
+        job.direction === "json-to-iso" ? "input.json" : "input.mrc",
+      );
+      const requestedOutputPath = join(
+        directory,
+        job.direction === "json-to-iso" ? "result.mrc" : "result.json",
+      );
       await pipeline(
         await objectStore.get(job.inputObjectKey),
         createWriteStream(inputPath, { flags: "wx" }),
       );
 
-      const conversionSummary = await convertMarcFile({
+      const convert =
+        job.direction === "json-to-iso"
+          ? convertMarcJsonFile
+          : convertMarcFile;
+      const conversionSummary = await convert({
         encoding: job.encoding,
         inputPath,
         outputPath: requestedOutputPath,
         logger: new NullMarcProcessingLogger(),
       });
-      const outputObjectKey = `outputs/${job.id}.json`;
-      const outputFilename = createOutputFilename(job.originalFilename);
+      const outputExtension =
+        job.direction === "json-to-iso" ? ".mrc" : ".json";
+      const outputObjectKey = `outputs/${job.id}${outputExtension}`;
+      const outputFilename = createOutputFilename(
+        job.originalFilename,
+        outputExtension,
+      );
       const outputStatistics = await stat(conversionSummary.outputPath);
 
       await objectStore.put(
         outputObjectKey,
         createReadStream(conversionSummary.outputPath),
-        { "Content-Type": "application/json; charset=utf-8" },
+        {
+          "Content-Type":
+            job.direction === "json-to-iso"
+              ? "application/marc"
+              : "application/x-ndjson; charset=utf-8",
+        },
         outputStatistics.size,
       );
 
@@ -147,14 +168,17 @@ export async function handleMessage(
   }
 }
 
-function createOutputFilename(inputFilename: string): string {
+function createOutputFilename(
+  inputFilename: string,
+  outputExtension: ".json" | ".mrc",
+): string {
   const safeBasename = basename(inputFilename).replace(/[\r\n"]/g, "_");
   const extension = extname(safeBasename);
   const stem = extension
     ? safeBasename.slice(0, -extension.length)
     : safeBasename;
 
-  return `${stem || "result"}.json`;
+  return `${stem || "result"}${outputExtension}`;
 }
 
 function errorMessage(error: unknown): string {

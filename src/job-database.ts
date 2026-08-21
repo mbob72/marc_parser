@@ -1,11 +1,17 @@
 import { Pool } from "pg";
-import type { ConversionJob, JobStatus, JobSummary } from "./job.js";
+import type {
+  ConversionDirection,
+  ConversionJob,
+  JobStatus,
+  JobSummary,
+} from "./job.js";
 
 interface JobRow {
   readonly id: string;
   readonly status: JobStatus;
   readonly original_filename: string;
   readonly encoding: string;
+  readonly direction: ConversionDirection;
   readonly input_object_key: string;
   readonly input_bytes: string;
   readonly output_object_key: string | null;
@@ -20,6 +26,7 @@ export interface CreateJobInput {
   readonly id: string;
   readonly originalFilename: string;
   readonly encoding: string;
+  readonly direction: ConversionDirection;
   readonly inputObjectKey: string;
   readonly inputBytes: number;
 }
@@ -40,6 +47,9 @@ export class JobDatabase {
         ),
         original_filename text NOT NULL,
         encoding text NOT NULL,
+        direction text NOT NULL DEFAULT 'iso-to-json' CHECK (
+          direction IN ('iso-to-json', 'json-to-iso')
+        ),
         input_object_key text NOT NULL,
         input_bytes bigint NOT NULL,
         output_object_key text,
@@ -49,6 +59,10 @@ export class JobDatabase {
         created_at timestamptz NOT NULL DEFAULT now(),
         updated_at timestamptz NOT NULL DEFAULT now()
       )
+    `);
+    await this.pool.query(`
+      ALTER TABLE conversion_jobs
+      ADD COLUMN IF NOT EXISTS direction text NOT NULL DEFAULT 'iso-to-json'
     `);
   }
 
@@ -64,16 +78,18 @@ export class JobDatabase {
           status,
           original_filename,
           encoding,
+          direction,
           input_object_key,
           input_bytes
         )
-        VALUES ($1, 'queued', $2, $3, $4, $5)
+        VALUES ($1, 'queued', $2, $3, $4, $5, $6)
         RETURNING *
       `,
       [
         input.id,
         input.originalFilename,
         input.encoding,
+        input.direction,
         input.inputObjectKey,
         input.inputBytes,
       ],
@@ -165,6 +181,7 @@ function mapRow(row: JobRow): ConversionJob {
     status: row.status,
     originalFilename: row.original_filename,
     encoding: row.encoding,
+    direction: row.direction,
     inputObjectKey: row.input_object_key,
     inputBytes: Number(row.input_bytes),
     outputObjectKey: row.output_object_key,

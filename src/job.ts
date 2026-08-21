@@ -8,6 +8,8 @@ export const JOB_STATUSES = [
 ] as const;
 
 export type JobStatus = (typeof JOB_STATUSES)[number];
+export const CONVERSION_DIRECTIONS = ["iso-to-json", "json-to-iso"] as const;
+export type ConversionDirection = (typeof CONVERSION_DIRECTIONS)[number];
 export type JobSummary = Omit<MarcProcessingSummary, "outputPath">;
 
 export interface ConversionJob {
@@ -15,6 +17,7 @@ export interface ConversionJob {
   readonly status: JobStatus;
   readonly originalFilename: string;
   readonly encoding: string;
+  readonly direction: ConversionDirection;
   readonly inputObjectKey: string;
   readonly inputBytes: number;
   readonly outputObjectKey: string | null;

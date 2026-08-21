@@ -12,7 +12,6 @@ import type {
 import type { MarcValidator } from "./marc-validator.js";
 
 export class MarcJsonTransform extends Transform {
-  private firstRecord: string | undefined;
   private recordIndex = 0;
   private byteOffset = 0;
   private validRecords = 0;
@@ -51,20 +50,6 @@ export class MarcJsonTransform extends Transform {
     );
   }
 
-  override _flush(callback: TransformCallback): void {
-    if (this.recordIndex === 0) {
-      callback(null, "[]\n");
-      return;
-    }
-
-    if (this.recordIndex === 1) {
-      callback(null, `${this.firstRecord}\n`);
-      return;
-    }
-
-    callback(null, "\n]\n");
-  }
-
   private async convertRecord(recordBuffer: Buffer): Promise<string | undefined> {
     const context: MarcRecordContext = {
       recordIndex: this.recordIndex,
@@ -79,8 +64,6 @@ export class MarcJsonTransform extends Transform {
 
       const serializedRecord = JSON.stringify(
         this.serializer.serializeUnrecognized(),
-        null,
-        2,
       );
 
       this.recordsWithParsingErrors += 1;
@@ -94,8 +77,6 @@ export class MarcJsonTransform extends Transform {
 
     const serializedRecord = JSON.stringify(
       this.serializer.serialize(record, validationResult.errors),
-      null,
-      2,
     );
     if (validationResult.valid) {
       this.validRecords += 1;
@@ -111,33 +92,11 @@ export class MarcJsonTransform extends Transform {
     serializedRecord: string,
     recordByteLength: number,
   ): string | undefined {
-    const output = this.appendRecord(serializedRecord);
-
     this.recordIndex += 1;
     this.byteOffset += recordByteLength;
 
-    return output;
+    return `${serializedRecord}\n`;
   }
-
-  private appendRecord(record: string): string | undefined {
-    if (this.firstRecord === undefined) {
-      this.firstRecord = record;
-      return undefined;
-    }
-
-    if (this.recordIndex === 1) {
-      return `[\n${indent(this.firstRecord)},\n${indent(record)}`;
-    }
-
-    return `,\n${indent(record)}`;
-  }
-}
-
-function indent(value: string): string {
-  return value
-    .split("\n")
-    .map((line) => `  ${line}`)
-    .join("\n");
 }
 
 function toError(error: unknown): Error {

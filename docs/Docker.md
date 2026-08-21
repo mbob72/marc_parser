@@ -1,8 +1,8 @@
 # Запуск и проверка MARC Parser в Docker
 
 Эта инструкция описывает локальный запуск асинхронного сервиса конвертации
-MARC 21 / ISO 2709 в JSON и проверку полного пути файла через API, очередь и
-worker.
+MARC 21 / ISO 2709 в MARC-JSON/NDJSON и обратно, а также проверку полного пути
+файла через API, очередь и worker.
 
 ## Состав сервиса
 
@@ -11,13 +11,13 @@ worker.
 | Сервис | Назначение | Доступ с хоста |
 | --- | --- | --- |
 | `api` | Принимает файлы и возвращает статусы заданий | `http://localhost:3000` |
-| `worker` | Конвертирует MARC в JSON | Не публикуется |
+| `worker` | Конвертирует ISO ↔ MARC-JSON | Не публикуется |
 | `rabbitmq` | Хранит очередь заданий | `http://localhost:15672` |
 | `minio` | Хранит входные файлы и результаты | `http://localhost:9001` |
 | `postgres` | Хранит статусы и статистику заданий | Не публикуется |
 
 Файл передаётся в MinIO, а в RabbitMQ отправляется только идентификатор
-задания. После обработки worker сохраняет JSON в MinIO и обновляет статус в
+задания. После обработки worker сохраняет результат в MinIO и обновляет статус в
 PostgreSQL.
 
 ## Требования
@@ -79,6 +79,7 @@ curl -fsS http://localhost:3000/health | jq
 curl -fsS \
   -F file=@fixture/nlm-catplus-20251201-1mb.mrc \
   -F encoding=utf-8 \
+  -F direction=iso-to-json \
   http://localhost:3000/jobs \
   | tee /tmp/marc-job.json \
   | jq
@@ -93,6 +94,7 @@ API отвечает кодом `202 Accepted`. Начальное состоя�
   "status": "queued",
   "filename": "nlm-catplus-20251201-1mb.mrc",
   "encoding": "utf-8",
+  "direction": "iso-to-json",
   "inputBytes": 1011909
 }
 ```
@@ -136,10 +138,10 @@ curl -fsS \
   "http://localhost:3000/jobs/$job_id/result"
 ```
 
-Проверить синтаксис JSON:
+Проверить синтаксис каждой строки NDJSON:
 
 ```bash
-jq empty result.json
+jq -c . result.json >/dev/null
 ```
 
 Команда ничего не выводит и завершается с кодом `0`, если JSON корректен.
@@ -147,7 +149,7 @@ jq empty result.json
 Проверить количество записей:
 
 ```bash
-jq 'if type == "array" then length else 1 end' result.json
+wc -l < result.json
 ```
 
 Для `nlm-catplus-20251201-1mb.mrc` ожидается:
@@ -155,6 +157,23 @@ jq 'if type == "array" then length else 1 end' result.json
 ```text
 655
 ```
+
+### Проверка JSON → ISO
+
+Использовать полученный NDJSON как вход обратного задания:
+
+```bash
+curl -fsS \
+  -F file=@result.json \
+  -F encoding=utf-8 \
+  -F direction=json-to-iso \
+  http://localhost:3000/jobs \
+  | tee /tmp/marc-reverse-job.json \
+  | jq
+```
+
+После статуса `completed` скачать `/jobs/<jobId>/result`. Имя результата имеет
+расширение `.mrc`, а ответ — MIME `application/marc`.
 
 ## Проверка очередей
 
@@ -190,8 +209,9 @@ MinIO Console доступна по адресу `http://localhost:9001`:
 
 В bucket `marc-jobs` находятся:
 
-- `inputs/<jobId>.mrc` — исходные файлы;
-- `outputs/<jobId>.json` — результаты.
+- `inputs/<jobId>` — исходные файлы обоих направлений;
+- `outputs/<jobId>.json` — результаты ISO → NDJSON;
+- `outputs/<jobId>.mrc` — результаты NDJSON → ISO.
 
 ## Проверка PostgreSQL
 
@@ -200,7 +220,7 @@ MinIO Console доступна по адресу `http://localhost:9001`:
 ```bash
 docker compose exec -T postgres \
   psql -U marc -d marc_parser -c \
-  "SELECT id, status, original_filename, input_bytes, created_at
+  "SELECT id, status, direction, original_filename, input_bytes, created_at
    FROM conversion_jobs
    ORDER BY created_at DESC
    LIMIT 10;"

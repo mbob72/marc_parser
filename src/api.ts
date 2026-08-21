@@ -3,6 +3,7 @@ import Fastify, {
   type FastifyInstance,
   type FastifyReply,
 } from "fastify";
+import iconv from "iconv-lite";
 import { randomUUID } from "node:crypto";
 import { createReadStream, createWriteStream } from "node:fs";
 import { mkdtemp, rm } from "node:fs/promises";
@@ -12,6 +13,10 @@ import { Transform } from "node:stream";
 import { pipeline } from "node:stream/promises";
 import { pathToFileURL } from "node:url";
 import type { ConversionJob } from "./job.js";
+import {
+  CONVERSION_DIRECTIONS,
+  type ConversionDirection,
+} from "./job.js";
 import { JobDatabase } from "./job-database.js";
 import { JobQueue } from "./job-queue.js";
 import { ObjectStore } from "./object-store.js";
@@ -58,8 +63,9 @@ export async function buildApi(
 
   app.post("/jobs", async (request, reply) => {
     const jobId = randomUUID();
-    const inputObjectKey = `inputs/${jobId}.mrc`;
+    const inputObjectKey = `inputs/${jobId}`;
     let encoding = "utf-8";
+    let direction: ConversionDirection = "iso-to-json";
     let originalFilename: string | null = null;
     let inputBytes = 0;
     let fileWasUploaded = false;
@@ -71,6 +77,9 @@ export async function buildApi(
         if (part.type === "field") {
           if (part.fieldname === "encoding") {
             encoding = String(part.value);
+          }
+          if (part.fieldname === "direction") {
+            direction = parseDirection(String(part.value));
           }
           continue;
         }
@@ -122,12 +131,13 @@ export async function buildApi(
         throw new ApiError(400, "Файл в поле file не передан.");
       }
 
-      assertSupportedEncoding(encoding);
+      assertSupportedEncoding(encoding, direction);
 
       const job = await dependencies.database.createJob({
         id: jobId,
         originalFilename,
         encoding,
+        direction,
         inputObjectKey,
         inputBytes,
       });
@@ -184,8 +194,14 @@ export async function buildApi(
 
       const stream = await dependencies.objectStore.get(job.outputObjectKey);
       const filename = job.outputFilename ?? `${job.id}.json`;
+      const isJson = filename.toLowerCase().endsWith(".json");
 
-      reply.header("Content-Type", "application/json; charset=utf-8");
+      reply.header(
+        "Content-Type",
+        isJson
+          ? "application/x-ndjson; charset=utf-8"
+          : "application/marc",
+      );
       reply.header(
         "Content-Disposition",
         `attachment; filename*=UTF-8''${encodeURIComponent(filename)}`,
@@ -242,6 +258,7 @@ function toPublicJob(job: ConversionJob): Record<string, unknown> {
     status: job.status,
     filename: job.originalFilename,
     encoding: job.encoding,
+    direction: job.direction,
     inputBytes: job.inputBytes,
     summary: job.summary,
     error: job.error,
@@ -253,7 +270,29 @@ function toPublicJob(job: ConversionJob): Record<string, unknown> {
   };
 }
 
-function assertSupportedEncoding(encoding: string): void {
+function parseDirection(value: string): ConversionDirection {
+  if (
+    CONVERSION_DIRECTIONS.includes(value as ConversionDirection)
+  ) {
+    return value as ConversionDirection;
+  }
+  throw new ApiError(
+    400,
+    `Направление ${JSON.stringify(value)} не поддерживается.`,
+  );
+}
+
+function assertSupportedEncoding(
+  encoding: string,
+  direction: ConversionDirection,
+): void {
+  if (direction === "json-to-iso" && !iconv.encodingExists(encoding)) {
+    throw new ApiError(
+      400,
+      `Кодировка ${JSON.stringify(encoding)} не поддерживается.`,
+    );
+  }
+
   try {
     new TextDecoder(encoding);
   } catch {

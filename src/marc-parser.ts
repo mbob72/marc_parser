@@ -194,7 +194,10 @@ function parseField(field: MarcRawField): MarcField {
 }
 
 function isControlField(tag: string): boolean {
-  return tag.startsWith("00");
+  // FMT is an Aleph/RSL service field. It has no indicators or subfields and
+  // carries the record format (BK, CR, ...), so structurally it is handled in
+  // the same way as a MARC control field.
+  return tag.startsWith("00") || tag.toUpperCase() === "FMT";
 }
 
 function parseDataField(field: MarcRawField, content: Buffer): MarcDataField {

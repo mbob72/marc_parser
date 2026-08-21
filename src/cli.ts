@@ -1,5 +1,7 @@
 import { resolve } from "node:path";
+import iconv from "iconv-lite";
 import { convertMarcFile } from "./marc-file-converter.js";
+import { convertMarcJsonFile } from "./marc-json-file-converter.js";
 import { ConsoleMarcProcessingLogger } from "./marc-processing-logger.js";
 import { APP_VERSION } from "./version.js";
 
@@ -7,10 +9,12 @@ const APP_NAME = "marc-parser";
 const DEFAULT_ENCODING = "utf-8";
 
 const HELP = [
-  `Использование: ${APP_NAME} <входной-файл> <выходной-файл> [кодировка] [--log]`,
+  `Использование: ${APP_NAME} <входной-файл> <выходной-файл> [кодировка] [--to-json|--to-iso] [--log]`,
   "",
   "Параметры:",
   "  --log        Выводить результат валидации каждой записи.",
+  "  --to-json    Преобразовать ISO 2709 в MARC-JSON/NDJSON (по умолчанию).",
+  "  --to-iso     Преобразовать MARC-JSON/NDJSON в ISO 2709.",
   "  -h, --help   Показать эту справку.",
   "  -v, --version  Показать версию программы.",
   "",
@@ -44,7 +48,11 @@ async function main(args: readonly string[]): Promise<number> {
   });
 
   try {
-    await convertMarcFile({
+    const convert =
+      parsed.direction === "json-to-iso"
+        ? convertMarcJsonFile
+        : convertMarcFile;
+    await convert({
       encoding: parsed.encoding,
       inputPath: parsed.inputPath,
       outputPath: parsed.outputPath,
@@ -65,6 +73,7 @@ type ParsedArguments =
   | {
       readonly kind: "convert";
       readonly encoding: string;
+      readonly direction: ConversionDirection;
       readonly inputPath: string;
       readonly logEnabled: boolean;
       readonly outputPath: string;
@@ -73,6 +82,7 @@ type ParsedArguments =
 function parseArgs(args: readonly string[]): ParsedArguments {
   const positionalArguments: string[] = [];
   let logEnabled = false;
+  let direction: ConversionDirection = "iso-to-json";
 
   for (const argument of args) {
     if (argument === "-h" || argument === "--help") {
@@ -85,6 +95,16 @@ function parseArgs(args: readonly string[]): ParsedArguments {
 
     if (argument === "--log") {
       logEnabled = true;
+      continue;
+    }
+
+    if (argument === "--to-json") {
+      direction = "iso-to-json";
+      continue;
+    }
+
+    if (argument === "--to-iso") {
+      direction = "json-to-iso";
       continue;
     }
 
@@ -108,9 +128,7 @@ function parseArgs(args: readonly string[]): ParsedArguments {
     };
   }
 
-  try {
-    new TextDecoder(encoding);
-  } catch {
+  if (!isSupportedEncoding(encoding, direction)) {
     return {
       kind: "usage-error",
       message: `Кодировка ${JSON.stringify(encoding)} не поддерживается.`,
@@ -120,10 +138,29 @@ function parseArgs(args: readonly string[]): ParsedArguments {
   return {
     kind: "convert",
     encoding,
+    direction,
     inputPath: resolve(inputArgument),
     logEnabled,
     outputPath: resolve(outputArgument),
   };
+}
+
+type ConversionDirection = "iso-to-json" | "json-to-iso";
+
+function isSupportedEncoding(
+  encoding: string,
+  direction: ConversionDirection,
+): boolean {
+  if (direction === "json-to-iso" && !iconv.encodingExists(encoding)) {
+    return false;
+  }
+
+  try {
+    new TextDecoder(encoding);
+    return true;
+  } catch {
+    return false;
+  }
 }
 
 function toError(error: unknown): Error {

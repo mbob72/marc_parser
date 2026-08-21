@@ -32,9 +32,11 @@ async function smokeTest(binaryPath, inputPath) {
       outputPath,
       "utf-8",
     ]);
-    const records = JSON.parse(await readFile(jsonOutputPath, "utf8"));
+    const records = (await readFile(jsonOutputPath, "utf8"))
+      .trimEnd()
+      .split("\n")
+      .map((line) => JSON.parse(line));
 
-    assert.ok(Array.isArray(records), "Результат должен быть JSON-массивом.");
     assert.equal(records.length, 655, "Ожидалось 655 MARC-записей.");
     assert.match(conversion.stdout, /Обработано записей: 655/);
 

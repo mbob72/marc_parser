@@ -36,13 +36,12 @@ test("записывает одну MARC-запись как JSON-объект",
   assert.equal(json.leader, "01590cam a2200217 u 4500");
 });
 
-test("записывает несколько MARC-записей как JSON-массив", async () => {
+test("записывает несколько MARC-записей как NDJSON", async () => {
   const record = await readFile(recordUrl);
 
   const output = await transformRecords([record, record]);
-  const json = JSON.parse(output);
+  const json = output.trimEnd().split("\n").map((line) => JSON.parse(line));
 
-  assert.equal(Array.isArray(json), true);
   assert.equal(json.length, 2);
   assert.equal(json[0]?.fields[0]?.code, "001");
 });
@@ -75,11 +74,11 @@ test("передаёт все ошибки в лог и заменяет пов�
   );
 
   const output = await collectOutput(Readable.from([record]).pipe(transform));
-  const json = JSON.parse(output);
+  const json = output.trimEnd().split("\n").map((line) => JSON.parse(line));
 
   assert.deepEqual(logger.validationErrors, errors);
-  assert.equal(json.leader, UNRECOGNIZED_VALUE);
-  assert.equal(json.fields[0]?.code, UNRECOGNIZED_VALUE);
+  assert.equal(json[0]?.leader, UNRECOGNIZED_VALUE);
+  assert.equal(json[0]?.fields[0]?.code, UNRECOGNIZED_VALUE);
 });
 
 test("заменяет структурно повреждённую запись и продолжает поток", async () => {
@@ -95,7 +94,7 @@ test("заменяет структурно повреждённую запис�
   const output = await collectOutput(
     Readable.from([record, record]).pipe(transform),
   );
-  const json = JSON.parse(output);
+  const json = output.trimEnd().split("\n").map((line) => JSON.parse(line));
 
   assert.equal(json.length, 2);
   assert.equal(json[0]?.leader, "01590cam a2200217 u 4500");

@@ -67,11 +67,54 @@ export class MarcJsonSerializer
       leader: hasRule(errors, "LD-02")
         ? UNRECOGNIZED_VALUE
         : record.leader.raw,
-      format: resolveFormat(record),
-      fields: record.fields.map((field, fieldIndex) =>
-        this.serializeField(field, fieldIndex, errors),
+      format: this.resolveFormat(record, errors),
+      fields: record.fields.flatMap((field, fieldIndex) =>
+        field.tag.toUpperCase() === "FMT"
+          ? []
+          : [this.serializeField(field, fieldIndex, errors)],
       ),
     };
+  }
+
+  private resolveFormat(
+    record: MarcRecord,
+    errors: readonly MarcValidationError[],
+  ): MarcJsonFormat {
+    const fieldIndex = record.fields.findIndex(
+      ({ tag }) => tag.toUpperCase() === "FMT",
+    );
+
+    if (fieldIndex === -1) {
+      return UNRECOGNIZED_VALUE;
+    }
+
+    const field = record.fields[fieldIndex];
+    const fieldErrors = errors.filter(
+      (error) => error.fieldIndex === fieldIndex,
+    );
+
+    if (!field || fieldErrors.length > 0) {
+      return UNRECOGNIZED_VALUE;
+    }
+
+    const rawValue =
+      field.kind === "control"
+        ? this.decoder.decode(field.value)
+        : field.subfields[0]
+          ? this.decoder.decode(field.subfields[0].value)
+          : "";
+    const value = rawValue.trim().toUpperCase();
+
+    if (isMarcJsonFormat(value)) {
+      return value;
+    }
+
+    // Aleph exports encountered in practice may retain service-field
+    // decorations around the value. Accept one unambiguous format token.
+    const tokens = value.match(/(?:BK|CF|CR|MP|MU|MX|VM)/g) ?? [];
+    return tokens.length === 1 && isMarcJsonFormat(tokens[0]!)
+      ? tokens[0]!
+      : UNRECOGNIZED_VALUE;
   }
 
   serializeUnrecognized(): MarcJsonRecord {
@@ -178,33 +221,9 @@ function createUnrecognizedSubfield(): MarcJsonSubfield {
   };
 }
 
-function resolveFormat(record: MarcRecord): MarcJsonFormat {
-  const type = record.leader.typeOfRecord;
-  const bibliographicLevel = record.leader.bibliographicLevel;
-
-  if (type === "a" && ["b", "i", "s"].includes(bibliographicLevel)) {
-    return "CR";
-  }
-
-  if (["a", "t"].includes(type)) {
-    return "BK";
-  }
-
-  if (["e", "f"].includes(type)) {
-    return "MP";
-  }
-
-  if (["c", "d", "i", "j"].includes(type)) {
-    return "MU";
-  }
-
-  if (["g", "k", "o", "r"].includes(type)) {
-    return "VM";
-  }
-
-  if (type === "m") {
-    return "CF";
-  }
-
-  return "MX";
+export function isMarcJsonFormat(value: string): value is Exclude<
+  MarcJsonFormat,
+  typeof UNRECOGNIZED_VALUE
+> {
+  return ["BK", "CF", "CR", "MP", "MU", "MX", "VM"].includes(value);
 }
