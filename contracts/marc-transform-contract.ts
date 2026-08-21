@@ -43,7 +43,7 @@ export interface MarcJsonSubfield {
 }
 
 export interface MarcJsonControlField {
-  /** A three-character 00X tag. */
+  /** A three-digit tag beginning with 00. */
   readonly code: string;
   readonly value: string;
   readonly ind1?: never;
