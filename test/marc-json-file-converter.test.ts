@@ -82,6 +82,24 @@ test("отклоняет JSON без маркера исходного конт�
   );
 });
 
+test("смешанное поле во второй строке отклоняется без замены результата", async (context) => {
+  const directory = await createTemporaryDirectory(context);
+  const record = JSON.parse(await readFile(jsonRecordUrl, "utf8"));
+  const invalidRecord = {
+    ...record,
+    fields: [{ code: "001", value: "123", ind1: " " }],
+  };
+  const inputPath = join(directory, "mixed.iso.ndjson");
+  const outputPath = join(directory, "mixed.mrc");
+  await writeFile(inputPath, `${JSON.stringify(record)}\n${JSON.stringify(invalidRecord)}\n`);
+  await writeFile(outputPath, "previous result");
+
+  await assert.rejects(convertMarcJsonFile({
+    encoding: "utf-8", inputPath, outputPath,
+  }), /Строка 2: fields\[0\]\.ind1:.*запрещено/);
+  assert.equal(await readFile(outputPath, "utf8"), "previous result");
+});
+
 async function createTemporaryDirectory(context: TestContext): Promise<string> {
   const directory = await mkdtemp(join(tmpdir(), "marc-json-test-"));
   context.after(() => rm(directory, { recursive: true, force: true }));

@@ -46,9 +46,6 @@ export interface MarcJsonControlField {
   /** A three-digit tag beginning with 00. */
   readonly code: string;
   readonly value: string;
-  readonly ind1?: never;
-  readonly ind2?: never;
-  readonly subfields?: never;
 }
 
 export interface MarcJsonDataField {
@@ -57,9 +54,9 @@ export interface MarcJsonDataField {
   readonly ind1: string;
   readonly ind2: string;
   readonly subfields: readonly MarcJsonSubfield[];
-  readonly value?: never;
 }
 
+/** Forbidden properties are checked at runtime, not by this union. */
 export type MarcJsonField = MarcJsonControlField | MarcJsonDataField;
 
 /**
