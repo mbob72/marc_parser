@@ -62,13 +62,8 @@ export class MarcJsonTransform extends Transform {
     } catch (error) {
       await this.logger?.logParsingError(toError(error), context);
 
-      const serializedRecord = JSON.stringify(
-        this.serializer.serializeUnrecognized(),
-      );
-
       this.recordsWithParsingErrors += 1;
-
-      return this.finishRecord(serializedRecord, recordBuffer.length);
+      throw error;
     }
 
     const validationResult = this.validator.validate(record);
@@ -76,7 +71,7 @@ export class MarcJsonTransform extends Transform {
     await this.logger?.logValidationResult(validationResult, context);
 
     const serializedRecord = JSON.stringify(
-      this.serializer.serialize(record, validationResult.errors),
+      this.serializer.serialize(record),
     );
     if (validationResult.valid) {
       this.validRecords += 1;

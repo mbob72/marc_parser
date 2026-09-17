@@ -1,6 +1,8 @@
+import { Iso2709MarcParser, type MarcParser } from "./marc-parser.js";
+import { MarcRecordValidator, type MarcValidator } from "./marc-validator.js";
 import { StringDecoder } from "node:string_decoder";
 import { Transform, type TransformCallback } from "node:stream";
-import type { MarcProcessingStatistics } from "./marc-processing-logger.js";
+import type { MarcProcessingLogger, MarcProcessingStatistics } from "./marc-processing-logger.js";
 
 export interface MarcBinarySerializer {
   serialize(value: unknown): Buffer;
@@ -14,17 +16,26 @@ export class MarcJsonToIsoTransform extends Transform {
   private recordsProcessed = 0;
   private inputBytes = 0;
 
-  constructor(private readonly serializer: MarcBinarySerializer) {
+  private recordsWithValidationErrors = 0;
+  private validationErrors = 0;
+  private byteOffset = 0;
+
+  constructor(
+    private readonly serializer: MarcBinarySerializer,
+    private readonly logger?: MarcProcessingLogger,
+    private readonly parser: MarcParser = new Iso2709MarcParser(),
+    private readonly validator: MarcValidator = new MarcRecordValidator(),
+  ) {
     super();
   }
 
   get statistics(): MarcProcessingStatistics {
     return {
       recordsProcessed: this.recordsProcessed,
-      validRecords: this.recordsProcessed,
-      recordsWithValidationErrors: 0,
+      validRecords: this.recordsProcessed - this.recordsWithValidationErrors,
+      recordsWithValidationErrors: this.recordsWithValidationErrors,
       recordsWithParsingErrors: 0,
-      validationErrors: 0,
+      validationErrors: this.validationErrors,
       inputBytes: this.inputBytes,
     };
   }
@@ -34,39 +45,29 @@ export class MarcJsonToIsoTransform extends Transform {
     _encoding: BufferEncoding,
     callback: TransformCallback,
   ): void {
-    try {
-      this.inputBytes += chunk.length;
-      this.pending += this.decoder.write(chunk);
-      this.processCompleteLines();
-      callback();
-    } catch (error) {
-      callback(toError(error));
-    }
+    this.inputBytes += chunk.length;
+    this.pending += this.decoder.write(chunk);
+    void this.processCompleteLines().then(() => callback(), error => callback(toError(error)));
   }
 
   override _flush(callback: TransformCallback): void {
-    try {
-      this.pending += this.decoder.end();
-      if (this.pending.trim().length > 0) {
-        this.processLine(this.pending.replace(/\r$/, ""));
-      }
-      callback();
-    } catch (error) {
-      callback(toError(error));
-    }
+    this.pending += this.decoder.end();
+    void this.processLine(this.pending).then(() => callback(), error => callback(toError(error)));
   }
 
-  private processCompleteLines(): void {
+  private async processCompleteLines(): Promise<void> {
     let newline = this.pending.indexOf("\n");
     while (newline !== -1) {
-      const line = this.pending.slice(0, newline).replace(/\r$/, "");
+      const line = this.pending.slice(0, newline + 1);
       this.pending = this.pending.slice(newline + 1);
-      this.processLine(line);
+      await this.processLine(line);
       newline = this.pending.indexOf("\n");
     }
   }
 
-  private processLine(line: string): void {
+  private async processLine(line: string): Promise<void> {
+    const byteOffset = this.byteOffset;
+    this.byteOffset += Buffer.byteLength(line, "utf8");
     this.lineNumber += 1;
     if (line.trim().length === 0) {
       return;
@@ -82,7 +83,16 @@ export class MarcJsonToIsoTransform extends Transform {
     }
 
     try {
-      this.push(this.serializer.serialize(value));
+      const output = this.serializer.serialize(value);
+      const result = this.validator.validate(this.parser.parse(output));
+      await this.logger?.logValidationResult(result, {
+        recordIndex: this.recordsProcessed, byteOffset,
+      });
+      if (!result.valid) {
+        this.recordsWithValidationErrors += 1;
+        this.validationErrors += result.errors.length;
+      }
+      this.push(output);
     } catch (error) {
       throw new Error(`Строка ${this.lineNumber}: ${toError(error).message}`);
     }

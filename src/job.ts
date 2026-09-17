@@ -14,7 +14,9 @@ export const SERVICE_MARC_FORMATS = ["aleph-sequential", "iso2709"] as const;
 export type ServiceMarcFormat = (typeof SERVICE_MARC_FORMATS)[number];
 export const DEFAULT_SERVICE_MARC_FORMAT: ServiceMarcFormat =
   "aleph-sequential";
-export type JobSummary = Omit<MarcProcessingSummary, "outputPath">;
+export type JobSummary = Omit<MarcProcessingSummary, "outputPath" | "validationErrorsPath"> & {
+  readonly validationErrorsObjectKey?: string;
+};
 
 export interface ConversionJob {
   readonly id: string;

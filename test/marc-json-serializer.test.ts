@@ -3,7 +3,6 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import {
   MarcJsonSerializer,
-  UNRECOGNIZED_VALUE,
 } from "../src/marc-json-serializer.ts";
 import { Iso2709MarcParser } from "../src/marc-parser.ts";
 import type { MarcRecord } from "../src/marc-record.ts";
@@ -30,7 +29,7 @@ test("преобразует MARC-запись в эталонную JSON-стр
 
   assert.deepEqual(actual, {
     ...JSON.parse(expectedJson),
-    format: UNRECOGNIZED_VALUE,
+    format: "",
   });
 });
 
@@ -68,7 +67,7 @@ test("декодирует значения из Windows-1251", async () => {
   assert.equal(field.subfields[0]?.value, "Царствование Елисаветы Петровны");
 });
 
-test("заменяет некорректные части записи значением по умолчанию", async () => {
+test("сохраняет некорректные значения без подмены", async () => {
   const source = await readFile(marcRecordUrl);
   const parsedRecord = new Iso2709MarcParser().parse(source);
   const controlField = parsedRecord.fields[0]!;
@@ -113,26 +112,25 @@ test("заменяет некорректные части записи знач
 
   const json = new MarcJsonSerializer("utf-8").serialize(
     invalidRecord,
-    validation.errors,
   );
 
   assert.equal(validation.valid, false);
-  assert.equal(json.leader, UNRECOGNIZED_VALUE);
-  assert.equal(json.fields[0]?.code, UNRECOGNIZED_VALUE);
+  assert.equal(json.leader, invalidRecord.leader.raw);
+  assert.equal(json.fields[0]?.code, "A1b");
 
   const jsonDataField = json.fields[1];
   assert.ok(jsonDataField && "subfields" in jsonDataField);
-  assert.equal(jsonDataField.ind1, UNRECOGNIZED_VALUE);
-  assert.equal(jsonDataField.ind2, UNRECOGNIZED_VALUE);
+  assert.equal(jsonDataField.ind1, "A");
+  assert.equal(jsonDataField.ind2, "");
   assert.deepEqual(jsonDataField.subfields, [
     {
-      code: UNRECOGNIZED_VALUE,
+      code: "A",
       value: "сохранённое значение",
     },
   ]);
 });
 
-test("добавляет заглушку для поля данных без подполей", async () => {
+test("сохраняет пустой список подполей", async () => {
   const source = await readFile(marcRecordUrl);
   const parsedRecord = new Iso2709MarcParser().parse(source);
   const dataField = parsedRecord.fields.find(
@@ -157,15 +155,9 @@ test("добавляет заглушку для поля данных без п
 
   const json = new MarcJsonSerializer("utf-8").serialize(
     invalidRecord,
-    validation.errors,
   );
   const jsonDataField = json.fields[0];
 
   assert.ok(jsonDataField && "subfields" in jsonDataField);
-  assert.deepEqual(jsonDataField.subfields, [
-    {
-      code: UNRECOGNIZED_VALUE,
-      value: UNRECOGNIZED_VALUE,
-    },
-  ]);
+  assert.deepEqual(jsonDataField.subfields, []);
 });

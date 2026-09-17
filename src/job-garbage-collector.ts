@@ -67,6 +67,9 @@ export class JobGarbageCollector {
 
   private async removeJobObjects(job: ConversionJob): Promise<void> {
     await this.objectStore.remove(job.inputObjectKey);
+    if (job.summary?.validationErrorsObjectKey) {
+      await this.objectStore.remove(job.summary.validationErrorsObjectKey);
+    }
     if (job.outputObjectKey) {
       await this.objectStore.remove(job.outputObjectKey);
     }

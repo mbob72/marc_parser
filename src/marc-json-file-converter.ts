@@ -1,7 +1,10 @@
+import { AlephSequentialMarcParser } from "./aleph-sequential-parser.js";
+import { Iso2709MarcParser } from "./marc-parser.js";
+import { MarcRecordValidator } from "./marc-validator.js";
 import { randomUUID } from "node:crypto";
 import { once } from "node:events";
 import { createReadStream, createWriteStream } from "node:fs";
-import { rename, unlink } from "node:fs/promises";
+import { open, rename, unlink } from "node:fs/promises";
 import { basename, dirname, extname, join } from "node:path";
 import { pipeline } from "node:stream/promises";
 import { MarcAlephSequentialSerializer } from "./marc-aleph-sequential-serializer.js";
@@ -40,15 +43,32 @@ export async function convertMarcJsonFile(
       ? addAlephExtension(outputPath)
       : addIsoExtension(outputPath);
 
-  if (inputPath === binaryOutputPath) {
+  const validationErrorsPath = `${binaryOutputPath}.validation-errors.ndjson`;
+  if (inputPath === binaryOutputPath || inputPath === validationErrorsPath) {
     throw new Error("Входной и выходной файлы должны отличаться.");
   }
 
   const temporaryOutputPath = createTemporaryOutputPath(binaryOutputPath);
+  const serializer = resolvedOutputFormat === "aleph-sequential"
+    ? new MarcAlephSequentialSerializer(encoding) : new MarcIsoSerializer(encoding);
+  const temporaryErrorsPath = createTemporaryOutputPath(validationErrorsPath);
+  const errorsFile = await open(temporaryErrorsPath, "wx");
+  const reportLogger: MarcProcessingLogger = {
+    async logValidationResult(result, context) {
+      if (!result.valid) {
+        await errorsFile.writeFile(JSON.stringify({ ...context, errors: result.errors }) + "\n");
+      }
+      await logger?.logValidationResult(result, context);
+    },
+    logParsingError: (error, context) => logger?.logParsingError(error, context),
+    logSummary: (summary) => logger?.logSummary(summary),
+    logFatalError: (error) => logger?.logFatalError(error),
+  };
   const transform = new MarcJsonToIsoTransform(
+    serializer, reportLogger,
     resolvedOutputFormat === "aleph-sequential"
-      ? new MarcAlephSequentialSerializer(encoding)
-      : new MarcIsoSerializer(encoding),
+      ? new AlephSequentialMarcParser() : new Iso2709MarcParser(),
+    new MarcRecordValidator(encoding),
   );
   const inputStream = createReadStream(inputPath, {
     highWaterMark: chunkSize,
@@ -63,6 +83,13 @@ export async function convertMarcJsonFile(
       transform,
       createWriteStream(temporaryOutputPath, { flags: "wx" }),
     );
+    await errorsFile.close();
+    if (transform.statistics.validationErrors > 0) {
+      await rename(temporaryErrorsPath, validationErrorsPath);
+    } else {
+      await removeTemporaryFile(temporaryErrorsPath);
+      await removeTemporaryFile(validationErrorsPath);
+    }
     await rename(temporaryOutputPath, binaryOutputPath);
     outputWasRenamed = true;
 
@@ -70,10 +97,13 @@ export async function convertMarcJsonFile(
       ...transform.statistics,
       durationMilliseconds: elapsedMilliseconds(startedAt),
       outputPath: binaryOutputPath,
+      ...(transform.statistics.validationErrors > 0 ? { validationErrorsPath } : {}),
     };
     await logger?.logSummary(summary);
     return summary;
   } catch (error) {
+    await errorsFile.close();
+    await removeTemporaryFile(temporaryErrorsPath);
     if (!outputWasRenamed) {
       await removeTemporaryFile(temporaryOutputPath);
     }

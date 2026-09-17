@@ -154,3 +154,24 @@ test("отклоняет данные короче Leader", () => {
     /Недостаточно данных для Leader/,
   );
 });
+
+test("отклоняет несовпадение длины записи и Leader", async () => {
+  const source = Buffer.from(await readFile(recordUrl));
+  source.write("01591", 0, "ascii");
+  assert.throws(() => new Iso2709MarcParser().parse(source), /Длина MARC-записи/);
+});
+
+test("отклоняет пересекающиеся поля Directory", async () => {
+  const source = Buffer.from(await readFile(recordUrl));
+  // Make the second entry reference the exact same bytes as the first.
+  source.copy(source, 39, 27, 36);
+  assert.throws(() => new Iso2709MarcParser().parse(source), /пропуск или пересечение/);
+});
+
+test("отклоняет длину поля, захватывающую следующее поле", async () => {
+  const source = Buffer.from(await readFile(recordUrl));
+  const first = Number(source.subarray(27, 31).toString());
+  const second = Number(source.subarray(39, 43).toString());
+  source.write(String(first + second).padStart(4, "0"), 27, "ascii");
+  assert.throws(() => new Iso2709MarcParser().parse(source), /пропуск или пересечение/);
+});

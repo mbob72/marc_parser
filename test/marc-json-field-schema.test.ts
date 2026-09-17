@@ -47,13 +47,10 @@ test("отклоняет неполные поля и неверные знач�
   for (const [field, path] of [
     [null, "fields[2]"],
     [{ code: "FMT", value: "BK" }, "fields[2]"],
-    [{ code: "00A", value: "123" }, "fields[2]"],
     [{ code: "001" }, "fields[2].value"],
     [{ ...data, ind1: undefined }, "fields[2].ind1"],
     [{ ...data, ind2: "AA" }, "fields[2].ind2"],
     [{ ...data, ind1: "<unrecognized>" }, "fields[2].ind1"],
-    [{ ...data, subfields: [] }, "fields[2].subfields"],
-    [{ ...data, subfields: [{ code: "A", value: "x" }] }, "fields[2].subfields[0].code"],
     [{ ...data, subfields: [{ code: "a", value: 12 }] }, "fields[2].subfields[0].value"],
   ] as const) {
     assert.throws(() => parseMarcJsonField(field, 2), (error: unknown) => {
@@ -61,5 +58,16 @@ test("отклоняет неполные поля и неверные знач�
       assert.ok(error.message.includes(path), error.message);
       return true;
     });
+  }
+});
+
+
+test("принимает структурно представимые поля с ошибками валидации", () => {
+  for (const field of [
+    { code: "00A", value: "123" },
+    { ...data, code: "A1b", ind1: "A", subfields: [] },
+    { ...data, subfields: [{ code: "A", value: "x" }] },
+  ]) {
+    assert.deepEqual(parseMarcJsonField(field, 0), field);
   }
 });

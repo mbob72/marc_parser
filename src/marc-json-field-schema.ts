@@ -1,10 +1,10 @@
 import { z } from "zod";
 import type { MarcJsonField } from "./marc-json-serializer.js";
 
-const tagSchema = z.string().regex(/^(?:[0-9]{3}|[A-Za-z]{3})$/)
+const tagSchema = z.string().regex(/^[\x00-\x7f]{3}$/)
   .refine((code) => code.toUpperCase() !== "FMT", "FMT не передаётся в fields.");
 const fieldHeaderSchema = z.object({ code: tagSchema });
-const indicatorSchema = z.string().regex(/^[a-z0-9 #]$/);
+const indicatorSchema = z.string().regex(/^[\x00-\x7f]$/);
 
 /** Check the original object before parsing can discard unknown properties. */
 function withoutProperties(keys: readonly string[]) {
@@ -27,7 +27,7 @@ function withoutProperties(keys: readonly string[]) {
 export const marcJsonControlFieldSchema = withoutProperties([
   "ind1", "ind2", "subfields",
 ]).pipe(z.looseObject({
-  code: z.string().regex(/^00[0-9]$/),
+  code: tagSchema.refine((code) => code.startsWith("00")),
   value: z.string(),
 }));
 
@@ -37,9 +37,9 @@ export const marcJsonDataFieldSchema = withoutProperties(["value"]).pipe(
     ind1: indicatorSchema,
     ind2: indicatorSchema,
     subfields: z.array(z.looseObject({
-      code: z.string().regex(/^[a-z0-9]$/),
+      code: z.string().regex(/^[\x00-\x7f]$/),
       value: z.string(),
-    })).min(1),
+    })),
   }),
 );
 

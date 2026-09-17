@@ -1,8 +1,6 @@
 import iconv from "iconv-lite";
 import { parseMarcJsonField } from "./marc-json-field-schema.js";
 import {
-  isMarcJsonFormat,
-  UNRECOGNIZED_VALUE,
   type MarcJsonDataField,
   type MarcJsonField,
   type MarcJsonRecord,
@@ -29,7 +27,7 @@ export class MarcIsoSerializer {
   serialize(value: unknown): Buffer {
     const record = parseJsonRecord(value);
     const fields = [
-      serializeFormatField(record.format),
+      serializeFormatField(record.format, this.encoding),
       ...record.fields.map((field, index) =>
         serializeField(field, index, this.encoding),
       ),
@@ -79,31 +77,14 @@ function parseJsonRecord(
 
   if (
     typeof value.leader !== "string" ||
-    value.leader === UNRECOGNIZED_VALUE ||
     value.leader.length !== LEADER_LENGTH ||
     !isAscii(value.leader)
   ) {
     throw new Error("Поле leader должно содержать ровно 24 ASCII-символа.");
   }
 
-  if (["c", "n"].includes(value.leader[18]!)) {
-    throw new Error(
-      `Leader/18 содержит недопустимый для схемы РГБ код ` +
-        `${JSON.stringify(value.leader[18])}.`,
-    );
-  }
-
-  if (["a", "b", "c"].includes(value.leader[19]!)) {
-    throw new Error(
-      `Leader/19 содержит недопустимый для схемы РГБ код ` +
-        `${JSON.stringify(value.leader[19])}.`,
-    );
-  }
-
-  if (typeof value.format !== "string" || !isMarcJsonFormat(value.format)) {
-    throw new Error(
-      "Поле format должно иметь значение AN, AU, BK, CF, CR, MP, MU, MX, SE или VM.",
-    );
+  if (typeof value.format !== "string") {
+    throw new Error("Поле format должно быть строкой.");
   }
 
   if (!Array.isArray(value.fields)) {
@@ -117,11 +98,11 @@ function parseJsonRecord(
   };
 }
 
-function serializeFormatField(format: string): SerializedField {
+function serializeFormatField(format: string, encoding: string): SerializedField {
   return {
     tag: "FMT",
     data: Buffer.concat([
-      Buffer.from(format, "ascii"),
+      encodeValue(format, encoding, "format"),
       Buffer.from([FIELD_TERMINATOR]),
     ]),
   };

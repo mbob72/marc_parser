@@ -249,6 +249,22 @@ export async function buildApi(
     },
   );
 
+  app.get<{ Params: { jobId: string } }>(
+    "/jobs/:jobId/validation-errors",
+    async (request, reply) => {
+      const job = await findJob(dependencies.database, request.params.jobId, reply);
+      if (!job) return;
+      if (job.status !== "completed") {
+        return reply.code(409).send({ error: "Результат ещё не готов.", status: job.status });
+      }
+      const key = job.summary?.validationErrorsObjectKey;
+      if (!key) return reply.code(404).send({ error: "Ошибок валидации нет." });
+      reply.header("Content-Type", "application/x-ndjson; charset=utf-8");
+      reply.header("Content-Disposition", `attachment; filename="${job.id}.validation-errors.ndjson"`);
+      return reply.send(await dependencies.objectStore.get(key));
+    },
+  );
+
   app.setErrorHandler((error, _request, reply) => {
     const errorStatusCode = statusCodeFrom(error);
     const statusCode =
@@ -311,6 +327,8 @@ function toPublicJob(job: ConversionJob): Record<string, unknown> {
     format: job.inputFormat,
     inputBytes: job.inputBytes,
     summary: job.summary,
+    ...(job.status === "completed" && job.summary?.validationErrorsObjectKey
+      ? { validationErrorsUrl: `/jobs/${job.id}/validation-errors` } : {}),
     error: job.error,
     createdAt: job.createdAt,
     updatedAt: job.updatedAt,

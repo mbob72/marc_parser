@@ -95,3 +95,18 @@ function createJob(id: string, status: JobStatus): ConversionJob {
     expiresAt: new Date("2026-01-02T00:00:00Z"),
   };
 }
+
+test("сборщик удаляет отчёт валидации вместе с результатом", async () => {
+  const job = { ...createJob(JOB_ID, "completed"), summary: {
+    recordsProcessed: 1, validRecords: 0, recordsWithValidationErrors: 1,
+    recordsWithParsingErrors: 0, validationErrors: 1, inputBytes: 42,
+    durationMilliseconds: 1, validationErrorsObjectKey: "outputs/errors.ndjson",
+  } };
+  const removed: string[] = [];
+  const collector = new JobGarbageCollector({
+    async getJob() { return job; }, async getExpiredJobs() { return [job]; },
+    async deleteFinishedJob() { return true; },
+  }, { async remove(key) { removed.push(key); } });
+  await collector.collect();
+  assert.deepEqual(removed, [job.inputObjectKey, "outputs/errors.ndjson", job.outputObjectKey]);
+});

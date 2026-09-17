@@ -30,20 +30,19 @@ export const MARC_JSON_FORMATS = [
   "VM",
 ] as const;
 
-export type MarcJsonFormat = (typeof MARC_JSON_FORMATS)[number];
+export type KnownMarcJsonFormat = (typeof MARC_JSON_FORMATS)[number];
 
-export const MARC_UNRECOGNIZED_VALUE = "<unrecognized>" as const;
-
-export type MarcUnrecognizedValue = typeof MARC_UNRECOGNIZED_VALUE;
+/** Both directions preserve unknown values and report validation errors. */
+export type MarcJsonFormat = KnownMarcJsonFormat | (string & {});
 
 export interface MarcJsonSubfield {
-  /** One lowercase Latin letter or digit in a serializable record. */
+  /** One ASCII byte; profile violations are reported without replacement. */
   readonly code: string;
   readonly value: string;
 }
 
 export interface MarcJsonControlField {
-  /** A three-digit tag beginning with 00. */
+  /** Three ASCII bytes beginning with 00; profile violations are reported. */
   readonly code: string;
   readonly value: string;
 }
@@ -62,12 +61,11 @@ export type MarcJsonField = MarcJsonControlField | MarcJsonDataField;
 /**
  * One record emitted by the forward transformation.
  *
- * Invalid parts may contain MARC_UNRECOGNIZED_VALUE. A completely unparsed
- * record has the sentinel in `leader` and `format` and an empty `fields` array.
+ * Validation errors preserve parsed values; structural errors abort conversion.
  */
 export interface ParsedMarcJsonRecord {
   readonly leader: string;
-  readonly format: MarcJsonFormat | MarcUnrecognizedValue;
+  readonly format: MarcJsonFormat;
   readonly fields: readonly MarcJsonField[];
   /** Nine-digit first column of an Aleph sequential Z00 record. */
   readonly recordId?: string;
@@ -116,6 +114,7 @@ export interface MarcRecordContext {
 }
 
 export type MarcValidationRule =
+  | "FMT"
   | "RS-G3"
   | "DR-E2"
   | "VF-G3"
@@ -149,7 +148,7 @@ export interface MarcProcessingStatistics {
   readonly inputBytes: number;
 }
 
-export function isMarcJsonFormat(value: string): value is MarcJsonFormat {
+export function isMarcJsonFormat(value: string): value is KnownMarcJsonFormat {
   return (MARC_JSON_FORMATS as readonly string[]).includes(value);
 }
 

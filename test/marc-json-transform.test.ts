@@ -4,7 +4,6 @@ import { Readable } from "node:stream";
 import test from "node:test";
 import {
   MarcJsonSerializer,
-  UNRECOGNIZED_VALUE,
 } from "../src/marc-json-serializer.ts";
 import { MarcJsonTransform } from "../src/marc-json-transform.ts";
 import {
@@ -46,7 +45,7 @@ test("записывает несколько MARC-записей как NDJSON"
   assert.equal(json[0]?.fields[0]?.code, "001");
 });
 
-test("передаёт все ошибки в лог и заменяет повреждённые части", async () => {
+test("передаёт все ошибки в лог и сохраняет значения", async () => {
   const record = await readFile(recordUrl);
   const errors: readonly MarcValidationError[] = [
     {
@@ -77,11 +76,11 @@ test("передаёт все ошибки в лог и заменяет пов�
   const json = output.trimEnd().split("\n").map((line) => JSON.parse(line));
 
   assert.deepEqual(logger.validationErrors, errors);
-  assert.equal(json[0]?.leader, UNRECOGNIZED_VALUE);
-  assert.equal(json[0]?.fields[0]?.code, UNRECOGNIZED_VALUE);
+  assert.equal(json[0]?.leader, "01590cam a2200217 u 4500");
+  assert.equal(json[0]?.fields[0]?.code, "001");
 });
 
-test("заменяет структурно повреждённую запись и продолжает поток", async () => {
+test("прерывает поток при структурной ошибке", async () => {
   const record = await readFile(recordUrl);
   const logger = new RecordingLogger();
   const transform = new MarcJsonTransform(
@@ -91,27 +90,19 @@ test("заменяет структурно повреждённую запис�
     logger,
   );
 
-  const output = await collectOutput(
-    Readable.from([record, record]).pipe(transform),
+  await assert.rejects(
+    collectOutput(Readable.from([record, record]).pipe(transform)),
+    /Повреждённая Directory/,
   );
-  const json = output.trimEnd().split("\n").map((line) => JSON.parse(line));
-
-  assert.equal(json.length, 2);
-  assert.equal(json[0]?.leader, "01590cam a2200217 u 4500");
-  assert.deepEqual(json[1], {
-    leader: UNRECOGNIZED_VALUE,
-    format: UNRECOGNIZED_VALUE,
-    fields: [],
-  });
   assert.equal(logger.parsingErrors.length, 1);
   assert.equal(logger.parsingErrors[0]?.context.recordIndex, 1);
   assert.deepEqual(transform.statistics, {
-    recordsProcessed: 2,
+    recordsProcessed: 1,
     validRecords: 1,
     recordsWithValidationErrors: 0,
     recordsWithParsingErrors: 1,
     validationErrors: 0,
-    inputBytes: record.length * 2,
+    inputBytes: record.length,
   });
 });
 
