@@ -144,7 +144,18 @@ export async function handleMessage(
         outputStatistics.size,
       );
 
-      const { outputPath: _outputPath, ...summary } = conversionSummary;
+      const { outputPath: _outputPath, validationErrorsPath, ...statistics } = conversionSummary;
+      const validationErrorsObjectKey = validationErrorsPath
+        ? `outputs/${job.id}.validation-errors.ndjson` : undefined;
+      if (validationErrorsPath && validationErrorsObjectKey) {
+        const reportStatistics = await stat(validationErrorsPath);
+        await objectStore.put(validationErrorsObjectKey, createReadStream(validationErrorsPath),
+          { "Content-Type": "application/x-ndjson; charset=utf-8" }, reportStatistics.size);
+      }
+      const summary = {
+        ...statistics,
+        ...(validationErrorsObjectKey ? { validationErrorsObjectKey } : {}),
+      };
       await database.markCompleted(
         job.id,
         outputObjectKey,

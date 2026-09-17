@@ -398,3 +398,37 @@ function createMultipartBody(
     ),
   ]);
 }
+
+test("API выдаёт отчёт валидации только для завершённого задания с ошибками", async (context) => {
+  const id = "5de1669a-1aa1-4e0d-8f9e-7bc71afccaa7";
+  const key = `outputs/${id}.validation-errors.ndjson`;
+  const report = '{"recordIndex":0,"byteOffset":0,"errors":[]}\n';
+  let job: ConversionJob = {
+    id, status: "completed", originalFilename: "input.mrc", encoding: "utf-8",
+    direction: "iso-to-json", inputFormat: "iso2709", inputObjectKey: "input",
+    inputBytes: 1, outputObjectKey: "output", outputFilename: "result.iso.json",
+    summary: { recordsProcessed: 1, validRecords: 0, recordsWithValidationErrors: 1,
+      recordsWithParsingErrors: 0, validationErrors: 1, inputBytes: 1,
+      durationMilliseconds: 1, validationErrorsObjectKey: key },
+    error: null, createdAt: new Date(), updatedAt: new Date(), expiresAt: new Date(),
+  };
+  const app = await buildApi({
+    logger: false, maxUploadBytes: 1024, garbageCollector: noopGarbageCollector(),
+    database: { ...unavailableDatabase(), async getJob() { return job; } },
+    queue: { async publish() {} },
+    objectStore: { ...unavailableObjectStore(), async get(actualKey: string) {
+      assert.equal(actualKey, key);
+      return Readable.from(report);
+    } },
+  });
+  context.after(() => app.close());
+  const status = await app.inject({ method: "GET", url: `/jobs/${id}` });
+  assert.equal(status.json().validationErrorsUrl, `/jobs/${id}/validation-errors`);
+  const response = await app.inject({ method: "GET", url: `/jobs/${id}/validation-errors` });
+  assert.equal(response.statusCode, 200);
+  assert.equal(response.body, report);
+  job = { ...job, summary: null };
+  assert.equal((await app.inject({ method: "GET", url: `/jobs/${id}/validation-errors` })).statusCode, 404);
+  job = { ...job, status: "processing" };
+  assert.equal((await app.inject({ method: "GET", url: `/jobs/${id}/validation-errors` })).statusCode, 409);
+});

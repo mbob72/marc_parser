@@ -17,7 +17,6 @@ import type {
 import { MarcRecordSplitter } from "./marc-record-splitter.js";
 import { MarcRecordValidator } from "./marc-validator.js";
 
-export const PARSING_ERRORS_PREFIX = "pErrors_";
 export const JSON_EXTENSION = ".json";
 
 const DEFAULT_CHUNK_SIZE = 64 * 1024;
@@ -49,23 +48,39 @@ export async function convertMarcFile(
     outputPath,
     resolvedInputFormat,
   );
-  const parsingErrorsOutputPath = addParsingErrorsPrefix(jsonOutputPath);
+  const validationErrorsPath = `${jsonOutputPath}.validation-errors.ndjson`;
 
   if (
     inputPath === jsonOutputPath ||
-    inputPath === parsingErrorsOutputPath
+    inputPath === validationErrorsPath
   ) {
     throw new Error("Входной и выходной файлы должны отличаться.");
   }
 
+  const serializer = new MarcJsonSerializer(encoding);
   const temporaryOutputPath = createTemporaryOutputPath(jsonOutputPath);
+  const temporaryErrorsPath = createTemporaryOutputPath(validationErrorsPath);
+  const errorsFile = await open(temporaryErrorsPath, "wx");
+  let errorCount = 0;
+  const reportLogger: MarcProcessingLogger = {
+    async logValidationResult(result, context) {
+      if (!result.valid) {
+        await errorsFile.writeFile(JSON.stringify({ ...context, errors: result.errors }) + "\n");
+        errorCount += result.errors.length;
+      }
+      await logger?.logValidationResult(result, context);
+    },
+    logParsingError: (error, context) => logger?.logParsingError(error, context),
+    logSummary: (summary) => logger?.logSummary(summary),
+    logFatalError: (error) => logger?.logFatalError(error),
+  };
   const jsonTransform = new MarcJsonTransform(
     resolvedInputFormat === "aleph-sequential"
       ? new AlephSequentialMarcParser()
       : new Iso2709MarcParser(),
-    new MarcRecordValidator(),
-    new MarcJsonSerializer(encoding),
-    logger,
+    new MarcRecordValidator(encoding),
+    serializer,
+    reportLogger,
   );
   const inputStream = createReadStream(inputPath, {
     highWaterMark: chunkSize,
@@ -86,10 +101,14 @@ export async function convertMarcFile(
     );
 
     const statistics = jsonTransform.statistics;
-    const finalOutputPath =
-      statistics.recordsWithParsingErrors > 0
-        ? parsingErrorsOutputPath
-        : jsonOutputPath;
+    const finalOutputPath = jsonOutputPath;
+    await errorsFile.close();
+    if (errorCount > 0) {
+      await rename(temporaryErrorsPath, validationErrorsPath);
+    } else {
+      await removeTemporaryFile(temporaryErrorsPath);
+      await removeTemporaryFile(validationErrorsPath);
+    }
 
     await rename(temporaryOutputPath, finalOutputPath);
     outputWasRenamed = true;
@@ -98,12 +117,15 @@ export async function convertMarcFile(
       ...statistics,
       durationMilliseconds: elapsedMilliseconds(startedAt),
       outputPath: finalOutputPath,
+      ...(errorCount > 0 ? { validationErrorsPath } : {}),
     };
 
     await logger?.logSummary(summary);
 
     return summary;
   } catch (error) {
+    await errorsFile.close();
+    await removeTemporaryFile(temporaryErrorsPath);
     if (!outputWasRenamed) {
       await removeTemporaryFile(temporaryOutputPath);
     }
@@ -151,17 +173,6 @@ export function addSourceFormatJsonExtension(
   const marker = inputFormat === "aleph-sequential" ? "aleph" : "iso";
 
   return `${withoutOldMarker}.${marker}${JSON_EXTENSION}`;
-}
-
-export function addParsingErrorsPrefix(outputPath: string): string {
-  const outputDirectory = dirname(outputPath);
-  const outputFilename = basename(outputPath);
-
-  if (outputFilename.startsWith(PARSING_ERRORS_PREFIX)) {
-    return outputPath;
-  }
-
-  return join(outputDirectory, `${PARSING_ERRORS_PREFIX}${outputFilename}`);
 }
 
 function createTemporaryOutputPath(outputPath: string): string {

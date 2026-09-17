@@ -12,12 +12,10 @@ import { basename, join } from "node:path";
 import test, { type TestContext } from "node:test";
 import {
   addJsonExtension,
-  addParsingErrorsPrefix,
   addSourceFormatJsonExtension,
   convertMarcFile,
 } from "../src/marc-file-converter.ts";
 import {
-  UNRECOGNIZED_VALUE,
   type MarcJsonDataField,
 } from "../src/marc-json-serializer.ts";
 import { Iso2709MarcParser } from "../src/marc-parser.ts";
@@ -35,7 +33,7 @@ test("validation error добавляет .json без префикса", async 
   const requestedOutputPath = join(directory, "result.txt");
   const outputPath = `${requestedOutputPath}.iso.json`;
 
-  await writeFile(inputPath, corruptFirstIndicator(source));
+  await writeFile(inputPath, Buffer.concat([corruptFirstIndicator(source), source]));
   await writeFile(outputPath, "previous result");
 
   const summary = await convertMarcFile({
@@ -44,7 +42,9 @@ test("validation error добавляет .json без префикса", async 
     outputPath: requestedOutputPath,
     logger: new NullMarcProcessingLogger(),
   });
-  const json = JSON.parse(await readFile(outputPath, "utf8"));
+  const records = (await readFile(outputPath, "utf8")).trimEnd().split("\n").map(line => JSON.parse(line));
+  assert.equal(records.length, 2);
+  const json = records[0];
   const dataField = json.fields.find(
     (field: MarcJsonDataField) => "ind1" in field,
   );
@@ -52,44 +52,26 @@ test("validation error добавляет .json без префикса", async 
   assert.equal(summary.outputPath, outputPath);
   assert.equal(summary.recordsWithValidationErrors, 1);
   assert.equal(summary.recordsWithParsingErrors, 0);
-  assert.equal(dataField.ind1, UNRECOGNIZED_VALUE);
-  await assertFileDoesNotExist(addParsingErrorsPrefix(outputPath));
+  assert.equal(dataField.ind1, "A");
+  assert.ok(summary.validationErrorsPath);
+  const report = JSON.parse(await readFile(summary.validationErrorsPath, "utf8"));
+  assert.equal(report.recordIndex, 0);
+  assert.equal(report.errors[0].rule, "IN-G3");
 });
 
-test("parser error создаёт заглушку и добавляет pErrors_", async (context) => {
+test("структурная ошибка прерывает конвертацию и сохраняет старый результат", async (context) => {
   const directory = await createTemporaryDirectory(context);
   const source = await readFile(recordUrl);
   const inputPath = join(directory, "parser-error.mrc");
   const outputPath = join(directory, "result.iso.json");
-  const parsingErrorsOutputPath = addParsingErrorsPrefix(outputPath);
-
-  await writeFile(
-    inputPath,
-    Buffer.concat([corruptBaseAddress(source), source]),
-  );
-
-  const summary = await convertMarcFile({
-    encoding: "utf-8",
-    inputPath,
-    outputPath,
-    logger: new NullMarcProcessingLogger(),
-  });
-  const json = (await readFile(parsingErrorsOutputPath, "utf8"))
-    .trimEnd()
-    .split("\n")
-    .map((line) => JSON.parse(line));
-
-  assert.equal(summary.outputPath, parsingErrorsOutputPath);
-  assert.equal(summary.recordsProcessed, 2);
-  assert.equal(summary.validRecords, 1);
-  assert.equal(summary.recordsWithParsingErrors, 1);
-  assert.deepEqual(json[0], {
-    leader: UNRECOGNIZED_VALUE,
-    format: UNRECOGNIZED_VALUE,
-    fields: [],
-  });
-  assert.equal(json[1]?.leader, "01590cam a2200217 u 4500");
-  await assertFileDoesNotExist(outputPath);
+  await writeFile(inputPath, Buffer.concat([source, corruptBaseAddress(source), source]));
+  await writeFile(outputPath, "previous result");
+  await assert.rejects(convertMarcFile({
+    encoding: "utf-8", inputPath, outputPath,
+  }), /baseAddressOfData/);
+  assert.equal(await readFile(outputPath, "utf8"), "previous result");
+  assert.deepEqual((await readdir(directory)).sort(),
+    [basename(inputPath), basename(outputPath)].sort());
 });
 
 test("фатальная framing error сохраняет старый результат", async (context) => {
@@ -117,13 +99,6 @@ test("фатальная framing error сохраняет старый резу�
   assert.deepEqual(
     (await readdir(directory)).sort(),
     [basename(inputPath), basename(outputPath)].sort(),
-  );
-});
-
-test("не добавляет префикс pErrors_ повторно", () => {
-  assert.equal(
-    addParsingErrorsPrefix("/tmp/pErrors_result.json"),
-    "/tmp/pErrors_result.json",
   );
 });
 
@@ -190,3 +165,17 @@ async function assertFileDoesNotExist(path: string): Promise<void> {
     (error: NodeJS.ErrnoException) => error.code === "ENOENT",
   );
 }
+
+test("успешный повторный запуск удаляет устаревший отчёт", async (context) => {
+  const directory = await createTemporaryDirectory(context);
+  const inputPath = join(directory, "input.mrc");
+  const outputPath = join(directory, "result.iso.json");
+  const source = await readFile(recordUrl);
+  await writeFile(inputPath, corruptFirstIndicator(source));
+  const first = await convertMarcFile({ encoding: "utf-8", inputPath, outputPath });
+  assert.ok(first.validationErrorsPath);
+  await writeFile(inputPath, source);
+  const second = await convertMarcFile({ encoding: "utf-8", inputPath, outputPath });
+  assert.equal(second.validationErrorsPath, undefined);
+  await assertFileDoesNotExist(first.validationErrorsPath);
+});

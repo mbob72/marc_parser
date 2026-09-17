@@ -1,3 +1,4 @@
+import { isMarcJsonFormat } from "./marc-json-serializer.js";
 import type {
   MarcDataField,
   MarcRecord,
@@ -5,6 +6,7 @@ import type {
 } from "./marc-record.js";
 
 export type MarcValidationRule =
+  | "FMT"
   | "RS-G3"
   | "DR-E2"
   | "VF-G3"
@@ -41,6 +43,8 @@ const VALID_INDICATOR = /^[a-z0-9 #]$/;
 const VALID_SUBFIELD_CODE = /^[a-z0-9]$/;
 
 export class MarcRecordValidator implements MarcValidator {
+  constructor(private readonly encoding = "utf-8") {}
+
   validate(record: MarcRecord): MarcValidationResult {
     const errors: MarcValidationError[] = [];
 
@@ -48,6 +52,15 @@ export class MarcRecordValidator implements MarcValidator {
     validateLeader(record, errors);
     validateDirectory(record, errors);
     validateFields(record, errors);
+    record.fields.forEach((field, fieldIndex) => {
+      if (field.tag.toUpperCase() === "FMT") {
+        const value = new TextDecoder(this.encoding).decode(field.raw.subarray(0, -1));
+        if (!isMarcJsonFormat(value)) {
+          errors.push({ rule: "FMT", fieldIndex, tag: field.tag,
+            message: `Неизвестное значение FMT: ${JSON.stringify(value)}.` });
+        }
+      }
+    });
 
     return {
       valid: errors.length === 0,

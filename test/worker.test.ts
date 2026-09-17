@@ -11,10 +11,16 @@ import { handleMessage } from "../src/worker.ts";
 
 const JOB_ID = "5de1669a-1aa1-4e0d-8f9e-7bc71afccaa7";
 
-test("worker по выбранному формату конвертирует Aleph и подтверждает job", async () => {
+for (const invalid of [false, true]) {
+test(`worker конвертирует Aleph и выгружает отчёт при ошибках: ${invalid}`, async () => {
   const source = await readFile(
     new URL("./fixtures/aleph-sequential-real.dat", import.meta.url),
   );
+  if (invalid) {
+    const indicator = source.indexOf(Buffer.from("245 0L"));
+    assert.ok(indicator >= 0);
+    source[indicator + 3] = 65;
+  }
   const outputs = new Map<string, Buffer>();
   const acknowledged: ConsumeMessage[] = [];
   let processingWasMarked = false;
@@ -107,7 +113,17 @@ test("worker по выбранному формату конвертирует A
   const first = JSON.parse(result.toString().split("\n")[0]!);
   assert.equal(first.recordId, "000000001");
   assert.equal(first.format, "BK");
+  if (invalid) {
+    const reportKey = completed.summary.validationErrorsObjectKey;
+    assert.ok(reportKey);
+    const report = outputs.get(reportKey);
+    assert.ok(report);
+    assert.match(report.toString(), /IN-G3/);
+  } else {
+    assert.equal(completed.summary.validationErrorsObjectKey, undefined);
+  }
 });
+}
 
 test("worker конвертирует NDJSON в ISO 2709 и сохраняет .mrc", async () => {
   const json = JSON.parse(

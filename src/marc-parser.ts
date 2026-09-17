@@ -29,6 +29,12 @@ export class Iso2709MarcParser implements MarcParser {
 
     const rawLeader = record.subarray(0, LEADER_LENGTH).toString("ascii");
     const leader = parseLeader(rawLeader);
+    if (parseDecimal(leader.recordLength, "recordLength") !== record.length) {
+      throw new Error("Длина MARC-записи не соответствует Leader/00-04.");
+    }
+    if (record.at(-1) !== 0x1d) {
+      throw new Error("MARC-запись не заканчивается разделителем 0x1D.");
+    }
     const baseAddressOfData = parseDecimal(
       leader.baseAddressOfData,
       "baseAddressOfData",
@@ -140,7 +146,8 @@ function parseRawFields(
   directory: readonly MarcDirectoryEntry[],
   baseAddressOfData: number,
 ): MarcRawField[] {
-  return directory.map((entry) => {
+  const ranges: { start: number; end: number }[] = [];
+  const fields = directory.map((entry) => {
     const fieldLength = parseDecimal(
       entry.fieldLength,
       `Длина поля ${entry.tag}`,
@@ -157,7 +164,7 @@ function parseRawFields(
     const fieldStart = baseAddressOfData + startingCharacterPosition;
     const fieldEnd = fieldStart + fieldLength;
 
-    if (fieldStart >= record.length || fieldEnd > record.length) {
+    if (fieldStart >= record.length || fieldEnd > record.length - 1) {
       throw new Error(
         `Поле ${entry.tag} выходит за границы MARC-записи: ` +
           `позиция ${fieldStart}, длина ${fieldLength}.`,
@@ -170,11 +177,23 @@ function parseRawFields(
       );
     }
 
+    ranges.push({ start: fieldStart, end: fieldEnd });
     return {
       tag: entry.tag,
       raw: record.subarray(fieldStart, fieldEnd),
     };
   });
+  let position = baseAddressOfData;
+  for (const range of ranges.sort((a, b) => a.start - b.start)) {
+    if (range.start !== position) {
+      throw new Error("Границы полей Directory содержат пропуск или пересечение.");
+    }
+    position = range.end;
+  }
+  if (position !== record.length - 1) {
+    throw new Error("Размер области полей не соответствует длине записи.");
+  }
+  return fields;
 }
 
 function parseField(field: MarcRawField): MarcField {

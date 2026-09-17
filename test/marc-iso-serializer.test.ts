@@ -94,14 +94,26 @@ test("не заменяет неподдерживаемые кодировко�
   );
 });
 
-test("отклоняет отсутствующие в схеме РГБ коды Leader", () => {
-  assert.throws(
-    () =>
-      new MarcIsoSerializer("utf-8").serialize({
-        leader: "00000nam a2200000 ca4500",
-        format: "BK",
-        fields: [],
-      }),
-    /Leader\/18/,
-  );
+test("сохраняет неизвестный формат и недопустимые коды Leader", () => {
+  const iso = new MarcIsoSerializer("utf-8").serialize({
+    leader: "00000nam a2200000 ca4500",
+    format: "НЕИЗВЕСТНО",
+    fields: [],
+  });
+  const record = new Iso2709MarcParser().parse(iso);
+  const roundTrip = new MarcJsonSerializer("utf-8").serialize(record);
+  assert.equal(roundTrip.format, "НЕИЗВЕСТНО");
+  assert.equal(roundTrip.leader.slice(18, 20), "ca");
+  assert.deepEqual(new MarcRecordValidator().validate(record).errors.map(e => e.rule),
+    ["LD-02", "LD-02", "FMT"]);
+});
+
+test("не вводит дополнительный запрет управляющих символов в значениях", () => {
+  const record = {
+    leader: "00000nam a2200000 i 4500", format: "BK",
+    fields: [{ code: "001", value: "a\u001db\u001ec\u001f" }],
+  };
+  const bytes = new MarcIsoSerializer("utf-8").serialize(record);
+  const parsed = new Iso2709MarcParser().parse(bytes);
+  assert.deepEqual(new MarcJsonSerializer("utf-8").serialize(parsed).fields, record.fields);
 });

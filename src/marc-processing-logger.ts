@@ -15,6 +15,7 @@ export interface MarcProcessingStatistics {
 export interface MarcProcessingSummary extends MarcProcessingStatistics {
   readonly durationMilliseconds: number;
   readonly outputPath: string;
+  readonly validationErrorsPath?: string;
 }
 
 export interface MarcProcessingLogger {
@@ -116,6 +117,7 @@ export class ConsoleMarcProcessingLogger implements MarcProcessingLogger {
         `Время: ${durationSeconds.toFixed(3)} с`,
         `Скорость: ${recordsPerSecond.toFixed(0)} записей/с`,
         `Результат: ${summary.outputPath}`,
+        ...(summary.validationErrorsPath ? [`Ошибки валидации: ${summary.validationErrorsPath}`] : []),
         "",
       ].join("\n"),
     );

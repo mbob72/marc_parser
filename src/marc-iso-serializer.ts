@@ -1,7 +1,6 @@
 import iconv from "iconv-lite";
+import { parseMarcJsonField } from "./marc-json-field-schema.js";
 import {
-  isMarcJsonFormat,
-  UNRECOGNIZED_VALUE,
   type MarcJsonDataField,
   type MarcJsonField,
   type MarcJsonRecord,
@@ -14,9 +13,6 @@ const RECORD_TERMINATOR = 0x1d;
 const SUBFIELD_DELIMITER = 0x1f;
 const MAX_RECORD_LENGTH = 99_999;
 const MAX_FIELD_LENGTH = 9_999;
-const VALID_TAG = /^(?:[0-9]{3}|[A-Za-z]{3})$/;
-const VALID_CODE = /^[a-z0-9]$/;
-const VALID_INDICATOR = /^[a-z0-9 #]$/;
 
 /** Serializes the RSL MARC-JSON record model to an ISO 2709 record. */
 export class MarcIsoSerializer {
@@ -31,7 +27,7 @@ export class MarcIsoSerializer {
   serialize(value: unknown): Buffer {
     const record = parseJsonRecord(value);
     const fields = [
-      serializeFormatField(record.format),
+      serializeFormatField(record.format, this.encoding),
       ...record.fields.map((field, index) =>
         serializeField(field, index, this.encoding),
       ),
@@ -72,52 +68,41 @@ interface SerializedField {
   readonly data: Buffer;
 }
 
-function parseJsonRecord(value: unknown): MarcJsonRecord {
+function parseJsonRecord(
+  value: unknown,
+): Pick<MarcJsonRecord, "leader" | "format" | "fields"> {
   if (!isObject(value)) {
     throw new Error("MARC-JSON запись должна быть JSON-объектом.");
   }
 
   if (
     typeof value.leader !== "string" ||
-    value.leader === UNRECOGNIZED_VALUE ||
     value.leader.length !== LEADER_LENGTH ||
     !isAscii(value.leader)
   ) {
     throw new Error("Поле leader должно содержать ровно 24 ASCII-символа.");
   }
 
-  if (["c", "n"].includes(value.leader[18]!)) {
-    throw new Error(
-      `Leader/18 содержит недопустимый для схемы РГБ код ` +
-        `${JSON.stringify(value.leader[18])}.`,
-    );
-  }
-
-  if (["a", "b", "c"].includes(value.leader[19]!)) {
-    throw new Error(
-      `Leader/19 содержит недопустимый для схемы РГБ код ` +
-        `${JSON.stringify(value.leader[19])}.`,
-    );
-  }
-
-  if (typeof value.format !== "string" || !isMarcJsonFormat(value.format)) {
-    throw new Error(
-      "Поле format должно иметь значение AN, AU, BK, CF, CR, MP, MU, MX, SE или VM.",
-    );
+  if (typeof value.format !== "string") {
+    throw new Error("Поле format должно быть строкой.");
   }
 
   if (!Array.isArray(value.fields)) {
     throw new Error("Поле fields должно быть массивом.");
   }
 
-  return value as unknown as MarcJsonRecord;
+  return {
+    leader: value.leader,
+    format: value.format,
+    fields: value.fields.map(parseMarcJsonField),
+  };
 }
 
-function serializeFormatField(format: string): SerializedField {
+function serializeFormatField(format: string, encoding: string): SerializedField {
   return {
     tag: "FMT",
     data: Buffer.concat([
-      Buffer.from(format, "ascii"),
+      encodeValue(format, encoding, "format"),
       Buffer.from([FIELD_TERMINATOR]),
     ]),
   };
@@ -128,26 +113,7 @@ function serializeField(
   index: number,
   encoding: string,
 ): SerializedField {
-  if (!isObject(field)) {
-    throw new Error(`Поле fields[${index}] должно быть объектом.`);
-  }
-
-  if (
-    typeof field.code !== "string" ||
-    field.code === UNRECOGNIZED_VALUE ||
-    !VALID_TAG.test(field.code) ||
-    field.code.toUpperCase() === "FMT"
-  ) {
-    throw new Error(`Некорректный code у fields[${index}].`);
-  }
-
   if ("value" in field) {
-    if (!field.code.startsWith("00") || typeof field.value !== "string") {
-      throw new Error(
-        `Контрольное поле fields[${index}] должно иметь код 00X и строковое value.`,
-      );
-    }
-
     return {
       tag: field.code,
       data: terminate(
@@ -156,7 +122,7 @@ function serializeField(
     };
   }
 
-  return serializeDataField(field as MarcJsonDataField, index, encoding);
+  return serializeDataField(field, index, encoding);
 }
 
 function serializeDataField(
@@ -164,32 +130,10 @@ function serializeDataField(
   index: number,
   encoding: string,
 ): SerializedField {
-  const ind1 = parseIndicator(field.ind1, index, "ind1");
-  const ind2 = parseIndicator(field.ind2, index, "ind2");
-
-  if (field.code.startsWith("00")) {
-    throw new Error(
-      `Поле данных fields[${index}] не может иметь контрольный код ${field.code}.`,
-    );
-  }
-
-  if (!Array.isArray(field.subfields) || field.subfields.length === 0) {
-    throw new Error(`fields[${index}].subfields должен быть непустым массивом.`);
-  }
+  const ind1 = normalizeIndicator(field.ind1);
+  const ind2 = normalizeIndicator(field.ind2);
 
   const subfields = field.subfields.map((subfield, subfieldIndex) => {
-    if (
-      !isObject(subfield) ||
-      typeof subfield.code !== "string" ||
-      subfield.code === UNRECOGNIZED_VALUE ||
-      !VALID_CODE.test(subfield.code) ||
-      typeof subfield.value !== "string"
-    ) {
-      throw new Error(
-        `Некорректное подполе fields[${index}].subfields[${subfieldIndex}].`,
-      );
-    }
-
     return Buffer.concat([
       Buffer.from([SUBFIELD_DELIMITER]),
       Buffer.from(subfield.code, "ascii"),
@@ -209,19 +153,7 @@ function serializeDataField(
   };
 }
 
-function parseIndicator(
-  value: unknown,
-  fieldIndex: number,
-  name: "ind1" | "ind2",
-): string {
-  if (
-    typeof value !== "string" ||
-    value === UNRECOGNIZED_VALUE ||
-    !VALID_INDICATOR.test(value)
-  ) {
-    throw new Error(`Некорректный ${name} у fields[${fieldIndex}].`);
-  }
-
+function normalizeIndicator(value: string): string {
   // In the RSL documentation # is the display notation for an undefined
   // indicator; ISO 2709 stores it as ASCII SPACE (PDF pp. 30 and 39).
   return value === "#" ? " " : value;
