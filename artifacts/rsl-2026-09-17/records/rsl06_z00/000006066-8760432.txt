@@ -1,0 +1,34 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006066; recordIndex (0-based): 9924; byteOffset: 8760432
+Record length: 813 bytes; record SHA-256: 6924ad8b3c95bce7a86f0e76f791ceb9edf3a3cb5428cf42c207a9c85aac3058
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=8760442; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=8760454; length=0030; raw="LDR  L00778nam^a22002292ia4500"
+fieldIndex=1; byteOffset=8760488; length=0015; raw="001  L000006066"
+fieldIndex=2; byteOffset=8760507; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=8760521; length=0022; raw="005  L20181213145639.0"
+fieldIndex=4; byteOffset=8760547; length=0046; raw="008  L100720s1927^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=8760597; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00024336"
+fieldIndex=6; byteOffset=8760636; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=8760675; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=8760691; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=8760706; length=0026; raw="084  L$$aУ9(2)248$$2rubbk"
+fieldIndex=10; byteOffset=8760736; length=0046; raw="1001 L$$aКаплун, Сергей Ильич"
+fieldIndex=11; byteOffset=8760786; length=0086; raw="24500L$$aТеория и практика охраны труда /$$cС. Каплун"
+fieldIndex=12; byteOffset=8760876; length=0105; raw="250  L$$a3-е изд., соверш. перераб. кн. \"Охрана труда и ее органы\""
+fieldIndex=13; byteOffset=8760985; length=0058; raw="260  L$$a[Москва]$$bВопросы труда$$c1927"
+fieldIndex=14; byteOffset=8761047; length=0037; raw="300  L$$a1 т.$$bтабл.$$c24 см."
+fieldIndex=15; byteOffset=8761088; length=0065; raw="500  L$$aНапеч. в Нижнем-Новгороде$$5RuMoRGB"
+fieldIndex=16; byteOffset=8761157; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=17; byteOffset=8761178; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=18; byteOffset=8761194; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20181213$$lRSL06$$h1456"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 8760432 /tmp/000006066.dat

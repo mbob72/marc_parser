@@ -1,0 +1,33 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000002717; recordIndex (0-based): 112925; byteOffset: 90992189
+Record length: 1077 bytes; record SHA-256: 461bb2d001ecd1cdadcbb14ab764b3cdbae509e5a549c35903be03f1cc2826f9
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 14, "tag": "065", "indicatorIndex": 0, "message": "Индикатор 1 поля 065 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=90992199; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=90992211; length=0030; raw="LDR  L00575nz^^a2200169n^^4500"
+fieldIndex=1; byteOffset=90992245; length=0021; raw="001  Lnafpn-000002717"
+fieldIndex=2; byteOffset=90992270; length=0022; raw="005  L20121002113119.0"
+fieldIndex=3; byteOffset=90992296; length=0046; raw="008  L100114^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=90992346; length=0042; raw="040  L$$aRuMoRGB$$bru$$eГОСТ 7.80-2000"
+fieldIndex=5; byteOffset=90992392; length=0033; raw="1001 L$$aLennon, John$$d1940-1980"
+fieldIndex=6; byteOffset=90992429; length=0041; raw="4001 L$$aLennon, John Winston$$d1940-1980"
+fieldIndex=7; byteOffset=90992474; length=0043; raw="5001 L$$aЛеннон, Джон$$d1940-1980"
+fieldIndex=8; byteOffset=90992521; length=0032; raw="CAT  L$$c20100114$$lRSL11$$h1630"
+fieldIndex=9; byteOffset=90992557; length=0032; raw="CAT  L$$c20100908$$lRSL11$$h2100"
+fieldIndex=10; byteOffset=90992593; length=0044; raw="CAT  L$$aNO01$$b40$$c20110927$$lRSL11$$h1312"
+fieldIndex=11; byteOffset=90992641; length=0044; raw="CAT  L$$aNO16$$b40$$c20121002$$lRSL11$$h1131"
+fieldIndex=12; byteOffset=90992689; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0200"
+fieldIndex=13; byteOffset=90992739; length=0010; raw="UPD  L$$aN"
+fieldIndex=14; byteOffset=90992753; length=0031; raw="065\u0001 L$$aШ5(4Вл)62-4$$2rubbk"
+fieldIndex=15; byteOffset=90992788; length=0155; raw="663  L$$aПроизведения этого авт. на рус. языке см. под именем:$$bЛеннон, Джон Уинстон (1940-1980)"
+fieldIndex=16; byteOffset=90992947; length=0283; raw="6780 L$$aЛегендарный британский рок-музыкант, певец, поэт, композитор, художник, писатель, общественный деятель, один из основателей и участник группы \"The Beatles\"."
+fieldIndex=17; byteOffset=90993234; length=0027; raw="667  L$$a(RuMoRGB)000010986"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 90992189 /tmp/000002717.dat

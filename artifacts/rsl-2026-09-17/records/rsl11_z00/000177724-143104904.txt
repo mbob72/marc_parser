@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000177724; recordIndex (0-based): 169818; byteOffset: 143104904
+Record length: 2013 bytes; record SHA-256: d053f639d0148d0b855de9782165bf4ac2eaf0b3cdba2c3883835d888ef0e1f4
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 13, "tag": "LVL", "indicatorIndex": 0, "message": "Индикатор 1 поля LVL имеет недопустимое значение \"X\"."}
+{"rule": "IN-G3", "fieldIndex": 13, "tag": "LVL", "indicatorIndex": 1, "message": "Индикатор 2 поля LVL имеет недопустимое значение \"X\"."}
+{"rule": "DF-G3", "fieldIndex": 13, "tag": "LVL", "message": "Поле LVL не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=143104914; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=143104926; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=143104960; length=0021; raw="001  Lnafpn-000177724"
+fieldIndex=2; byteOffset=143104985; length=0022; raw="005  L20160405150127.0"
+fieldIndex=3; byteOffset=143105011; length=0046; raw="008  L160405^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=143105061; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=143105093; length=0035; raw="1001 L$$aBlaunstein, Nathan$$d1948-"
+fieldIndex=6; byteOffset=143105132; length=0062; raw="5001 L$$aБлаунштейн, Натан Шаевич$$d1948-"
+fieldIndex=7; byteOffset=143105198; length=0044; raw="CAT  L$$aNO01$$b40$$c20160405$$lRSL11$$h1501"
+fieldIndex=8; byteOffset=143105246; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0201"
+fieldIndex=9; byteOffset=143105296; length=0010; raw="UPD  L$$aN"
+fieldIndex=10; byteOffset=143105310; length=0014; raw="065  L$$2rubbk"
+fieldIndex=11; byteOffset=143105328; length=0117; raw="670  L$$aRadiophysical and geomagnetic effects of rocket burn and launch in the near-the-earth environment, cop. 2014"
+fieldIndex=12; byteOffset=143105449; length=1451; raw="6780 L$$aСоветский и израильский радиофизик, доктор физико-математических наук (1991), профессор (1991). Выпускник Томского государственного университета (1972). В 1972—1974 годах — научный сотрудник в Сибирском физико-техническом институте, в 1974—1975 годах — на кафедре радиофизики Томского государственного университета. В 1976—1992 годах — в Бельцком педагогическом институте, в 1989—1992 годах одновременно директор геофизической обсерватории в Бельцах. В 1984 году защитил кандидатскую диссертацию по теме «Диффузное расплывание неоднородностей в ионосфере», в 1991 году — докторскую диссертацию по теме «Моделирование эволюции искусственных возмущений ионосферной плазмы». С 1993 года — в Университете имени Бен-Гуриона в Беэр-Шевае, с 2001 года — профессор отделения электрической и компьютерной инженерии."
+fieldIndex=13; byteOffset=143106904; length=0008; raw="LVLXXL40"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 143104904 /tmp/000177724.dat

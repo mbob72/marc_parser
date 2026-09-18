@@ -1,0 +1,43 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007231; recordIndex (0-based): 11093; byteOffset: 9975430
+Record length: 1014 bytes; record SHA-256: 1fc6a73fcf3eea44e0ddf0089dffcf1325b105a9ea6ee2edf4e840ea0cb55800
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9975440; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9975452; length=0030; raw="LDR  L01017nam^a22003372ia4500"
+fieldIndex=1; byteOffset=9975486; length=0015; raw="001  L000007231"
+fieldIndex=2; byteOffset=9975505; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9975519; length=0022; raw="005  L20190305144328.0"
+fieldIndex=4; byteOffset=9975545; length=0046; raw="008  L100514m19181922ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9975595; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00020424"
+fieldIndex=6; byteOffset=9975634; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9975673; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9975689; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=9975704; length=0029; raw="1001 L$$aМаркс, Карл"
+fieldIndex=10; byteOffset=9975737; length=0100; raw="24500L$$aСобрание сочинений$$cРос. ком. партия (большевиков)"
+fieldIndex=11; byteOffset=9975841; length=0055; raw="260  L$$aМосква$$bГос. изд-во$$c1918-1922"
+fieldIndex=12; byteOffset=9975900; length=0017; raw="300  L$$c24 см."
+fieldIndex=13; byteOffset=9975921; length=0072; raw="500  L$$aВ этом изд. вышли только тт. 3-6$$5RuMoRGB"
+fieldIndex=14; byteOffset=9975997; length=0056; raw="500  L$$aИзд-во т. 5: Коммунист$$5RuMoRGB"
+fieldIndex=15; byteOffset=9976057; length=0039; raw="7001 L$$aЭнгельс, Фридрих"
+fieldIndex=16; byteOffset=9976100; length=0024; raw="7001 L$$aМаркс, К."
+fieldIndex=17; byteOffset=9976128; length=0024; raw="7001 L$$aМаркс, К."
+fieldIndex=18; byteOffset=9976156; length=0024; raw="7001 L$$aМаркс, К."
+fieldIndex=19; byteOffset=9976184; length=0028; raw="7001 L$$aЭнгельс, Ф."
+fieldIndex=20; byteOffset=9976216; length=0024; raw="7001 L$$aМаркс, К."
+fieldIndex=21; byteOffset=9976244; length=0024; raw="7001 L$$aМаркс, К."
+fieldIndex=22; byteOffset=9976272; length=0024; raw="7001 L$$aМаркс, К."
+fieldIndex=23; byteOffset=9976300; length=0024; raw="7001 L$$aМаркс, К."
+fieldIndex=24; byteOffset=9976328; length=0024; raw="7001 L$$aМаркс, К."
+fieldIndex=25; byteOffset=9976356; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=26; byteOffset=9976377; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=27; byteOffset=9976393; length=0046; raw="CAT  L$$aKOMPL1$$b10$$c20190305$$lRSL06$$h1443"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9975430 /tmp/000007231.dat

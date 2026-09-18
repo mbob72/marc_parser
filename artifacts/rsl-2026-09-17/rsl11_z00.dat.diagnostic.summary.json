@@ -1,0 +1,845 @@
+{
+  "file": "rsl11_z00.dat",
+  "mode": "diagnostic",
+  "category": "authority",
+  "source": "https://mrsadman.ru/ac34d2e7ff814dac/",
+  "revision": "47d517aa270e431874abe1524a2ae069b7910d97",
+  "node": "v24.12.0",
+  "startedAt": "2026-09-17T15:26:13.204Z",
+  "completedAt": "2026-09-17T15:26:34.634Z",
+  "complete": true,
+  "fileBytes": 336285478,
+  "sha256": "ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b",
+  "recordsProcessed": 343529,
+  "validRecords": 343448,
+  "recordsWithValidationErrors": 80,
+  "recordsWithParsingErrors": 1,
+  "validationErrors": 118,
+  "inputBytes": 336285478,
+  "serializedBytes": 668047762,
+  "rules": {
+    "IN-G3": 33,
+    "DF-G3": 21,
+    "DR-E2": 15,
+    "VF-G5": 24,
+    "SF-G4": 24,
+    "DF-G2": 1
+  },
+  "messages": {
+    "IN-G3: Индикатор 1 поля 100 имеет недопустимое значение \"\\u0001\".": {
+      "count": 11,
+      "first": {
+        "recordIndex": 18704,
+        "byteOffset": 18179666,
+        "rule": "IN-G3",
+        "fieldIndex": 5,
+        "tag": "100",
+        "indicatorIndex": 0,
+        "message": "Индикатор 1 поля 100 имеет недопустимое значение \"\\u0001\"."
+      }
+    },
+    "DF-G3: Поле 678 не содержит кода подполя.": {
+      "count": 4,
+      "first": {
+        "recordIndex": 19317,
+        "byteOffset": 18614760,
+        "rule": "DF-G3",
+        "fieldIndex": 19,
+        "tag": "678",
+        "message": "Поле 678 не содержит кода подполя."
+      }
+    },
+    "DR-E2: Некорректный тег \" --\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 70313,
+        "byteOffset": 56287512,
+        "rule": "DR-E2",
+        "fieldIndex": 11,
+        "tag": " --",
+        "message": "Некорректный тег \" --\"."
+      }
+    },
+    "IN-G3: Индикатор 1 поля 065 имеет недопустимое значение \"\\u0001\".": {
+      "count": 2,
+      "first": {
+        "recordIndex": 80114,
+        "byteOffset": 65305765,
+        "rule": "IN-G3",
+        "fieldIndex": 16,
+        "tag": "065",
+        "indicatorIndex": 0,
+        "message": "Индикатор 1 поля 065 имеет недопустимое значение \"\\u0001\"."
+      }
+    },
+    "DR-E2: Некорректный тег \"67 \".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 110097,
+        "byteOffset": 88687444,
+        "rule": "DR-E2",
+        "fieldIndex": 14,
+        "tag": "67 ",
+        "message": "Некорректный тег \"67 \"."
+      }
+    },
+    "DR-E2: Некорректный тег \";0 \".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 132623,
+        "byteOffset": 108184966,
+        "rule": "DR-E2",
+        "fieldIndex": 14,
+        "tag": ";0 ",
+        "message": "Некорректный тег \";0 \"."
+      }
+    },
+    "DF-G3: Поле ;0  не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 132623,
+        "byteOffset": 108184966,
+        "rule": "DF-G3",
+        "fieldIndex": 14,
+        "tag": ";0 ",
+        "message": "Поле ;0  не содержит кода подполя."
+      }
+    },
+    "DR-E2: Некорректный тег \"---\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 135907,
+        "byteOffset": 111030113,
+        "rule": "DR-E2",
+        "fieldIndex": 13,
+        "tag": "---",
+        "message": "Некорректный тег \"---\"."
+      }
+    },
+    "VF-G5: Подполе 3 поля 100 имеет недопустимый код \"D\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 144291,
+        "byteOffset": 118403874,
+        "rule": "VF-G5",
+        "fieldIndex": 5,
+        "tag": "100",
+        "subfieldIndex": 2,
+        "message": "Подполе 3 поля 100 имеет недопустимый код \"D\"."
+      }
+    },
+    "SF-G4: Подполе 3 поля 100 имеет недопустимый код \"D\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 144291,
+        "byteOffset": 118403874,
+        "rule": "SF-G4",
+        "fieldIndex": 5,
+        "tag": "100",
+        "subfieldIndex": 2,
+        "message": "Подполе 3 поля 100 имеет недопустимый код \"D\"."
+      }
+    },
+    "IN-G3: Индикатор 1 поля 400 имеет недопустимое значение \"\\u0001\".": {
+      "count": 2,
+      "first": {
+        "recordIndex": 148926,
+        "byteOffset": 122476787,
+        "rule": "IN-G3",
+        "fieldIndex": 8,
+        "tag": "400",
+        "indicatorIndex": 0,
+        "message": "Индикатор 1 поля 400 имеет недопустимое значение \"\\u0001\"."
+      }
+    },
+    "DF-G3: Поле 035 не содержит кода подполя.": {
+      "count": 2,
+      "first": {
+        "recordIndex": 149049,
+        "byteOffset": 122590445,
+        "rule": "DF-G3",
+        "fieldIndex": 4,
+        "tag": "035",
+        "message": "Поле 035 не содержит кода подполя."
+      }
+    },
+    "VF-G5: Подполе 3 поля 040 имеет недопустимый код \"\\\\\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 150721,
+        "byteOffset": 124232786,
+        "rule": "VF-G5",
+        "fieldIndex": 4,
+        "tag": "040",
+        "subfieldIndex": 2,
+        "message": "Подполе 3 поля 040 имеет недопустимый код \"\\\\\"."
+      }
+    },
+    "SF-G4: Подполе 3 поля 040 имеет недопустимый код \"\\\\\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 150721,
+        "byteOffset": 124232786,
+        "rule": "SF-G4",
+        "fieldIndex": 4,
+        "tag": "040",
+        "subfieldIndex": 2,
+        "message": "Подполе 3 поля 040 имеет недопустимый код \"\\\\\"."
+      }
+    },
+    "DF-G3: Поле 670 не содержит кода подполя.": {
+      "count": 6,
+      "first": {
+        "recordIndex": 164697,
+        "byteOffset": 137865359,
+        "rule": "DF-G3",
+        "fieldIndex": 14,
+        "tag": "670",
+        "message": "Поле 670 не содержит кода подполя."
+      }
+    },
+    "IN-G3: Индикатор 1 поля LVL имеет недопустимое значение \"X\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 169818,
+        "byteOffset": 143104904,
+        "rule": "IN-G3",
+        "fieldIndex": 13,
+        "tag": "LVL",
+        "indicatorIndex": 0,
+        "message": "Индикатор 1 поля LVL имеет недопустимое значение \"X\"."
+      }
+    },
+    "IN-G3: Индикатор 2 поля LVL имеет недопустимое значение \"X\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 169818,
+        "byteOffset": 143104904,
+        "rule": "IN-G3",
+        "fieldIndex": 13,
+        "tag": "LVL",
+        "indicatorIndex": 1,
+        "message": "Индикатор 2 поля LVL имеет недопустимое значение \"X\"."
+      }
+    },
+    "DF-G3: Поле LVL не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 169818,
+        "byteOffset": 143104904,
+        "rule": "DF-G3",
+        "fieldIndex": 13,
+        "tag": "LVL",
+        "message": "Поле LVL не содержит кода подполя."
+      }
+    },
+    "DR-E2: Некорректный тег \" 01\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 177847,
+        "byteOffset": 151478708,
+        "rule": "DR-E2",
+        "fieldIndex": 12,
+        "tag": " 01",
+        "message": "Некорректный тег \" 01\"."
+      }
+    },
+    "DF-G3: Поле  01 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 177847,
+        "byteOffset": 151478708,
+        "rule": "DF-G3",
+        "fieldIndex": 12,
+        "tag": " 01",
+        "message": "Поле  01 не содержит кода подполя."
+      }
+    },
+    "IN-G3: Индикатор 1 поля 670 имеет недопустимое значение \"\\u0001\".": {
+      "count": 11,
+      "first": {
+        "recordIndex": 178006,
+        "byteOffset": 151630078,
+        "rule": "IN-G3",
+        "fieldIndex": 10,
+        "tag": "670",
+        "indicatorIndex": 0,
+        "message": "Индикатор 1 поля 670 имеет недопустимое значение \"\\u0001\"."
+      }
+    },
+    "IN-G3: Индикатор 2 поля 400 имеет недопустимое значение \"\\u001c\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 182951,
+        "byteOffset": 157399405,
+        "rule": "IN-G3",
+        "fieldIndex": 6,
+        "tag": "400",
+        "indicatorIndex": 1,
+        "message": "Индикатор 2 поля 400 имеет недопустимое значение \"\\u001c\"."
+      }
+    },
+    "VF-G5: Подполе 2 поля 678 имеет недопустимый код \"\\u0001\".": {
+      "count": 2,
+      "first": {
+        "recordIndex": 184654,
+        "byteOffset": 159447160,
+        "rule": "VF-G5",
+        "fieldIndex": 13,
+        "tag": "678",
+        "subfieldIndex": 1,
+        "message": "Подполе 2 поля 678 имеет недопустимый код \"\\u0001\"."
+      }
+    },
+    "SF-G4: Подполе 2 поля 678 имеет недопустимый код \"\\u0001\".": {
+      "count": 2,
+      "first": {
+        "recordIndex": 184654,
+        "byteOffset": 159447160,
+        "rule": "SF-G4",
+        "fieldIndex": 13,
+        "tag": "678",
+        "subfieldIndex": 1,
+        "message": "Подполе 2 поля 678 имеет недопустимый код \"\\u0001\"."
+      }
+    },
+    "DR-E2: Некорректный тег \";01\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 195820,
+        "byteOffset": 171991778,
+        "rule": "DR-E2",
+        "fieldIndex": 17,
+        "tag": ";01",
+        "message": "Некорректный тег \";01\"."
+      }
+    },
+    "DF-G3: Поле ;01 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 195820,
+        "byteOffset": 171991778,
+        "rule": "DF-G3",
+        "fieldIndex": 17,
+        "tag": ";01",
+        "message": "Поле ;01 не содержит кода подполя."
+      }
+    },
+    "VF-G5: Подполе 2 поля 678 имеет недопустимый код \";\".": {
+      "count": 2,
+      "first": {
+        "recordIndex": 201050,
+        "byteOffset": 178038934,
+        "rule": "VF-G5",
+        "fieldIndex": 14,
+        "tag": "678",
+        "subfieldIndex": 1,
+        "message": "Подполе 2 поля 678 имеет недопустимый код \";\"."
+      }
+    },
+    "SF-G4: Подполе 2 поля 678 имеет недопустимый код \";\".": {
+      "count": 2,
+      "first": {
+        "recordIndex": 201050,
+        "byteOffset": 178038934,
+        "rule": "SF-G4",
+        "fieldIndex": 14,
+        "tag": "678",
+        "subfieldIndex": 1,
+        "message": "Подполе 2 поля 678 имеет недопустимый код \";\"."
+      }
+    },
+    "DR-E2: Некорректный тег \"Q01\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 205860,
+        "byteOffset": 183383319,
+        "rule": "DR-E2",
+        "fieldIndex": 12,
+        "tag": "Q01",
+        "message": "Некорректный тег \"Q01\"."
+      }
+    },
+    "DF-G3: Поле Q01 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 205860,
+        "byteOffset": 183383319,
+        "rule": "DF-G3",
+        "fieldIndex": 12,
+        "tag": "Q01",
+        "message": "Поле Q01 не содержит кода подполя."
+      }
+    },
+    "VF-G5: Подполе 1 поля 500 имеет недопустимый код \"D\".": {
+      "count": 2,
+      "first": {
+        "recordIndex": 211193,
+        "byteOffset": 189317963,
+        "rule": "VF-G5",
+        "fieldIndex": 7,
+        "tag": "500",
+        "subfieldIndex": 0,
+        "message": "Подполе 1 поля 500 имеет недопустимый код \"D\"."
+      }
+    },
+    "SF-G4: Подполе 1 поля 500 имеет недопустимый код \"D\".": {
+      "count": 2,
+      "first": {
+        "recordIndex": 211193,
+        "byteOffset": 189317963,
+        "rule": "SF-G4",
+        "fieldIndex": 7,
+        "tag": "500",
+        "subfieldIndex": 0,
+        "message": "Подполе 1 поля 500 имеет недопустимый код \"D\"."
+      }
+    },
+    "VF-G5: Подполе 1 поля 678 имеет недопустимый код \"$\".": {
+      "count": 2,
+      "first": {
+        "recordIndex": 217032,
+        "byteOffset": 195894441,
+        "rule": "VF-G5",
+        "fieldIndex": 14,
+        "tag": "678",
+        "subfieldIndex": 0,
+        "message": "Подполе 1 поля 678 имеет недопустимый код \"$\"."
+      }
+    },
+    "SF-G4: Подполе 1 поля 678 имеет недопустимый код \"$\".": {
+      "count": 2,
+      "first": {
+        "recordIndex": 217032,
+        "byteOffset": 195894441,
+        "rule": "SF-G4",
+        "fieldIndex": 14,
+        "tag": "678",
+        "subfieldIndex": 0,
+        "message": "Подполе 1 поля 678 имеет недопустимый код \"$\"."
+      }
+    },
+    "VF-G5: Подполе 2 поля 400 имеет недопустимый код \"L\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 219426,
+        "byteOffset": 198699055,
+        "rule": "VF-G5",
+        "fieldIndex": 15,
+        "tag": "400",
+        "subfieldIndex": 1,
+        "message": "Подполе 2 поля 400 имеет недопустимый код \"L\"."
+      }
+    },
+    "SF-G4: Подполе 2 поля 400 имеет недопустимый код \"L\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 219426,
+        "byteOffset": 198699055,
+        "rule": "SF-G4",
+        "fieldIndex": 15,
+        "tag": "400",
+        "subfieldIndex": 1,
+        "message": "Подполе 2 поля 400 имеет недопустимый код \"L\"."
+      }
+    },
+    "DR-E2: Некорректный тег \"=:8\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 234032,
+        "byteOffset": 214164664,
+        "rule": "DR-E2",
+        "fieldIndex": 8,
+        "tag": "=:8",
+        "message": "Некорректный тег \"=:8\"."
+      }
+    },
+    "DF-G3: Поле =:8 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 234032,
+        "byteOffset": 214164664,
+        "rule": "DF-G3",
+        "fieldIndex": 8,
+        "tag": "=:8",
+        "message": "Поле =:8 не содержит кода подполя."
+      }
+    },
+    "IN-G3: Индикатор 1 поля 663 имеет недопустимое значение \"\\u0001\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 245334,
+        "byteOffset": 226758357,
+        "rule": "IN-G3",
+        "fieldIndex": 14,
+        "tag": "663",
+        "indicatorIndex": 0,
+        "message": "Индикатор 1 поля 663 имеет недопустимое значение \"\\u0001\"."
+      }
+    },
+    "VF-G5: Подполе 1 поля 678 имеет недопустимый код \"\\u0014\".": {
+      "count": 4,
+      "first": {
+        "recordIndex": 252627,
+        "byteOffset": 234592605,
+        "rule": "VF-G5",
+        "fieldIndex": 11,
+        "tag": "678",
+        "subfieldIndex": 0,
+        "message": "Подполе 1 поля 678 имеет недопустимый код \"\\u0014\"."
+      }
+    },
+    "SF-G4: Подполе 1 поля 678 имеет недопустимый код \"\\u0014\".": {
+      "count": 4,
+      "first": {
+        "recordIndex": 252627,
+        "byteOffset": 234592605,
+        "rule": "SF-G4",
+        "fieldIndex": 11,
+        "tag": "678",
+        "subfieldIndex": 0,
+        "message": "Подполе 1 поля 678 имеет недопустимый код \"\\u0014\"."
+      }
+    },
+    "DR-E2: Некорректный тег \" 08\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 255226,
+        "byteOffset": 237527225,
+        "rule": "DR-E2",
+        "fieldIndex": 10,
+        "tag": " 08",
+        "message": "Некорректный тег \" 08\"."
+      }
+    },
+    "DF-G3: Поле  08 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 255226,
+        "byteOffset": 237527225,
+        "rule": "DF-G3",
+        "fieldIndex": 10,
+        "tag": " 08",
+        "message": "Поле  08 не содержит кода подполя."
+      }
+    },
+    "DF-G2: Поле 400 содержит 1 индикатор(а), ожидалось 2.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 263840,
+        "byteOffset": 246714061,
+        "rule": "DF-G2",
+        "fieldIndex": 6,
+        "tag": "400",
+        "message": "Поле 400 содержит 1 индикатор(а), ожидалось 2."
+      }
+    },
+    "VF-G5: Подполе 1 поля 400 имеет недопустимый код \"\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 263840,
+        "byteOffset": 246714061,
+        "rule": "VF-G5",
+        "fieldIndex": 6,
+        "tag": "400",
+        "subfieldIndex": 0,
+        "message": "Подполе 1 поля 400 имеет недопустимый код \"\"."
+      }
+    },
+    "SF-G4: Подполе 1 поля 400 имеет недопустимый код \"\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 263840,
+        "byteOffset": 246714061,
+        "rule": "SF-G4",
+        "fieldIndex": 6,
+        "tag": "400",
+        "subfieldIndex": 0,
+        "message": "Подполе 1 поля 400 имеет недопустимый код \"\"."
+      }
+    },
+    "VF-G5: Подполе 1 поля 065 имеет недопустимый код \"D\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 265483,
+        "byteOffset": 248356278,
+        "rule": "VF-G5",
+        "fieldIndex": 9,
+        "tag": "065",
+        "subfieldIndex": 0,
+        "message": "Подполе 1 поля 065 имеет недопустимый код \"D\"."
+      }
+    },
+    "SF-G4: Подполе 1 поля 065 имеет недопустимый код \"D\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 265483,
+        "byteOffset": 248356278,
+        "rule": "SF-G4",
+        "fieldIndex": 9,
+        "tag": "065",
+        "subfieldIndex": 0,
+        "message": "Подполе 1 поля 065 имеет недопустимый код \"D\"."
+      }
+    },
+    "DR-E2: Некорректный тег \"<K=\".": {
+      "count": 2,
+      "first": {
+        "recordIndex": 271036,
+        "byteOffset": 254149757,
+        "rule": "DR-E2",
+        "fieldIndex": 14,
+        "tag": "<K=",
+        "message": "Некорректный тег \"<K=\"."
+      }
+    },
+    "DF-G3: Поле <K= не содержит кода подполя.": {
+      "count": 2,
+      "first": {
+        "recordIndex": 271036,
+        "byteOffset": 254149757,
+        "rule": "DF-G3",
+        "fieldIndex": 14,
+        "tag": "<K=",
+        "message": "Поле <K= не содержит кода подполя."
+      }
+    },
+    "IN-G3: Индикатор 2 поля 500 имеет недопустимое значение \"\\u001e\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 301733,
+        "byteOffset": 285852259,
+        "rule": "IN-G3",
+        "fieldIndex": 6,
+        "tag": "500",
+        "indicatorIndex": 1,
+        "message": "Индикатор 2 поля 500 имеет недопустимое значение \"\\u001e\"."
+      }
+    },
+    "IN-G3: Индикатор 2 поля 100 имеет недопустимое значение \"\\u001e\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 301734,
+        "byteOffset": 285853250,
+        "rule": "IN-G3",
+        "fieldIndex": 5,
+        "tag": "100",
+        "indicatorIndex": 1,
+        "message": "Индикатор 2 поля 100 имеет недопустимое значение \"\\u001e\"."
+      }
+    },
+    "DR-E2: Некорректный тег \"5O0\".": {
+      "count": 2,
+      "first": {
+        "recordIndex": 303463,
+        "byteOffset": 287574738,
+        "rule": "DR-E2",
+        "fieldIndex": 7,
+        "tag": "5O0",
+        "message": "Некорректный тег \"5O0\"."
+      }
+    },
+    "VF-G5: Подполе 2 поля 400 имеет недопустимый код \"D\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 314136,
+        "byteOffset": 299236118,
+        "rule": "VF-G5",
+        "fieldIndex": 8,
+        "tag": "400",
+        "subfieldIndex": 1,
+        "message": "Подполе 2 поля 400 имеет недопустимый код \"D\"."
+      }
+    },
+    "SF-G4: Подполе 2 поля 400 имеет недопустимый код \"D\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 314136,
+        "byteOffset": 299236118,
+        "rule": "SF-G4",
+        "fieldIndex": 8,
+        "tag": "400",
+        "subfieldIndex": 1,
+        "message": "Подполе 2 поля 400 имеет недопустимый код \"D\"."
+      }
+    },
+    "VF-G5: Подполе 1 поля 678 имеет недопустимый код \"D\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 315730,
+        "byteOffset": 301040202,
+        "rule": "VF-G5",
+        "fieldIndex": 12,
+        "tag": "678",
+        "subfieldIndex": 0,
+        "message": "Подполе 1 поля 678 имеет недопустимый код \"D\"."
+      }
+    },
+    "SF-G4: Подполе 1 поля 678 имеет недопустимый код \"D\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 315730,
+        "byteOffset": 301040202,
+        "rule": "SF-G4",
+        "fieldIndex": 12,
+        "tag": "678",
+        "subfieldIndex": 0,
+        "message": "Подполе 1 поля 678 имеет недопустимый код \"D\"."
+      }
+    },
+    "IN-G3: Индикатор 1 поля 500 имеет недопустимое значение \"\\u0001\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 324517,
+        "byteOffset": 310977885,
+        "rule": "IN-G3",
+        "fieldIndex": 7,
+        "tag": "500",
+        "indicatorIndex": 0,
+        "message": "Индикатор 1 поля 500 имеет недопустимое значение \"\\u0001\"."
+      }
+    },
+    "VF-G5: Подполе 3 поля 500 имеет недопустимый код \"F\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 326661,
+        "byteOffset": 313721527,
+        "rule": "VF-G5",
+        "fieldIndex": 6,
+        "tag": "500",
+        "subfieldIndex": 2,
+        "message": "Подполе 3 поля 500 имеет недопустимый код \"F\"."
+      }
+    },
+    "SF-G4: Подполе 3 поля 500 имеет недопустимый код \"F\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 326661,
+        "byteOffset": 313721527,
+        "rule": "SF-G4",
+        "fieldIndex": 6,
+        "tag": "500",
+        "subfieldIndex": 2,
+        "message": "Подполе 3 поля 500 имеет недопустимый код \"F\"."
+      }
+    },
+    "VF-G5: Подполе 1 поля 500 имеет недопустимый код \"\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 328265,
+        "byteOffset": 315676154,
+        "rule": "VF-G5",
+        "fieldIndex": 7,
+        "tag": "500",
+        "subfieldIndex": 0,
+        "message": "Подполе 1 поля 500 имеет недопустимый код \"\"."
+      }
+    },
+    "SF-G4: Подполе 1 поля 500 имеет недопустимый код \"\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 328265,
+        "byteOffset": 315676154,
+        "rule": "SF-G4",
+        "fieldIndex": 7,
+        "tag": "500",
+        "subfieldIndex": 0,
+        "message": "Подполе 1 поля 500 имеет недопустимый код \"\"."
+      }
+    },
+    "VF-G5: Подполе 2 поля 500 имеет недопустимый код \"Ð\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 328265,
+        "byteOffset": 315676154,
+        "rule": "VF-G5",
+        "fieldIndex": 7,
+        "tag": "500",
+        "subfieldIndex": 1,
+        "message": "Подполе 2 поля 500 имеет недопустимый код \"Ð\"."
+      }
+    },
+    "SF-G4: Подполе 2 поля 500 имеет недопустимый код \"Ð\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 328265,
+        "byteOffset": 315676154,
+        "rule": "SF-G4",
+        "fieldIndex": 7,
+        "tag": "500",
+        "subfieldIndex": 1,
+        "message": "Подполе 2 поля 500 имеет недопустимый код \"Ð\"."
+      }
+    },
+    "VF-G5: Подполе 4 поля 500 имеет недопустимый код \"C\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 330761,
+        "byteOffset": 318896523,
+        "rule": "VF-G5",
+        "fieldIndex": 7,
+        "tag": "500",
+        "subfieldIndex": 3,
+        "message": "Подполе 4 поля 500 имеет недопустимый код \"C\"."
+      }
+    },
+    "SF-G4: Подполе 4 поля 500 имеет недопустимый код \"C\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 330761,
+        "byteOffset": 318896523,
+        "rule": "SF-G4",
+        "fieldIndex": 7,
+        "tag": "500",
+        "subfieldIndex": 3,
+        "message": "Подполе 4 поля 500 имеет недопустимый код \"C\"."
+      }
+    },
+    "DR-E2: Некорректный тег \"U5D\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 331490,
+        "byteOffset": 319849726,
+        "rule": "DR-E2",
+        "fieldIndex": 14,
+        "tag": "U5D",
+        "message": "Некорректный тег \"U5D\"."
+      }
+    },
+    "VF-G5: Подполе 3 поля 100 имеет недопустимый код \">\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 340065,
+        "byteOffset": 331434160,
+        "rule": "VF-G5",
+        "fieldIndex": 5,
+        "tag": "100",
+        "subfieldIndex": 2,
+        "message": "Подполе 3 поля 100 имеет недопустимый код \">\"."
+      }
+    },
+    "SF-G4: Подполе 3 поля 100 имеет недопустимый код \">\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 340065,
+        "byteOffset": 331434160,
+        "rule": "SF-G4",
+        "fieldIndex": 5,
+        "tag": "100",
+        "subfieldIndex": 2,
+        "message": "Подполе 3 поля 100 имеет недопустимый код \">\"."
+      }
+    },
+    "DR-E2: Некорректный тег \" 78\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 340339,
+        "byteOffset": 331799947,
+        "rule": "DR-E2",
+        "fieldIndex": 13,
+        "tag": " 78",
+        "message": "Некорректный тег \" 78\"."
+      }
+    }
+  }
+}

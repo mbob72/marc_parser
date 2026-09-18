@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006711; recordIndex (0-based): 10570; byteOffset: 9434570
+Record length: 995 bytes; record SHA-256: 41b0058ebcb32b23b833e59071d8af7920cf7032faba0b040e472998f30726c4
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9434580; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9434592; length=0030; raw="LDR  L01104nam^a22002292ic4500"
+fieldIndex=1; byteOffset=9434626; length=0015; raw="001  L000006711"
+fieldIndex=2; byteOffset=9434645; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9434659; length=0022; raw="005  L20190205162019.0"
+fieldIndex=4; byteOffset=9434685; length=0046; raw="008  L100514s1926^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9434735; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00043999"
+fieldIndex=6; byteOffset=9434774; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9434813; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9434829; length=0100; raw="24500L$$aИз архива Пугачева$$b(Манифесты, указы и переписка)"
+fieldIndex=9; byteOffset=9434933; length=0052; raw="260  L$$aМосква ;$$bГос. изд-во$$c1926"
+fieldIndex=10; byteOffset=9434989; length=0016; raw="300  L$$a287 с."
+fieldIndex=11; byteOffset=9435009; length=0336; raw="77318L$$7nnam$$gТ. 1$$tПугачевщина$$dМосква ; Ленинград : Гос. изд-во, 1926-1931$$h23 см.$$k(Материалы по истории революционного движения в России XVII и XVIII в.в./ Центрархив. Под общ. ред. М. Н. Покровского)$$w6710"
+fieldIndex=12; byteOffset=9435349; length=0145; raw="LKR  L$$aUP$$lRSL06$$b6710$$mИз архива Пугачева : (Манифесты, указы и переписка)$$nПугачевщина"
+fieldIndex=13; byteOffset=9435498; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=14; byteOffset=9435514; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190205$$lRSL06$$h1620"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9434570 /tmp/000006711.dat

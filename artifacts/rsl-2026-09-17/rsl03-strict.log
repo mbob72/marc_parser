@@ -1,0 +1,36 @@
+{
+  "file": "rsl03_z00.dat",
+  "mode": "strict",
+  "category": "bibliographic",
+  "source": "https://mrsadman.ru/ac34d2e7ff814dac/",
+  "revision": "47d517aa270e431874abe1524a2ae069b7910d97",
+  "node": "v24.12.0",
+  "startedAt": "2026-09-17T16:10:06.493Z",
+  "completedAt": "2026-09-17T16:10:27.872Z",
+  "complete": false,
+  "fatalError": "Error: Aleph-запись должна содержать ровно одно поле LDR; найдено 0.",
+  "fileBytes": 2307242366,
+  "recordsProcessed": 263416,
+  "validRecords": 263415,
+  "recordsWithValidationErrors": 1,
+  "recordsWithParsingErrors": 1,
+  "validationErrors": 1,
+  "inputBytes": 260275526,
+  "serializedBytes": 534659815,
+  "rules": {
+    "DR-E2": 1
+  },
+  "messages": {
+    "DR-E2: Некорректный тег \"---\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 213292,
+        "byteOffset": 209992082,
+        "rule": "DR-E2",
+        "fieldIndex": 29,
+        "tag": "---",
+        "message": "Некорректный тег \"---\"."
+      }
+    }
+  }
+}

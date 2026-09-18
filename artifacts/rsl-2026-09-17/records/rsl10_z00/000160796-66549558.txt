@@ -1,0 +1,28 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000160796; recordIndex (0-based): 134999; byteOffset: 66549558
+Record length: 587 bytes; record SHA-256: 48ee0e51ea12f784dce5f7dbe02104d089191ab12653f07400b6fbcc2b366efa
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 5, "tag": "110", "indicatorIndex": 0, "message": "Индикатор 1 поля 110 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=66549568; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=66549580; length=0030; raw="LDR  L00589nz^^a2200181n^^4500"
+fieldIndex=1; byteOffset=66549614; length=0015; raw="001  L000160796"
+fieldIndex=2; byteOffset=66549633; length=0022; raw="005  L20120828113948.0"
+fieldIndex=3; byteOffset=66549659; length=0046; raw="008  L120828^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=66549709; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=66549741; length=0075; raw="110\u0001 L$$aČeská Socialistická Republika$$bSpráva kulturních zařízení"
+fieldIndex=6; byteOffset=66549820; length=0098; raw="4101 L$$aČeská Socialistická Republika$$bMinisterstvo kultury$$bSpráva kulturních zařízení"
+fieldIndex=7; byteOffset=66549922; length=0047; raw="4102 L$$aSpráva kulturních zařízení (ČSR)"
+fieldIndex=8; byteOffset=66549973; length=0044; raw="CAT  L$$aNO08$$b40$$c20120828$$lRSL10$$h1139"
+fieldIndex=9; byteOffset=66550021; length=0032; raw="CAT  L$$c20121212$$lRSL10$$h2112"
+fieldIndex=10; byteOffset=66550057; length=0010; raw="UPD  L$$aN"
+fieldIndex=11; byteOffset=66550071; length=0014; raw="065  L$$2rubbk"
+fieldIndex=12; byteOffset=66550089; length=0051; raw="670  L$$aAfrické umění v Československu, [1983]"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 66549558 /tmp/000160796.dat

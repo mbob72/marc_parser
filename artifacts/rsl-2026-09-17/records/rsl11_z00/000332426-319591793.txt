@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000332426; recordIndex (0-based): 331289; byteOffset: 319591793
+Record length: 1568 bytes; record SHA-256: 5862419202d5f188efb46c4238f38e04384bfadb10ddf9fec90c38db3efb059c
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DF-G3", "fieldIndex": 13, "tag": "670", "message": "Поле 670 не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=319591803; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=319591815; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=319591849; length=0021; raw="001  Lnafpn-000332426"
+fieldIndex=2; byteOffset=319591874; length=0022; raw="005  L20251029152956.0"
+fieldIndex=3; byteOffset=319591900; length=0046; raw="008  L251029^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=319591950; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=319591982; length=0072; raw="1001 L$$aЯркова, Елена Николаевна$$0RSL11-000332426"
+fieldIndex=6; byteOffset=319592058; length=0046; raw="CAT  L$$aOKZ24L$$b90$$c20251029$$lRSL11$$h1432"
+fieldIndex=7; byteOffset=319592108; length=0046; raw="CAT  L$$aOKZ24L$$b90$$c20251029$$lRSL11$$h1433"
+fieldIndex=8; byteOffset=319592158; length=0046; raw="CAT  L$$aOKZ24L$$b90$$c20251029$$lRSL11$$h1434"
+fieldIndex=9; byteOffset=319592208; length=0046; raw="CAT  L$$aOKZ24L$$b40$$c20251029$$lRSL11$$h1438"
+fieldIndex=10; byteOffset=319592258; length=0046; raw="CAT  L$$aOKZ24L$$b40$$c20251029$$lRSL11$$h1529"
+fieldIndex=11; byteOffset=319592308; length=0010; raw="UPD  L$$aN"
+fieldIndex=12; byteOffset=319592322; length=0042; raw="670  L$$aФорма культуры, 2024"
+fieldIndex=13; byteOffset=319592368; length=0100; raw="670  LИсточники в Интернете: https://www.utmn.ru/o-tyumgu/sotrudniki/e.n.yarkova/"
+fieldIndex=14; byteOffset=319592472; length=0020; raw="670  L$$aЭК РНБ"
+fieldIndex=15; byteOffset=319592496; length=0860; raw="6780 L$$aДоктор философских наук (2002), кандидат культурологических наук, профессор кафедры философии, медиа и журналистики Института социально-гуманитарных наук Тюменского государственного университета (2008). Научные интересы: Социально - экономические и правовые исследования. Окончила Алма-Атинскую государственную Консерваторию им. Курмангазы (1983). Послевузовское образование ГАОУ ВПО ТО \"Тюменская государственная академия мировой экономики, управления и права\" (2001)."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 319591793 /tmp/000332426.dat

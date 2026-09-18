@@ -1,0 +1,27 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000167015; recordIndex (0-based): 129640; byteOffset: 64119704
+Record length: 490 bytes; record SHA-256: 73a55296b87b52c54c6a179a25b9ee1197ddcc97406551785d7d55b312001132
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"message": "Error: Aleph-запись должна содержать ровно одно поле LDR; найдено 2."}
+
+Fields:
+fieldIndex=0; byteOffset=64119714; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=64119726; length=0030; raw="LDR  L^^^^^nam^a22^^^^^^i^4500"
+fieldIndex=LDR; byteOffset=64119760; length=0030; raw="LDR  L00744nz^^a2200181n^^4500"
+fieldIndex=1; byteOffset=64119794; length=0015; raw="001  L000167015"
+fieldIndex=2; byteOffset=64119813; length=0022; raw="005  L20130805135359.0"
+fieldIndex=3; byteOffset=64119839; length=0046; raw="008  L130805^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=64119889; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=64119921; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=64119939; length=0114; raw="1112 L$$a\"50 years Department of zoology, Plovdiv university\", international conference on zoology$$d2012$$cHissar"
+fieldIndex=7; byteOffset=64120057; length=0044; raw="CAT  L$$aNO04$$b40$$c20130805$$lRSL10$$h1300"
+fieldIndex=8; byteOffset=64120105; length=0044; raw="CAT  L$$aNO04$$b40$$c20130805$$lRSL10$$h1353"
+fieldIndex=9; byteOffset=64120153; length=0010; raw="UPD  L$$aN"
+fieldIndex=10; byteOffset=64120167; length=0022; raw="670  L$$aГАК РГБ"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 64119704 /tmp/000167015.dat

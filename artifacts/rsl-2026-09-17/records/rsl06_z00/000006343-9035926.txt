@@ -1,0 +1,33 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006343; recordIndex (0-based): 10201; byteOffset: 9035926
+Record length: 1060 bytes; record SHA-256: 1a20117db13f814bc3da1b556c8f5b9b3f4f4d5e18441f1d5d0682581ad44b8e
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9035936; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9035948; length=0030; raw="LDR  L00741nam^a22001932ia4500"
+fieldIndex=1; byteOffset=9035982; length=0015; raw="001  L000006343"
+fieldIndex=2; byteOffset=9036001; length=0022; raw="005  L20190116103835.0"
+fieldIndex=3; byteOffset=9036027; length=0046; raw="008  L100622s1921^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=4; byteOffset=9036077; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00124869"
+fieldIndex=5; byteOffset=9036116; length=0038; raw="040  L$$aRuMoRGB$$brus$$ercr$$dRuMoRGB"
+fieldIndex=6; byteOffset=9036158; length=0012; raw="0410 L$$arus"
+fieldIndex=7; byteOffset=9036174; length=0011; raw="044  L$$aru"
+fieldIndex=8; byteOffset=9036189; length=0056; raw="1001 L$$aКарташов, Степан Иванович"
+fieldIndex=9; byteOffset=9036249; length=0318; raw="24500L$$aОснования тейлоризации$$h[Текст] :$$bработы каталей (грузчиков) : с приложением 11 рисунков и 15 чертежей$$cинж.-техн. С. И. Карташов ; Р.С.Ф.С.Р. Транспортный отд. Петрогубкоммуны"
+fieldIndex=10; byteOffset=9036571; length=0069; raw="260  L$$aПетроград$$b[б. и.]$$c1921$$f2-я Гос. тип."
+fieldIndex=11; byteOffset=9036644; length=0082; raw="300  L$$a106, IV с., 29 ил., табл.$$c23 см$$e1 прил. (8с.) ; 15 см"
+fieldIndex=12; byteOffset=9036730; length=0045; raw="336  L$$aтекст (text)$$btxt$$2rdacontent"
+fieldIndex=13; byteOffset=9036779; length=0069; raw="337  L$$aнеопосредованный (unmediated)$$bn$$2rdamedia"
+fieldIndex=14; byteOffset=9036852; length=0042; raw="338  L$$aтом (volume)$$bnc$$2rdacarrier"
+fieldIndex=15; byteOffset=9036898; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=16; byteOffset=9036919; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=17; byteOffset=9036935; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190116$$lRSL06$$h1038"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9035926 /tmp/000006343.dat

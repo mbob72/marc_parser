@@ -1,0 +1,43 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000037600; recordIndex (0-based): 50813; byteOffset: 26941500
+Record length: 2063 bytes; record SHA-256: ff7ff5bb906e50dc89682e24baf54f8bc24eff6968bb84315f4b255e0ef3cd46
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 10, "tag": "510", "indicatorIndex": 0, "message": "Индикатор 1 поля 510 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=26941510; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=26941522; length=0030; raw="LDR  L01622nz^^a2200313n^^4500"
+fieldIndex=1; byteOffset=26941556; length=0015; raw="001  L000037600"
+fieldIndex=2; byteOffset=26941575; length=0022; raw="005  L20211109150406.0"
+fieldIndex=3; byteOffset=26941601; length=0046; raw="008  L040520^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=26941651; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=26941683; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=26941701; length=0100; raw="1102 L$$aМосковская медицинская академия им. И. М. Сеченова"
+fieldIndex=7; byteOffset=26941805; length=0046; raw="4102 L$$aММА им. И. М. Сеченова"
+fieldIndex=8; byteOffset=26941855; length=0131; raw="4102 L$$aМосковская государственная медицинская академия им. И. М. Сеченова"
+fieldIndex=9; byteOffset=26941990; length=0061; raw="4102 L$$aI. M. Sechenov First Moscow State Medical University"
+fieldIndex=10; byteOffset=26942055; length=0148; raw="510\u0001 L$$aМосковский государственный медицинский университет им. И. М. Сеченова (1)$$wbnnn"
+fieldIndex=11; byteOffset=26942207; length=0104; raw="5102 L$$aМосковский медицинский институт им. И. М. Сеченова (1)"
+fieldIndex=12; byteOffset=26942315; length=0044; raw="CAT  L$$aNO07$$b40$$c20040520$$lRSL10$$h1215"
+fieldIndex=13; byteOffset=26942363; length=0044; raw="CAT  L$$aNO07$$b40$$c20040520$$lRSL10$$h1216"
+fieldIndex=14; byteOffset=26942411; length=0044; raw="CAT  L$$aNO06$$b40$$c20040520$$lRSL10$$h1433"
+fieldIndex=15; byteOffset=26942459; length=0044; raw="CAT  L$$aNO06$$b40$$c20040520$$lRSL10$$h1433"
+fieldIndex=16; byteOffset=26942507; length=0044; raw="CAT  L$$aNO09$$b40$$c20050221$$lRSL10$$h1356"
+fieldIndex=17; byteOffset=26942555; length=0044; raw="CAT  L$$aNO02$$b40$$c20060411$$lRSL10$$h1421"
+fieldIndex=18; byteOffset=26942603; length=0044; raw="CAT  L$$aNO02$$b40$$c20060411$$lRSL10$$h1422"
+fieldIndex=19; byteOffset=26942651; length=0044; raw="CAT  L$$aNO09$$b40$$c20101223$$lRSL10$$h1232"
+fieldIndex=20; byteOffset=26942699; length=0032; raw="CAT  L$$c20121212$$lRSL10$$h2102"
+fieldIndex=21; byteOffset=26942735; length=0045; raw="CAT  L$$aOKZ23$$b40$$c20200907$$lRSL10$$h1450"
+fieldIndex=22; byteOffset=26942784; length=0045; raw="CAT  L$$aOKZ36$$b40$$c20211109$$lRSL10$$h1504"
+fieldIndex=23; byteOffset=26942833; length=0010; raw="UPD  L$$aN"
+fieldIndex=24; byteOffset=26942847; length=0154; raw="663  L$$aДо мая 1990 г. см. в каталоге:$$bМосковский медицинский институт им. И. М. Сеченова (1)"
+fieldIndex=25; byteOffset=26943005; length=0190; raw="663  L$$aС середины 2010 г. см. в кат.:$$bМосковский государственный медицинский университет им. И. М. Сеченова (1)"
+fieldIndex=26; byteOffset=26943199; length=0036; raw="670  L$$aМиома матки, 2003"
+fieldIndex=27; byteOffset=26943239; length=0319; raw="6781 L$$aСтарейший, крупнейший и ведущий российский медицинский университет, основанный в 1758 году. С 1955 года носит имя выдающегося русского физиолога Ивана Михайловича Сеченова"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 26941500 /tmp/000037600.dat

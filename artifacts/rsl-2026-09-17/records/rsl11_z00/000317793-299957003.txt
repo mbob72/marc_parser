@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000317793; recordIndex (0-based): 314781; byteOffset: 299957003
+Record length: 2848 bytes; record SHA-256: c85b1a0c110e892c97995b75b22b1dc5ebf6d8191866435eb3845eb848fac6de
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 7, "tag": "500", "subfieldIndex": 0, "message": "Подполе 1 поля 500 имеет недопустимый код \"D\"."}
+{"rule": "SF-G4", "fieldIndex": 7, "tag": "500", "subfieldIndex": 0, "message": "Подполе 1 поля 500 имеет недопустимый код \"D\"."}
+
+Fields:
+fieldIndex=0; byteOffset=299957013; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=299957025; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=299957059; length=0021; raw="001  Lnafpn-000317793"
+fieldIndex=2; byteOffset=299957084; length=0022; raw="005  L20250902153321.0"
+fieldIndex=3; byteOffset=299957110; length=0046; raw="008  L250130nn^cznnnbbbn^^^^^^^^^^^n^abn^^^^^d"
+fieldIndex=4; byteOffset=299957160; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=299957192; length=0071; raw="1001 L$$6Yasadipura I, Raden Ngabèhi$$bI$$d1729-1803$$0RSL11-000317793"
+fieldIndex=6; byteOffset=299957267; length=0066; raw="400  L$$aRaden Ngabèhi Yasadipura I$$d1729-1803$$0RSL11-000317793"
+fieldIndex=7; byteOffset=299957337; length=0086; raw="500  L$$DЯсодипуро I, Раден Нгабэхи$$d1729-1803$$0RSL11-000317793"
+fieldIndex=8; byteOffset=299957427; length=0045; raw="CAT  L$$aCVL12$$b40$$c20250130$$lRSL11$$h1315"
+fieldIndex=9; byteOffset=299957476; length=0045; raw="CAT  L$$aCVL12$$b40$$c20250130$$lRSL11$$h1322"
+fieldIndex=10; byteOffset=299957525; length=0045; raw="CAT  L$$aCVL12$$b40$$c20250902$$lRSL11$$h1533"
+fieldIndex=11; byteOffset=299957574; length=0053; raw="COR  L$$6Yasadipura I, Raden Ngabèhi$$bI$$d1729-1803"
+fieldIndex=12; byteOffset=299957631; length=0010; raw="UPD  L$$aY"
+fieldIndex=13; byteOffset=299957645; length=0010; raw="664  L$$bI"
+fieldIndex=14; byteOffset=299957659; length=0218; raw="670  L$$aHamid Nasuhi (2006). \"Yasadipura I (1729-1803): Biografi dan Karya-karyanya\". Al-Turas. Fakultas Adab dan Humaniora, Universitas Islam Negeri (UIN) Syarif Hidayatullah Jakarta. 12 (3): 213-214. ISSN 0853-1692."
+fieldIndex=15; byteOffset=299957881; length=1965; raw="678  L$$aРаден Нгабэхи Ясодипуро Тус Паджанг, он же Ясадипура I, Йасадипура I, Йосодипуро I (разные традиции транслитерации яванских имен) (1729 -1803) был великим поэтом из Касунанана Суракарты. Был придворным поэтом (пуджангга) при дворе Картасуры (впоследствии Суракарты и Соло) во времена султанов дома Пакубувоно. Ясоидуро I считается величайшим поэтом острова Ява XVIII века. 4 его наиболее монументальных произведения представляют собой адаптации известных произведений древнеяванской литературы, а именно: \"Серат Рама\", адаптация придворной поэмы 9 в., какавина \"Рамаяна\", \"Серат Братаюда\", адаптация какавина \"Бхаратаюдха\" 12 в., \"Серат Минтарага\", переложение какавина \"Арджунавиваха\" 11 в. и \"Серат Арджунасосробаху\", переложение какавина \"Арджунавиджая\" 14 в. Четыре поэмы написаны в размере мачапат на новояванском языке. Некоторые из его стихов до сих пор исполняют как песни-сулук во время представлений театра теней ваянг. Помимо эьтого, Ясодипуро I автор «Серат Менак» - адаптации «Хикаята Амира Хамзы» на малайском языке и \"Хроник Гианти\" на яванском о разделе султаната Матарама."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 299957003 /tmp/000317793.dat

@@ -1,0 +1,35 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000003482; recordIndex (0-based): 5908; byteOffset: 5523736
+Record length: 829 bytes; record SHA-256: d5518b0ebf180199ba9a61ed3209afaadc12a99783fa25dd0afa3faf2bc673fa
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=5523746; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=5523758; length=0030; raw="LDR  L01234nam^a22003252ic4500"
+fieldIndex=1; byteOffset=5523792; length=0015; raw="001  L000003482"
+fieldIndex=2; byteOffset=5523811; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=5523825; length=0022; raw="005  L20160516150655.0"
+fieldIndex=4; byteOffset=5523851; length=0046; raw="008  L121029s1981^^^^ru^|||||^||||||||^||rus^d"
+fieldIndex=5; byteOffset=5523901; length=0017; raw="017  L$$a81-86194"
+fieldIndex=6; byteOffset=5523922; length=0035; raw="035  L$$a(RuMoELAR)1975-76-20110448"
+fieldIndex=7; byteOffset=5523961; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=8; byteOffset=5524000; length=0012; raw="0410 L$$arus"
+fieldIndex=9; byteOffset=5524016; length=0011; raw="044  L$$aru"
+fieldIndex=10; byteOffset=5524031; length=0125; raw="24500L$$aКультурная жизнь в СССР : 1966-1977. Хроника$$cСост.: В. Х. Бодиско и др."
+fieldIndex=11; byteOffset=5524160; length=0041; raw="260  L$$aМосква$$bНаука$$c1981"
+fieldIndex=12; byteOffset=5524205; length=0016; raw="300  L$$a847 с."
+fieldIndex=13; byteOffset=5524225; length=0040; raw="504  L$$aУказ. имен: с. 774-811"
+fieldIndex=14; byteOffset=5524269; length=0053; raw="504  L$$aУказ. геогр. назв.: с. 812-829"
+fieldIndex=15; byteOffset=5524326; length=0055; raw="504  L$$aПредм.-темат. указ.: с. 830-846"
+fieldIndex=16; byteOffset=5524385; length=0057; raw="70012L$$aБодиско, В. Х.$$eСоставитель"
+fieldIndex=17; byteOffset=5524446; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=18; byteOffset=5524462; length=0047; raw="CAT  L$$aKOMPL37$$b10$$c20160128$$lRSL06$$h1334"
+fieldIndex=19; byteOffset=5524513; length=0047; raw="CAT  L$$aKOMPL37$$b10$$c20160516$$lRSL06$$h1506"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 5523736 /tmp/000003482.dat

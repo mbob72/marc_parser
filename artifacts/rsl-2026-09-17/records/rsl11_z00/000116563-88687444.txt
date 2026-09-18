@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000116563; recordIndex (0-based): 110097; byteOffset: 88687444
+Record length: 528 bytes; record SHA-256: 45edebda6b85abea17e371b2865eff1bf615e3e98e54225f7284e8b648bc66e0
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DR-E2", "fieldIndex": 14, "tag": "67 ", "message": "Некорректный тег \"67 \"."}
+
+Fields:
+fieldIndex=0; byteOffset=88687454; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=88687466; length=0030; raw="LDR  L00487nz^^a2200193n^^4500"
+fieldIndex=1; byteOffset=88687500; length=0021; raw="001  Lnafpn-000116563"
+fieldIndex=2; byteOffset=88687525; length=0022; raw="005  L20110505134052.0"
+fieldIndex=3; byteOffset=88687551; length=0046; raw="008  L110505^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=88687601; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=88687633; length=0028; raw="1001 L$$aHansen, Anne Brandt"
+fieldIndex=6; byteOffset=88687665; length=0028; raw="4001 L$$aBrandt Hansen, Anne"
+fieldIndex=7; byteOffset=88687697; length=0028; raw="4001 L$$aBrandt-Hansen, Anne"
+fieldIndex=8; byteOffset=88687729; length=0044; raw="CAT  L$$aNO08$$b40$$c20110505$$lRSL11$$h1340"
+fieldIndex=9; byteOffset=88687777; length=0032; raw="CAT  L$$c20121212$$lRSL11$$h2103"
+fieldIndex=10; byteOffset=88687813; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0200"
+fieldIndex=11; byteOffset=88687863; length=0010; raw="UPD  L$$aN"
+fieldIndex=12; byteOffset=88687877; length=0014; raw="065  L$$2rubbk"
+fieldIndex=13; byteOffset=88687895; length=0038; raw="670  L$$aDet slaviske triangelet, 2000"
+fieldIndex=14; byteOffset=88687937; length=0030; raw="67   L$$aНБ Норвегии"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 88687444 /tmp/000116563.dat

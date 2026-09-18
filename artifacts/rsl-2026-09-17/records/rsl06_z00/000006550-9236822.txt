@@ -1,0 +1,35 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006550; recordIndex (0-based): 10408; byteOffset: 9236822
+Record length: 1024 bytes; record SHA-256: 94a81ba3f237fe077e96aa8770adb7d9f62ab4b3106d059aa7ce280ad3773380
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9236832; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9236844; length=0030; raw="LDR  L01023nam^a22002532ia4500"
+fieldIndex=1; byteOffset=9236878; length=0015; raw="001  L000006550"
+fieldIndex=2; byteOffset=9236897; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9236911; length=0022; raw="005  L20190128133113.0"
+fieldIndex=4; byteOffset=9236937; length=0046; raw="008  L110121s1931^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9236987; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00291404"
+fieldIndex=6; byteOffset=9237026; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9237065; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9237081; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=9237096; length=0038; raw="1001 L$$aКругляшева, Р. А."
+fieldIndex=10; byteOffset=9237138; length=0256; raw="24500L$$aМаленьким колхозникам$$h[Текст] :$$bБукварь для сельской школы$$cР. А. Кругляшева, М. В. Мирмельштейн, В. А. Сизова ; Под отв. ред. С. Прокоповой"
+fieldIndex=11; byteOffset=9237398; length=0103; raw="260  L$$aМосква ;$$aСвердловск$$bОгиз$$c1931$$eМ.$$fтип. \"Образцовая\""
+fieldIndex=12; byteOffset=9237505; length=0038; raw="300  L$$a79 с.$$bил.$$c25х18 см."
+fieldIndex=13; byteOffset=9237547; length=0072; raw="500  L$$aБез тит. л. Описано по обложке$$5RuMoRGB"
+fieldIndex=14; byteOffset=9237623; length=0042; raw="7001 L$$aМирмельштейн, М. В."
+fieldIndex=15; byteOffset=9237669; length=0030; raw="7001 L$$aСизова, В. А."
+fieldIndex=16; byteOffset=9237703; length=0051; raw="7001 L$$aПрокопова, С.$$eРедактор"
+fieldIndex=17; byteOffset=9237758; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=18; byteOffset=9237779; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=19; byteOffset=9237795; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190128$$lRSL06$$h1331"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9236822 /tmp/000006550.dat

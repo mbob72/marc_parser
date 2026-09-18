@@ -1,0 +1,28 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000228692; recordIndex (0-based): 222900; byteOffset: 202533361
+Record length: 790 bytes; record SHA-256: 6c9af06754e4f08a3ff96841ad4584bb896b4540dd6a86ee4f834fd4af897fa1
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 11, "tag": "670", "indicatorIndex": 0, "message": "Индикатор 1 поля 670 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=202533371; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=202533383; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=202533417; length=0021; raw="001  Lnafpn-000228692"
+fieldIndex=2; byteOffset=202533442; length=0022; raw="005  L20200124144354.0"
+fieldIndex=3; byteOffset=202533468; length=0046; raw="008  L200124^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=202533518; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=202533550; length=0070; raw="1001 L$$aБахтиярова, Альфира Нурисламовна"
+fieldIndex=6; byteOffset=202533624; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20200124$$lRSL11$$h1441"
+fieldIndex=7; byteOffset=202533673; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20200124$$lRSL11$$h1443"
+fieldIndex=8; byteOffset=202533722; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0202"
+fieldIndex=9; byteOffset=202533772; length=0010; raw="UPD  L$$aN"
+fieldIndex=10; byteOffset=202533786; length=0014; raw="065  L$$2rubbk"
+fieldIndex=11; byteOffset=202533804; length=0082; raw="670\u0001 L$$aИстория литературы изучаемой страны, 2019"
+fieldIndex=12; byteOffset=202533890; length=0256; raw="6780 L$$aКандидат филологических наук, доцент по кафедре востоковедения и башкирского языкознания Башкирского государственного университета"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 202533361 /tmp/000228692.dat

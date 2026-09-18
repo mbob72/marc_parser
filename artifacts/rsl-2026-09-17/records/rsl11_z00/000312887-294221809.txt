@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000312887; recordIndex (0-based): 309705; byteOffset: 294221809
+Record length: 1491 bytes; record SHA-256: f05d7e7bb13d143af9864f58b8ea9697c4b2de7ed5e22f6713fca768f71dd19a
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DR-E2", "fieldIndex": 6, "tag": "5O0", "message": "Некорректный тег \"5O0\"."}
+
+Fields:
+fieldIndex=0; byteOffset=294221819; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=294221831; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=294221865; length=0021; raw="001  Lnafpn-000312887"
+fieldIndex=2; byteOffset=294221890; length=0022; raw="005  L20241107151703.0"
+fieldIndex=3; byteOffset=294221916; length=0046; raw="008  L241107^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=294221966; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=294221998; length=0062; raw="1001 L$$aСуинтон, Эрнест Данлоп$$d1868-1951"
+fieldIndex=6; byteOffset=294222064; length=0043; raw="5O01 L$$aSwinton, Ernest Dunlop$$d1868-1951"
+fieldIndex=7; byteOffset=294222111; length=0045; raw="CAT  L$$aOKZ23$$b40$$c20241107$$lRSL11$$h1455"
+fieldIndex=8; byteOffset=294222160; length=0045; raw="CAT  L$$aOKZ23$$b40$$c20241107$$lRSL11$$h1456"
+fieldIndex=9; byteOffset=294222209; length=0045; raw="CAT  L$$aOKZ23$$b40$$c20241107$$lRSL11$$h1500"
+fieldIndex=10; byteOffset=294222258; length=0045; raw="CAT  L$$aOKZ23$$b40$$c20241107$$lRSL11$$h1517"
+fieldIndex=11; byteOffset=294222307; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0203"
+fieldIndex=12; byteOffset=294222357; length=0010; raw="UPD  L$$aN"
+fieldIndex=13; byteOffset=294222371; length=0014; raw="065  L$$2rubbk"
+fieldIndex=14; byteOffset=294222389; length=0142; raw="663  L$$aПроизведения автора на иностр. языках см. под именем:$$bSwinton, Ernest Dunlop (1868-1951)"
+fieldIndex=15; byteOffset=294222535; length=0141; raw="670  L$$aОборона \"Дурацкого брода\". Бурская война глазами английского офицера, 2024"
+fieldIndex=16; byteOffset=294222680; length=0615; raw="6780 L$$aБританский военный деятель, генерал-майор, писатель. Принимал участие в разработке и использовании первых танков во время Первой мировой войны. На Западе его принято считать изобретателем танка в современном понятии этого слова. В 1938 году начал писать свою книгу \"Twenty Years After: the Battlefields of 1914–18: then and Now\". Backsight Forethought - псевдоним автора."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 294221809 /tmp/000312887.dat

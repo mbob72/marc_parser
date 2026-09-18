@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000041709; recordIndex (0-based): 205860; byteOffset: 183383319
+Record length: 2919 bytes; record SHA-256: 9b7560b7464429033b2cf96024a2457e3a95c765b1e11e014fa9ea6ab222902c
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DR-E2", "fieldIndex": 12, "tag": "Q01", "message": "Некорректный тег \"Q01\"."}
+{"rule": "DF-G3", "fieldIndex": 12, "tag": "Q01", "message": "Поле Q01 не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=183383329; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=183383341; length=0030; raw="LDR  L00815nz^^a2200145n^^4500"
+fieldIndex=1; byteOffset=183383375; length=0021; raw="001  Lnafpn-000041709"
+fieldIndex=2; byteOffset=183383400; length=0022; raw="005  L20181212122610.0"
+fieldIndex=3; byteOffset=183383426; length=0046; raw="008  L070725|n|azz||a|||^^^^^^^^^^||^a|a^^^^^d"
+fieldIndex=4; byteOffset=183383476; length=0028; raw="040  L$$aRuMoRGB$$brus$$erpk"
+fieldIndex=5; byteOffset=183383508; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=183383526; length=0062; raw="1001 L$$aГерман, Карл Федорович$$d1767-1838"
+fieldIndex=7; byteOffset=183383592; length=0032; raw="CAT  L$$c20100114$$lRSL11$$h1754"
+fieldIndex=8; byteOffset=183383628; length=0032; raw="CAT  L$$c20100908$$lRSL11$$h2109"
+fieldIndex=9; byteOffset=183383664; length=0045; raw="CAT  L$$aOKZ29$$b40$$c20181212$$lRSL11$$h1103"
+fieldIndex=10; byteOffset=183383713; length=0045; raw="CAT  L$$aOKZ29$$b40$$c20181212$$lRSL11$$h1226"
+fieldIndex=11; byteOffset=183383762; length=0010; raw="UPD  L$$aN"
+fieldIndex=12; byteOffset=183383776; length=0021; raw="Q01  Lnafpn-000041709"
+fieldIndex=13; byteOffset=183383801; length=0027; raw="667  L$$a(RuMoRGB)000099740"
+fieldIndex=14; byteOffset=183383832; length=0479; raw="670  L$$aИз кн.: Статистическое описание Ярославской губернии, 1808$$b(Сочиненное Карлом Германом, Императорской Академии наук адъюнктом по части статистики и политической экономии, и ординарным профессором статистики в Санктпетербургском педагогическом институте)"
+fieldIndex=15; byteOffset=183384315; length=1918; raw="6780 L$$aРоссийский статистик и историк, экономист, академик Петербургской академии наук. Автор первой в России работы по демографии. Автор первой в России таблицы смертности. Родился в 1767 г. в Данциг, Пруссия. 1791 г. - окончил Гёттингенский университет. 1795 г. - приехал в Петербург, начал преподавать в Морском и 1-м Кадетском корпусах. С 1806 г. - заведующий кафедрой статистики в Педагогическом институте, позднее преобразованном в Петербургский университет. 1806-1809 гг. - редактировал \"Статистический журнал\" Академии наук, публиковал в нем свои работы. 1810 г. - избран экстраординарным академиком Российской академии наук. 1811-1835 гг. - начальник Статистического отделения МВД. 1819 г. - избран деканом историко-филологического факультета при преобразовании Педагогического института в университет. 1820 г. - инспектор классов в Смольном институте и училище Ордена св. Екатерины. 1821 г. - \"Дело профессоров Петербургского университета\". 1827 г. - \"Дело профессоров\" закончено. 1836 г. - получение звания ординарного академика Российской академии наук. Умер в 1838 г. в Петербурге."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 183383319 /tmp/000041709.dat

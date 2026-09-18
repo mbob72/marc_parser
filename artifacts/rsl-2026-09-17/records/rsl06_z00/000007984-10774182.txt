@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007984; recordIndex (0-based): 11850; byteOffset: 10774182
+Record length: 875 bytes; record SHA-256: 6d911e681f850b64f5021abb23b1a89bf09f2982bd8d41126da83a92d70c74a3
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10774192; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10774204; length=0030; raw="LDR  L00936nam^a22002292ic4500"
+fieldIndex=1; byteOffset=10774238; length=0015; raw="001  L000007984"
+fieldIndex=2; byteOffset=10774257; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10774271; length=0022; raw="005  L20190430111546.0"
+fieldIndex=4; byteOffset=10774297; length=0046; raw="008  L100622s1925^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10774347; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00118128"
+fieldIndex=6; byteOffset=10774386; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10774425; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10774441; length=0018; raw="24500L$$aВып. 1"
+fieldIndex=9; byteOffset=10774463; length=0013; raw="260  L$$c1925"
+fieldIndex=10; byteOffset=10774480; length=0021; raw="300  L$$a128, [2] с."
+fieldIndex=11; byteOffset=10774505; length=0127; raw="504  L$$aБиблиогр.: \"Русская музыкальная библиография за 1925 год\" (стр. 117-124)"
+fieldIndex=12; byteOffset=10774636; length=0261; raw="77318L$$7c2am$$gВып. 1$$aИнститут истории искусств (Ленинград). Отдел теории и истории музыки$$tВременник Отдела музыки$$dЛенинград : Academia, 1925-1928$$h24 см.$$w7983"
+fieldIndex=13; byteOffset=10774901; length=0085; raw="LKR  L$$aUP$$lRSL06$$b7983$$mВып. 1$$nВременник Отдела музыки"
+fieldIndex=14; byteOffset=10774990; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=15; byteOffset=10775006; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190430$$lRSL06$$h1115"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10774182 /tmp/000007984.dat

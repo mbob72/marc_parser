@@ -1,0 +1,34 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000004970; recordIndex (0-based): 8391; byteOffset: 7360414
+Record length: 1226 bytes; record SHA-256: 166a70171f0b30840ac4d27e5e8eaa316a31daed8422b1a679be1ed64f05fc4f
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=7360424; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=7360436; length=0030; raw="LDR  L01149nam^a22002652ia4500"
+fieldIndex=1; byteOffset=7360470; length=0015; raw="001  L000004970"
+fieldIndex=2; byteOffset=7360489; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=7360503; length=0022; raw="005  L20160311114545.0"
+fieldIndex=4; byteOffset=7360529; length=0046; raw="008  L110316m19761983ru^|||||^||||||||^||rus^d"
+fieldIndex=5; byteOffset=7360579; length=0034; raw="035  L$$a(RuMoELAR)1977-79-2572697"
+fieldIndex=6; byteOffset=7360617; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=7360656; length=0018; raw="0411 L$$arus$$hfre"
+fieldIndex=8; byteOffset=7360678; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=7360693; length=0033; raw="084  L$$aТ3(4Фр)511,02$$2rubbk"
+fieldIndex=10; byteOffset=7360730; length=0044; raw="084  L$$aС3(4Фр)6-8Жорес,Ж.$$2rubbk"
+fieldIndex=11; byteOffset=7360778; length=0027; raw="1001 L$$aЖорес, Жан"
+fieldIndex=12; byteOffset=7360809; length=0424; raw="24500L$$aСоциалистическая история французской революции [В 6 т.] / Том 1. Учредительное собрание (1789-1791). Книга вторая$$bПер. с фр. выполнен А.О. Зелениной, Д.Л. Каравкиной и Е.В. Рубининым; ред. Н.В. Рудницкая.$$cПод ред. д-ра ист. наук А.З. Манфреда"
+fieldIndex=13; byteOffset=7361237; length=0047; raw="260  L$$aМосква$$bПрогресс$$c1977"
+fieldIndex=14; byteOffset=7361288; length=0027; raw="300  L$$a407 с.$$c22 см."
+fieldIndex=15; byteOffset=7361319; length=0103; raw="653  L$$aИстория Франции - Французская революция - Социализм"
+fieldIndex=16; byteOffset=7361426; length=0142; raw="7001 L$$aМанфред, Альберт Захарович$$d1906-1976$$eАвтор введения / заключения$$eРедактор"
+fieldIndex=17; byteOffset=7361572; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=18; byteOffset=7361588; length=0047; raw="CAT  L$$aKOMPL37$$b10$$c20160311$$lRSL06$$h1145"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 7360414 /tmp/000004970.dat

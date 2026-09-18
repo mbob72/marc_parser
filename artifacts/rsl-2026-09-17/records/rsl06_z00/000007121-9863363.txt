@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007121; recordIndex (0-based): 10981; byteOffset: 9863363
+Record length: 813 bytes; record SHA-256: dc6c30680de76a0dea383e25c72059bc0d264ce86c5cb3f9687e9c0a0982d037
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9863373; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9863385; length=0030; raw="LDR  L00770nam^a22002052ia4500"
+fieldIndex=1; byteOffset=9863419; length=0015; raw="001  L000007121"
+fieldIndex=2; byteOffset=9863438; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9863452; length=0022; raw="005  L20190220144917.0"
+fieldIndex=4; byteOffset=9863478; length=0046; raw="008  L101028m19281929ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9863528; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00228979"
+fieldIndex=6; byteOffset=9863567; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9863606; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9863622; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=9863637; length=0062; raw="1001 L$$aФиндейзен, Николай Федорович"
+fieldIndex=10; byteOffset=9863703; length=0153; raw="24500L$$aОчерки по истории музыки в России с древнейших времен до конца XVIII века$$h[Текст]"
+fieldIndex=11; byteOffset=9863860; length=0140; raw="260  L$$aМосква ;$$aЛенинград$$bГос. изд-во. Музсектор$$c1928-1929$$eЛ.$$fтип. Печатный двор"
+fieldIndex=12; byteOffset=9864004; length=0029; raw="300  L$$a2 т.$$c27х18 см."
+fieldIndex=13; byteOffset=9864037; length=0047; raw="546  L$$aШмуц-титул на нем. яз."
+fieldIndex=14; byteOffset=9864088; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=15; byteOffset=9864109; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=16; byteOffset=9864125; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190220$$lRSL06$$h1449"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9863363 /tmp/000007121.dat

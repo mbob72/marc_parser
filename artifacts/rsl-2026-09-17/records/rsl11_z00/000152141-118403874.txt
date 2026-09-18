@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000152141; recordIndex (0-based): 144291; byteOffset: 118403874
+Record length: 2813 bytes; record SHA-256: 17b66b0a5cefa769df42b0b6cc1c17839017ac11ea67a4f14447ae65713e4623
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 5, "tag": "100", "subfieldIndex": 2, "message": "Подполе 3 поля 100 имеет недопустимый код \"D\"."}
+{"rule": "SF-G4", "fieldIndex": 5, "tag": "100", "subfieldIndex": 2, "message": "Подполе 3 поля 100 имеет недопустимый код \"D\"."}
+
+Fields:
+fieldIndex=0; byteOffset=118403884; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=118403896; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=118403930; length=0021; raw="001  Lnafpn-000152141"
+fieldIndex=2; byteOffset=118403955; length=0022; raw="005  L20140724152645.0"
+fieldIndex=3; byteOffset=118403981; length=0046; raw="008  L140724^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=118404031; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=118404063; length=0082; raw="1001 L$$aЛандражен, Иван Яковлевич$$d1794(1795)-?$$Dппрр"
+fieldIndex=6; byteOffset=118404149; length=0071; raw="4001 L$$aЛандражин, Иван Яковлевич$$d1794(1795)-?"
+fieldIndex=7; byteOffset=118404224; length=0065; raw="4001 L$$aЛандражен, Жан Франсуа$$d1794(1795)-?"
+fieldIndex=8; byteOffset=118404293; length=0045; raw="CAT  L$$aNIOR6$$b40$$c20140724$$lRSL11$$h1526"
+fieldIndex=9; byteOffset=118404342; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0201"
+fieldIndex=10; byteOffset=118404392; length=0010; raw="UPD  L$$aN"
+fieldIndex=11; byteOffset=118404406; length=0014; raw="065  L$$2rubbk"
+fieldIndex=12; byteOffset=118404424; length=0244; raw="670  L$$aСвидетельство Гагарину, кн. Василию гвардии капитану, о признании его мастером ложи св. Иоанна постоянства (De la constance), 1814 апрель 24"
+fieldIndex=13; byteOffset=118404672; length=0103; raw="670  L$$aБартенев Ю.Н. Дневники и переписка//РА. 1897. Кн.III. С. 618."
+fieldIndex=14; byteOffset=118404779; length=0273; raw="670  L$$aСергиенко Г.Я. Общественно-политическое движение на Украине после восстания декабристов (вторая четверть XIX в.). Автореф. докт. дисс. Киев, 1974. С. 26."
+fieldIndex=15; byteOffset=118405056; length=1626; raw="6780 L$$aФранцуз. Католик. Обучался в Ретельском коллегиуме, затем в частных пансионах при Реймсе. С 16 лет солдат наполеоновских войск. Находился в Кобленце, затем с корпусом маршала Даву участовал в походе на Россию. Ранен в Могилеве, остался в России, жил у Кринской ок. Несвижа, был взят на поруки, затем жил у помещика Чарнецкого. В 1815 году в Пинске принял российское подданство. В этом же году поступил в пиарское Любешевское поветовое училище. В 1816 поступил на службу в Могилевское губернское правление помощником переводчика в чине канцеляриста. После экзамена в Минской гимназии с 1818 года служил в Киевской губернской гимназии учителем французского языка. С 1822 учитель гимназии в Нежине, младший профессор французского языка и литературы, библиотекарь, чиновник 8 класса. В 1830 году отрешен от должности за \"вредное влияние на юношей\" и выслан в Тотьму под надзор; в 1838 г. коллежский асессор."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 118403874 /tmp/000152141.dat

@@ -1,0 +1,27 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000259754; recordIndex (0-based): 259189; byteOffset: 153495731
+Record length: 1031 bytes; record SHA-256: 67e6ea4fc25ec04a7fb4456b16d66ce67d1e3f84c6ca728a9a22637d3091fadb
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 11, "tag": "670", "indicatorIndex": 0, "message": "Индикатор 1 поля 670 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=153495741; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=153495753; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=153495787; length=0015; raw="001  L000259754"
+fieldIndex=2; byteOffset=153495806; length=0022; raw="005  L20240227153222.0"
+fieldIndex=3; byteOffset=153495832; length=0046; raw="008  L240227^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=153495882; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=153495914; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=153495932; length=0133; raw="1101 L$$aСССР$$bМинистерство рыбного хозяйства$$bУчебно-методический кабинет"
+fieldIndex=7; byteOffset=153496069; length=0206; raw="4101 L$$aСССР$$bМинистерство рыбного хозяйства$$bУправление кадров и учебных заведений$$bУчебно-методический кабинет"
+fieldIndex=8; byteOffset=153496279; length=0200; raw="4102 L$$aУчебно-методический кабинет Управления кадров и учебных заведений Министерства рыбного хозяйства СССР"
+fieldIndex=9; byteOffset=153496483; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20240227$$lRSL10$$h1532"
+fieldIndex=10; byteOffset=153496532; length=0010; raw="UPD  L$$aN"
+fieldIndex=11; byteOffset=153496546; length=0211; raw="670\u0001 L$$aПрограмма курса Метеорология для высших учебных заведний по специальности № 1013 \"Ихтиология и рыбоводство\", 1968"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 153495731 /tmp/000259754.dat

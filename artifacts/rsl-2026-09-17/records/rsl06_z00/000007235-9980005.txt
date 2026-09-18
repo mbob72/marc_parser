@@ -1,0 +1,33 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007235; recordIndex (0-based): 11097; byteOffset: 9980005
+Record length: 970 bytes; record SHA-256: 6ca391825fe9ca912e2eb08269faae92ff99a60192084af177e1b791d7957d47
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9980015; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9980027; length=0030; raw="LDR  L01092nam^a22002292ic4500"
+fieldIndex=1; byteOffset=9980061; length=0015; raw="001  L000007235"
+fieldIndex=2; byteOffset=9980080; length=0022; raw="005  L20190305151158.0"
+fieldIndex=3; byteOffset=9980106; length=0046; raw="008  L101028s1873^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=4; byteOffset=9980156; length=0038; raw="040  L$$aRuMoRGB$$brus$$ercr$$dRuMoRGB"
+fieldIndex=5; byteOffset=9980198; length=0012; raw="0410 L$$arus"
+fieldIndex=6; byteOffset=9980214; length=0011; raw="044  L$$aru"
+fieldIndex=7; byteOffset=9980229; length=0014; raw="24500L$$aЧ. 2"
+fieldIndex=8; byteOffset=9980247; length=0013; raw="260  L$$c1973"
+fieldIndex=9; byteOffset=9980264; length=0047; raw="300  L$$a[4], 932 с., 28 ил., 1 л. табл"
+fieldIndex=10; byteOffset=9980315; length=0045; raw="336  L$$aтекст (text)$$btxt$$2rdacontent"
+fieldIndex=11; byteOffset=9980364; length=0069; raw="337  L$$aнеопосредованный (unmediated)$$bn$$2rdamedia"
+fieldIndex=12; byteOffset=9980437; length=0042; raw="338  L$$aтом (volume)$$bnc$$2rdacarrier"
+fieldIndex=13; byteOffset=9980483; length=0328; raw="77318L$$7p1am$$aМенделеев, Дмитрий Иванович (1834-1907)$$tОсновы химии [Текст] / [соч.] Д. Менделеева, проф. И. Спб. ун-та$$b2-е, доп. изд.$$dСанкт-Петербург : тип. т-ва \"Общественная польза\", 1872-1873$$gЧ. 2$$w7234"
+fieldIndex=14; byteOffset=9980815; length=0017; raw="979  L$$aorf19rus"
+fieldIndex=15; byteOffset=9980836; length=0068; raw="LKR  L$$aUP$$b7234$$lRSL06$$pч. 2$$mЧ. 2$$nОсновы химии"
+fieldIndex=16; byteOffset=9980908; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=17; byteOffset=9980924; length=0046; raw="CAT  L$$aKOMPL1$$b10$$c20190305$$lRSL06$$h1511"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9980005 /tmp/000007235.dat

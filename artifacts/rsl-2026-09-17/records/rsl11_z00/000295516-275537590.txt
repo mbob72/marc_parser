@@ -1,0 +1,27 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000295516; recordIndex (0-based): 291859; byteOffset: 275537590
+Record length: 863 bytes; record SHA-256: be7477e58de42bf96744d25f721ff8abf1a844ff663a7977b83c80d12a5382c1
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 10, "tag": "678", "subfieldIndex": 0, "message": "Подполе 1 поля 678 имеет недопустимый код \"\\u0014\"."}
+{"rule": "SF-G4", "fieldIndex": 10, "tag": "678", "subfieldIndex": 0, "message": "Подполе 1 поля 678 имеет недопустимый код \"\\u0014\"."}
+
+Fields:
+fieldIndex=0; byteOffset=275537600; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=275537612; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=275537646; length=0021; raw="001  Lnafpn-000295516"
+fieldIndex=2; byteOffset=275537671; length=0022; raw="005  L20231109142939.0"
+fieldIndex=3; byteOffset=275537697; length=0046; raw="008  L231109^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=275537747; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=275537779; length=0062; raw="1001 L$$aГалуцкий, Валерий Викторович"
+fieldIndex=6; byteOffset=275537845; length=0045; raw="CAT  L$$aODK32$$b40$$c20231109$$lRSL11$$h1429"
+fieldIndex=7; byteOffset=275537894; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0203"
+fieldIndex=8; byteOffset=275537944; length=0010; raw="UPD  L$$aN"
+fieldIndex=9; byteOffset=275537958; length=0247; raw="670  L$$aФизико-технологическое моделирование, выращивание и свойства новых градиентных монокристаллов ниобата лития и ниобата калия, 2023"
+fieldIndex=10; byteOffset=275538209; length=0239; raw="6780 L$$\u0014Доктор физико-математических наук. Место защиты: ФГБОУ ВО «Кубанский государственный университет» ; Диссовет 24.2.320.03 (Д 212.101.07)."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 275537590 /tmp/000295516.dat

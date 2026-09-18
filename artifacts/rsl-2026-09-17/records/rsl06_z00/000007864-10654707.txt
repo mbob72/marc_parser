@@ -1,0 +1,33 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007864; recordIndex (0-based): 11729; byteOffset: 10654707
+Record length: 1093 bytes; record SHA-256: 995e6a55f93478cfcd22e1cb5a0373d355a2428a3614d1986e426a2129e1c600
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10654717; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10654729; length=0030; raw="LDR  L01179nam^a22002532ic4500"
+fieldIndex=1; byteOffset=10654763; length=0015; raw="001  L000007864"
+fieldIndex=2; byteOffset=10654782; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10654796; length=0022; raw="005  L20190424094258.0"
+fieldIndex=4; byteOffset=10654822; length=0046; raw="008  L101028s1930^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10654872; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00178435"
+fieldIndex=6; byteOffset=10654911; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10654950; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10654966; length=0033; raw="24500L$$aВып. 1$$h[Текст]"
+fieldIndex=9; byteOffset=10655003; length=0013; raw="260  L$$c1930"
+fieldIndex=10; byteOffset=10655020; length=0056; raw="300  L$$a90 с.$$bил., черт., граф., план."
+fieldIndex=11; byteOffset=10655080; length=0084; raw="504  L$$aБиблиография: \"Литература\" в конце статей"
+fieldIndex=12; byteOffset=10655168; length=0064; raw="546  L$$aРезюме статей на англ. и фр. яз."
+fieldIndex=13; byteOffset=10655236; length=0288; raw="77318L$$7nnam$$gВып. 1$$tОписание гидротехнических лабораторий СССР [Текст] : [Сборник статей]$$dМосква : Гос. техн. изд-во, [1930] (Л. : тип. \"Красный печатник\")$$h1 т.; 30х21 см.$$w7863"
+fieldIndex=14; byteOffset=10655528; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=15; byteOffset=10655549; length=0180; raw="LKR  L$$aUP$$lRSL06$$b7863$$mВып. 1 [Текст]$$nОписание гидротехнических лабораторий СССР [Текст] : [Сборник статей]"
+fieldIndex=16; byteOffset=10655733; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=17; byteOffset=10655749; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190424$$lRSL06$$h0942"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10654707 /tmp/000007864.dat

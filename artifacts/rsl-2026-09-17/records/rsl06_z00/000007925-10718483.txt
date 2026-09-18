@@ -1,0 +1,34 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007925; recordIndex (0-based): 11790; byteOffset: 10718483
+Record length: 1152 bytes; record SHA-256: 7e8c27e1d841fa63e245567e39199fb99b5974d3cd1983e12e4bf1e35ccdea32
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10718493; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10718505; length=0030; raw="LDR  L01111nam^a22002292ia4500"
+fieldIndex=1; byteOffset=10718539; length=0015; raw="001  L000007925"
+fieldIndex=2; byteOffset=10718558; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10718572; length=0022; raw="005  L20190426125732.0"
+fieldIndex=4; byteOffset=10718598; length=0046; raw="008  L110121m19321933ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10718648; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00327239"
+fieldIndex=6; byteOffset=10718687; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10718726; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10718742; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=10718757; length=0060; raw="1001 L$$aСлепцов, Василий Алексеевич"
+fieldIndex=10; byteOffset=10718821; length=0236; raw="24500L$$aСочинения$$h[Текст] :$$bВ 2 томах$$cВ. А. Слепцов ; Ред., статьи и комментарии К. И. Чуковского ; Суп.-обл. и переплет: А. П. Могилевский"
+fieldIndex=11; byteOffset=10719061; length=0120; raw="260  L$$a[Москва] ;$$a[Ленинград]$$bAcademia$$c1932-1933$$eЛ.$$fтип. им. Евг. Соколовой"
+fieldIndex=12; byteOffset=10719185; length=0029; raw="300  L$$a2 т.$$c17х13 см."
+fieldIndex=13; byteOffset=10719218; length=0087; raw="4900 L$$aРусские писатели. XIX век. В. А. Слепцов. 1836-1878"
+fieldIndex=14; byteOffset=10719309; length=0165; raw="7001 L$$aЧуковский, К. И.$$eРедактор$$eАвтор введения / заключения$$eКомментарии, примечания и т.п."
+fieldIndex=15; byteOffset=10719478; length=0065; raw="7001 L$$aМогилевский, А. П.$$eИллюстратор"
+fieldIndex=16; byteOffset=10719547; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=17; byteOffset=10719568; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=18; byteOffset=10719584; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190426$$lRSL06$$h1257"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10718483 /tmp/000007925.dat

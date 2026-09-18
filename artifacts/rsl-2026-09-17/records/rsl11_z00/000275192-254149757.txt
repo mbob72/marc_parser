@@ -1,0 +1,34 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000275192; recordIndex (0-based): 271036; byteOffset: 254149757
+Record length: 2614 bytes; record SHA-256: 1e0042414fc3725e4781222a373efaf94bdf4dbb572a269b7555ea6482e22420
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DR-E2", "fieldIndex": 14, "tag": "<K=", "message": "Некорректный тег \"<K=\"."}
+{"rule": "DF-G3", "fieldIndex": 14, "tag": "<K=", "message": "Поле <K= не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=254149767; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=254149779; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=254149813; length=0021; raw="001  Lnafpn-000275192"
+fieldIndex=2; byteOffset=254149838; length=0022; raw="005  L20221011123602.0"
+fieldIndex=3; byteOffset=254149864; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=4; byteOffset=254149896; length=0014; raw="065  L$$2rubbk"
+fieldIndex=5; byteOffset=254149914; length=0035; raw="1001 L$$aDemény, Lajos$$d1926-2010"
+fieldIndex=6; byteOffset=254149953; length=0037; raw="4001 L$$aDemény, Ludovic$$d1926-2010"
+fieldIndex=7; byteOffset=254149994; length=0034; raw="4001 L$$aEnyedi, Lajos$$d1926-2010"
+fieldIndex=8; byteOffset=254150032; length=0035; raw="4001 L$$aErdélyi Lajos$$d1926-2010"
+fieldIndex=9; byteOffset=254150071; length=0045; raw="5001 L$$aДемень, Лайош$$d1926-2010"
+fieldIndex=10; byteOffset=254150120; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20221011$$lRSL11$$h1144"
+fieldIndex=11; byteOffset=254150169; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20221011$$lRSL11$$h1236"
+fieldIndex=12; byteOffset=254150218; length=0010; raw="UPD  L$$aN"
+fieldIndex=13; byteOffset=254150232; length=0142; raw="663  L$$aПроизведения этого авт. на рус. языке см. под именем:$$bДемень, Лайош (1926-2010)"
+fieldIndex=14; byteOffset=254150378; length=0046; raw="<K=88L^^^^^^^n^aznnnaaba^^^^^^^^^^^^^aaa^^^^^d"
+fieldIndex=15; byteOffset=254150428; length=0065; raw="670  L$$aDe l'activité historiographique d'André Veress, [1967]"
+fieldIndex=16; byteOffset=254150497; length=1698; raw="6780 L$$aВенгерский и румынский историк, историк культуры, внештатный член Венгерской академии наук с 1995 года. Известный исследователь истории культуры секеев. Родился в Румынии (Кисфюльпош). Учился в педагогической школе в Сасрегене и Марошвасархее, затем в Боляйском университете, в дальнейшем учился в Свердловске и Ленинграде, где в 1956 году получил степень кандидата наук. После этого до 1959 года работал преподавателем партийного колледжа в Бухаресте, а с 1959 по 1963 год был редактором Академического издательства. С 1964 года работал главным научным сотрудником Института истории имени Николае Йорга, а с 1971 года — отдела отечественной истории Института Йорги. По его инициативе в Институте был открыт Секейский архив документов. Член-основатель Трансильванской музейной ассоциации. После 1989 года он также некоторое время занимался политической деятельностью: с 1990 по 1992 год он был президентом Бухарестской научной мастерской"
+fieldIndex=17; byteOffset=254152199; length=0167; raw="6780 L$$aПисал свои научные труды на венгерском, румынском, молдавском языках. Умер в Бухаресте"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 254149757 /tmp/000275192.dat

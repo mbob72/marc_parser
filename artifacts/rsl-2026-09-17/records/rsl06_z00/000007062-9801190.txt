@@ -1,0 +1,29 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007062; recordIndex (0-based): 10922; byteOffset: 9801190
+Record length: 549 bytes; record SHA-256: 797216da8f98b0ff1fb66004b19e35733931964a5e0b10229a55fb3b45992f83
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9801200; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9801212; length=0030; raw="LDR  L00811nam^a22002052ia4500"
+fieldIndex=1; byteOffset=9801246; length=0015; raw="001  L000007062"
+fieldIndex=2; byteOffset=9801265; length=0022; raw="005  L20190218120017.0"
+fieldIndex=3; byteOffset=9801291; length=0046; raw="008  L101028m19241931ru^||||^|||||||||^||rus^d"
+fieldIndex=4; byteOffset=9801341; length=0038; raw="040  L$$aRuMoRGB$$brus$$ercr$$dRuMoRGB"
+fieldIndex=5; byteOffset=9801383; length=0012; raw="0410 L$$arus"
+fieldIndex=6; byteOffset=9801399; length=0011; raw="044  L$$aru"
+fieldIndex=7; byteOffset=9801414; length=0046; raw="1102 L$$aМашинотрест$$cМосква"
+fieldIndex=8; byteOffset=9801464; length=0114; raw="24500L$$a[Отчет] №…$$h[Текст]$$cМосковский машиностроительный трест"
+fieldIndex=9; byteOffset=9801582; length=0045; raw="260  L$$aМосква$$b[б. и.]$$c1924-1931"
+fieldIndex=10; byteOffset=9801631; length=0016; raw="300  L$$c26 см"
+fieldIndex=11; byteOffset=9801651; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=12; byteOffset=9801672; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=13; byteOffset=9801688; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190218$$lRSL06$$h1200"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9801190 /tmp/000007062.dat

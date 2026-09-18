@@ -1,0 +1,36 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000003741; recordIndex (0-based): 6458; byteOffset: 5886590
+Record length: 1000 bytes; record SHA-256: b6b11edf976f8ad44200c6131d9b5c6a5d7a4758d2adf519b70bc4efce15acda
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=5886600; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=5886612; length=0030; raw="LDR  L01534nam^a22002772ic4500"
+fieldIndex=1; byteOffset=5886646; length=0015; raw="001  L000003741"
+fieldIndex=2; byteOffset=5886665; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=5886679; length=0022; raw="005  L20160203122414.0"
+fieldIndex=4; byteOffset=5886705; length=0046; raw="008  L130320s1977^^^^ru^|||||^||||||||^||rus^d"
+fieldIndex=5; byteOffset=5886755; length=0027; raw="017  L$$a77-30101$$c100 р."
+fieldIndex=6; byteOffset=5886786; length=0035; raw="035  L$$a(RuMoELAR)1969-75-20695167"
+fieldIndex=7; byteOffset=5886825; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=8; byteOffset=5886864; length=0012; raw="0410 L$$arus"
+fieldIndex=9; byteOffset=5886880; length=0011; raw="044  L$$aru"
+fieldIndex=10; byteOffset=5886895; length=0197; raw="24500L$$aСобрание народных песен П.В. Киреевского /Записи Языковых в Симбирской и Оренбургской губерниях$$bТом 1."
+fieldIndex=11; byteOffset=5887096; length=0047; raw="260  L$$aЛенинград$$bНаука$$c1977"
+fieldIndex=12; byteOffset=5887147; length=0030; raw="300  L$$a325 с.$$bпортр."
+fieldIndex=13; byteOffset=5887181; length=0071; raw="504  L$$aУказ. имен и назв. в текстах: с. 318-321"
+fieldIndex=14; byteOffset=5887256; length=0042; raw="504  L$$aУказ. песен: с. 322-326"
+fieldIndex=15; byteOffset=5887302; length=0063; raw="653  L$$aРусский фольклор - Этнография"
+fieldIndex=16; byteOffset=5887369; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=17; byteOffset=5887385; length=0047; raw="CAT  L$$aKOMPL37$$b10$$c20160203$$lRSL06$$h1219"
+fieldIndex=18; byteOffset=5887436; length=0047; raw="CAT  L$$aKOMPL37$$b10$$c20160203$$lRSL06$$h1220"
+fieldIndex=19; byteOffset=5887487; length=0047; raw="CAT  L$$aKOMPL37$$b10$$c20160203$$lRSL06$$h1220"
+fieldIndex=20; byteOffset=5887538; length=0047; raw="CAT  L$$aKOMPL37$$b10$$c20160203$$lRSL06$$h1224"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 5886590 /tmp/000003741.dat

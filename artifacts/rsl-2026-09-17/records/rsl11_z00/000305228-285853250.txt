@@ -1,0 +1,29 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000305228; recordIndex (0-based): 301734; byteOffset: 285853250
+Record length: 1002 bytes; record SHA-256: 696405e71013c99e5916df84c848d6ebc68d77919ba7884e0a7c6383f05d860c
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 5, "tag": "100", "indicatorIndex": 1, "message": "Индикатор 2 поля 100 имеет недопустимое значение \"\\u001e\"."}
+
+Fields:
+fieldIndex=0; byteOffset=285853260; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=285853272; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=285853306; length=0021; raw="001  Lnafpn-000305228"
+fieldIndex=2; byteOffset=285853331; length=0022; raw="005  L20240611135817.0"
+fieldIndex=3; byteOffset=285853357; length=0046; raw="008  L240611^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=285853407; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=285853439; length=0020; raw="1001\u001eL$$aJames, Joel"
+fieldIndex=6; byteOffset=285853463; length=0033; raw="5001 L$$aДжеймс, Джоэл"
+fieldIndex=7; byteOffset=285853500; length=0045; raw="CAT  L$$aOKZ09$$b40$$c20240611$$lRSL11$$h1358"
+fieldIndex=8; byteOffset=285853549; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0203"
+fieldIndex=9; byteOffset=285853599; length=0010; raw="UPD  L$$aN"
+fieldIndex=10; byteOffset=285853613; length=0014; raw="065  L$$2rubbk"
+fieldIndex=11; byteOffset=285853631; length=0130; raw="663  L$$aПроизведения этого авт. на рус. языке см. под именем:$$bДжеймс, Джоэл"
+fieldIndex=12; byteOffset=285853765; length=0075; raw="670  L$$aРазъяснительное изучение Библии, 2023"
+fieldIndex=13; byteOffset=285853844; length=0403; raw="6780 L$$aЗакончил семинарию Мастерс в 1994 году. В 1995 году церковь Грейс отправила Джеймса вместе с его семьей на миссионерское служение в Южную Африку. Служит пастором в церкви Грейс Феллоушип в городе Претория (Южная Африка)."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 285853250 /tmp/000305228.dat

@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007251; recordIndex (0-based): 11113; byteOffset: 9994512
+Record length: 723 bytes; record SHA-256: 18a99790823428314bd286132e4971d04fe1fe92001b128b072285652f23d26e
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9994522; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9994534; length=0030; raw="LDR  L00731nam^a22002052ia4500"
+fieldIndex=1; byteOffset=9994568; length=0015; raw="001  L000007251"
+fieldIndex=2; byteOffset=9994587; length=0022; raw="005  L20190312144711.0"
+fieldIndex=3; byteOffset=9994613; length=0046; raw="008  L110121s1932^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=4; byteOffset=9994663; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=9994695; length=0012; raw="0410 L$$arus"
+fieldIndex=6; byteOffset=9994711; length=0011; raw="044  L$$aru"
+fieldIndex=7; byteOffset=9994726; length=0023; raw="1001 L$$aКаролус"
+fieldIndex=8; byteOffset=9994753; length=0123; raw="24500L$$aПетер Штурм$$h[Текст] :$$bроман$$cКаролус ; пер. с нем. З. Вершининой"
+fieldIndex=9; byteOffset=9994880; length=0060; raw="260  L$$aМосква$$bМолодая гвардия$$c1932"
+fieldIndex=10; byteOffset=9994944; length=0031; raw="300  L$$a117, [2] с.$$c20 см"
+fieldIndex=11; byteOffset=9994979; length=0045; raw="336  L$$aтекст (text)$$btxt$$2rdacontent"
+fieldIndex=12; byteOffset=9995028; length=0069; raw="337  L$$aнеопосредованный (unmediated)$$bn$$2rdamedia"
+fieldIndex=13; byteOffset=9995101; length=0042; raw="338  L$$aтом (volume)$$bnc$$2rdacarrier"
+fieldIndex=14; byteOffset=9995147; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=15; byteOffset=9995168; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=16; byteOffset=9995184; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190312$$lRSL06$$h1447"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9994512 /tmp/000007251.dat

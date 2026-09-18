@@ -1,0 +1,36 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000157011; recordIndex (0-based): 149054; byteOffset: 122597394
+Record length: 2714 bytes; record SHA-256: e6721579d050b92b41de89034d5445eddb37d50533bc3271cb70bcfbd53d9159
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DF-G3", "fieldIndex": 4, "tag": "035", "message": "Поле 035 не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=122597404; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=122597416; length=0030; raw="LDR  L00765nz^^a2200217n^^4500"
+fieldIndex=1; byteOffset=122597450; length=0021; raw="001  Lnafpn-000157011"
+fieldIndex=2; byteOffset=122597475; length=0022; raw="005  L20250717153547.0"
+fieldIndex=3; byteOffset=122597501; length=0046; raw="008  L061213^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=122597551; length=0015; raw="035  L000089963"
+fieldIndex=5; byteOffset=122597570; length=0028; raw="040  L$$aRuMoRGB$$brus$$erpk"
+fieldIndex=6; byteOffset=122597602; length=0014; raw="065  L$$2rubbk"
+fieldIndex=7; byteOffset=122597620; length=0051; raw="1001 L$$a一行禪師$$d1926-2022$$0RSL11-000157011"
+fieldIndex=8; byteOffset=122597675; length=0071; raw="5001 L$$aНат Хан Тик$$d1926-2022$$w000105779$$0RSL11-000157011"
+fieldIndex=9; byteOffset=122597750; length=0071; raw="5001 L$$aNhất Hạnh Thích$$d1926-2022$$w000105783$$0RSL11-000157011"
+fieldIndex=10; byteOffset=122597825; length=0044; raw="CAT  L$$aNO16$$b40$$c20141022$$lRSL11$$h1211"
+fieldIndex=11; byteOffset=122597873; length=0044; raw="CAT  L$$aNO16$$b40$$c20141022$$lRSL11$$h1213"
+fieldIndex=12; byteOffset=122597921; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0201"
+fieldIndex=13; byteOffset=122597971; length=0044; raw="CAT  L$$aNO16$$b40$$c20250717$$lRSL11$$h1527"
+fieldIndex=14; byteOffset=122598019; length=0044; raw="CAT  L$$aNO16$$b40$$c20250717$$lRSL11$$h1532"
+fieldIndex=15; byteOffset=122598067; length=0044; raw="CAT  L$$aNO16$$b40$$c20250717$$lRSL11$$h1533"
+fieldIndex=16; byteOffset=122598115; length=0044; raw="CAT  L$$aNO16$$b40$$c20250717$$lRSL11$$h1533"
+fieldIndex=17; byteOffset=122598163; length=0044; raw="CAT  L$$aNO16$$b40$$c20250717$$lRSL11$$h1535"
+fieldIndex=18; byteOffset=122598211; length=0010; raw="UPD  L$$aN"
+fieldIndex=19; byteOffset=122598225; length=0075; raw="670  L$$aИз кн.: Счастье внутренней тишины, 2006"
+fieldIndex=20; byteOffset=122598304; length=1799; raw="6780 L$$aНат Хан Тик (11.10.1926, Хюэ, Французский Индокитай - 22.01.2022, Хюэ, Вьетнам) - вьетнамский дзэн-буддийский монах, настоятель буддийского медитативного центра в Дордони (Франция), автор ряда книг по дзэн-буддизму, поэт, ученый. В начале 1960-х годов организовал молодёжную школу социальной помощи (SYSS) в Сайгоне. Эта организация занималась восстановлением разрушенных в ходе войны деревень, строительством школ и больниц, помогала бездомным. Позднее переехал в США, где учился в Принстонском университете, после чего некоторое время читал лекции в Корнелльском и Колумбийском университетах. В январе 1967 года Мартином Лютером Кингом был выдвинут на получение Нобелевской премии мира, однако не получил её. В настоящее время живёт в небольшой буддийской коммуне Plum Village («Деревня Слив») на юге Франции, где преподаёт, пишет книги и занимается садоводством. Время от времени посещает другие страны (дважды, в 1992 и 1994 годах, посещал Россию). Издал более 100 книг, включая больше 40 на английском языке."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 122597394 /tmp/000157011.dat

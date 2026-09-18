@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000185632; recordIndex (0-based): 177847; byteOffset: 151478708
+Record length: 1039 bytes; record SHA-256: 1b00d4722e0189de369b7053a4047a94959e88860e0244b8adae838914340299
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DR-E2", "fieldIndex": 12, "tag": " 01", "message": "Некорректный тег \" 01\"."}
+{"rule": "DF-G3", "fieldIndex": 12, "tag": " 01", "message": "Поле  01 не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=151478718; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=151478730; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=151478764; length=0021; raw="001  Lnafpn-000185632"
+fieldIndex=2; byteOffset=151478789; length=0022; raw="005  L20161219140715.0"
+fieldIndex=3; byteOffset=151478815; length=0046; raw="008  L161219^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=151478865; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=151478897; length=0066; raw="1001 L$$aИванчин, Александр Геннадьевич"
+fieldIndex=6; byteOffset=151478967; length=0028; raw="4001 L$$aIvanchin, Alexander"
+fieldIndex=7; byteOffset=151478999; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20161219$$lRSL11$$h1402"
+fieldIndex=8; byteOffset=151479048; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20161219$$lRSL11$$h1407"
+fieldIndex=9; byteOffset=151479097; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0201"
+fieldIndex=10; byteOffset=151479147; length=0010; raw="UPD  L$$aN"
+fieldIndex=11; byteOffset=151479161; length=0014; raw="065  L$$2rubbk"
+fieldIndex=12; byteOffset=151479179; length=0021; raw=" 01  Lnafpn-000185632"
+fieldIndex=13; byteOffset=151479204; length=0045; raw="670  L$$aPhysics versus geophysics, cop. 2015"
+fieldIndex=14; byteOffset=151479253; length=0489; raw="6780 L$$aРоссийский физик. Окончил Томский государственный университет (1973) по специальности \"Математическая физика\". Автор научных трудов по фундаментальной физике, занимается методами решения задач математической физики (Решением Пуассона и уравнений непрерывности)"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 151478708 /tmp/000185632.dat

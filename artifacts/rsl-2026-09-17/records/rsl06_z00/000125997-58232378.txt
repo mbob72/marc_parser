@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000125997; recordIndex (0-based): 61620; byteOffset: 58232378
+Record length: 754 bytes; record SHA-256: 421424a5bdc571536fdd2065b4ed761cfbfd18bb8943453563c5bf332d2c5cdf
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"message": "Error: Aleph-поле содержит неподдерживаемый маркер \" \"."}
+
+Fields:
+fieldIndex=0; byteOffset=58232388; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=58232400; length=0030; raw="LDR  L^^^^^nam^a22^^^^^^i^4500"
+fieldIndex=1; byteOffset=58232434; length=0015; raw="001  L000125997"
+fieldIndex=2; byteOffset=58232453; length=0013; raw="003  LRuMoRGB"
+fieldIndex=3; byteOffset=58232470; length=0046; raw="008  L260617s2015^^^^|||^^^^^^^^^^^000^|^rus^d"
+fieldIndex=4; byteOffset=58232520; length=0045; raw="020  L$$a978-3-319-21284-5; 978-3-319-21283-8"
+fieldIndex=5; byteOffset=58232569; length=0049; raw="260  L$$bSpringer International Publishing$$c2015"
+fieldIndex=6; byteOffset=58232622; length=0083; raw="506  L$$fВне РГБ ресурс доступен через сервис MyLOFT"
+fieldIndex=7; byteOffset=58232709; length=0020; raw="653  L$$aMathematics"
+fieldIndex=8; byteOffset=58232733; length=0075; raw="85641L$$uhttps://link.springer.com/10.1007/978-3-319-21284-5$$yЧитать"
+fieldIndex=9; byteOffset=58232812; length=0047; raw="975  L$$aSpringer Nature$$bSpringer eBooks-2015"
+fieldIndex=10; byteOffset=58232863; length=0044; raw="976  L$$ara_myloft$$bhttps://app.myloft.xyz/"
+fieldIndex=11; byteOffset=58232911; length=0012; raw="OWN  L$$aRNR"
+fieldIndex=12; byteOffset=58232927; length=0046; raw="CAT  L$$aRBNBIS$$b40$$c20260617$$lRSL06$$h1125"
+fieldIndex=13; byteOffset=58232977; length=0046; raw="CAT  L$$aRBNBIS$$b40$$c20260806$$lRSL06$$h1107"
+fieldIndex=14; byteOffset=58233027; length=0040; raw=" 2450 $$aExtended Abstracts Fall 2013$$c"
+fieldIndex=15; byteOffset=58233071; length=0056; raw="Mar Gnález, Paul C. Yang, Nicola Gambino, Joachim Kock\""
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 58232378 /tmp/000125997.dat

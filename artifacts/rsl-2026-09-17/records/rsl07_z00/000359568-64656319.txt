@@ -1,0 +1,40 @@
+Source: data/rsl-2026-09-17/raw/rsl07_z00.dat
+Source SHA-256: 4dfcc187ae80f6710bd08d14f5a367d29b84ae6c6103c3836dff21fb28df127f
+recordId: 000359568; recordIndex (0-based): 382449; byteOffset: 64656319
+Record length: 2577 bytes; record SHA-256: 8b90d9c6e53976e9c2a0d404791ea5e4a957d84ce210a23017abcb1cf529e398
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=64656329; length=0008; raw="FMT  LSE"
+fieldIndex=LDR; byteOffset=64656341; length=0030; raw="LDR  L01569nas^a2200253^ic4500"
+fieldIndex=1; byteOffset=64656375; length=0015; raw="001  L000359568"
+fieldIndex=2; byteOffset=64656394; length=0022; raw="005  L20220805161809.0"
+fieldIndex=3; byteOffset=64656420; length=0046; raw="008  L150721c20159999ru^^r^p^^^^^^^0^^^c0rus^d"
+fieldIndex=4; byteOffset=64656470; length=0018; raw="022  L$$a2410-7395"
+fieldIndex=5; byteOffset=64656492; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=6; byteOffset=64656524; length=0030; raw="0410 L$$arus$$arus$$beng$$feng"
+fieldIndex=7; byteOffset=64656558; length=0011; raw="044  L$$aru"
+fieldIndex=8; byteOffset=64656573; length=0028; raw="084  L$$aУ584.30я5$$2rubbk"
+fieldIndex=9; byteOffset=64656605; length=0523; raw="24500L$$aМеждународная торговля и торговая политика =$$bInternational trade and trade policy : международный научно-практический журнал$$cучредитель и издатель: Федеральное государственное бюджетное образовательное учреждение высшего образования \"Российский экономический университет им. Г. В. Плеханова\""
+fieldIndex=10; byteOffset=64657132; length=0045; raw="24621L$$aInternational trade and trade policy"
+fieldIndex=11; byteOffset=64657181; length=0071; raw="260  L$$aМосква$$bРЭУ им. Г. В. Плеханова$$c2015-"
+fieldIndex=12; byteOffset=64657256; length=0025; raw="3620 L$$a2015, № 1 (1)-"
+fieldIndex=13; byteOffset=64657285; length=0146; raw="500  L$$aВ подзаг.: 2015- Научный журнал ; 2017- Международный научно-практический журнал"
+fieldIndex=14; byteOffset=64657435; length=0093; raw="5100 L$$aРоссийский индекс научного цитирования (РИНЦ)"
+fieldIndex=15; byteOffset=64657532; length=0543; raw="650 7L$$aЭкономика. Экономические науки -- Мировая экономика -- Международные экономические отношения -- Отдельные сферы международных экономических отношений -- Международные торговые отношения -- Международные торговые отношения в целом -- Общий раздел -- Периодические и продолжающиеся издания$$2rubbk"
+fieldIndex=16; byteOffset=64658079; length=0112; raw="7102 L$$aРоссийский экономический университет им. Г. В. Плеханова"
+fieldIndex=17; byteOffset=64658195; length=0330; raw="78002L$$aРоссийский государственный торгово-экономический университет$$tВестник Российского государственного торгово-экономического университета$$dМосква : Изд-во РГТЭУ, 2003-2014$$x1814-5361"
+fieldIndex=18; byteOffset=64658529; length=0100; raw="979  L$$aperi$$bКаталог журналов и продолжающихся изданий$$crgb"
+fieldIndex=19; byteOffset=64658633; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=20; byteOffset=64658649; length=0044; raw="CAT  L$$aDL10$$b90$$c20190805$$lRSL07$$h1049"
+fieldIndex=21; byteOffset=64658697; length=0044; raw="CAT  L$$aDL10$$b90$$c20190805$$lRSL07$$h1049"
+fieldIndex=22; byteOffset=64658745; length=0044; raw="CAT  L$$aDL02$$b90$$c20220608$$lRSL07$$h1156"
+fieldIndex=23; byteOffset=64658793; length=0045; raw="CAT  L$$aRBNDL$$b40$$c20220805$$lRSL07$$h1618"
+fieldIndex=24; byteOffset=64658842; length=0049; raw="CAT  L$$aBATCH-UPD$$b40$$c20230620$$lRSL07$$h1305"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl07_z00.dat 64656319 /tmp/000359568.dat

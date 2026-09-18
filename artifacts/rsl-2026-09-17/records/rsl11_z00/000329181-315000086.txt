@@ -1,0 +1,29 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000329181; recordIndex (0-based): 327720; byteOffset: 315000086
+Record length: 1115 bytes; record SHA-256: 1a36d87994acc0c26ac0031cd32713ec0adff93b9395e5d3a345131dbe9edd52
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 12, "tag": "670", "indicatorIndex": 0, "message": "Индикатор 1 поля 670 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=315000096; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=315000108; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=315000142; length=0021; raw="001  Lnafpn-000329181"
+fieldIndex=2; byteOffset=315000167; length=0022; raw="005  L20250819105449.0"
+fieldIndex=3; byteOffset=315000193; length=0046; raw="008  L250819^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=315000243; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=315000275; length=0045; raw="1001 L$$aWilson, Matilda R.$$0RSL11-000329181"
+fieldIndex=6; byteOffset=315000324; length=0061; raw="5001 L$$aУилсон, Матильда Р.$$0RSL11-000329181"
+fieldIndex=7; byteOffset=315000389; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20250819$$lRSL11$$h1054"
+fieldIndex=8; byteOffset=315000438; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20250819$$lRSL11$$h1054"
+fieldIndex=9; byteOffset=315000487; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20250819$$lRSL11$$h1054"
+fieldIndex=10; byteOffset=315000536; length=0010; raw="UPD  L$$aN"
+fieldIndex=11; byteOffset=315000550; length=0140; raw="663  L$$aПроизведения этого авт. на рус. языке см. под именем:$$bУилсон, Матильда Р."
+fieldIndex=12; byteOffset=315000694; length=0096; raw="670\u0001 L$$aБолезни лошадей. Современные методы лечения, 2018"
+fieldIndex=13; byteOffset=315000794; length=0402; raw="6780 L$$aАмериканский ветеринар, специалист по лошадям, профессор кафедры клинического изучения крупных животных в Колледже ветеринарной медицины при Мичиганском государственном университете (Ист Лэнсингб, штат Мичиган)"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 315000086 /tmp/000329181.dat

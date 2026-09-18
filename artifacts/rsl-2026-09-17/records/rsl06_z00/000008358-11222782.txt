@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000008358; recordIndex (0-based): 12226; byteOffset: 11222782
+Record length: 1229 bytes; record SHA-256: b25b456e921d8ab17035c2344d6e837cf427a3290e36e6ce584fa499c9e0dbec
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=11222792; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=11222804; length=0030; raw="LDR  L01246nam^a22002292ic4500"
+fieldIndex=1; byteOffset=11222838; length=0015; raw="001  L000008358"
+fieldIndex=2; byteOffset=11222857; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=11222871; length=0022; raw="005  L20200709091248.0"
+fieldIndex=4; byteOffset=11222897; length=0046; raw="008  L130319s1975^^^^ru^|||||^||||||||^||rus^d"
+fieldIndex=5; byteOffset=11222947; length=0035; raw="035  L$$a(RuMoELAR)1969-75-20152187"
+fieldIndex=6; byteOffset=11222986; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=11223025; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=11223041; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=11223056; length=0141; raw="24500L$$aПортреты Пушкина$$bПортреты современников Пушкина. Виды пушкинских мест"
+fieldIndex=10; byteOffset=11223201; length=0013; raw="260  L$$c1975"
+fieldIndex=11; byteOffset=11223218; length=0024; raw="300  L$$a271 с.$$bил."
+fieldIndex=12; byteOffset=11223246; length=0400; raw="77318L$$7nnam$$gВып. 1$$tМосковская изобразительная пушкиниана [Текст] : Альбом / Авт. коллектив: Л. И. Вуич, И. А. Гладыш, Е. В. Муза, Е. В. Павлова ; Науч. ред. Е. В. Муза ; Гос. музей А. С. Пушкина$$dМосква : Изобраз. искусство, 1975$$h27 см$$w006781582"
+fieldIndex=13; byteOffset=11223650; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=14; byteOffset=11223671; length=0269; raw="LKR  L$$aUP$$lRSL01$$b006781582$$mПортреты Пушкина : Портреты современников Пушкина. Виды пушкинских мест$$nМосковская изобразительная пушкиниана [Текст] : Альбом"
+fieldIndex=15; byteOffset=11223944; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=16; byteOffset=11223960; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20200709$$lRSL06$$h0912"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 11222782 /tmp/000008358.dat

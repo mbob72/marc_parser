@@ -1,0 +1,28 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000190500; recordIndex (0-based): 182951; byteOffset: 157399405
+Record length: 657 bytes; record SHA-256: 799cbd603b5459ebb9fda01e3aa4e7bda41170e194fdfb1108a3ec9ca7de10b0
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 6, "tag": "400", "indicatorIndex": 1, "message": "Индикатор 2 поля 400 имеет недопустимое значение \"\\u001c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=157399415; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=157399427; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=157399461; length=0021; raw="001  Lnafpn-000190500"
+fieldIndex=2; byteOffset=157399486; length=0022; raw="005  L20170510154944.0"
+fieldIndex=3; byteOffset=157399512; length=0046; raw="008  L170510^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=157399562; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=157399594; length=0043; raw="1001 L$$aЛубенская, Наталья"
+fieldIndex=6; byteOffset=157399641; length=0037; raw="4001\u001cL$$aМузыка, Наталья"
+fieldIndex=7; byteOffset=157399682; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20170510$$lRSL11$$h1549"
+fieldIndex=8; byteOffset=157399731; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0202"
+fieldIndex=9; byteOffset=157399781; length=0010; raw="UPD  L$$aN"
+fieldIndex=10; byteOffset=157399795; length=0014; raw="065  L$$2rubbk"
+fieldIndex=11; byteOffset=157399813; length=0042; raw="670  L$$aРазум и душа, cop. 2017"
+fieldIndex=12; byteOffset=157399859; length=0198; raw="6780 L$$aПрофессиональный переводчик. Родилась в Донецке. В настоящее время живет и работает в г. Киеве (Украина)"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 157399405 /tmp/000190500.dat

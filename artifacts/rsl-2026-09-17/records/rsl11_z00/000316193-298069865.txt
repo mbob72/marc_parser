@@ -1,0 +1,27 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000316193; recordIndex (0-based): 313113; byteOffset: 298069865
+Record length: 747 bytes; record SHA-256: f70683ead2884e6fc7e2ee2acc2691dfad49902aa901b81e352e39184a349056
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 10, "tag": "678", "subfieldIndex": 0, "message": "Подполе 1 поля 678 имеет недопустимый код \"\\u0014\"."}
+{"rule": "SF-G4", "fieldIndex": 10, "tag": "678", "subfieldIndex": 0, "message": "Подполе 1 поля 678 имеет недопустимый код \"\\u0014\"."}
+
+Fields:
+fieldIndex=0; byteOffset=298069875; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=298069887; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=298069921; length=0021; raw="001  Lnafpn-000316193"
+fieldIndex=2; byteOffset=298069946; length=0022; raw="005  L20250109144044.0"
+fieldIndex=3; byteOffset=298069972; length=0046; raw="008  L250109^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=298070022; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=298070054; length=0056; raw="1001 L$$aКурилова, Анна Дмитриевна"
+fieldIndex=6; byteOffset=298070114; length=0045; raw="CAT  L$$aODK32$$b40$$c20250109$$lRSL11$$h1440"
+fieldIndex=7; byteOffset=298070163; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0203"
+fieldIndex=8; byteOffset=298070213; length=0010; raw="UPD  L$$aN"
+fieldIndex=9; byteOffset=298070227; length=0123; raw="670  L$$aРоссийские рукописные риторики XVIII века на латинском языке, 2024"
+fieldIndex=10; byteOffset=298070354; length=0253; raw="6780 L$$\u0014Доктор филологических наук. Место защиты: ФГБОУ ВО «Московский государственный университет имени М. В. Ломоносова» ; Диссовет МГУ.059.6."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 298069865 /tmp/000316193.dat

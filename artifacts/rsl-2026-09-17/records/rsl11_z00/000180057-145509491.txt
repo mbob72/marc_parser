@@ -1,0 +1,29 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000180057; recordIndex (0-based): 172161; byteOffset: 145509491
+Record length: 1796 bytes; record SHA-256: f0d75d7f3fd3cccef50abb92babf4dd6ae0361dd39e68744760a222600774c2d
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 5, "tag": "100", "indicatorIndex": 0, "message": "Индикатор 1 поля 100 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=145509501; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=145509513; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=145509547; length=0021; raw="001  Lnafpn-000180057"
+fieldIndex=2; byteOffset=145509572; length=0022; raw="005  L20160609134021.0"
+fieldIndex=3; byteOffset=145509598; length=0046; raw="008  L160609^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=145509648; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=145509680; length=0039; raw="100\u0001 L$$aЗитт, Ганс$$d1850-1922"
+fieldIndex=6; byteOffset=145509723; length=0031; raw="5001 L$$aZitt, Hans$$d1850-1922"
+fieldIndex=7; byteOffset=145509758; length=0045; raw="CAT  L$$aOKZ16$$b40$$c20160609$$lRSL11$$h1340"
+fieldIndex=8; byteOffset=145509807; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0201"
+fieldIndex=9; byteOffset=145509857; length=0010; raw="UPD  L$$aN"
+fieldIndex=10; byteOffset=145509871; length=0014; raw="065  L$$2rubbk"
+fieldIndex=11; byteOffset=145509889; length=0041; raw="670  L$$aQuadrille suisse, ценз. 1890"
+fieldIndex=12; byteOffset=145509934; length=0091; raw="670  L$$aNotOBOZ.ru (большой нотный архив)$$bбиогр. сведения"
+fieldIndex=13; byteOffset=145510029; length=1253; raw="6780 L$$aЧешско-немецкий скрипач, альтист, педагог и композитор. Считался одним из выдающихся учителей скрипки. Сын скрипичного мастера Антона Зитта, ученик пражской консерватории (Бенневиц, Мильднер, Китль и Крейчи); 1870—73 капельмейстер при бреславльском и пражском театрах, 1873—80 городской капельм. в Хемнице и затем дирижер частной капеллы П. фон-Дервиза в Ницце до ее прекращения, после чего Зитт организовал в лейпцигском Хрустальном дворце \"Народные концерты\". В 1883 Зитт был преподавателем лейпцигской консерватории, членом квартета Бродского (альт) и с 1885 (после Герцогенберга) состоял дирижером Баховского общества. Зитт написал романсы, фортепианные пьесы и 2 концерта для скрипки."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 145509491 /tmp/000180057.dat

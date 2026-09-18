@@ -1,0 +1,33 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007021; recordIndex (0-based): 10881; byteOffset: 9757826
+Record length: 928 bytes; record SHA-256: ed9f72b04ea189f4dfc3043616470eb5b47012d4cd8d325f4b4873471400b559
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9757836; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9757848; length=0030; raw="LDR  L00936nam^a22002292ic4500"
+fieldIndex=1; byteOffset=9757882; length=0015; raw="001  L000007021"
+fieldIndex=2; byteOffset=9757901; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9757915; length=0022; raw="005  L20190215104212.0"
+fieldIndex=4; byteOffset=9757941; length=0046; raw="008  L160210nuuuuuuuuru^|||||^||||||||^||rus^d"
+fieldIndex=5; byteOffset=9757991; length=0017; raw="017  L$$a82551-46"
+fieldIndex=6; byteOffset=9758012; length=0040; raw="035  L$$a(RuMoELAR)lacunas1917-79-109284"
+fieldIndex=7; byteOffset=9758056; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=8; byteOffset=9758095; length=0012; raw="0410 L$$arus"
+fieldIndex=9; byteOffset=9758111; length=0011; raw="044  L$$aru"
+fieldIndex=10; byteOffset=9758126; length=0027; raw="24500L$$aКн. 4, т. 16-20"
+fieldIndex=11; byteOffset=9758157; length=0015; raw="260  L$$c[19--]"
+fieldIndex=12; byteOffset=9758176; length=0014; raw="300  L$$a1 т."
+fieldIndex=13; byteOffset=9758194; length=0337; raw="77318L$$7p1am$$gКн. 4, т. 16-20$$aСоловьев, Сергей Михайлович$$tИстория России с древнейших времен [Текст] / Соч. Сергея Михайловича Соловьева$$dСанкт-Петербург : Общественная польза, [19--]$$h6 т.; 27 см$$w7020"
+fieldIndex=14; byteOffset=9758535; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=15; byteOffset=9758556; length=0127; raw="LKR  L$$aUP$$lRSL06$$b7020$$mКн. 4, т. 16-20$$nИстория России с древнейших времен [Текст]"
+fieldIndex=16; byteOffset=9758687; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=17; byteOffset=9758703; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190215$$lRSL06$$h1042"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9757826 /tmp/000007021.dat

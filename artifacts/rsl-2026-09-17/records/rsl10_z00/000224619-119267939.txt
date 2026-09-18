@@ -1,0 +1,27 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000224619; recordIndex (0-based): 223516; byteOffset: 119267939
+Record length: 1199 bytes; record SHA-256: adf6df547f61803c3020f4646f50a05e1cc515e13c8fb05e418bc9237ddb26c2
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 11, "tag": "670", "indicatorIndex": 0, "message": "Индикатор 1 поля 670 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=119267949; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=119267961; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=119267995; length=0015; raw="001  L000224619"
+fieldIndex=2; byteOffset=119268014; length=0022; raw="005  L20200206130823.0"
+fieldIndex=3; byteOffset=119268040; length=0046; raw="008  L200206^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=119268090; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=119268122; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=119268140; length=0326; raw="1112 L$$a\"Совершенствование инженерно-технического обеспечения производственных процессов и технологических систем\", международная научно-практическая конференция$$d2019$$cОренбург"
+fieldIndex=7; byteOffset=119268470; length=0325; raw="4112 L$$aМеждународная научно-практическая конференция \"Совершенствование инженерно-технического обеспечения производственных процессов и технологических систем\"$$d2019$$cОренбург"
+fieldIndex=8; byteOffset=119268799; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20200206$$lRSL10$$h1308"
+fieldIndex=9; byteOffset=119268848; length=0010; raw="UPD  L$$aN"
+fieldIndex=10; byteOffset=119268862; length=0052; raw="667  L$$aОренбург, 8 февраля 2019 г."
+fieldIndex=11; byteOffset=119268918; length=0215; raw="670\u0001 L$$aСовершенствование инженерно-технического обеспечения производственных процессов и технологических систем, 2019"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 119267939 /tmp/000224619.dat

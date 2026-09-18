@@ -1,0 +1,34 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006984; recordIndex (0-based): 10843; byteOffset: 9717199
+Record length: 1080 bytes; record SHA-256: dba43636c94e34cc045e588d9e20a8c57d827e8203956c6e9ce29a29d0516ff0
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9717209; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9717221; length=0030; raw="LDR  L01032nam^a22002292ia4500"
+fieldIndex=1; byteOffset=9717255; length=0015; raw="001  L000006984"
+fieldIndex=2; byteOffset=9717274; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9717288; length=0022; raw="005  L20190214124704.0"
+fieldIndex=4; byteOffset=9717314; length=0046; raw="008  L100622s1923^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9717364; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00088513"
+fieldIndex=6; byteOffset=9717403; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9717442; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9717458; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=9717473; length=0079; raw="1001 L$$aФлеров, Всеволод Александрович$$d1860-1919."
+fieldIndex=10; byteOffset=9717556; length=0263; raw="24500L$$aНаглядные уроки письма :$$bПрописи, картинки, задачи, правила : Пособия для учащихся, сост. согласно современной психологии$$cВсеволод Флеров"
+fieldIndex=11; byteOffset=9717823; length=0073; raw="260  L$$aМосква ;$$aПетроград$$bГос. изд-во$$c1923"
+fieldIndex=12; byteOffset=9717900; length=0017; raw="300  L$$c23 см."
+fieldIndex=13; byteOffset=9717921; length=0097; raw="4900 L$$aУчебники и учебные пособия для школ I и II ступени"
+fieldIndex=14; byteOffset=9718022; length=0046; raw="500  L$$aНапеч. в Москве$$5RuMoRGB"
+fieldIndex=15; byteOffset=9718072; length=0115; raw="500  L$$aНа обл. сер.: \"Учебники и учеб. пособия для труд. школы\"$$5RuMoRGB"
+fieldIndex=16; byteOffset=9718191; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=17; byteOffset=9718212; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=18; byteOffset=9718228; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190214$$lRSL06$$h1247"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9717199 /tmp/000006984.dat

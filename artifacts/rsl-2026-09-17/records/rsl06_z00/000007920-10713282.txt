@@ -1,0 +1,35 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007920; recordIndex (0-based): 11785; byteOffset: 10713282
+Record length: 1383 bytes; record SHA-256: 95cde57adb3f026d33a028338cc5eb44572854debc2156372c4df1aba8d02f0b
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10713292; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10713304; length=0030; raw="LDR  L01321nam^a22002412ia4500"
+fieldIndex=1; byteOffset=10713338; length=0015; raw="001  L000007920"
+fieldIndex=2; byteOffset=10713357; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10713371; length=0022; raw="005  L20190426123603.0"
+fieldIndex=4; byteOffset=10713397; length=0046; raw="008  L110121m19331934ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10713447; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00345732"
+fieldIndex=6; byteOffset=10713486; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10713525; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10713541; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=10713556; length=0062; raw="1001 L$$aТютчев, Федор Иванович$$d1803-1873"
+fieldIndex=10; byteOffset=10713622; length=0295; raw="24500L$$aПолное собрание стихотворений$$h[Текст]$$cФ. И. Тютчев ; Ред. и комментарии Георгия Чулкова ; Вступ. статья Д. Д. Благого ; Суп.-обл., переплет и титул: Д. И. Митрохин"
+fieldIndex=11; byteOffset=10713921; length=0106; raw="260  L$$aМосква ;$$aЛенинград$$bAcademia$$c1933-1934$$eЛ.$$fтип. \"Лен. правда\""
+fieldIndex=12; byteOffset=10714031; length=0028; raw="300  L$$a2 т.$$c18x12 см."
+fieldIndex=13; byteOffset=10714063; length=0084; raw="4900 L$$aРусские писатели XIX век. Ф. И. Тютчев. 1803-1873"
+fieldIndex=14; byteOffset=10714151; length=0175; raw="7001 L$$aБлагой, Дмитрий Дмитриевич$$d1893-1984$$eАвтор введения / заключения$$tЖизнь и творчество Тютчева"
+fieldIndex=15; byteOffset=10714330; length=0180; raw="7001 L$$aЧулков, Георгий Иванович$$eРедактор$$eКомментарии, примечания и т.п.$$tОб издании стихов Тютчева"
+fieldIndex=16; byteOffset=10714514; length=0059; raw="7001 L$$aМитрохин, Д. И.$$eИллюстратор"
+fieldIndex=17; byteOffset=10714577; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=18; byteOffset=10714598; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=19; byteOffset=10714614; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190426$$lRSL06$$h1236"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10713282 /tmp/000007920.dat

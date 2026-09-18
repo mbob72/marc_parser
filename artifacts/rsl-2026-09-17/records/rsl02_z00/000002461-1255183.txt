@@ -1,0 +1,18 @@
+Source: data/rsl-2026-09-17/raw/rsl02_z00.dat
+Source SHA-256: 76499311fda50f230c31945f601e9ad0679217b5d8cc20deae53bfc84638d9a4
+recordId: 000002461; recordIndex (0-based): 2991; byteOffset: 1255183
+Record length: 105 bytes; record SHA-256: ecf6b0fe0b10294efa3dafa29d31bc4ebe3b936d49bed1b680672b16b4cf7da9
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"message": "Error: Поле LDR Aleph-записи содержит 22 байт; ожидалось 24."}
+
+Fields:
+fieldIndex=0; byteOffset=1255193; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=1255205; length=0028; raw="LDR  L00059nam 22000497 4500"
+fieldIndex=1; byteOffset=1255237; length=0010; raw="DEL  L$$aY"
+fieldIndex=2; byteOffset=1255251; length=0032; raw="CAT  L$$c20140421$$lRSL02$$h1311"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl02_z00.dat 1255183 /tmp/000002461.dat

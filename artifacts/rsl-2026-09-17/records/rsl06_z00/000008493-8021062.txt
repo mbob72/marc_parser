@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000008493; recordIndex (0-based): 9182; byteOffset: 8021062
+Record length: 884 bytes; record SHA-256: c99718ca39449764ae67f41306d889e918440eba58063ba9560442c006ebb71e
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=8021072; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=8021084; length=0030; raw="LDR  L00911nam^a22002172ic4500"
+fieldIndex=1; byteOffset=8021118; length=0015; raw="001  L000008493"
+fieldIndex=2; byteOffset=8021137; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=8021151; length=0022; raw="005  L20211116100801.0"
+fieldIndex=4; byteOffset=8021177; length=0046; raw="008  L100514s1923^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=8021227; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00001159"
+fieldIndex=6; byteOffset=8021266; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=8021305; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=8021321; length=0014; raw="24500L$$aТ. 3"
+fieldIndex=9; byteOffset=8021339; length=0052; raw="260  L$$aМосква ;$$bГос. изд-во$$c1923"
+fieldIndex=10; byteOffset=8021395; length=0019; raw="300  L$$aX, 304 с."
+fieldIndex=11; byteOffset=8021418; length=0338; raw="77318L$$7p1am$$gТ. 3$$aКоваленский, Михаил Николаевич$$tХрестоматия по русской истории$$b2-е изд.$$dМосква ; Петроград : Гос. изд-во, [1922]-1923$$h25 см.$$k(Учебники и учебные пособия для школ I и II ступени)$$w8492"
+fieldIndex=12; byteOffset=8021760; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=13; byteOffset=8021781; length=0094; raw="LKR  L$$aUP$$lRSL06$$b8492$$mТ. 3$$nХрестоматия по русской истории"
+fieldIndex=14; byteOffset=8021879; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=15; byteOffset=8021895; length=0046; raw="CAT  L$$aKOMPL4$$b40$$c20211116$$lRSL06$$h1008"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 8021062 /tmp/000008493.dat

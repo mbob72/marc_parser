@@ -1,0 +1,27 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000258525; recordIndex (0-based): 253770; byteOffset: 235851255
+Record length: 1410 bytes; record SHA-256: b984a5b7910997adb2a126350823dc01306f8aa72911afd6e7c12be5a50208da
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 10, "tag": "670", "indicatorIndex": 0, "message": "Индикатор 1 поля 670 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=235851265; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=235851277; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=235851311; length=0021; raw="001  Lnafpn-000258525"
+fieldIndex=2; byteOffset=235851336; length=0022; raw="005  L20211201151310.0"
+fieldIndex=3; byteOffset=235851362; length=0046; raw="008  L211201^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=235851412; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=235851444; length=0072; raw="1001 L$$aБагров, Игорь Александрович$$d1946-2016"
+fieldIndex=6; byteOffset=235851520; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20211201$$lRSL11$$h1513"
+fieldIndex=7; byteOffset=235851569; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0203"
+fieldIndex=8; byteOffset=235851619; length=0010; raw="UPD  L$$aN"
+fieldIndex=9; byteOffset=235851633; length=0014; raw="065  L$$2rubbk"
+fieldIndex=10; byteOffset=235851651; length=0057; raw="670\u0001 L$$aЛюбовник леди Чаттерли, 2021"
+fieldIndex=11; byteOffset=235851712; length=0948; raw="6780 L$$aПереводчик. Родился в г. Казани. Окончил Казанский государственный университет, историко-филологический факультет, отделение английского языка в 1968 г. С 1975 г. переводчик художественной литературы. Руководил семинаром переводчиков при журнале \"Иностранная литература\". С 1994 года жил и работал в США. Последние годы жизни провел в Китае. Переводил произведения таких авторов, как: Дэвид Лоуренс, Стивен Кинг, Уилки Коллинз, Джон Апдайк, Катарина Причард, Скотт Фицджеральд, Пол Скотт, Норман Мейлер, Салман Рушди и др."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 235851255 /tmp/000258525.dat

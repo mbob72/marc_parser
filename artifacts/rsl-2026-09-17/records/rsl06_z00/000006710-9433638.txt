@@ -1,0 +1,34 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006710; recordIndex (0-based): 10569; byteOffset: 9433638
+Record length: 932 bytes; record SHA-256: 6eaad97dabab5fcf42ab7603d6f834f19f41115b9b9ba2a115151721f288fcc6
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9433648; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9433660; length=0030; raw="LDR  L00898nam^a22002292ia4500"
+fieldIndex=1; byteOffset=9433694; length=0015; raw="001  L000006710"
+fieldIndex=2; byteOffset=9433713; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9433727; length=0022; raw="005  L20190205161908.0"
+fieldIndex=4; byteOffset=9433753; length=0046; raw="008  L100514m19261931ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9433803; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00043998"
+fieldIndex=6; byteOffset=9433842; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9433881; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9433897; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=9433912; length=0101; raw="24500L$$aПугачевщина$$cПодготовлен к печати С. А. Голубцовым"
+fieldIndex=10; byteOffset=9434017; length=0078; raw="260  L$$aМосква ;$$aЛенинград$$bГос. изд-во$$c1926-1931"
+fieldIndex=11; byteOffset=9434099; length=0017; raw="300  L$$c23 см."
+fieldIndex=12; byteOffset=9434120; length=0207; raw="4900 L$$aМатериалы по истории революционного движения в России XVII и XVIII в.в./ Центрархив. Под общ. ред. М. Н. Покровского"
+fieldIndex=13; byteOffset=9434331; length=0054; raw="500  L$$aНапеч. в Ленинграде$$5RuMoRGB"
+fieldIndex=14; byteOffset=9434389; length=0032; raw="60014L$$aПугачев, Е. И."
+fieldIndex=15; byteOffset=9434425; length=0053; raw="7001 L$$aГолубцов, С. А.$$eРедактор"
+fieldIndex=16; byteOffset=9434482; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=17; byteOffset=9434503; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=18; byteOffset=9434519; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190205$$lRSL06$$h1619"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9433638 /tmp/000006710.dat

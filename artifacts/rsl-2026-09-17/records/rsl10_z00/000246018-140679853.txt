@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000246018; recordIndex (0-based): 245226; byteOffset: 140679853
+Record length: 1137 bytes; record SHA-256: 24b0a92abc3a4c203b27a75ceab36516e44329b670171ce253c9950eb2f710e1
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 8, "tag": "411", "subfieldIndex": 3, "message": "Подполе 4 поля 411 имеет недопустимый код \"R\"."}
+{"rule": "SF-G4", "fieldIndex": 8, "tag": "411", "subfieldIndex": 3, "message": "Подполе 4 поля 411 имеет недопустимый код \"R\"."}
+
+Fields:
+fieldIndex=0; byteOffset=140679863; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=140679875; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=140679909; length=0015; raw="001  L000246018"
+fieldIndex=2; byteOffset=140679928; length=0022; raw="005  L20230116113549.0"
+fieldIndex=3; byteOffset=140679954; length=0046; raw="008  L230116^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=140680004; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=140680036; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=140680054; length=0070; raw="1112 L$$aСадыковские чтения$$n8$$d2021$$cКазань"
+fieldIndex=7; byteOffset=140680128; length=0152; raw="411  L$$eSadykov readings$$n8$$d2021$$cVIII Садыковские чтения. XXI век: вариативность человеческого =azan"
+fieldIndex=8; byteOffset=140680284; length=0158; raw="4112 L$$aМеждународная научно-образовательная конференция \"Садыковские чтения\"$$a8$$a2021$$Rfzfb"
+fieldIndex=9; byteOffset=140680446; length=0165; raw="4112 L$$aVI Международная научно-образовательная конференция \"Садыковские чтения\"$$d2018$$cКазань"
+fieldIndex=10; byteOffset=140680615; length=0182; raw="4112 L$$a\"Призраки Маркса. Между будущим и грядущим\", международная научно-образовательная конференция"
+fieldIndex=11; byteOffset=140680801; length=0044; raw="CAT  L$$aNO04$$b40$$c20230116$$lRSL10$$h1135"
+fieldIndex=12; byteOffset=140680849; length=0010; raw="UPD  L$$aN"
+fieldIndex=13; byteOffset=140680863; length=0122; raw="670  L$$aVIII Садыковские чтения. XXI век: вариативность человеческого, 2021"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 140679853 /tmp/000246018.dat

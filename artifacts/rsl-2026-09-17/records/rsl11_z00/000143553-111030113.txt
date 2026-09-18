@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000143553; recordIndex (0-based): 135907; byteOffset: 111030113
+Record length: 864 bytes; record SHA-256: fd0d0c54164168ec3581947801c5f3803933b012ed5c1152616f7833087253af
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DR-E2", "fieldIndex": 13, "tag": "---", "message": "Некорректный тег \"---\"."}
+
+Fields:
+fieldIndex=0; byteOffset=111030123; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=111030135; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=111030169; length=0021; raw="001  Lnafpn-000143553"
+fieldIndex=2; byteOffset=111030194; length=0022; raw="005  L20190304154745.0"
+fieldIndex=3; byteOffset=111030220; length=0046; raw="008  L140115^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=111030270; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=111030302; length=0047; raw="1001 L$$aГонсалес, Карлос$$d1960-"
+fieldIndex=6; byteOffset=111030353; length=0026; raw="5001 L$$aGonzález, Carlos"
+fieldIndex=7; byteOffset=111030383; length=0044; raw="CAT  L$$aNO05$$b40$$c20140115$$lRSL11$$h1524"
+fieldIndex=8; byteOffset=111030431; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20190304$$lRSL11$$h1547"
+fieldIndex=9; byteOffset=111030480; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20190304$$lRSL11$$h1547"
+fieldIndex=10; byteOffset=111030529; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0201"
+fieldIndex=11; byteOffset=111030579; length=0010; raw="UPD  L$$aN"
+fieldIndex=12; byteOffset=111030593; length=0014; raw="065  L$$2rubbk"
+fieldIndex=13; byteOffset=111030611; length=0014; raw="---  L$$d1960-"
+fieldIndex=14; byteOffset=111030629; length=0039; raw="670  L$$aЦелуйте меня!, 2013"
+fieldIndex=15; byteOffset=111030672; length=0300; raw="6780 L$$aКаталонский врач-педиатр, основатель и президент Каталонской ассоциации грудного вскармливания. С 1996 года ведет раздел о грудном вскармливании в журн. \"Ser Padres\""
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 111030113 /tmp/000143553.dat

@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000275266; recordIndex (0-based): 275116; byteOffset: 172600455
+Record length: 1524 bytes; record SHA-256: a8b3f249e37a658acfeaea18cf1c223732ba368e9e6fb9cbdde06be08aa244f9
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 14, "tag": "678", "subfieldIndex": 0, "message": "Подполе 1 поля 678 имеет недопустимый код \"\\u001d\"."}
+{"rule": "SF-G4", "fieldIndex": 14, "tag": "678", "subfieldIndex": 0, "message": "Подполе 1 поля 678 имеет недопустимый код \"\\u001d\"."}
+
+Fields:
+fieldIndex=0; byteOffset=172600465; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=172600477; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=172600511; length=0015; raw="001  L000275266"
+fieldIndex=2; byteOffset=172600530; length=0022; raw="005  L20260609122903.0"
+fieldIndex=3; byteOffset=172600556; length=0046; raw="008  L260605^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=172600606; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=172600638; length=0110; raw="1102 L$$a\"Сила диалога\", ассоциация медиаторов (Москва)$$0RSL10-000275266"
+fieldIndex=6; byteOffset=172600752; length=0109; raw="4102 L$$aАссоциация медиаторов \"Сила диалога\" (Москва)$$0RSL10-000275266"
+fieldIndex=7; byteOffset=172600865; length=0109; raw="4101 L$$aМосква$$bАссоциация медиаторов \"Сила диалога\"$$0RSL10-000275266"
+fieldIndex=8; byteOffset=172600978; length=0046; raw="CAT  L$$aOKZ114$$b40$$c20260605$$lRSL10$$h1516"
+fieldIndex=9; byteOffset=172601028; length=0046; raw="CAT  L$$aOKZ114$$b40$$c20260605$$lRSL10$$h1516"
+fieldIndex=10; byteOffset=172601078; length=0046; raw="CAT  L$$aOKZ114$$b40$$c20260605$$lRSL10$$h1517"
+fieldIndex=11; byteOffset=172601128; length=0045; raw="CAT  L$$aOKZ29$$b40$$c20260609$$lRSL10$$h1229"
+fieldIndex=12; byteOffset=172601177; length=0010; raw="UPD  L$$aN"
+fieldIndex=13; byteOffset=172601191; length=0219; raw="670  L$$aОбщие положения по применению процедуры медиации для разрешения трудовых споров и конфликтов на рабочем месте, 2025"
+fieldIndex=14; byteOffset=172601414; length=0560; raw="6781 L$$\u001dНекоммерческая организация, зарегистрированная в Москве 7 июля 2025 года. Её цель - популяризировать медиацию как способ мирного урегулирования споров, объединять профессиональных медиаторов и помогать сторонам конфликтов находить друг друга. Президент ассоциации: Черячукина Евгения Александровна."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 172600455 /tmp/000275266.dat

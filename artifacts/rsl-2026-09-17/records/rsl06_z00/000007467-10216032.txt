@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007467; recordIndex (0-based): 11329; byteOffset: 10216032
+Record length: 1004 bytes; record SHA-256: 480ab3ad2151bfdd0ec80d6b14be49fbd32c6be550d00428d3aea9ae11857b23
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10216042; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10216054; length=0030; raw="LDR  L01092nam^a22002412ic4500"
+fieldIndex=1; byteOffset=10216088; length=0015; raw="001  L000007467"
+fieldIndex=2; byteOffset=10216107; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10216121; length=0022; raw="005  L20190411103241.0"
+fieldIndex=4; byteOffset=10216147; length=0046; raw="008  L160210nuuuuuuuuru^|||||^||||||||^||rus^d"
+fieldIndex=5; byteOffset=10216197; length=0040; raw="035  L$$a(RuMoELAR)lacunas1917-79-131536"
+fieldIndex=6; byteOffset=10216241; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10216280; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10216296; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=10216311; length=0049; raw="24500L$$aКруговой процесс - Неф"
+fieldIndex=10; byteOffset=10216364; length=0015; raw="260  L$$c[19--]"
+fieldIndex=11; byteOffset=10216383; length=0024; raw="300  L$$a788 с.$$bил."
+fieldIndex=12; byteOffset=10216411; length=0285; raw="77318L$$7nnam$$gТ. 6$$tТехническая энциклопедия [Текст] : Словарь по всем отраслям техники и примыкающим к ней наукам$$dСанкт-Петербург : Просвещение, [19--]$$h7 т.; 27 см$$w7460"
+fieldIndex=13; byteOffset=10216700; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=14; byteOffset=10216721; length=0244; raw="LKR  L$$aUP$$lRSL06$$b7460$$mКруговой процесс - Неф$$nТехническая энциклопедия [Текст] : Словарь по всем отраслям техники и примыкающим к ней наукам"
+fieldIndex=15; byteOffset=10216969; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=16; byteOffset=10216985; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190411$$lRSL06$$h1032"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10216032 /tmp/000007467.dat

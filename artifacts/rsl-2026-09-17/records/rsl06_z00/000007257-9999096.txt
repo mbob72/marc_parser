@@ -1,0 +1,33 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007257; recordIndex (0-based): 11119; byteOffset: 9999096
+Record length: 762 bytes; record SHA-256: c09bf4deb7cd728fbb6322a558744189b3901dc3f8fbccfd15c5cbbd3e5c1a13
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9999106; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9999118; length=0030; raw="LDR  L00724nam^a22002172ia4500"
+fieldIndex=1; byteOffset=9999152; length=0015; raw="001  L000007257"
+fieldIndex=2; byteOffset=9999171; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9999185; length=0022; raw="005  L20190313110432.0"
+fieldIndex=4; byteOffset=9999211; length=0046; raw="008  L100514s1924^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9999261; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00018673"
+fieldIndex=6; byteOffset=9999300; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9999339; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9999355; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=9999370; length=0028; raw="084  L$$aУ011я73-3$$2rubbk"
+fieldIndex=10; byteOffset=9999402; length=0148; raw="24500L$$aЛитературная хрестоматия по политической экономии$$cСост. М. Левин, О. Юргенс"
+fieldIndex=11; byteOffset=9999554; length=0057; raw="260  L$$aЛенинград$$bГос. изд-во$$c1924-"
+fieldIndex=12; byteOffset=9999615; length=0015; raw="300  L$$a26 с."
+fieldIndex=13; byteOffset=9999634; length=0077; raw="7001 L$$aЛевин, Михаил Абрамович$$eСоставитель"
+fieldIndex=14; byteOffset=9999715; length=0051; raw="7001 L$$aЮргенс, О.$$eСоставитель"
+fieldIndex=15; byteOffset=9999770; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=16; byteOffset=9999791; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=17; byteOffset=9999807; length=0046; raw="CAT  L$$aKOMPL1$$b10$$c20190313$$lRSL06$$h1104"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9999096 /tmp/000007257.dat

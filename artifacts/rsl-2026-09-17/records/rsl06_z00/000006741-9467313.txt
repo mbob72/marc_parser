@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006741; recordIndex (0-based): 10600; byteOffset: 9467313
+Record length: 1088 bytes; record SHA-256: eb6d0605ddf1836be11b033c29f15477f9ceed69df3eb5d53ee4bc3962da7235
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9467323; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9467335; length=0030; raw="LDR  L01242nam^a22002532ic4500"
+fieldIndex=1; byteOffset=9467369; length=0015; raw="001  L000006741"
+fieldIndex=2; byteOffset=9467388; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9467402; length=0022; raw="005  L20190206120635.0"
+fieldIndex=4; byteOffset=9467428; length=0046; raw="008  L100621s1919^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9467478; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00056218"
+fieldIndex=6; byteOffset=9467517; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9467556; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9467572; length=0093; raw="24500L$$aПророки :$$bОчерк развития израильской религии"
+fieldIndex=9; byteOffset=9467669; length=0013; raw="260  L$$c1919"
+fieldIndex=10; byteOffset=9467686; length=0016; raw="300  L$$a103 с."
+fieldIndex=11; byteOffset=9467706; length=0046; raw="504  L$$aБиблиогр. в конце кн."
+fieldIndex=12; byteOffset=9467756; length=0346; raw="77318L$$7p1am$$gВып. 6$$aМауренбрехер, Макс$$tБиблейские очерки : (К историч. пониманию религии). Пер. с нем.$$dПетербург : Антей, 1919$$h22 см.$$k(Проблемы библейской критики и исторический материализм; [1])$$w6740"
+fieldIndex=13; byteOffset=9468106; length=0224; raw="LKR  L$$aUP$$lRSL06$$b6740$$mПророки : Очерк развития израильской религии$$nБиблейские очерки : (К историч. пониманию религии). Пер. с нем."
+fieldIndex=14; byteOffset=9468334; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=15; byteOffset=9468350; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190206$$lRSL06$$h1206"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9467313 /tmp/000006741.dat

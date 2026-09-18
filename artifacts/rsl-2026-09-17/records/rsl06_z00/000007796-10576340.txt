@@ -1,0 +1,35 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007796; recordIndex (0-based): 11661; byteOffset: 10576340
+Record length: 1101 bytes; record SHA-256: 5b53986cc7d89ec845c604a0f224ca34b6d95c32944f7c7bfb99ea7f1e3c0118
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10576350; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10576362; length=0030; raw="LDR  L00886nam^a22002412ic4500"
+fieldIndex=1; byteOffset=10576396; length=0015; raw="001  L000007796"
+fieldIndex=2; byteOffset=10576415; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10576429; length=0022; raw="005  L20190422162049.0"
+fieldIndex=4; byteOffset=10576455; length=0046; raw="008  L100514s1923^^^^ru^^^^^^^^^^^^^^^^^^rus^d"
+fieldIndex=5; byteOffset=10576505; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00040617"
+fieldIndex=6; byteOffset=10576544; length=0035; raw="040  L$$aRuMoRGB$$brus$$ercr$$cELAR"
+fieldIndex=7; byteOffset=10576583; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10576599; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=10576614; length=0053; raw="24500L$$aКн. 2 : Ложь отцов$$h[Текст]"
+fieldIndex=10; byteOffset=10576671; length=0071; raw="260  L$$aМосква$$bГос. изд-во$$c1923$$aПетроград"
+fieldIndex=11; byteOffset=10576746; length=0016; raw="300  L$$a114 с."
+fieldIndex=12; byteOffset=10576766; length=0045; raw="336  L$$aтекст (text)$$btxt$$2rdacontent"
+fieldIndex=13; byteOffset=10576815; length=0069; raw="337  L$$aнеопосредованный (unmediated)$$bn$$2rdamedia"
+fieldIndex=14; byteOffset=10576888; length=0042; raw="338  L$$aтом (volume)$$bnc$$2rdacarrier"
+fieldIndex=15; byteOffset=10576934; length=0046; raw="500  L$$aНапеч. в Москве$$5RuMoRGB"
+fieldIndex=16; byteOffset=10576984; length=0278; raw="77318L$$7p1am$$aОрлов-Скоморовский, Федор Мартынович$$tИз цикла К человечеству [Текст] / Ф. М. Орлов-Скоморовский$$d[Москва] : Гос. изд-во, 1921-1923$$gКн. 2 : Ложь отцов$$w7795"
+fieldIndex=17; byteOffset=10577266; length=0104; raw="LKR  L$$aUP$$lRSL06$$b7795$$mКн. 2 : Ложь отцов$$nИз цикла К человечеству"
+fieldIndex=18; byteOffset=10577374; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=19; byteOffset=10577390; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190422$$lRSL06$$h1620"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10576340 /tmp/000007796.dat

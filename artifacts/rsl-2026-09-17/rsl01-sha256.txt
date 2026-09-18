@@ -1,0 +1,2 @@
+3ea90588feba4fe8e133e4755b6c161eef1f6a2aa808e9f43f46a190f23dfffc  data/rsl-2026-09-17/archives/rsl01_z00.tar.gz
+987bbbcb408a5336e7820cd3f6475dfdd4654adf5f0f6021a53368df814b02ae  data/rsl-2026-09-17/raw/rsl01_z00.dat

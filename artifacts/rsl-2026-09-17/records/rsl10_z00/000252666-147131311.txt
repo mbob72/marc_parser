@@ -1,0 +1,26 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000252666; recordIndex (0-based): 251962; byteOffset: 147131311
+Record length: 532 bytes; record SHA-256: ace53b5fd6e5ada435aba4b3820328831c0519da37a354f65ab82945538f6a1e
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 10, "tag": "670", "indicatorIndex": 0, "message": "Индикатор 1 поля 670 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=147131321; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=147131333; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=147131367; length=0015; raw="001  L000252666"
+fieldIndex=2; byteOffset=147131386; length=0022; raw="005  L20230821140955.0"
+fieldIndex=3; byteOffset=147131412; length=0046; raw="008  L230821^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=147131462; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=147131494; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=147131512; length=0118; raw="1102 L$$aПермский областной краеведческий музей$$bЗоологический сад"
+fieldIndex=7; byteOffset=147131634; length=0097; raw="4102 L$$aПермский областной краеведческий музей$$bЗоосад"
+fieldIndex=8; byteOffset=147131735; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20230821$$lRSL10$$h1409"
+fieldIndex=9; byteOffset=147131784; length=0010; raw="UPD  L$$aN"
+fieldIndex=10; byteOffset=147131798; length=0040; raw="670\u0001 L$$aПермский цирк, 1927"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 147131311 /tmp/000252666.dat

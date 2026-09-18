@@ -1,0 +1,33 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000143178; recordIndex (0-based): 149884; byteOffset: 139268764
+Record length: 865 bytes; record SHA-256: 92c4fc1c8938b7b73075131763fe854b3c2d613eea2945733fd3e58e5f0e0fdf
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 6, "tag": "245", "subfieldIndex": 1, "message": "Подполе 2 поля 245 имеет недопустимый код \"$\"."}
+{"rule": "SF-G4", "fieldIndex": 6, "tag": "245", "subfieldIndex": 1, "message": "Подполе 2 поля 245 имеет недопустимый код \"$\"."}
+
+Fields:
+fieldIndex=0; byteOffset=139268774; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=139268786; length=0030; raw="LDR  L^^^^^nam^a22^^^^^^i^4500"
+fieldIndex=1; byteOffset=139268820; length=0015; raw="001  L000143178"
+fieldIndex=2; byteOffset=139268839; length=0013; raw="003  LRuMoRGB"
+fieldIndex=3; byteOffset=139268856; length=0046; raw="008  L260617s2017^^^^|||^^^^^^^^^^^000^|^rus^d"
+fieldIndex=4; byteOffset=139268906; length=0045; raw="020  L$$a978-88-7642-601-8; 978-88-7642-600-1"
+fieldIndex=5; byteOffset=139268955; length=0025; raw="1001 L$$aDipierro, Serena"
+fieldIndex=6; byteOffset=139268984; length=0145; raw="24500L$$aFractional Elliptic Problems with Critical Growth in the Whole of $\\R^n$$$cDipierro, Serena; Medina, María; Valdinoci, Enrico$$nVol. 15"
+fieldIndex=7; byteOffset=139269133; length=0040; raw="260  L$$bScuola Normale Superiore$$c2017"
+fieldIndex=8; byteOffset=139269177; length=0083; raw="506  L$$fВне РГБ ресурс доступен через сервис MyLOFT"
+fieldIndex=9; byteOffset=139269264; length=0020; raw="653  L$$aMathematics"
+fieldIndex=10; byteOffset=139269288; length=0042; raw="7001 L$$aMedina, María; Valdinoci, Enrico"
+fieldIndex=11; byteOffset=139269334; length=0075; raw="85641L$$uhttps://link.springer.com/10.1007/978-88-7642-601-8$$yЧитать"
+fieldIndex=12; byteOffset=139269413; length=0047; raw="975  L$$aSpringer Nature$$bSpringer eBooks-2017"
+fieldIndex=13; byteOffset=139269464; length=0044; raw="976  L$$ara_myloft$$bhttps://app.myloft.xyz/"
+fieldIndex=14; byteOffset=139269512; length=0012; raw="OWN  L$$aRNR"
+fieldIndex=15; byteOffset=139269528; length=0046; raw="CAT  L$$aRBNBIS$$b40$$c20260617$$lRSL06$$h1126"
+fieldIndex=16; byteOffset=139269578; length=0046; raw="CAT  L$$aRBNBIS$$b40$$c20260806$$lRSL06$$h1107"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 139268764 /tmp/000143178.dat

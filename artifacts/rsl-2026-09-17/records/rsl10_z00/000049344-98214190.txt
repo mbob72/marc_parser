@@ -1,0 +1,41 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000049344; recordIndex (0-based): 200559; byteOffset: 98214190
+Record length: 3021 bytes; record SHA-256: 81cbed8103dc48b09a2e285e38a3e97a0946754fa2be5e251999ca80de321707
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 4, "tag": "040", "subfieldIndex": 0, "message": "Подполе 1 поля 040 имеет недопустимый код \"D\"."}
+{"rule": "SF-G4", "fieldIndex": 4, "tag": "040", "subfieldIndex": 0, "message": "Подполе 1 поля 040 имеет недопустимый код \"D\"."}
+
+Fields:
+fieldIndex=0; byteOffset=98214200; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=98214212; length=0030; raw="LDR  L02774nz^^a2200289n^^4500"
+fieldIndex=1; byteOffset=98214246; length=0015; raw="001  L000049344"
+fieldIndex=2; byteOffset=98214265; length=0022; raw="005  L20220728143425.0"
+fieldIndex=3; byteOffset=98214291; length=0046; raw="008  L040813|n^aznnnaab^^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=98214341; length=0042; raw="040  L$$DRuMoRGB$$bru$$eГОСТ 7.80-2000"
+fieldIndex=5; byteOffset=98214387; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=98214405; length=0095; raw="1102 L$$aМосковский Спасо-Андроников мужской монастырь"
+fieldIndex=7; byteOffset=98214504; length=0063; raw="4102 L$$aАндроников монастырь (Москва)"
+fieldIndex=8; byteOffset=98214571; length=0080; raw="4102 L$$aМосковский Спасо-Андроников монастырь"
+fieldIndex=9; byteOffset=98214655; length=0074; raw="4102 L$$aСпасо-Андроников монастырь (Москва)"
+fieldIndex=10; byteOffset=98214733; length=0089; raw="4102 L$$aСпасо-Андроников мужской монастырь (Москва)"
+fieldIndex=11; byteOffset=98214826; length=0099; raw="4102 L$$aСпасо-Андрониев второклассный монастырь (Москва)"
+fieldIndex=12; byteOffset=98214929; length=0105; raw="4102 L$$aМосковский Спасо-Андрониев второклассный монастырь"
+fieldIndex=13; byteOffset=98215038; length=0103; raw="4102 L$$aАндроников Нерукотворного Спаса мужской монастырь"
+fieldIndex=14; byteOffset=98215145; length=0093; raw="71024L$$aМосковский Спасо-Андрониев мужской монастырь"
+fieldIndex=15; byteOffset=98215242; length=0044; raw="CAT  L$$aNO01$$b99$$c20040813$$lRSL10$$h1829"
+fieldIndex=16; byteOffset=98215290; length=0044; raw="CAT  L$$aNO01$$b40$$c20040813$$lRSL10$$h1830"
+fieldIndex=17; byteOffset=98215338; length=0044; raw="CAT  L$$aNO01$$b99$$c20040813$$lRSL10$$h1830"
+fieldIndex=18; byteOffset=98215386; length=0044; raw="CAT  L$$aNO01$$b40$$c20040813$$lRSL10$$h1831"
+fieldIndex=19; byteOffset=98215434; length=0044; raw="CAT  L$$aNO09$$b40$$c20100310$$lRSL10$$h1248"
+fieldIndex=20; byteOffset=98215482; length=0032; raw="CAT  L$$c20121212$$lRSL10$$h2102"
+fieldIndex=21; byteOffset=98215518; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20220728$$lRSL10$$h1434"
+fieldIndex=22; byteOffset=98215567; length=0010; raw="UPD  L$$aN"
+fieldIndex=23; byteOffset=98215581; length=0144; raw="670  L$$aИз кн.: Историческое описание Московского Спасо-Андроникова монастыря, 1865"
+fieldIndex=24; byteOffset=98215729; length=1477; raw="6781 L$$aСпасо-Андроников монастырь назван по имени первого игумена монастыря, ученика Сергия Радонежского - Андроника, вторым игуменом был Савва. В прошлом Спасо - Андрониев монастырь$$aОснован в 1360 г.$$aВ 1748 г. пострадал от пожара$$aВ 1812 г. опустошен французами$$aВ 1813 г. возобновлен$$aВ 1917 г. монастырь упразднен, на его территории находился лагерь ВЧК$$aВ 1919 г. устроены пролетарские квартиры$$aВ 1930 г. унижтожена огромная колокольня монастыря$$aВ 1947 г. в связи с 800-летием Москвы было предложено создать музей древнерусской живописи им. А. Рублева$$aС 1960 г. в Спасо-Анрониковском монастыре находится музей древнерусской культуры и искуссва им. Андрея Рублёва$$aС 1985 г. Центральный государственный музей древнерусской культуры и искуссва им. Андрея Рублёва$$aС 1989 г. возобновили богослужение в Белокаменном Спасском соборе"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 98214190 /tmp/000049344.dat

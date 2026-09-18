@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007122; recordIndex (0-based): 10982; byteOffset: 9864176
+Record length: 1176 bytes; record SHA-256: aac5206d348e4b3560dee92d6f3fec4edfd3f1270b83c9c42a3c911c0387c97e
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9864186; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9864198; length=0030; raw="LDR  L01603nam^a22003012ic4500"
+fieldIndex=1; byteOffset=9864232; length=0015; raw="001  L000007122"
+fieldIndex=2; byteOffset=9864251; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9864265; length=0022; raw="005  L20190220145036.0"
+fieldIndex=4; byteOffset=9864291; length=0046; raw="008  L101028s1928^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9864341; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00228980"
+fieldIndex=6; byteOffset=9864380; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9864419; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9864435; length=0106; raw="24500L$$aС древнейших времен до начала XVIII века. Вып. 1-3$$h[Текст]"
+fieldIndex=9; byteOffset=9864545; length=0013; raw="260  L$$c1928"
+fieldIndex=10; byteOffset=9864562; length=0060; raw="300  L$$a364, XLVI с., 3 л. фронт., карт.$$bил."
+fieldIndex=11; byteOffset=9864626; length=0382; raw="77318L$$7p1am$$gТ. 1$$aФиндейзен, Николай Федорович$$tОчерки по истории музыки в России с древнейших времен до конца XVIII века [Текст]$$dМосква ; Ленинград : Гос. изд-во. Музсектор, 1928-1929 (Л. : тип. Печатный двор)$$h2 т.; 27х18 см.$$w7121"
+fieldIndex=12; byteOffset=9865012; length=0269; raw="LKR  L$$aUP$$lRSL06$$b7121$$mС древнейших времен до начала XVIII века. Вып. 1-3 [Текст]$$nОчерки по истории музыки в России с древнейших времен до конца XVIII века [Текст]"
+fieldIndex=13; byteOffset=9865285; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=14; byteOffset=9865301; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190220$$lRSL06$$h1450"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9864176 /tmp/000007122.dat

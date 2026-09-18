@@ -1,0 +1,84 @@
+{
+  "file": "rsl11_z00.dat",
+  "mode": "strict",
+  "category": "authority",
+  "source": "https://mrsadman.ru/ac34d2e7ff814dac/",
+  "revision": "47d517aa270e431874abe1524a2ae069b7910d97",
+  "node": "v24.12.0",
+  "startedAt": "2026-09-17T15:26:04.520Z",
+  "completedAt": "2026-09-17T15:26:12.897Z",
+  "complete": false,
+  "fatalError": "Error: Aleph-запись должна содержать ровно одно поле LDR; найдено 2.",
+  "fileBytes": 336285478,
+  "recordsProcessed": 124065,
+  "validRecords": 124059,
+  "recordsWithValidationErrors": 6,
+  "recordsWithParsingErrors": 1,
+  "validationErrors": 6,
+  "inputBytes": 100430016,
+  "serializedBytes": 219396774,
+  "rules": {
+    "IN-G3": 3,
+    "DF-G3": 1,
+    "DR-E2": 2
+  },
+  "messages": {
+    "IN-G3: Индикатор 1 поля 100 имеет недопустимое значение \"\\u0001\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 18704,
+        "byteOffset": 18179666,
+        "rule": "IN-G3",
+        "fieldIndex": 5,
+        "tag": "100",
+        "indicatorIndex": 0,
+        "message": "Индикатор 1 поля 100 имеет недопустимое значение \"\\u0001\"."
+      }
+    },
+    "DF-G3: Поле 678 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 19317,
+        "byteOffset": 18614760,
+        "rule": "DF-G3",
+        "fieldIndex": 19,
+        "tag": "678",
+        "message": "Поле 678 не содержит кода подполя."
+      }
+    },
+    "DR-E2: Некорректный тег \" --\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 70313,
+        "byteOffset": 56287512,
+        "rule": "DR-E2",
+        "fieldIndex": 11,
+        "tag": " --",
+        "message": "Некорректный тег \" --\"."
+      }
+    },
+    "IN-G3: Индикатор 1 поля 065 имеет недопустимое значение \"\\u0001\".": {
+      "count": 2,
+      "first": {
+        "recordIndex": 80114,
+        "byteOffset": 65305765,
+        "rule": "IN-G3",
+        "fieldIndex": 16,
+        "tag": "065",
+        "indicatorIndex": 0,
+        "message": "Индикатор 1 поля 065 имеет недопустимое значение \"\\u0001\"."
+      }
+    },
+    "DR-E2: Некорректный тег \"67 \".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 110097,
+        "byteOffset": 88687444,
+        "rule": "DR-E2",
+        "fieldIndex": 14,
+        "tag": "67 ",
+        "message": "Некорректный тег \"67 \"."
+      }
+    }
+  }
+}

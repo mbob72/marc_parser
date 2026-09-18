@@ -1,0 +1,26 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000328402; recordIndex (0-based): 326890; byteOffset: 313997097
+Record length: 1833 bytes; record SHA-256: 29c40ec3d0cf04d4814682435b7380677ba9d41679a720cc46cf56f41540d08c
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 5, "tag": "100", "indicatorIndex": 0, "message": "Индикатор 1 поля 100 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=313997107; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=313997119; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=313997153; length=0021; raw="001  Lnafpn-000328402"
+fieldIndex=2; byteOffset=313997178; length=0022; raw="005  L20250730085318.0"
+fieldIndex=3; byteOffset=313997204; length=0046; raw="008  L250730^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=313997254; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=313997286; length=0039; raw="100\u0001 L$$aSzaliński, Antoni$$d1925-1997"
+fieldIndex=6; byteOffset=313997329; length=0055; raw="5001 L$$aСалиньский, Антони$$d1925-1997"
+fieldIndex=7; byteOffset=313997388; length=0046; raw="CAT  L$$aNOTE12$$b40$$c20250730$$lRSL11$$h0853"
+fieldIndex=8; byteOffset=313997438; length=0010; raw="UPD  L$$aN"
+fieldIndex=9; byteOffset=313997452; length=0031; raw="670  L$$aOperatic Arias, [1983]"
+fieldIndex=10; byteOffset=313997487; length=1438; raw="6780 L$$aПольский композитор, дирижёр и педагог. В 1960 году начал работать в Государственной высшей школе музыки в Варшаве. С 1969 года много лет занимал должности декана и продекана факультета музыкального образования и музыкального образования в этом университете. В 1974-1978 годах был директором Национального филармонического хора в Варшаве. Он также сотрудничал с другими хорами, в том числе с хором SGPiS, с которым выступал в 1975 году в Бундестаге на концерте для президента Аннемари Ренгер. Сочинил около 300 произведений, включая симфонические и камерные произведения, хоровые и сольные песни, песни и фортепианные пьесы. Был награжден Рыцарским крестом ордена Возрождения Польши. Является покровителем частной начальной музыкальной школы № 1 в Жирардове (с правами государственной школы)"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 313997097 /tmp/000328402.dat

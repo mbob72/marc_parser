@@ -1,0 +1,33 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000027900; recordIndex (0-based): 39297; byteOffset: 20746340
+Record length: 733 bytes; record SHA-256: 03814cacc00f7b53a5f8c570889ee7435ba7786dc0006a0804a0086d59327faf
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 8, "tag": "111", "indicatorIndex": 0, "message": "Индикатор 1 поля 111 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=20746350; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=20746362; length=0030; raw="LDR  L00576nz^^a2200169n^^4500"
+fieldIndex=1; byteOffset=20746396; length=0015; raw="001  L000027900"
+fieldIndex=2; byteOffset=20746415; length=0013; raw="003  LRuMoRGB"
+fieldIndex=3; byteOffset=20746432; length=0022; raw="005  L20150401100439.0"
+fieldIndex=4; byteOffset=20746458; length=0046; raw="008  L031225^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=5; byteOffset=20746508; length=0033; raw="035  L$$a(RuMoRGB)MEKACOL-0044206"
+fieldIndex=6; byteOffset=20746545; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=7; byteOffset=20746577; length=0014; raw="065  L$$2rubbk"
+fieldIndex=8; byteOffset=20746595; length=0058; raw="111\u0001 L$$aSymposium on vectorcardiography$$d1965$$cNew York"
+fieldIndex=9; byteOffset=20746657; length=0054; raw="5112 L$$aInternational symposium on vectorcardiography"
+fieldIndex=10; byteOffset=20746715; length=0045; raw="CAT  L$$aRSL10$$b00$$c20031225$$lRSL10$$h0221"
+fieldIndex=11; byteOffset=20746764; length=0032; raw="CAT  L$$c20100331$$lRSL10$$h0818"
+fieldIndex=12; byteOffset=20746800; length=0044; raw="CAT  L$$aNO08$$b40$$c20111227$$lRSL10$$h1104"
+fieldIndex=13; byteOffset=20746848; length=0044; raw="CAT  L$$aNO05$$b40$$c20150401$$lRSL10$$h1004"
+fieldIndex=14; byteOffset=20746896; length=0010; raw="UPD  L$$aN"
+fieldIndex=15; byteOffset=20746910; length=0128; raw="663  L$$aИздания 11-го Симпозиума см.:$$bInternational symposium on vectorcardiography (11; 1970; New York)"
+fieldIndex=16; byteOffset=20747042; length=0011; raw="960  L$$a62"
+fieldIndex=17; byteOffset=20747057; length=0011; raw="961  L$$a64"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 20746340 /tmp/000027900.dat

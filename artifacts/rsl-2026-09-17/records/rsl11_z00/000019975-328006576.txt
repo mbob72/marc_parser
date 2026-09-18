@@ -1,0 +1,38 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000019975; recordIndex (0-based): 337493; byteOffset: 328006576
+Record length: 1944 bytes; record SHA-256: 25c88cfa62db8e9669fe42eac5ba9f35fb3947530bb8696378f1ad1ddb241f07
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DF-G3", "fieldIndex": 22, "tag": "678", "message": "Поле 678 не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=328006586; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=328006598; length=0030; raw="LDR  L00565nz^^a2200169n^^4500"
+fieldIndex=1; byteOffset=328006632; length=0021; raw="001  Lnafpn-000019975"
+fieldIndex=2; byteOffset=328006657; length=0022; raw="005  L20260325145115.0"
+fieldIndex=3; byteOffset=328006683; length=0046; raw="008  L100114^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=328006733; length=0042; raw="040  L$$aRuMoRGB$$bru$$eГОСТ 7.80-2000"
+fieldIndex=5; byteOffset=328006779; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=328006797; length=0058; raw="1001 L$$aШлёгель Карл$$d1948-$$0RSL11-000019975"
+fieldIndex=7; byteOffset=328006859; length=0059; raw="4001 L$$aШлегель, Карл$$d1948-$$0RSL11-000019975"
+fieldIndex=8; byteOffset=328006922; length=0062; raw="5001 L$$aSchlögel, Karl$$d1948-$$0RSL11-000019975$$w000019976"
+fieldIndex=9; byteOffset=328006988; length=0032; raw="CAT  L$$c20100114$$lRSL11$$h1709"
+fieldIndex=10; byteOffset=328007024; length=0032; raw="CAT  L$$c20100908$$lRSL11$$h2105"
+fieldIndex=11; byteOffset=328007060; length=0044; raw="CAT  L$$aNO03$$b40$$c20110318$$lRSL11$$h1337"
+fieldIndex=12; byteOffset=328007108; length=0044; raw="CAT  L$$aNO03$$b40$$c20110318$$lRSL11$$h1340"
+fieldIndex=13; byteOffset=328007156; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0200"
+fieldIndex=14; byteOffset=328007206; length=0045; raw="CAT  L$$aOKZ07$$b40$$c20260325$$lRSL11$$h1444"
+fieldIndex=15; byteOffset=328007255; length=0045; raw="CAT  L$$aOKZ07$$b40$$c20260325$$lRSL11$$h1445"
+fieldIndex=16; byteOffset=328007304; length=0045; raw="CAT  L$$aOKZ07$$b40$$c20260325$$lRSL11$$h1451"
+fieldIndex=17; byteOffset=328007353; length=0059; raw="COR  L$$aШлёгель, Карл$$d1948-$$0RSL11-000019975"
+fieldIndex=18; byteOffset=328007416; length=0010; raw="UPD  L$$aN"
+fieldIndex=19; byteOffset=328007430; length=0138; raw="663  L$$aПроизведения этого авт. на иностр. языках см. под именем:$$bSchlögel, Karl (1948- )"
+fieldIndex=20; byteOffset=328007572; length=0027; raw="667  L$$a(RuMoRGB)000061055"
+fieldIndex=21; byteOffset=328007603; length=0073; raw="670  L$$aИз кн.: Берлин, Восточный вокзал , 2004"
+fieldIndex=22; byteOffset=328007680; length=0835; raw="6780 LШлёгель Карл - (род. 7 марта 1948, Хаванген) - немецкий историк, \"один из известнейших немецких историков, специалист по странам Восточной Европы, имеет докторскую степень (1981). С 1990 - профессор восточноевропейской истории в Констанцском университете, с 1994 - в Европейском университете Виадрина во Франкфурте-на-Одере. Карл Шлёгель живет в Берлине и женат на публицистке из Москвы Соне Марголиной. В 2025 году он был удостоен Премии мира немецких книготорговцев."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 328006576 /tmp/000019975.dat

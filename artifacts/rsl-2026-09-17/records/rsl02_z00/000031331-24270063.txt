@@ -1,0 +1,40 @@
+Source: data/rsl-2026-09-17/raw/rsl02_z00.dat
+Source SHA-256: 76499311fda50f230c31945f601e9ad0679217b5d8cc20deae53bfc84638d9a4
+recordId: 000031331; recordIndex (0-based): 29433; byteOffset: 24270063
+Record length: 1725 bytes; record SHA-256: b4c733a2c38f940b1c4718ea89732ac9754d89ff67ef4bf76d0f09cc04956b8b
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=24270073; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=24270085; length=0030; raw="LDR  L02511nam^a2200445^ac4500"
+fieldIndex=1; byteOffset=24270119; length=0015; raw="001  L000031331"
+fieldIndex=2; byteOffset=24270138; length=0022; raw="005  L20230905135356.0"
+fieldIndex=3; byteOffset=24270164; length=0046; raw="008  L120517m18161828ru^^^^^^^^^^^^000^0^rus^d"
+fieldIndex=4; byteOffset=24270214; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=24270246; length=0018; raw="0410 L$$arus$$afre"
+fieldIndex=6; byteOffset=24270268; length=0011; raw="044  L$$aru"
+fieldIndex=7; byteOffset=24270283; length=0064; raw="1001 L$$aСвиньин, Павел Петрович$$d1787-1839"
+fieldIndex=8; byteOffset=24270351; length=0156; raw="24500L$$aДостопамятности Санктпетербурга и его окрестностей :$$bсочинение Павла Свиньина"
+fieldIndex=9; byteOffset=24270511; length=0110; raw="2461 L$$aDescription des objéts les plus remarquables des St.Petersbourg et de ses environs par Paul Svignine"
+fieldIndex=10; byteOffset=24270625; length=0106; raw="260  L$$aСанктпетербург$$bВ типографии В. Плавильщикова$$c1816-1828"
+fieldIndex=11; byteOffset=24270735; length=0042; raw="336  L$$aТекст (визуальный)"
+fieldIndex=12; byteOffset=24270781; length=0041; raw="337  L$$aнепосредственное"
+fieldIndex=13; byteOffset=24270826; length=0073; raw="500  L$$aТит.л. и текст парал. на рус. и фр. яз."
+fieldIndex=14; byteOffset=24270903; length=0242; raw="500  L$$aЦенз.: И. О. Тимковский, 3 нояб. 1816 ([тетр.1]), 15 мая 1817 г. ([тетр.2]), 25 янв. 1818 г. ([тетр.3]), 30 дек. 1819 г. (кн.4); В. Г. Анастасевич, 12 авг. 1827 г. (ч.5)"
+fieldIndex=15; byteOffset=24271149; length=0055; raw="500  L$$aПредисл. авт. (с. 2-5 [тетр.1])"
+fieldIndex=16; byteOffset=24271208; length=0048; raw="500  L$$aПодстроч. примеч. авт."
+fieldIndex=17; byteOffset=24271260; length=0109; raw="500  L$$aПортрет Александра I по рис. П. П.Свиньина, грав. Д. Эдуин"
+fieldIndex=18; byteOffset=24271373; length=0068; raw="7001 L$$aТимковский, Иван Осипович$$d1768-1837"
+fieldIndex=19; byteOffset=24271445; length=0082; raw="7001 L$$aПлавильщиков, Василий Алексеевич$$d1768-1823"
+fieldIndex=20; byteOffset=24271531; length=0082; raw="7001 L$$aАнастасевич, Василий Григорьевич$$d1775-1845"
+fieldIndex=21; byteOffset=24271617; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=22; byteOffset=24271633; length=0044; raw="CAT  L$$aDL12$$b40$$c20230905$$lRSL02$$h1353"
+fieldIndex=23; byteOffset=24271681; length=0049; raw="CAT  L$$aBATCH-UPD$$b40$$c20231107$$lRSL02$$h0932"
+fieldIndex=24; byteOffset=24271734; length=0049; raw="CAT  L$$aBATCH-UPD$$b40$$c20231107$$lRSL02$$h0959"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl02_z00.dat 24270063 /tmp/000031331.dat

@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006728; recordIndex (0-based): 10587; byteOffset: 9453202
+Record length: 962 bytes; record SHA-256: 808127b517663d59d7a751a21b7ca5d6c9e580a978c23306c79a4eb207458ad5
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9453212; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9453224; length=0030; raw="LDR  L01162nam^a22002532ic4500"
+fieldIndex=1; byteOffset=9453258; length=0015; raw="001  L000006728"
+fieldIndex=2; byteOffset=9453277; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9453291; length=0022; raw="005  L20190206111621.0"
+fieldIndex=4; byteOffset=9453317; length=0046; raw="008  L101028s1928^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9453367; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00219395"
+fieldIndex=6; byteOffset=9453406; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9453445; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9453461; length=0107; raw="24500L$$aОбщая часть - Хлеб$$h[Текст] :$$bСтатистика экспорта СССР"
+fieldIndex=9; byteOffset=9453572; length=0013; raw="260  L$$c1928"
+fieldIndex=10; byteOffset=9453589; length=0022; raw="300  L$$aXIII, 580 с."
+fieldIndex=11; byteOffset=9453615; length=0273; raw="77318L$$7nnam$$gТ. 1$$tЭнциклопедия советского экспорта [Текст]$$b2-е изд., полностью перераб.$$dМосква : Сов. энциклопедия, 1928-1932 (16 тип. треста \"Полиграфкнига\")$$w6727"
+fieldIndex=12; byteOffset=9453892; length=0201; raw="LKR  L$$aUP$$lRSL06$$b6727$$mОбщая часть - Хлеб [Текст] : Статистика экспорта СССР$$nЭнциклопедия советского экспорта [Текст]"
+fieldIndex=13; byteOffset=9454097; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=14; byteOffset=9454113; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190206$$lRSL06$$h1116"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9453202 /tmp/000006728.dat

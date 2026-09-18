@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007921; recordIndex (0-based): 11786; byteOffset: 10714665
+Record length: 874 bytes; record SHA-256: 949d835b62c41da9ebd3ccac8619b0d71977c818e13f3d73b496ccc9fc6bbaae
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10714675; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10714687; length=0030; raw="LDR  L01160nam^a22002772ic4500"
+fieldIndex=1; byteOffset=10714721; length=0015; raw="001  L000007921"
+fieldIndex=2; byteOffset=10714740; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10714754; length=0022; raw="005  L20190426123652.0"
+fieldIndex=4; byteOffset=10714780; length=0046; raw="008  L110121s1934^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10714830; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00345734"
+fieldIndex=6; byteOffset=10714869; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10714908; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10714924; length=0025; raw="24500L$$a2$$h[Текст]"
+fieldIndex=9; byteOffset=10714953; length=0013; raw="260  L$$c1934"
+fieldIndex=10; byteOffset=10714970; length=0037; raw="300  L$$a543 с., 7 л. ил.$$bил."
+fieldIndex=11; byteOffset=10715011; length=0338; raw="77318L$$7p1am$$g2$$aТютчев, Федор Иванович$$tПолное собрание стихотворений [Текст]$$dМосква ; Ленинград : Academia, 1933-1934 (Л. : тип. \"Лен. правда\")$$h2 т.; 18x12 см.$$k(Русские писатели XIX век. Ф. И. Тютчев. 1803-1873)$$w7920"
+fieldIndex=12; byteOffset=10715353; length=0115; raw="LKR  L$$aUP$$lRSL06$$b7920$$m2 [Текст]$$nПолное собрание стихотворений [Текст]"
+fieldIndex=13; byteOffset=10715472; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=14; byteOffset=10715488; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190426$$lRSL06$$h1236"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10714665 /tmp/000007921.dat

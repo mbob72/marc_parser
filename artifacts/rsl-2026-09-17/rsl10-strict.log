@@ -1,0 +1,36 @@
+{
+  "file": "rsl10_z00.dat",
+  "mode": "strict",
+  "category": "authority",
+  "source": "https://mrsadman.ru/ac34d2e7ff814dac/",
+  "revision": "47d517aa270e431874abe1524a2ae069b7910d97",
+  "node": "v24.12.0",
+  "startedAt": "2026-09-17T15:25:07.629Z",
+  "completedAt": "2026-09-17T15:25:08.892Z",
+  "complete": false,
+  "fatalError": "Error: Поле LDR Aleph-записи содержит 25 байт; ожидалось 24.",
+  "fileBytes": 174461885,
+  "recordsProcessed": 27603,
+  "validRecords": 27602,
+  "recordsWithValidationErrors": 1,
+  "recordsWithParsingErrors": 1,
+  "validationErrors": 1,
+  "inputBytes": 13204636,
+  "serializedBytes": 31370074,
+  "rules": {
+    "DF-G3": 1
+  },
+  "messages": {
+    "DF-G3: Поле 678 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 1309,
+        "byteOffset": 547326,
+        "rule": "DF-G3",
+        "fieldIndex": 14,
+        "tag": "678",
+        "message": "Поле 678 не содержит кода подполя."
+      }
+    }
+  }
+}

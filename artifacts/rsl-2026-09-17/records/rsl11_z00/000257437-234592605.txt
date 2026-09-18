@@ -1,0 +1,28 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000257437; recordIndex (0-based): 252627; byteOffset: 234592605
+Record length: 839 bytes; record SHA-256: 99a83f3645d6ef0a6e1da2eff28b4b2e38723638bcf04b04f780fc0c97d45114
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 11, "tag": "678", "subfieldIndex": 0, "message": "Подполе 1 поля 678 имеет недопустимый код \"\\u0014\"."}
+{"rule": "SF-G4", "fieldIndex": 11, "tag": "678", "subfieldIndex": 0, "message": "Подполе 1 поля 678 имеет недопустимый код \"\\u0014\"."}
+
+Fields:
+fieldIndex=0; byteOffset=234592615; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=234592627; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=234592661; length=0021; raw="001  Lnafpn-000257437"
+fieldIndex=2; byteOffset=234592686; length=0022; raw="005  L20211112175628.0"
+fieldIndex=3; byteOffset=234592712; length=0046; raw="008  L211112^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=234592762; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=234592794; length=0058; raw="1001 L$$aБогачков, Игорь Викторович"
+fieldIndex=6; byteOffset=234592856; length=0043; raw="CAT  L$$aODK$$b40$$c20211112$$lRSL11$$h1756"
+fieldIndex=7; byteOffset=234592903; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0203"
+fieldIndex=8; byteOffset=234592953; length=0010; raw="UPD  L$$aN"
+fieldIndex=9; byteOffset=234592967; length=0014; raw="065  L$$2rubbk"
+fieldIndex=10; byteOffset=234592985; length=0243; raw="670  L$$aМетоды и средства прогнозирования эксплуатационных параметров физических каналов оптических телекоммуникационных систем, 2021"
+fieldIndex=11; byteOffset=234593232; length=0207; raw="6780 L$$\u0014Доктор технических наук. ФГБОУ ВО «Сибирский государственный университет телекоммуникаций и информатики»."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 234592605 /tmp/000257437.dat

@@ -1,0 +1,26 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000309567; recordIndex (0-based): 306232; byteOffset: 290466875
+Record length: 713 bytes; record SHA-256: 0ee1a99635646a1214e75e4fbe6355e5dfbbbb7cd8d227226d4e81f1cdefa80a
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 6, "tag": "100", "indicatorIndex": 0, "message": "Индикатор 1 поля 100 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=290466885; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=290466897; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=290466931; length=0021; raw="001  Lnafpn-000309567"
+fieldIndex=2; byteOffset=290466956; length=0022; raw="005  L20240925093350.0"
+fieldIndex=3; byteOffset=290466982; length=0046; raw="008  L240925|abacn||aab|||||||||||^||aaa||||^d"
+fieldIndex=4; byteOffset=290467032; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=290467064; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=290467082; length=0066; raw="100\u0001 L$$aШевелев, Константин Валерьевич"
+fieldIndex=7; byteOffset=290467152; length=0045; raw="CAT  L$$aOKZ07$$b40$$c20240925$$lRSL11$$h0933"
+fieldIndex=8; byteOffset=290467201; length=0010; raw="UPD  L$$aN"
+fieldIndex=9; byteOffset=290467215; length=0118; raw="670  L$$aМатематическая мозаика. Рабочая тетрадь для детей 5-6 лет, 2024"
+fieldIndex=10; byteOffset=290467337; length=0246; raw="6780 L$$aРоссийский педагог высшей категории. Разработчик авторской образовательной программы по предмету \"Математика для дошкольников\""
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 290466875 /tmp/000309567.dat

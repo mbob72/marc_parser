@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007468; recordIndex (0-based): 11330; byteOffset: 10217036
+Record length: 1054 bytes; record SHA-256: 1a215efa8306f38e93ab3fbaa20afe337662f5ad73d9319c66819f2f71a91a31
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10217046; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10217058; length=0030; raw="LDR  L01142nam^a22002412ic4500"
+fieldIndex=1; byteOffset=10217092; length=0015; raw="001  L000007468"
+fieldIndex=2; byteOffset=10217111; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10217125; length=0022; raw="005  L20190411103809.0"
+fieldIndex=4; byteOffset=10217151; length=0046; raw="008  L160210nuuuuuuuuru^|||||^||||||||^||rus^d"
+fieldIndex=5; byteOffset=10217201; length=0040; raw="035  L$$a(RuMoELAR)lacunas1917-79-131537"
+fieldIndex=6; byteOffset=10217245; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10217284; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10217300; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=10217315; length=0074; raw="24500L$$aНивелирные колья - Подходящие дроби"
+fieldIndex=10; byteOffset=10217393; length=0015; raw="260  L$$c[19--]"
+fieldIndex=11; byteOffset=10217412; length=0024; raw="300  L$$a800 с.$$bил."
+fieldIndex=12; byteOffset=10217440; length=0285; raw="77318L$$7nnam$$gТ. 7$$tТехническая энциклопедия [Текст] : Словарь по всем отраслям техники и примыкающим к ней наукам$$dСанкт-Петербург : Просвещение, [19--]$$h7 т.; 27 см$$w7460"
+fieldIndex=13; byteOffset=10217729; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=14; byteOffset=10217750; length=0269; raw="LKR  L$$aUP$$lRSL06$$b7460$$mНивелирные колья - Подходящие дроби$$nТехническая энциклопедия [Текст] : Словарь по всем отраслям техники и примыкающим к ней наукам"
+fieldIndex=15; byteOffset=10218023; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=16; byteOffset=10218039; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190411$$lRSL06$$h1038"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10217036 /tmp/000007468.dat

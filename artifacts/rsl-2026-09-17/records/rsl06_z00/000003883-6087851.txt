@@ -1,0 +1,34 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000003883; recordIndex (0-based): 6778; byteOffset: 6087851
+Record length: 1011 bytes; record SHA-256: 6bdbe9fc61b104824acc219b3aff0f7d40e3fb55fdb65d71138ae917afb85d34
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=6087861; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=6087873; length=0030; raw="LDR  L01582nam^a22002772ic4500"
+fieldIndex=1; byteOffset=6087907; length=0015; raw="001  L000003883"
+fieldIndex=2; byteOffset=6087926; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=6087940; length=0022; raw="005  L20160208133408.0"
+fieldIndex=4; byteOffset=6087966; length=0046; raw="008  L130319s1972^^^^ru^|||||^||||||||^||rus^d"
+fieldIndex=5; byteOffset=6088016; length=0017; raw="017  L$$a72-48694"
+fieldIndex=6; byteOffset=6088037; length=0035; raw="035  L$$a(RuMoELAR)1969-75-20376736"
+fieldIndex=7; byteOffset=6088076; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=8; byteOffset=6088115; length=0012; raw="0410 L$$arus"
+fieldIndex=9; byteOffset=6088131; length=0011; raw="044  L$$aru"
+fieldIndex=10; byteOffset=6088146; length=0168; raw="24500L$$aРусско-китайские отношения в XVII веке. Материалы и документы. В двух томах /$$bТом 2. 1686 - 1691"
+fieldIndex=11; byteOffset=6088318; length=0041; raw="260  L$$aМосква$$bНаука$$c1972"
+fieldIndex=12; byteOffset=6088363; length=0048; raw="300  L$$a835 с., 3 л. ил., карт.$$bил."
+fieldIndex=13; byteOffset=6088415; length=0061; raw="504  L$$aСписок лит. и коммент.: с. 762-801"
+fieldIndex=14; byteOffset=6088480; length=0056; raw="504  L$$aУказ. имен. и геогр.: с. 806-834"
+fieldIndex=15; byteOffset=6088540; length=0133; raw="650 7L$$aРусско-китайские отношения - История, 17 в. - Документы и материалы$$2RKP"
+fieldIndex=16; byteOffset=6088677; length=0113; raw="653  L$$aДальний Восток - Россия и Китай - Международные отношения"
+fieldIndex=17; byteOffset=6088794; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=18; byteOffset=6088810; length=0047; raw="CAT  L$$aKOMPL37$$b10$$c20160208$$lRSL06$$h1334"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 6087851 /tmp/000003883.dat

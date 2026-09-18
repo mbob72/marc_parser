@@ -1,0 +1,27 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000223843; recordIndex (0-based): 217823; byteOffset: 196855487
+Record length: 651 bytes; record SHA-256: 307e84136d21b97a158b0add3c22d185cf49ff2439f8c46c17c666ae71c2b60b
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 6, "tag": "100", "indicatorIndex": 0, "message": "Индикатор 1 поля 100 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=196855497; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=196855509; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=196855543; length=0021; raw="001  Lnafpn-000223843"
+fieldIndex=2; byteOffset=196855568; length=0022; raw="005  L20191002105817.0"
+fieldIndex=3; byteOffset=196855594; length=0046; raw="008  L191002nn^cznnnbbbn^^^^^^^^^^^n^abn^^^^^d"
+fieldIndex=4; byteOffset=196855644; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=196855676; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=196855694; length=0062; raw="100\u0001 L$$aВикулов, Алексей Геннадьевич"
+fieldIndex=7; byteOffset=196855760; length=0043; raw="CAT  L$$aODK$$b40$$c20191002$$lRSL11$$h1058"
+fieldIndex=8; byteOffset=196855807; length=0010; raw="UPD  L$$aN"
+fieldIndex=9; byteOffset=196855821; length=0010; raw="UPD  L$$aN"
+fieldIndex=10; byteOffset=196855835; length=0153; raw="670  L$$aИдентификация математических моделей теплообмена в космических аппаратах, 2018"
+fieldIndex=11; byteOffset=196855992; length=0141; raw="6780 L$$aДоктор технических наук. Место защиты: Моск. авиац. ин-т (нац. исслед. ун-т)"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 196855487 /tmp/000223843.dat

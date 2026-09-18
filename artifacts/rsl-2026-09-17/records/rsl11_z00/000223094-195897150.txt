@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000223094; recordIndex (0-based): 217033; byteOffset: 195897150
+Record length: 2707 bytes; record SHA-256: bf31305e1817950b071c9aed8035324060ee43368ae08b9548f3022e52ddf7ee
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 14, "tag": "678", "subfieldIndex": 0, "message": "Подполе 1 поля 678 имеет недопустимый код \"$\"."}
+{"rule": "SF-G4", "fieldIndex": 14, "tag": "678", "subfieldIndex": 0, "message": "Подполе 1 поля 678 имеет недопустимый код \"$\"."}
+
+Fields:
+fieldIndex=0; byteOffset=195897160; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=195897172; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=195897206; length=0021; raw="001  Lnafpn-000223094"
+fieldIndex=2; byteOffset=195897231; length=0022; raw="005  L20190916115913.0"
+fieldIndex=3; byteOffset=195897257; length=0046; raw="008  L190916^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=195897307; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=195897339; length=0052; raw="1001 L$$aVillemarest, Pierre Faillant de$$d1922-2008"
+fieldIndex=6; byteOffset=195897395; length=0052; raw="4001 L$$ade Villemarest, Pierre Faillant$$d1922-2008"
+fieldIndex=7; byteOffset=195897451; length=0063; raw="5001 L$$aВильмаре, Пьер Файан де$$d1922-2008"
+fieldIndex=8; byteOffset=195897518; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20190916$$lRSL11$$h1159"
+fieldIndex=9; byteOffset=195897567; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0202"
+fieldIndex=10; byteOffset=195897617; length=0010; raw="UPD  L$$aN"
+fieldIndex=11; byteOffset=195897631; length=0014; raw="065  L$$2rubbk"
+fieldIndex=12; byteOffset=195897649; length=0160; raw="663  L$$aПроизведения этого авт. на рус. языке см. под именем:$$bВильмаре, Пьер Файан де (1922-2008)"
+fieldIndex=13; byteOffset=195897813; length=0140; raw="670  L$$aНеприкасаемый. Кто защищал Бормана и Гестапо-Мюллера после 1945 года…, 2014"
+fieldIndex=14; byteOffset=195897957; length=1895; raw="6780 L$$$Французский журналист, писатель, сотрудник французских спецслужб. Родился в Шалон-сюр-Сон. В сентябре 1940 года участвовал в создании \"La Dernière Colonne\", небольшой группы бойцов Сопротивления, основателями которой были Эммануэль д'Асье де Ла Вигери и Эдуард Корнильон-Молинье. С 1945 по 1950 год - сотрудником Службы иностранной документации и контрразведки (SDECE). Заключен в тюрьму во время алжирской войны за принадлежность к Секретной Вооруженной Организации (ОАГ). После войны был награжден Военным крестом 1939-1945 гг. Был членом Ассоциации выпускников спецслужб Национальной обороны (ASSDN). С 1951 года работал на дипломатической службе Agence France-Presse (AFP) и публиковался в различных издания, включая L'Aurore, Valeurs actuel, La Vie française, Le Quotidien de Paris и др. Вице-президент Национального союза частной прессы, член Общества авторов и создателей Нормандии, и лидер научно- исследовательского центра по борьбе с терроризмом. Автор более тридцати книг о работе зарубежных спецслужб, современном шпионаже, терроризме и войне спецслужб до и после Второй мировой войны."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 195897150 /tmp/000223094.dat

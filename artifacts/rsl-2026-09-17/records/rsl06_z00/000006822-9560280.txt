@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006822; recordIndex (0-based): 10681; byteOffset: 9560280
+Record length: 828 bytes; record SHA-256: 79e08421ca006da6057ab6bf72f7350f6d3a5964ebc551c11647e49939f1ec36
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9560290; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9560302; length=0030; raw="LDR  L00906nam^a22002412ic4500"
+fieldIndex=1; byteOffset=9560336; length=0015; raw="001  L000006822"
+fieldIndex=2; byteOffset=9560355; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9560369; length=0022; raw="005  L20190211105433.0"
+fieldIndex=4; byteOffset=9560395; length=0046; raw="008  L100622s1919^^^^un^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9560445; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00128709"
+fieldIndex=6; byteOffset=9560484; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9560523; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9560539; length=0011; raw="044  L$$aun"
+fieldIndex=9; byteOffset=9560554; length=0018; raw="24500L$$aТо же"
+fieldIndex=10; byteOffset=9560576; length=0013; raw="260  L$$c1919"
+fieldIndex=11; byteOffset=9560593; length=0024; raw="300  L$$a209 с.$$bил."
+fieldIndex=12; byteOffset=9560621; length=0254; raw="77318L$$7p1am$$gТо же$$aГриневецкий, Василий Игнатьевич$$tПослевоенные перспективы русской промышленности$$dМосква : [б. и.], 1919$$h210 с. : ил.; 25 см.$$w008975394"
+fieldIndex=13; byteOffset=9560879; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=14; byteOffset=9560900; length=0137; raw="LKR  L$$aUP$$lRSL01$$b008975394$$mТо же$$nПослевоенные перспективы русской промышленности"
+fieldIndex=15; byteOffset=9561041; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=16; byteOffset=9561057; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190211$$lRSL06$$h1054"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9560280 /tmp/000006822.dat

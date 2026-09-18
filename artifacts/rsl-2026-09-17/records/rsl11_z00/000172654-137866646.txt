@@ -1,0 +1,33 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000172654; recordIndex (0-based): 164698; byteOffset: 137866646
+Record length: 1238 bytes; record SHA-256: 8daba0ba55ac7016fc9fd8af81a6498cd7c200a41f9b64f7ca368dc45eed4407
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DF-G3", "fieldIndex": 13, "tag": "670", "message": "Поле 670 не содержит кода подполя."}
+{"rule": "DF-G3", "fieldIndex": 14, "tag": "670", "message": "Поле 670 не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=137866656; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=137866668; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=137866702; length=0021; raw="001  Lnafpn-000172654"
+fieldIndex=2; byteOffset=137866727; length=0022; raw="005  L20151113113357.0"
+fieldIndex=3; byteOffset=137866753; length=0046; raw="008  L151113^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=137866803; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=137866835; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=137866853; length=0053; raw="1001 L$$aТамберлик, Энрико$$d1820-1889"
+fieldIndex=7; byteOffset=137866910; length=0053; raw="4001 L$$aТамберлик, Генрих$$d1820-1889"
+fieldIndex=8; byteOffset=137866967; length=0040; raw="5001 L$$aTamberliсk, Enrico$$d1820-1889"
+fieldIndex=9; byteOffset=137867011; length=0045; raw="CAT  L$$aNIOR7$$b40$$c20151113$$lRSL11$$h1133"
+fieldIndex=10; byteOffset=137867060; length=0010; raw="UPD  L$$aN"
+fieldIndex=11; byteOffset=137867074; length=0132; raw="663  L$$aПроизведения этого автора на ин. яз см. под именем$$bTamberliсk, Enrico, 1820-1889"
+fieldIndex=12; byteOffset=137867210; length=0015; raw="670  L$$aБЭС"
+fieldIndex=13; byteOffset=137867229; length=0012; raw="670  LБСЭ"
+fieldIndex=14; byteOffset=137867245; length=0121; raw="670  LМузыкальная энциклопедия. — М.: Советская энциклопедия, 1973—1982."
+fieldIndex=15; byteOffset=137867370; length=0116; raw="670  L$$aПисьмо к неустановленному лицу с обращением \"Madame\", 1858, дек.30"
+fieldIndex=16; byteOffset=137867490; length=0389; raw="6780 L$$aТамберлик (Tamberlick) Энрико (1820-89) - итальянский певец (драматический тенор). Пел во многих странах, в т. ч. в России. Партии: Альваро (\"Сила судьбы\" Дж. Верди, первый исполнитель), Флорестан (\"Фиделио\" Л. Бетховена) и др."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 137866646 /tmp/000172654.dat

@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000207739; recordIndex (0-based): 201050; byteOffset: 178038934
+Record length: 1750 bytes; record SHA-256: a6c9309583e26d0da58c628f56ae7ce79fb78dcf21f5665d649d7515ade270b1
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 14, "tag": "678", "subfieldIndex": 1, "message": "Подполе 2 поля 678 имеет недопустимый код \";\"."}
+{"rule": "SF-G4", "fieldIndex": 14, "tag": "678", "subfieldIndex": 1, "message": "Подполе 2 поля 678 имеет недопустимый код \";\"."}
+
+Fields:
+fieldIndex=0; byteOffset=178038944; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=178038956; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=178038990; length=0021; raw="001  Lnafpn-000207739"
+fieldIndex=2; byteOffset=178039015; length=0022; raw="005  L20180830122328.0"
+fieldIndex=3; byteOffset=178039041; length=0046; raw="008  L180830^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=178039091; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=178039123; length=0066; raw="1001 L$$aМакаров, Николай$$cхудожник$$d1952-"
+fieldIndex=6; byteOffset=178039193; length=0042; raw="5001 L$$aMakarov, Nikolai$$cartist$$d1952-"
+fieldIndex=7; byteOffset=178039239; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20180830$$lRSL11$$h1218"
+fieldIndex=8; byteOffset=178039288; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20180830$$lRSL11$$h1223"
+fieldIndex=9; byteOffset=178039337; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0202"
+fieldIndex=10; byteOffset=178039387; length=0010; raw="UPD  L$$aN"
+fieldIndex=11; byteOffset=178039401; length=0014; raw="065  L$$2rubbk"
+fieldIndex=12; byteOffset=178039419; length=0138; raw="663  L$$aПроизведения автора на иностр. языках см. под именем:$$bMakarov, Nikolai artist (1952-"
+fieldIndex=13; byteOffset=178039561; length=0102; raw="670  L$$aИстория национального футбола. Николай Макаров, 2018"
+fieldIndex=14; byteOffset=178039667; length=1012; raw="6780 L$$aХудожник. Родился в Москве. Учился в Институте иностранных языков. Работал в мастерской студии \"Мосфильм\". В 1975 году переехал в Восточный Берлин. Изучал немецкую филологию, историю и славяноведение в Университете Гумбольдта, позднее учился в Академии искусств, ученик мастер-классов Вернера Клемке (Берлин) и Рудольфа Хауснера (Вена). С 1988 года член Дома Художников Австрийского Общества Изящных Искусств. С 1992 года и до настоящего времени является директором художественного объединения \"StilLeben e.V.\" (Берлин). С 2000 года – Президент \"Sergej Mawrizki Foundation\".$$;ьм"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 178038934 /tmp/000207739.dat

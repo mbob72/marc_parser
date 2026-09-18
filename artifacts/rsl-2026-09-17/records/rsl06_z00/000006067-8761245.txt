@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006067; recordIndex (0-based): 9925; byteOffset: 8761245
+Record length: 754 bytes; record SHA-256: 1774716cd7b32031043df7e6ed84f22e4b7b354119e7da43be411b23646ffd37
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=8761255; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=8761267; length=0030; raw="LDR  L00895nam^a22002292ic4500"
+fieldIndex=1; byteOffset=8761301; length=0015; raw="001  L000006067"
+fieldIndex=2; byteOffset=8761320; length=0022; raw="005  L20181213145807.0"
+fieldIndex=3; byteOffset=8761346; length=0046; raw="008  L100720s1927^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=4; byteOffset=8761396; length=0029; raw="017  L$$aXXVI-50716$$bRuMoRGB"
+fieldIndex=5; byteOffset=8761429; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=6; byteOffset=8761461; length=0012; raw="0410 L$$arus"
+fieldIndex=7; byteOffset=8761477; length=0014; raw="24500L$$aЧ. 2"
+fieldIndex=8; byteOffset=8761495; length=0013; raw="260  L$$c1927"
+fieldIndex=9; byteOffset=8761512; length=0277; raw="77318L$$7p1am$$aКаплун, Сергей Ильич$$tТеория и практика охраны труда$$b3-е изд., соверш. перераб. кн. \"Охрана труда и ее органы\"$$d[Москва] : Вопросы труда, 1927$$gЧ. 2$$w6066"
+fieldIndex=10; byteOffset=8761793; length=0017; raw="979  L$$afb20vrus"
+fieldIndex=11; byteOffset=8761814; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=12; byteOffset=8761835; length=0093; raw="LKR  L$$aUP$$lRSL06$$b6066$$mЧ. 2$$nТеория и практика охраны труда"
+fieldIndex=13; byteOffset=8761932; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=14; byteOffset=8761948; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20181213$$lRSL06$$h1458"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 8761245 /tmp/000006067.dat

@@ -1,0 +1,27 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000226007; recordIndex (0-based): 220115; byteOffset: 199453808
+Record length: 680 bytes; record SHA-256: b303ff71f71933207b60b5eb747ba3fdc615eb122a6cc71dc9f51afa96db3462
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 10, "tag": "670", "indicatorIndex": 0, "message": "Индикатор 1 поля 670 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=199453818; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=199453830; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=199453864; length=0021; raw="001  Lnafpn-000226007"
+fieldIndex=2; byteOffset=199453889; length=0022; raw="005  L20191119113805.0"
+fieldIndex=3; byteOffset=199453915; length=0046; raw="008  L191119^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=199453965; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=199453997; length=0056; raw="1001 L$$aСадриев, Руслан Дуферович"
+fieldIndex=6; byteOffset=199454057; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20191119$$lRSL11$$h1138"
+fieldIndex=7; byteOffset=199454106; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0202"
+fieldIndex=8; byteOffset=199454156; length=0010; raw="UPD  L$$aN"
+fieldIndex=9; byteOffset=199454170; length=0014; raw="065  L$$2rubbk"
+fieldIndex=10; byteOffset=199454188; length=0216; raw="670\u0001 L$$aИнституциональная среда отечественных предприятий в условиях трансформации открытости национальных систем, 2017"
+fieldIndex=11; byteOffset=199454408; length=0075; raw="6780 L$$aКандидат экономических наук, доцент"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 199453808 /tmp/000226007.dat

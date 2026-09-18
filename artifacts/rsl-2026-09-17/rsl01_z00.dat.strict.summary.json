@@ -1,0 +1,43 @@
+{
+  "file": "rsl01_z00.dat",
+  "mode": "strict",
+  "category": "bibliographic",
+  "source": "https://mrsadman.ru/ac34d2e7ff814dac/",
+  "revision": "47d517aa270e431874abe1524a2ae069b7910d97",
+  "node": "v24.12.0",
+  "startedAt": "2026-09-17T17:03:43.138Z",
+  "completedAt": "2026-09-17T17:03:44.123Z",
+  "complete": false,
+  "fatalError": "Error: Aleph-запись должна содержать ровно одно поле LDR; найдено 2.",
+  "fileBytes": 22895409586,
+  "recordsProcessed": 5841,
+  "validRecords": 5177,
+  "recordsWithValidationErrors": 664,
+  "recordsWithParsingErrors": 1,
+  "validationErrors": 664,
+  "inputBytes": 7823886,
+  "serializedBytes": 19420277,
+  "rules": {
+    "LD-02": 664
+  },
+  "messages": {
+    "LD-02: Leader/19 содержит недопустимый для схемы РГБ код \"a\".": {
+      "count": 648,
+      "first": {
+        "recordIndex": 3,
+        "byteOffset": 6610,
+        "rule": "LD-02",
+        "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."
+      }
+    },
+    "LD-02: Leader/19 содержит недопустимый для схемы РГБ код \"c\".": {
+      "count": 16,
+      "first": {
+        "recordIndex": 70,
+        "byteOffset": 99397,
+        "rule": "LD-02",
+        "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."
+      }
+    }
+  }
+}

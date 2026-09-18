@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000328192; recordIndex (0-based): 326661; byteOffset: 313721527
+Record length: 764 bytes; record SHA-256: c33d4f22c9cd9cdb9338790770a3d5e11af07dce130d6aeda8679ee3888236dd
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 6, "tag": "500", "subfieldIndex": 2, "message": "Подполе 3 поля 500 имеет недопустимый код \"F\"."}
+{"rule": "SF-G4", "fieldIndex": 6, "tag": "500", "subfieldIndex": 2, "message": "Подполе 3 поля 500 имеет недопустимый код \"F\"."}
+
+Fields:
+fieldIndex=0; byteOffset=313721537; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=313721549; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=313721583; length=0021; raw="001  Lnafpn-000328192"
+fieldIndex=2; byteOffset=313721608; length=0022; raw="005  L20250725092133.0"
+fieldIndex=3; byteOffset=313721634; length=0046; raw="008  L250725^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=313721684; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=313721716; length=0051; raw="1001 L$$aБарнард, Люси$$0RSL11-000328192"
+fieldIndex=6; byteOffset=313721771; length=0052; raw="5001 L$$aBarnard, Lucy$$0RSL11-000328192$$F000328193"
+fieldIndex=7; byteOffset=313721827; length=0045; raw="CAT  L$$aOKZ09$$b40$$c20250725$$lRSL11$$h0920"
+fieldIndex=8; byteOffset=313721876; length=0045; raw="CAT  L$$aOKZ09$$b40$$c20250725$$lRSL11$$h0921"
+fieldIndex=9; byteOffset=313721925; length=0045; raw="CAT  L$$aOKZ09$$b40$$c20250725$$lRSL11$$h0921"
+fieldIndex=10; byteOffset=313721974; length=0010; raw="UPD  L$$aN"
+fieldIndex=11; byteOffset=313721988; length=0121; raw="663  L$$aПроизведения автора на иностр. языках см. под именем:$$bBarnard, Lucy"
+fieldIndex=12; byteOffset=313722113; length=0071; raw="670  L$$aНайди и покажи. Животные в лесу, 2025"
+fieldIndex=13; byteOffset=313722188; length=0098; raw="6780 L$$aАвтор детских книжек с картинками и иллюстратор."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 313721527 /tmp/000328192.dat

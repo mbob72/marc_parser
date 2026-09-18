@@ -1,0 +1,36 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007835; recordIndex (0-based): 11700; byteOffset: 10619459
+Record length: 1353 bytes; record SHA-256: 625cfc4461b56f91deb67867dea362ab1a46494256a19251116c2dab6aee33b9
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10619469; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10619481; length=0030; raw="LDR  L01320nam^a22002532ia4500"
+fieldIndex=1; byteOffset=10619515; length=0015; raw="001  L000007835"
+fieldIndex=2; byteOffset=10619534; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10619548; length=0022; raw="005  L20190423125659.0"
+fieldIndex=4; byteOffset=10619574; length=0046; raw="008  L100720s1930^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10619624; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00027151"
+fieldIndex=6; byteOffset=10619663; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10619702; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10619718; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=10619733; length=0054; raw="1001 L$$aДельвиг, Андрей Иванович"
+fieldIndex=10; byteOffset=10619791; length=0293; raw="24500L$$aПолвека русской жизни :$$bВоспоминания А. И. Дельвига. 1820-1870$$cРед. и вступ. статья С. Я. Штрайха ; Предисл. Д. О. ЗаславскогоПереплет и супер-обложка: И. Ф. Рерберг"
+fieldIndex=11; byteOffset=10620088; length=0128; raw="260  L$$aМосква ;$$aЛенинград$$bAcademia$$cMCMXXX [1930]$$eЛ.$$fгос. тип. им. Евг. Соколовой"
+fieldIndex=12; byteOffset=10620220; length=0025; raw="300  L$$a2 т.$$c17 см."
+fieldIndex=13; byteOffset=10620249; length=0201; raw="500  L$$aВ коленкоровом переплете с золотым тиснением и суперобложке. Переплет и супер-обложка: И. Ф. Рерберг$$5RuMoRGB"
+fieldIndex=14; byteOffset=10620454; length=0048; raw="500  L$$aТит. л. в 2 краски$$5RuMoRGB"
+fieldIndex=15; byteOffset=10620506; length=0075; raw="7001 L$$aШтрайх, Соломон Яковлевич$$eРедактор"
+fieldIndex=16; byteOffset=10620585; length=0074; raw="7001 L$$aЗаславский, Д. О.$$eАвтор предисловия"
+fieldIndex=17; byteOffset=10620663; length=0057; raw="7001 L$$aРерберг, И. Ф.$$eИллюстратор"
+fieldIndex=18; byteOffset=10620724; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=19; byteOffset=10620745; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=20; byteOffset=10620761; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190423$$lRSL06$$h1257"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10619459 /tmp/000007835.dat

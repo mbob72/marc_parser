@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007378; recordIndex (0-based): 11240; byteOffset: 10125753
+Record length: 1053 bytes; record SHA-256: 6036d46abedf20e5f6f0e084446a94e4f54b6e21c2d67930170e9194c3bbf4a4
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10125763; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10125775; length=0030; raw="LDR  L01151nam^a22002412ic4500"
+fieldIndex=1; byteOffset=10125809; length=0015; raw="001  L000007378"
+fieldIndex=2; byteOffset=10125828; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10125842; length=0022; raw="005  L20190328112919.0"
+fieldIndex=4; byteOffset=10125868; length=0046; raw="008  L100622s1924^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10125918; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00135466"
+fieldIndex=6; byteOffset=10125957; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10125996; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10126012; length=0088; raw="24500L$$aВеликобритания. Соединенные штаты. Франция"
+fieldIndex=9; byteOffset=10126104; length=0015; raw="260  L$$c[1924]"
+fieldIndex=10; byteOffset=10126123; length=0028; raw="300  L$$a250 с.$$bтабл."
+fieldIndex=11; byteOffset=10126155; length=0080; raw="504  L$$aБиблиогр.: \"Литература\" (стр. 77-78, 176-177, 245)"
+fieldIndex=12; byteOffset=10126239; length=0321; raw="77318L$$7p1am$$gВып. 1$$aЗайцев, Александр Флорович$$tОчерки железнодорожной политики$$dМосква : НКПС. Транспечать, [1924] (Л. : 1-я Объединенная тип. Транспечати НКПС им. Воровского)$$h23 см.$$w7377"
+fieldIndex=13; byteOffset=10126564; length=0171; raw="LKR  L$$aUP$$lRSL06$$b7377$$mВеликобритания. Соединенные штаты. Франция$$nОчерки железнодорожной политики"
+fieldIndex=14; byteOffset=10126739; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=15; byteOffset=10126755; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190328$$lRSL06$$h1129"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10125753 /tmp/000007378.dat

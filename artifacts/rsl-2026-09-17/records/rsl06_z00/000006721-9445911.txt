@@ -1,0 +1,34 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006721; recordIndex (0-based): 10580; byteOffset: 9445911
+Record length: 1042 bytes; record SHA-256: d3296d9565542cd98de5cd457d4a8af86b53fff142d6a0fa74c990e272d3d1b1
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9445921; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9445933; length=0030; raw="LDR  L00917nam^a22002172ic4500"
+fieldIndex=1; byteOffset=9445967; length=0015; raw="001  L000006721"
+fieldIndex=2; byteOffset=9445986; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9446000; length=0022; raw="005  L20190206104112.0"
+fieldIndex=4; byteOffset=9446026; length=0046; raw="008  L100514q1926^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9446076; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00050361"
+fieldIndex=6; byteOffset=9446115; length=0035; raw="040  L$$aRuMoRGB$$brus$$ercr$$cELAR"
+fieldIndex=7; byteOffset=9446154; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9446170; length=0128; raw="24500L$$aТихое течение$$h[Текст] :$$bповести и рассказы$$cС предисл. Д. Горбова"
+fieldIndex=9; byteOffset=9446302; length=0028; raw="260  L$$aМосква$$c1926"
+fieldIndex=10; byteOffset=9446334; length=0021; raw="300  L$$aXVI, 180 с."
+fieldIndex=11; byteOffset=9446359; length=0045; raw="336  L$$aтекст (text)$$btxt$$2rdacontent"
+fieldIndex=12; byteOffset=9446408; length=0069; raw="337  L$$aнеопосредованный (unmediated)$$bn$$2rdamedia"
+fieldIndex=13; byteOffset=9446481; length=0042; raw="338  L$$aтом (volume)$$bnc$$2rdacarrier"
+fieldIndex=14; byteOffset=9446527; length=0201; raw="77318L$$7p1am$$gТ. 1$$aСоболь, Андрей Михайлович$$tСобрание сочинений$$dМосква ; Ленинград : Земля и фабрика, [1926]$$h24 см$$w6718"
+fieldIndex=15; byteOffset=9446732; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=16; byteOffset=9446753; length=0129; raw="LKR  L$$aUP$$lRSL06$$b6718$$mТихое течение : повести и рассказы$$nСобрание сочинений"
+fieldIndex=17; byteOffset=9446886; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=18; byteOffset=9446902; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190206$$lRSL06$$h1041"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9445911 /tmp/000006721.dat

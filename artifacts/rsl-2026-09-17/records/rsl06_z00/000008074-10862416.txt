@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000008074; recordIndex (0-based): 11939; byteOffset: 10862416
+Record length: 1074 bytes; record SHA-256: f74624d4dd1fd59931e72f0b0152a90d562b9657bcabd5116bf48ef446fef609
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10862426; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10862438; length=0030; raw="LDR  L00880nam^a22002172ia4500"
+fieldIndex=1; byteOffset=10862472; length=0015; raw="001  L000008074"
+fieldIndex=2; byteOffset=10862491; length=0022; raw="005  L20190618103049.0"
+fieldIndex=3; byteOffset=10862517; length=0046; raw="008  L160210m1909^^^^ru^|||||^||||||||^||rus^d"
+fieldIndex=4; byteOffset=10862567; length=0038; raw="040  L$$aRuMoRGB$$brus$$ercr$$dRuMoRGB"
+fieldIndex=5; byteOffset=10862609; length=0018; raw="0411 L$$arus$$hund"
+fieldIndex=6; byteOffset=10862631; length=0011; raw="044  L$$aru"
+fieldIndex=7; byteOffset=10862646; length=0207; raw="1102 L$$aПетербургская городская исполнительная комиссия по заведыванию и переустройству городских железных дорог"
+fieldIndex=8; byteOffset=10862857; length=0158; raw="24500L$$aОтчет по сооружению С.-Петербургскаго городского электрическаго трамвая$$h[Текст]"
+fieldIndex=9; byteOffset=10863019; length=0143; raw="24613L$$aОтчет по сооружению С.-Петербургского городского электрического трамвая"
+fieldIndex=10; byteOffset=10863166; length=0166; raw="260  L$$a[Санкт-Петербург]$$bИсполнительная комис. по заведыванию и переустройству гор. ж. д.$$c1909"
+fieldIndex=11; byteOffset=10863336; length=0016; raw="300  L$$c36 см"
+fieldIndex=12; byteOffset=10863356; length=0042; raw="500  L$$aПеред загл.: \"1905-1908\""
+fieldIndex=13; byteOffset=10863402; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=14; byteOffset=10863423; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=15; byteOffset=10863439; length=0046; raw="CAT  L$$aKOMPL6$$b40$$c20190618$$lRSL06$$h1030"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10862416 /tmp/000008074.dat

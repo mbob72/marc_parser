@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006888; recordIndex (0-based): 10747; byteOffset: 9627139
+Record length: 874 bytes; record SHA-256: 1e45720b4c6808ebb2c315d40e3af44ffb6351f3afa64af69f1541ec57465add
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9627149; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9627161; length=0030; raw="LDR  L00944nam^a22002292ic4500"
+fieldIndex=1; byteOffset=9627195; length=0015; raw="001  L000006888"
+fieldIndex=2; byteOffset=9627214; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9627228; length=0022; raw="005  L20190212123204.0"
+fieldIndex=4; byteOffset=9627254; length=0046; raw="008  L100514q1925^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9627304; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00007804"
+fieldIndex=6; byteOffset=9627343; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9627382; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9627398; length=0023; raw="24500L$$aГатчина"
+fieldIndex=9; byteOffset=9627425; length=0091; raw="260  L$$aЛенинград$$bЛенингр. губ. сов. проф. союзов$$c1925"
+fieldIndex=10; byteOffset=9627520; length=0023; raw="300  L$$a80 с.$$bил."
+fieldIndex=11; byteOffset=9627547; length=0252; raw="77318L$$7p1am$$g[4]$$aКурбатов, Владимир Яковлевич$$tПрогулки по окрестностям Ленинграда$$dЛенинград : Ленингр. губ. сов. проф. союзов, 1925$$h19 см.$$w008963515"
+fieldIndex=12; byteOffset=9627803; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=13; byteOffset=9627824; length=0118; raw="LKR  L$$aUP$$lRSL01$$b008963515$$mГатчина$$nПрогулки по окрестностям Ленинграда"
+fieldIndex=14; byteOffset=9627946; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=15; byteOffset=9627962; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190212$$lRSL06$$h1232"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9627139 /tmp/000006888.dat

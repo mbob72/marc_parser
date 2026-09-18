@@ -1,0 +1,34 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006740; recordIndex (0-based): 10599; byteOffset: 9466303
+Record length: 1010 bytes; record SHA-256: 1c323180c66d9c8c772bf9b3d570cd6ae8407e9ae2301b75e4cd19c62a71e0cf
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9466313; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9466325; length=0030; raw="LDR  L00973nam^a22002292ia4500"
+fieldIndex=1; byteOffset=9466359; length=0015; raw="001  L000006740"
+fieldIndex=2; byteOffset=9466378; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9466392; length=0022; raw="005  L20190206120534.0"
+fieldIndex=4; byteOffset=9466418; length=0046; raw="008  L100621s1919^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9466468; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00056217"
+fieldIndex=6; byteOffset=9466507; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9466546; length=0018; raw="0411 L$$arus$$hger"
+fieldIndex=8; byteOffset=9466568; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=9466583; length=0043; raw="1001 L$$aМауренбрехер, Макс"
+fieldIndex=10; byteOffset=9466630; length=0223; raw="24500L$$aБиблейские очерки :$$b(К историч. пониманию религии). Пер. с нем.$$cМакс Мауренбрехер ; Под ред. и с предисл. З. Г. Гринберга"
+fieldIndex=11; byteOffset=9466857; length=0047; raw="260  L$$aПетербург$$bАнтей$$c1919"
+fieldIndex=12; byteOffset=9466908; length=0017; raw="300  L$$c22 см."
+fieldIndex=13; byteOffset=9466929; length=0118; raw="4900 L$$aПроблемы библейской критики и исторический материализм$$v[1]"
+fieldIndex=14; byteOffset=9467051; length=0077; raw="500  L$$aНа обл. только частное загл. вып.$$5RuMoRGB"
+fieldIndex=15; byteOffset=9467132; length=0089; raw="7001 L$$aГринберг, З. Г.$$eРедактор$$eАвтор предисловия"
+fieldIndex=16; byteOffset=9467225; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=17; byteOffset=9467246; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=18; byteOffset=9467262; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190206$$lRSL06$$h1205"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9466303 /tmp/000006740.dat

@@ -1,0 +1,20 @@
+Source: data/rsl-2026-09-17/raw/rsl02_z00.dat
+Source SHA-256: 76499311fda50f230c31945f601e9ad0679217b5d8cc20deae53bfc84638d9a4
+recordId: 000036825; recordIndex (0-based): 36367; byteOffset: 30584526
+Record length: 216 bytes; record SHA-256: 1bc0d39acddea2b0610da827e99cbec8570f57ef078e81f4897fdab80dd7d2c0
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=30584536; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=30584548; length=0030; raw="LDR  L01646cab^a22002531ic4500"
+fieldIndex=1; byteOffset=30584582; length=0010; raw="DEL  L$$aY"
+fieldIndex=2; byteOffset=30584596; length=0045; raw="CAT  L$$aRBNDL$$b40$$c20250915$$lRSL02$$h1746"
+fieldIndex=3; byteOffset=30584645; length=0044; raw="CAT  L$$aDL04$$b90$$c20260202$$lRSL02$$h1731"
+fieldIndex=4; byteOffset=30584693; length=0044; raw="CAT  L$$aDL04$$b90$$c20260202$$lRSL02$$h1731"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl02_z00.dat 30584526 /tmp/000036825.dat

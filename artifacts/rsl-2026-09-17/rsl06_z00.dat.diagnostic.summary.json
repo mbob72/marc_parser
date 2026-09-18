@@ -1,0 +1,69 @@
+{
+  "file": "rsl06_z00.dat",
+  "mode": "diagnostic",
+  "category": "bibliographic",
+  "source": "https://mrsadman.ru/ac34d2e7ff814dac/",
+  "revision": "47d517aa270e431874abe1524a2ae069b7910d97",
+  "node": "v24.12.0",
+  "startedAt": "2026-09-17T15:24:17.953Z",
+  "completedAt": "2026-09-17T15:24:30.004Z",
+  "complete": true,
+  "fileBytes": 143391440,
+  "sha256": "3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0",
+  "recordsProcessed": 155250,
+  "validRecords": 155142,
+  "recordsWithValidationErrors": 107,
+  "recordsWithParsingErrors": 1,
+  "validationErrors": 108,
+  "inputBytes": 143391440,
+  "serializedBytes": 329304055,
+  "rules": {
+    "LD-02": 106,
+    "VF-G5": 1,
+    "SF-G4": 1
+  },
+  "messages": {
+    "LD-02: Leader/19 содержит недопустимый для схемы РГБ код \"a\".": {
+      "count": 43,
+      "first": {
+        "recordIndex": 4516,
+        "byteOffset": 4307340,
+        "rule": "LD-02",
+        "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."
+      }
+    },
+    "LD-02: Leader/19 содержит недопустимый для схемы РГБ код \"c\".": {
+      "count": 63,
+      "first": {
+        "recordIndex": 5901,
+        "byteOffset": 5517693,
+        "rule": "LD-02",
+        "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."
+      }
+    },
+    "VF-G5: Подполе 2 поля 245 имеет недопустимый код \"$\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 149884,
+        "byteOffset": 139268764,
+        "rule": "VF-G5",
+        "fieldIndex": 6,
+        "tag": "245",
+        "subfieldIndex": 1,
+        "message": "Подполе 2 поля 245 имеет недопустимый код \"$\"."
+      }
+    },
+    "SF-G4: Подполе 2 поля 245 имеет недопустимый код \"$\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 149884,
+        "byteOffset": 139268764,
+        "rule": "SF-G4",
+        "fieldIndex": 6,
+        "tag": "245",
+        "subfieldIndex": 1,
+        "message": "Подполе 2 поля 245 имеет недопустимый код \"$\"."
+      }
+    }
+  }
+}

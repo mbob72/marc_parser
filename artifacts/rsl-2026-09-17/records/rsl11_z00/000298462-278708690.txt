@@ -1,0 +1,27 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000298462; recordIndex (0-based): 294881; byteOffset: 278708690
+Record length: 863 bytes; record SHA-256: faf13bbd2203773e90e3e5da1ec1c7bf6c50543ecb18f129c93d2b9945582ba8
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 10, "tag": "678", "subfieldIndex": 0, "message": "Подполе 1 поля 678 имеет недопустимый код \"\\u0014\"."}
+{"rule": "SF-G4", "fieldIndex": 10, "tag": "678", "subfieldIndex": 0, "message": "Подполе 1 поля 678 имеет недопустимый код \"\\u0014\"."}
+
+Fields:
+fieldIndex=0; byteOffset=278708700; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=278708712; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=278708746; length=0021; raw="001  Lnafpn-000298462"
+fieldIndex=2; byteOffset=278708771; length=0022; raw="005  L20240112115833.0"
+fieldIndex=3; byteOffset=278708797; length=0046; raw="008  L240112^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=278708847; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=278708879; length=0060; raw="1001 L$$aБуракова, Елена Анатольевна"
+fieldIndex=6; byteOffset=278708943; length=0045; raw="CAT  L$$aODK32$$b40$$c20240112$$lRSL11$$h1158"
+fieldIndex=7; byteOffset=278708992; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0203"
+fieldIndex=8; byteOffset=278709042; length=0010; raw="UPD  L$$aN"
+fieldIndex=9; byteOffset=278709056; length=0243; raw="670  L$$aМетодология поддержки принятия решений при управлении технологическими системами производства углеродных наноматериалов, 2023"
+fieldIndex=10; byteOffset=278709303; length=0245; raw="6780 L$$\u0014Доктор технических наук. Место защиты: ФГБОУ ВО «Тамбовский государственный технический университет» ; Диссовет 24.2.408.03 (Д 212.260.07)."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 278708690 /tmp/000298462.dat

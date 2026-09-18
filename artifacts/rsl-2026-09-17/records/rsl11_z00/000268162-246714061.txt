@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000268162; recordIndex (0-based): 263840; byteOffset: 246714061
+Record length: 920 bytes; record SHA-256: e4b4badb0fded6e5319de7220a41243ee043a4c6a4630708e3f96af652de8ac1
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DF-G2", "fieldIndex": 6, "tag": "400", "message": "Поле 400 содержит 1 индикатор(а), ожидалось 2."}
+{"rule": "VF-G5", "fieldIndex": 6, "tag": "400", "subfieldIndex": 0, "message": "Подполе 1 поля 400 имеет недопустимый код \"\"."}
+{"rule": "SF-G4", "fieldIndex": 6, "tag": "400", "subfieldIndex": 0, "message": "Подполе 1 поля 400 имеет недопустимый код \"\"."}
+
+Fields:
+fieldIndex=0; byteOffset=246714071; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=246714083; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=246714117; length=0021; raw="001  Lnafpn-000268162"
+fieldIndex=2; byteOffset=246714142; length=0022; raw="005  L20220601144414.0"
+fieldIndex=3; byteOffset=246714168; length=0046; raw="008  L220601^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=246714218; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=246714250; length=0058; raw="1001 L$$aГубарева, Людмила Ивановна"
+fieldIndex=6; byteOffset=246714312; length=0036; raw="4001\u001fL$$aGubareva, Lyudmila Ivanovna"
+fieldIndex=7; byteOffset=246714352; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20220601$$lRSL11$$h1433"
+fieldIndex=8; byteOffset=246714401; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20220601$$lRSL11$$h1444"
+fieldIndex=9; byteOffset=246714450; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0203"
+fieldIndex=10; byteOffset=246714500; length=0010; raw="UPD  L$$aN"
+fieldIndex=11; byteOffset=246714514; length=0014; raw="065  L$$2rubbk"
+fieldIndex=12; byteOffset=246714532; length=0152; raw="670  L$$aИнтеграция туризма в экономическую систему региона: перспективы и барьеры, 2021"
+fieldIndex=13; byteOffset=246714688; length=0288; raw="6780 L$$aКандидат педагогических наук, доцент, доцент кафедры профессионального обучения и бизнеса Орловского государственного университета им. И. С. Тургенева"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 246714061 /tmp/000268162.dat

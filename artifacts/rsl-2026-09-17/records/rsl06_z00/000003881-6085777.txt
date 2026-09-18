@@ -1,0 +1,33 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000003881; recordIndex (0-based): 6776; byteOffset: 6085777
+Record length: 1058 bytes; record SHA-256: 961a12215cd860d3c7506af4149d0517df9dc70ddffcead422d84cc3917ddd06
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=6085787; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=6085799; length=0030; raw="LDR  L01639nam^a22002532ia4500"
+fieldIndex=1; byteOffset=6085833; length=0015; raw="001  L000003881"
+fieldIndex=2; byteOffset=6085852; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=6085866; length=0022; raw="005  L20160208133355.0"
+fieldIndex=4; byteOffset=6085892; length=0046; raw="008  L130319m19691972ru^|||||^||||||||^||rus^d"
+fieldIndex=5; byteOffset=6085942; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=6; byteOffset=6085981; length=0012; raw="0410 L$$arus"
+fieldIndex=7; byteOffset=6085997; length=0011; raw="044  L$$aru"
+fieldIndex=8; byteOffset=6086012; length=0040; raw="084  L$$aТ3(2)461-643Китай$$2rubbk"
+fieldIndex=9; byteOffset=6086056; length=0048; raw="084  L$$aТ3(5Кит)521-643Россия$$2rubbk"
+fieldIndex=10; byteOffset=6086108; length=0217; raw="24500L$$aРусско-китайские отношения /$$b1689 - 1916 : Официальные документы$$c[Сост. П.Е. Скачков и В.С. Мясников ; отв. ред.Л.И. Думан]"
+fieldIndex=11; byteOffset=6086329; length=0095; raw="260  L$$aМосква$$bИздательство восточной литературы$$c1958"
+fieldIndex=12; byteOffset=6086428; length=0030; raw="300  L$$a136 [4] с.$$c27 см"
+fieldIndex=13; byteOffset=6086462; length=0133; raw="650 7L$$aРусско-китайские отношения - История, 17 в. - Документы и материалы$$2RKP"
+fieldIndex=14; byteOffset=6086599; length=0113; raw="653  L$$aДальний Восток - Россия и Китай - Международные отношения"
+fieldIndex=15; byteOffset=6086716; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=16; byteOffset=6086732; length=0047; raw="CAT  L$$aKOMPL37$$b10$$c20160208$$lRSL06$$h0917"
+fieldIndex=17; byteOffset=6086783; length=0047; raw="CAT  L$$aKOMPL37$$b10$$c20160208$$lRSL06$$h1333"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 6085777 /tmp/000003881.dat

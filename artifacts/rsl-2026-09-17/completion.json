@@ -1,0 +1,18 @@
+{
+  "complete": true,
+  "files": [
+    "rsl01_z00.dat",
+    "rsl02_z00.dat",
+    "rsl03_z00.dat",
+    "rsl06_z00.dat",
+    "rsl07_z00.dat",
+    "rsl10_z00.dat",
+    "rsl11_z00.dat"
+  ],
+  "errorOccurrences": 5129773,
+  "verifiedRegisterRows": 5129773,
+  "wiki": "/tmp/marc-parser-wiki-rsl-20260917/RSL-validation-2026-09-17.md",
+  "committed": false,
+  "pushed": false,
+  "localSourcesDeleted": false
+}

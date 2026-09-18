@@ -1,0 +1,2 @@
+{"recordIndex":213292,"byteOffset":209992082,"errors":[{"rule":"DR-E2","fieldIndex":29,"tag":"---","message":"Некорректный тег \"---\"."}]}
+{"recordIndex":263416,"byteOffset":260275526,"parsingError":"Aleph-запись должна содержать ровно одно поле LDR; найдено 0."}

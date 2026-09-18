@@ -1,0 +1,77 @@
+{
+  "file": "rsl07_z00.dat",
+  "mode": "strict",
+  "category": "bibliographic",
+  "source": "https://mrsadman.ru/ac34d2e7ff814dac/",
+  "revision": "47d517aa270e431874abe1524a2ae069b7910d97",
+  "node": "v24.12.0",
+  "startedAt": "2026-09-17T15:24:31.188Z",
+  "completedAt": "2026-09-17T15:24:48.846Z",
+  "complete": false,
+  "fatalError": "Error: Aleph-запись должна содержать ровно одно поле LDR; найдено 0.",
+  "fileBytes": 182067877,
+  "recordsProcessed": 518568,
+  "validRecords": 518560,
+  "recordsWithValidationErrors": 8,
+  "recordsWithParsingErrors": 1,
+  "validationErrors": 8,
+  "inputBytes": 172845362,
+  "serializedBytes": 452230221,
+  "rules": {
+    "DF-G3": 4,
+    "LD-02": 4
+  },
+  "messages": {
+    "DF-G3: Поле DEL не содержит кода подполя.": {
+      "count": 2,
+      "first": {
+        "recordIndex": 355564,
+        "byteOffset": 41937731,
+        "rule": "DF-G3",
+        "fieldIndex": 1,
+        "tag": "DEL",
+        "message": "Поле DEL не содержит кода подполя."
+      }
+    },
+    "LD-02: Leader/19 содержит недопустимый для схемы РГБ код \"a\".": {
+      "count": 2,
+      "first": {
+        "recordIndex": 376466,
+        "byteOffset": 59934699,
+        "rule": "LD-02",
+        "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."
+      }
+    },
+    "LD-02: Leader/19 содержит недопустимый для схемы РГБ код \"c\".": {
+      "count": 2,
+      "first": {
+        "recordIndex": 382449,
+        "byteOffset": 64656319,
+        "rule": "LD-02",
+        "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."
+      }
+    },
+    "DF-G3: Поле 110 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 400706,
+        "byteOffset": 78953596,
+        "rule": "DF-G3",
+        "fieldIndex": 11,
+        "tag": "110",
+        "message": "Поле 110 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 490 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 509747,
+        "byteOffset": 166128330,
+        "rule": "DF-G3",
+        "fieldIndex": 13,
+        "tag": "490",
+        "message": "Поле 490 не содержит кода подполя."
+      }
+    }
+  }
+}

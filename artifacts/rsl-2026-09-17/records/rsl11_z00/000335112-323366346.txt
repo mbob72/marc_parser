@@ -1,0 +1,28 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000335112; recordIndex (0-based): 334146; byteOffset: 323366346
+Record length: 840 bytes; record SHA-256: 81b850660d777e8e62d85b92017b1cd16522f1b1d0c7d735fc5b67e92c5fcc01
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 6, "tag": "400", "indicatorIndex": 0, "message": "Индикатор 1 поля 400 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=323366356; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=323366368; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=323366402; length=0021; raw="001  Lnafpn-000335112"
+fieldIndex=2; byteOffset=323366427; length=0022; raw="005  L20260123093808.0"
+fieldIndex=3; byteOffset=323366453; length=0046; raw="008  L260123^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=323366503; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=323366535; length=0043; raw="1003 L$$aБолонины$$0RSL11-000335112"
+fieldIndex=6; byteOffset=323366582; length=0056; raw="400\u0001 L$$aБолонины$$cсемья$$0RSL11-000335112"
+fieldIndex=7; byteOffset=323366642; length=0046; raw="CAT  L$$aOKZ115$$b40$$c20260123$$lRSL11$$h0937"
+fieldIndex=8; byteOffset=323366692; length=0046; raw="CAT  L$$aOKZ115$$b40$$c20260123$$lRSL11$$h0938"
+fieldIndex=9; byteOffset=323366742; length=0046; raw="CAT  L$$aOKZ115$$b40$$c20260123$$lRSL11$$h0938"
+fieldIndex=10; byteOffset=323366792; length=0010; raw="UPD  L$$aN"
+fieldIndex=11; byteOffset=323366806; length=0044; raw="670  L$$a(Не)простые люди, 2025"
+fieldIndex=12; byteOffset=323366854; length=0327; raw="6780 L$$aБолонины - крестьянский род, проживавший в Яранском уезде Вятской губернии (на территори нынешней Кировской области). Были крепостными крестьянами дворянского рода Дурново."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 323366346 /tmp/000335112.dat

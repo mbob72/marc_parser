@@ -1,0 +1,35 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000240521; recordIndex (0-based): 239615; byteOffset: 135010009
+Record length: 2192 bytes; record SHA-256: 36f1f7fd096c4516416c2e4f39edf42c8274a9a27224720a8adc9eb4cc348fa3
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 11, "tag": "410", "subfieldIndex": 0, "message": "Подполе 1 поля 410 имеет недопустимый код \"P\"."}
+{"rule": "SF-G4", "fieldIndex": 11, "tag": "410", "subfieldIndex": 0, "message": "Подполе 1 поля 410 имеет недопустимый код \"P\"."}
+
+Fields:
+fieldIndex=0; byteOffset=135010019; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=135010031; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=135010065; length=0015; raw="001  L000240521"
+fieldIndex=2; byteOffset=135010084; length=0022; raw="005  L20220602152514.0"
+fieldIndex=3; byteOffset=135010110; length=0046; raw="008  L220602^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=135010160; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=135010192; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=135010210; length=0145; raw="1102 L$$aВорошиловградский тепловозостроительный завод им. Октябрьской революции"
+fieldIndex=7; byteOffset=135010359; length=0129; raw="4102 L$$aЛуганский тепловозостроительный завод им. Октябрьской революции"
+fieldIndex=8; byteOffset=135010492; length=0192; raw="4102 L$$aПроизводственное объединение \"Луганский тепловозостроительный завод имени Октябрьской революции\""
+fieldIndex=9; byteOffset=135010688; length=0098; raw="4102 L$$a\"Лугансктепловоз\", производственное объединение"
+fieldIndex=10; byteOffset=135010790; length=0017; raw="4102 L$$aВЗОР"
+fieldIndex=11; byteOffset=135010811; length=0029; raw="4102 L$$PPV \"Luganskteplovoz\""
+fieldIndex=12; byteOffset=135010844; length=0029; raw="4102 L$$aPV \"Luganskteplowos\""
+fieldIndex=13; byteOffset=135010877; length=0082; raw="5102 L$$a\"Лугансктепловоз\", холдинговая компания"
+fieldIndex=14; byteOffset=135010963; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20220602$$lRSL10$$h1517"
+fieldIndex=15; byteOffset=135011012; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20220602$$lRSL10$$h1525"
+fieldIndex=16; byteOffset=135011061; length=0010; raw="UPD  L$$aN"
+fieldIndex=17; byteOffset=135011075; length=0240; raw="670  L$$aПроизводственное объединение \"Луганский тепловозостроительный завод имени Октябрьской революции (п/о \"Лугансктепловоз\"), 199-?]"
+fieldIndex=18; byteOffset=135011319; length=0877; raw="678  L$$aБыл основан 3 мая 1896 года и назывался \"Паровозостроительный завод Русского общества машиностроительных заводов Гартмана в Луганске\". В 1935 году завод получил новое название: \"Ворошиловградский завод имени Октябрьской революции\" (\"ВЗОР\"), которое носил в период с 1935 по 1958 и с 1970 по 1990 год. Более позднее название - \"Лугансктепловоз\", холдинговая компания. Последний тепловоз покинул заводские цеха весной 2016 года, в последнее время завод производил запчасти к подвижному составу"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 135010009 /tmp/000240521.dat

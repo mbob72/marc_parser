@@ -1,0 +1,28 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000230421; recordIndex (0-based): 229409; byteOffset: 124830832
+Record length: 568 bytes; record SHA-256: d6a4f18d21c3d022b2b5745e65249e3f8a9f86783e4351c1554614c3f50029f0
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 10, "tag": "667", "subfieldIndex": 1, "message": "Подполе 2 поля 667 имеет недопустимый код \"B\"."}
+{"rule": "SF-G4", "fieldIndex": 10, "tag": "667", "subfieldIndex": 1, "message": "Подполе 2 поля 667 имеет недопустимый код \"B\"."}
+
+Fields:
+fieldIndex=0; byteOffset=124830842; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=124830854; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=124830888; length=0015; raw="001  L000230421"
+fieldIndex=2; byteOffset=124830907; length=0022; raw="005  L20210310153234.0"
+fieldIndex=3; byteOffset=124830933; length=0046; raw="008  L210310^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=124830983; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=124831015; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=124831033; length=0074; raw="1102 L$$aКаширское общество сельских хозяев"
+fieldIndex=7; byteOffset=124831111; length=0070; raw="4102 L$$aОбщество сельских хозяев (Кашира)"
+fieldIndex=8; byteOffset=124831185; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20210310$$lRSL10$$h1532"
+fieldIndex=9; byteOffset=124831234; length=0010; raw="UPD  L$$aN"
+fieldIndex=10; byteOffset=124831248; length=0050; raw="667  L$$aУ$$BУтв. 6 ноября 1885 года"
+fieldIndex=11; byteOffset=124831302; length=0093; raw="670  L$$aУстав Каширскаго общества сельских хозяев, 1887"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 124830832 /tmp/000230421.dat

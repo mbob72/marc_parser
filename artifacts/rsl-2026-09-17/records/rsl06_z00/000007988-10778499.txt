@@ -1,0 +1,29 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007988; recordIndex (0-based): 11854; byteOffset: 10778499
+Record length: 874 bytes; record SHA-256: ee2097f8679bee1c8f0d0345cad787a8195b90fa5e52fd43952c5c29337a9c19
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10778509; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10778521; length=0030; raw="LDR  L01212nam^a22002772ic4500"
+fieldIndex=1; byteOffset=10778555; length=0015; raw="001  L000007988"
+fieldIndex=2; byteOffset=10778574; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10778588; length=0022; raw="005  L20190430112605.0"
+fieldIndex=4; byteOffset=10778614; length=0046; raw="008  L101029s1934^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10778664; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00259938"
+fieldIndex=6; byteOffset=10778703; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10778742; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10778758; length=0041; raw="24500L$$aТ. 2 (1807-1809)$$h[Текст]"
+fieldIndex=9; byteOffset=10778803; length=0013; raw="260  L$$c1934"
+fieldIndex=10; byteOffset=10778820; length=0364; raw="77318L$$7p1am$$gТ. 2 (1807-1809)$$aЖихарев, Степан Петрович$$tЗаписки современника [Текст]$$d[Москва] ; [Ленинград] : Academia, 1934 (М. : ф-ка книги \"Кр. пролетарий\")$$h2 т.; 20х14 см.$$k(Театр и музыка/ Под общ. ред. А. К. Дживелегова)$$w7987"
+fieldIndex=11; byteOffset=10779188; length=0114; raw="LKR  L$$aUP$$lRSL06$$b7987$$mТ. 2 (1807-1809) [Текст]$$nЗаписки современника [Текст]"
+fieldIndex=12; byteOffset=10779306; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=13; byteOffset=10779322; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190430$$lRSL06$$h1126"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10778499 /tmp/000007988.dat

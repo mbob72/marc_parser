@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000158668; recordIndex (0-based): 150721; byteOffset: 124232786
+Record length: 1549 bytes; record SHA-256: 194e6353e59ba5e0966b826b7c765fa12f77a17d682894c254f0d7cb08d728e6
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 4, "tag": "040", "subfieldIndex": 2, "message": "Подполе 3 поля 040 имеет недопустимый код \"\\\\\"."}
+{"rule": "SF-G4", "fieldIndex": 4, "tag": "040", "subfieldIndex": 2, "message": "Подполе 3 поля 040 имеет недопустимый код \"\\\\\"."}
+
+Fields:
+fieldIndex=0; byteOffset=124232796; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=124232808; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=124232842; length=0021; raw="001  Lnafpn-000158668"
+fieldIndex=2; byteOffset=124232867; length=0022; raw="005  L20201202140403.0"
+fieldIndex=3; byteOffset=124232893; length=0046; raw="008  L141127^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=124232943; length=0028; raw="040  L$$aRuMoRGB$$brus$$\\rcr"
+fieldIndex=5; byteOffset=124232975; length=0058; raw="1001 L$$aПолякова, Ирина Алексеевна"
+fieldIndex=6; byteOffset=124233037; length=0025; raw="4001 L$$aPolyakova, I. A."
+fieldIndex=7; byteOffset=124233066; length=0044; raw="CAT  L$$aNO07$$b40$$c20141127$$lRSL11$$h1457"
+fieldIndex=8; byteOffset=124233114; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20201202$$lRSL11$$h1404"
+fieldIndex=9; byteOffset=124233163; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0201"
+fieldIndex=10; byteOffset=124233213; length=0010; raw="UPD  L$$aN"
+fieldIndex=11; byteOffset=124233227; length=0014; raw="065  L$$2rubbk"
+fieldIndex=12; byteOffset=124233245; length=0100; raw="670  L$$aАндреас Аурифабер (1513-1559) и его\" История янтаря\", 2013"
+fieldIndex=13; byteOffset=124233349; length=0981; raw="6780 L$$aКандидат философских наук, главный научный сотрудник Калининградского областного музея янтаря. Сфера научных интересов - философская антропология, культурология, методология биографических исследований. В музее руководит гуманитарными исследовательскими проектами, целью которых служит представление темы янтаря в широком историко-культурном контексте. Автор более шестидесяти научных и учебно-методических работ, а также нескольких монографий, отражающих результаты осуществленных автором биографических реконструкций"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 124232786 /tmp/000158668.dat

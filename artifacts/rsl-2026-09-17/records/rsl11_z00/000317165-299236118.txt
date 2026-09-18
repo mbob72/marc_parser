@@ -1,0 +1,35 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000317165; recordIndex (0-based): 314136; byteOffset: 299236118
+Record length: 1799 bytes; record SHA-256: 7aa6b6ee26b28db6260dc5f85aa7ba3631c2c897a7b2cd1c56a1303495436841
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 8, "tag": "400", "subfieldIndex": 1, "message": "Подполе 2 поля 400 имеет недопустимый код \"D\"."}
+{"rule": "SF-G4", "fieldIndex": 8, "tag": "400", "subfieldIndex": 1, "message": "Подполе 2 поля 400 имеет недопустимый код \"D\"."}
+
+Fields:
+fieldIndex=0; byteOffset=299236128; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=299236140; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=299236174; length=0021; raw="001  Lnafpn-000317165"
+fieldIndex=2; byteOffset=299236199; length=0022; raw="005  L20250124102549.0"
+fieldIndex=3; byteOffset=299236225; length=0046; raw="008  L250122^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=299236275; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=299236307; length=0051; raw="1001 L$$aЧернышев, Владимир$$d1934-"
+fieldIndex=6; byteOffset=299236362; length=0037; raw="4001 L$$aChernyshev, Vladimir$$d1934-"
+fieldIndex=7; byteOffset=299236403; length=0040; raw="4001 L$$aTschernyschow, Wladimir$$d1934-"
+fieldIndex=8; byteOffset=299236447; length=0038; raw="4001 L$$aChernishov, Vladímir$$D1934-"
+fieldIndex=9; byteOffset=299236489; length=0045; raw="CAT  L$$aOKZ23$$b40$$c20250122$$lRSL11$$h1048"
+fieldIndex=10; byteOffset=299236538; length=0045; raw="CAT  L$$aOKZ23$$b40$$c20250122$$lRSL11$$h1124"
+fieldIndex=11; byteOffset=299236587; length=0045; raw="CAT  L$$aOKZ23$$b40$$c20250122$$lRSL11$$h1149"
+fieldIndex=12; byteOffset=299236636; length=0045; raw="CAT  L$$aOKZ09$$b40$$c20250124$$lRSL11$$h1025"
+fieldIndex=13; byteOffset=299236685; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0203"
+fieldIndex=14; byteOffset=299236735; length=0010; raw="UPD  L$$aN"
+fieldIndex=15; byteOffset=299236749; length=0014; raw="065  L$$2rubbk"
+fieldIndex=16; byteOffset=299236767; length=0048; raw="670  L$$aReykjavik, the ABM treaty and SDI, 1987"
+fieldIndex=17; byteOffset=299236819; length=0054; raw="670  L$$aReykyavik el tratado de la DAM y la IDE, 1987"
+fieldIndex=18; byteOffset=299236877; length=1035; raw="6780 L$$aПолковник Владимир Чернышев родился в 1934 году. В течение нескольких лет занимал высокие посты в Генеральном штабе вооруженных сил СССР и представлял их в военно-штабном комитете Совета безопасности ООН в 1974-1977 годах и Министерстве обороны СССР на венских переговорах о сокращении вооруженных сил и вооружений. Автор ряда публикаций по вопросам разоружения и другим важным вопросам международной повестки дня, среди которых \"Вашингтон: политика подрыва международных договоров и соглашений\", опубликованная издаельством агентства печати \"Новости\" в 1986 году."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 299236118 /tmp/000317165.dat

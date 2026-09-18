@@ -1,0 +1,27 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000231334; recordIndex (0-based): 225585; byteOffset: 205346597
+Record length: 1862 bytes; record SHA-256: e344779d5f22a36bd52c20191a31d2d51c35f926997f9b7c37ccd88696e300f3
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 10, "tag": "670", "indicatorIndex": 0, "message": "Индикатор 1 поля 670 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=205346607; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=205346619; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=205346653; length=0021; raw="001  Lnafpn-000231334"
+fieldIndex=2; byteOffset=205346678; length=0022; raw="005  L20200324143406.0"
+fieldIndex=3; byteOffset=205346704; length=0046; raw="008  L200324^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=205346754; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=205346786; length=0070; raw="1001 L$$aТрофимов, Илья Александрович$$d1950-"
+fieldIndex=6; byteOffset=205346860; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20200324$$lRSL11$$h1434"
+fieldIndex=7; byteOffset=205346909; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0202"
+fieldIndex=8; byteOffset=205346959; length=0010; raw="UPD  L$$aN"
+fieldIndex=9; byteOffset=205346973; length=0014; raw="065  L$$2rubbk"
+fieldIndex=10; byteOffset=205346991; length=0110; raw="670\u0001 L$$aМногофункциональное адаптивное кормопроизводство, 2019-"
+fieldIndex=11; byteOffset=205347105; length=1349; raw="6780 L$$aБиолог-ботаник, кандидат биологических наук, доктор географических наук, заместитель директора по научной работе, заведующий лабораторией геоботаники государственного научного учреждения Всероссийский научно-исследовательский институт кормов имени В. Р. Вильямса Россельхозакадемии. Основная научная деятельность связана с геоботаническим изучением, разработкой методологических основ геоботанического картографирования и мониторинга природных кормовых угодий России с использованием аэро- и космических снимков, агроландшафтно-экологическим районированием, разработкой методологических основ конструирования, управления, повышения продуктивности и устойчивости агроландшафтов России. Автор более 150 научных работ"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 205346597 /tmp/000231334.dat

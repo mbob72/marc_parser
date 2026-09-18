@@ -1,0 +1,36 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000325898; recordIndex (0-based): 324517; byteOffset: 310977885
+Record length: 1475 bytes; record SHA-256: b093c35b5c4c31824851ff9f4ebe94096863dc96e82dbe7de20da80c7ae44ff9
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 7, "tag": "500", "indicatorIndex": 0, "message": "Индикатор 1 поля 500 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=310977895; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=310977907; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=310977941; length=0021; raw="001  Lnafpn-000325898"
+fieldIndex=2; byteOffset=310977966; length=0022; raw="005  L20250604131937.0"
+fieldIndex=3; byteOffset=310977992; length=0046; raw="008  L250604|abacn||aab|||||||||||^||aaa||||^d"
+fieldIndex=4; byteOffset=310978042; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=310978074; length=0073; raw="1001 L$$aМиттельштедт, Отто$$d1834-1899$$0RSL11-000325898"
+fieldIndex=6; byteOffset=310978151; length=0101; raw="400  L$$aМиттельштедт, Отто Самуэль Людвиг$$d1834-1899$$0RSL11-000325898"
+fieldIndex=7; byteOffset=310978256; length=0069; raw="500\u0001 L$$aMittelstaedt, Otto$$d1834-1899$$0RSL11-000325898$$w000325899"
+fieldIndex=8; byteOffset=310978329; length=0044; raw="CAT  L$$aNO16$$b40$$c20250604$$lRSL11$$h1219"
+fieldIndex=9; byteOffset=310978377; length=0044; raw="CAT  L$$aNO16$$b40$$c20250604$$lRSL11$$h1222"
+fieldIndex=10; byteOffset=310978425; length=0044; raw="CAT  L$$aNO16$$b40$$c20250604$$lRSL11$$h1228"
+fieldIndex=11; byteOffset=310978473; length=0044; raw="CAT  L$$aNO16$$b40$$c20250604$$lRSL11$$h1229"
+fieldIndex=12; byteOffset=310978521; length=0044; raw="CAT  L$$aNO16$$b40$$c20250604$$lRSL11$$h1234"
+fieldIndex=13; byteOffset=310978569; length=0044; raw="CAT  L$$aNO16$$b40$$c20250604$$lRSL11$$h1237"
+fieldIndex=14; byteOffset=310978617; length=0044; raw="CAT  L$$aNO16$$b40$$c20250604$$lRSL11$$h1315"
+fieldIndex=15; byteOffset=310978665; length=0044; raw="CAT  L$$aNO16$$b40$$c20250604$$lRSL11$$h1317"
+fieldIndex=16; byteOffset=310978713; length=0044; raw="CAT  L$$aNO16$$b40$$c20250604$$lRSL11$$h1318"
+fieldIndex=17; byteOffset=310978761; length=0044; raw="CAT  L$$aNO16$$b40$$c20250604$$lRSL11$$h1319"
+fieldIndex=18; byteOffset=310978809; length=0010; raw="UPD  L$$aN"
+fieldIndex=19; byteOffset=310978823; length=0152; raw="670  L$$aПротив лишения свободы: к критике современной системы уголовных наказаний, 2025"
+fieldIndex=20; byteOffset=310978979; length=0376; raw="6780 L$$aМиттельштедт, Отто (1834-1899) - немецкий юрист и публицист, прокурор, судья (1877-1881) Высшего земельного суда и судья Имперского суда, член (1877-1881) Гражданского собрания Вольного и Ганзейского города Гамбурга."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 310977885 /tmp/000325898.dat

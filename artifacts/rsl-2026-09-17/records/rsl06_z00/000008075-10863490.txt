@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000008075; recordIndex (0-based): 11940; byteOffset: 10863490
+Record length: 1472 bytes; record SHA-256: a38a7e0a98bfb7080ebe6a38fc961c7e3320962b0d6b03443e607172f9ae5dd3
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10863500; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10863512; length=0030; raw="LDR  L01700nam^a22002532ic4500"
+fieldIndex=1; byteOffset=10863546; length=0015; raw="001  L000008075"
+fieldIndex=2; byteOffset=10863565; length=0022; raw="005  L20190618103313.0"
+fieldIndex=3; byteOffset=10863591; length=0046; raw="008  L160210s1909^^^^ru^|||||^||||||||^||rus^d"
+fieldIndex=4; byteOffset=10863641; length=0038; raw="040  L$$aRuMoRGB$$brus$$ercr$$dRuMoRGB"
+fieldIndex=5; byteOffset=10863683; length=0018; raw="0411 L$$arus$$hund"
+fieldIndex=6; byteOffset=10863705; length=0011; raw="044  L$$aru"
+fieldIndex=7; byteOffset=10863720; length=0112; raw="24500L$$aТехническое описание с приложением расчетов сооружений"
+fieldIndex=8; byteOffset=10863836; length=0013; raw="260  L$$c1909"
+fieldIndex=9; byteOffset=10863853; length=0047; raw="300  L$$a[4], 268, 249 с., 9 л. ил.$$bил."
+fieldIndex=10; byteOffset=10863904; length=0045; raw="336  L$$aтекст (text)$$btxt$$2rdacontent"
+fieldIndex=11; byteOffset=10863953; length=0069; raw="337  L$$aнеопосредованный (unmediated)$$bn$$2rdamedia"
+fieldIndex=12; byteOffset=10864026; length=0042; raw="338  L$$aтом (volume)$$bnc$$2rdacarrier"
+fieldIndex=13; byteOffset=10864072; length=0538; raw="77308L$$7c2am$$aПетербургская городская исполнительная комиссия по заведыванию и переустройству городских железных дорог$$tОтчет по сооружению С.-Петербургскаго городского электрическаго трамвая [Текст]$$d[Санкт-Петербург] : Исполнительная комис. по заведыванию и переустройству гор. ж. д., 1909$$gТ. 2$$w8074"
+fieldIndex=14; byteOffset=10864614; length=0277; raw="LKR  L$$aUP$$b8074$$lRSL06$$vТ. 2$$mТехническое описание с приложением расчетов сооружений$$nОтчет по сооружению С.-Петербургскаго городского электрическаго трамвая"
+fieldIndex=15; byteOffset=10864895; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=16; byteOffset=10864911; length=0046; raw="CAT  L$$aKOMPL6$$b40$$c20190618$$lRSL06$$h1033"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10863490 /tmp/000008075.dat

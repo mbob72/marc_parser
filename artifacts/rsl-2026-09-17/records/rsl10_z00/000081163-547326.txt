@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000081163; recordIndex (0-based): 1309; byteOffset: 547326
+Record length: 721 bytes; record SHA-256: 551bd2eeee8a71037a130e0ac7cd060df41acfa6eaf6061edfe44c87b4559e85
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DF-G3", "fieldIndex": 14, "tag": "678", "message": "Поле 678 не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=547336; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=547348; length=0030; raw="LDR  L00728nz^^a2200205n^^4500"
+fieldIndex=1; byteOffset=547382; length=0015; raw="001  L000081163"
+fieldIndex=2; byteOffset=547401; length=0022; raw="005  L20060525111803.0"
+fieldIndex=3; byteOffset=547427; length=0046; raw="008  L060525^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=547477; length=0028; raw="040  L$$aRuMoRGB$$brus$$erpk"
+fieldIndex=5; byteOffset=547509; length=0086; raw="1102 L$$aПриозерский историко-краеведческий музей"
+fieldIndex=6; byteOffset=547599; length=0073; raw="5102 L$$a\"Корела\", музей-крепость (Приозерск)"
+fieldIndex=7; byteOffset=547676; length=0044; raw="CAT  L$$aNO06$$b40$$c20060525$$lRSL10$$h1117"
+fieldIndex=8; byteOffset=547724; length=0044; raw="CAT  L$$aNO06$$b40$$c20060525$$lRSL10$$h1118"
+fieldIndex=9; byteOffset=547772; length=0032; raw="CAT  L$$c20121212$$lRSL10$$h2105"
+fieldIndex=10; byteOffset=547808; length=0010; raw="UPD  L$$aN"
+fieldIndex=11; byteOffset=547822; length=0014; raw="065  L$$2rubbk"
+fieldIndex=12; byteOffset=547840; length=0123; raw="663  L$$aС середины 1992 г.? см. в кат.:$$b\"Корела\", музей-крепость (Приозерск)"
+fieldIndex=13; byteOffset=547967; length=0041; raw="670  L$$aИз кн.: Вуокса , 2000-"
+fieldIndex=14; byteOffset=548012; length=0030; raw="6781 LОткрыт в 1962 г."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 547326 /tmp/000081163.dat

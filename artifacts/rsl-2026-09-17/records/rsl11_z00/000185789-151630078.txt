@@ -1,0 +1,27 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000185789; recordIndex (0-based): 178006; byteOffset: 151630078
+Record length: 617 bytes; record SHA-256: b77ae9e38d22697ecc4b27a6ed6a6f04cfeb951cde979cb446fe90f864f5a76e
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 10, "tag": "670", "indicatorIndex": 0, "message": "Индикатор 1 поля 670 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=151630088; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=151630100; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=151630134; length=0021; raw="001  Lnafpn-000185789"
+fieldIndex=2; byteOffset=151630159; length=0022; raw="005  L20161223105001.0"
+fieldIndex=3; byteOffset=151630185; length=0046; raw="008  L161223^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=151630235; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=151630267; length=0066; raw="1001 L$$aКалашников, Николай Алексеевич"
+fieldIndex=6; byteOffset=151630337; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20161223$$lRSL11$$h1050"
+fieldIndex=7; byteOffset=151630386; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0201"
+fieldIndex=8; byteOffset=151630436; length=0010; raw="UPD  L$$aN"
+fieldIndex=9; byteOffset=151630450; length=0014; raw="065  L$$2rubbk"
+fieldIndex=10; byteOffset=151630468; length=0055; raw="670\u0001 L$$aФоат Галимович Каюмов, 2016"
+fieldIndex=11; byteOffset=151630527; length=0163; raw="6780 L$$aАспирант Всероссийского научно-исследовательского института мясного скотоводства"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 151630078 /tmp/000185789.dat

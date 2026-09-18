@@ -1,0 +1,29 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000204354; recordIndex (0-based): 197463; byteOffset: 173894362
+Record length: 1216 bytes; record SHA-256: 6c4a4689669b6d18ad6b88d343f7cd56a0b23bb883efefdd0d6014e08be929ee
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DF-G3", "fieldIndex": 13, "tag": "678", "message": "Поле 678 не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=173894372; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=173894384; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=173894418; length=0021; raw="001  Lnafpn-000204354"
+fieldIndex=2; byteOffset=173894443; length=0022; raw="005  L20180523143325.0"
+fieldIndex=3; byteOffset=173894469; length=0046; raw="008  L180523|abacn||aab|||||||||||^||aaa||||^d"
+fieldIndex=4; byteOffset=173894519; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=173894551; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=173894569; length=0091; raw="1001 L$$aБлюменталь-Тамарина, Мария Михайловна$$d1859-1938"
+fieldIndex=7; byteOffset=173894664; length=0068; raw="4001 L$$aКлимова, Мария Михайловна$$d1859-1938"
+fieldIndex=8; byteOffset=173894736; length=0045; raw="CAT  L$$aNIOR5$$b90$$c20180523$$lRSL11$$h1425"
+fieldIndex=9; byteOffset=173894785; length=0045; raw="CAT  L$$aNIOR5$$b90$$c20180523$$lRSL11$$h1426"
+fieldIndex=10; byteOffset=173894834; length=0045; raw="CAT  L$$aNIOR5$$b90$$c20180523$$lRSL11$$h1433"
+fieldIndex=11; byteOffset=173894883; length=0010; raw="UPD  L$$aN"
+fieldIndex=12; byteOffset=173894897; length=0272; raw="670  L$$aАктеры и режиссеры. Театральная Россия / Сост. при участии С. Кара-Мурзы и Ю. Соболева. Редакция В. Лидина. – М., \"Современные проблемы\", 1928. – С. 373-374"
+fieldIndex=13; byteOffset=173895173; length=0400; raw="6780 LМария Михайловна Блюменталь-Тамарина (урождённая — Климова; 1859, Санкт-Петербург — 1938, Москва) — русская советская актриса театра и кино. Народная артистка СССР (1936), одна из первых 13 человек, удостоенных этого звания"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 173894362 /tmp/000204354.dat

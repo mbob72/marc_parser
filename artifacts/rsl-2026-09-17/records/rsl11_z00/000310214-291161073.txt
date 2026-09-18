@@ -1,0 +1,27 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000310214; recordIndex (0-based): 306895; byteOffset: 291161073
+Record length: 2183 bytes; record SHA-256: 9308b40f4c78c7b0983fd574af21d6bb9b4a86526a3f40491916506613141588
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 5, "tag": "100", "indicatorIndex": 0, "message": "Индикатор 1 поля 100 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=291161083; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=291161095; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=291161129; length=0021; raw="001  Lnafpn-000310214"
+fieldIndex=2; byteOffset=291161154; length=0022; raw="005  L20241003135104.0"
+fieldIndex=3; byteOffset=291161180; length=0046; raw="008  L241003^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=291161230; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=291161262; length=0062; raw="100\u0001 L$$aТарасова, Татьяна Михайловна"
+fieldIndex=6; byteOffset=291161328; length=0045; raw="CAT  L$$aOKZ24$$b40$$c20241003$$lRSL11$$h1351"
+fieldIndex=7; byteOffset=291161377; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0203"
+fieldIndex=8; byteOffset=291161427; length=0010; raw="UPD  L$$aN"
+fieldIndex=9; byteOffset=291161441; length=0014; raw="065  L$$2rubbk"
+fieldIndex=10; byteOffset=291161459; length=0066; raw="670  L$$aБюджетный учет и отчетность, 2023"
+fieldIndex=11; byteOffset=291161529; length=1722; raw="6780 L$$aРоссийский экономист. Кандидат экономических наук (2011). Доцент Кафедры учета, анализа и экономической безопасности. Родилась в 1982 г., в г. Куйбышеве Самарской области. С отличием окончила Самарский государственный университет путей сообщения по специальности \"Бухгалтерский учет, анализ и аудит\" (2004). С 2009 года работает в должности старшего преподавателя кафедры \"Бухгалтерский учет, анализ и статистика\" Самарского государственного университета путей сообщения. Кандидатскую диссертацию защитила в Ростовском государственном экономическом университете Тарасова Т.М. по теме \"Управленческий учет и внутренний контроль деятельности операторов подвижного состава\". Является автором более 70 научных трудов, в том числе двух монографий. Занимается проблемами развития управленческого учета и внутреннего контроля деятельности транспортных предприятий. Является организатором внутрикафедральных олимпиад по бухгалтерскому учету."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 291161073 /tmp/000310214.dat

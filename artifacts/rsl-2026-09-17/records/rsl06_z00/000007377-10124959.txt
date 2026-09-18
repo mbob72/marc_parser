@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007377; recordIndex (0-based): 11239; byteOffset: 10124959
+Record length: 794 bytes; record SHA-256: 874eb1b087fc8e586f92f9f47c88d16fdbde09043d356b4c3bec4a72692313c9
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10124969; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10124981; length=0030; raw="LDR  L00745nam^a22001812ia4500"
+fieldIndex=1; byteOffset=10125015; length=0015; raw="001  L000007377"
+fieldIndex=2; byteOffset=10125034; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10125048; length=0022; raw="005  L20190328112812.0"
+fieldIndex=4; byteOffset=10125074; length=0046; raw="008  L100622s1924^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10125124; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00135465"
+fieldIndex=6; byteOffset=10125163; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10125202; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10125218; length=0058; raw="1001 L$$aЗайцев, Александр Флорович"
+fieldIndex=9; byteOffset=10125280; length=0186; raw="24500L$$aОчерки железнодорожной политики /$$cА. Ф. Зайцев, препод. I Ленингр. политехн. ин-та им. М. И. Калинина"
+fieldIndex=10; byteOffset=10125470; length=0170; raw="260  L$$aМосква$$bНКПС. Транспечать$$c[1924]$$eЛ.$$f1-я Объединенная тип. Транспечати НКПС им. Воровского"
+fieldIndex=11; byteOffset=10125644; length=0017; raw="300  L$$c23 см."
+fieldIndex=12; byteOffset=10125665; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=13; byteOffset=10125686; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=14; byteOffset=10125702; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190328$$lRSL06$$h1128"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10124959 /tmp/000007377.dat

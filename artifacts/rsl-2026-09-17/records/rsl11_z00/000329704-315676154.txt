@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000329704; recordIndex (0-based): 328265; byteOffset: 315676154
+Record length: 2323 bytes; record SHA-256: dfd724bb6ad99ebfe50165293aecc655ce14a0775121d6edb4c4996243f2b779
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 7, "tag": "500", "subfieldIndex": 0, "message": "Подполе 1 поля 500 имеет недопустимый код \"\"."}
+{"rule": "SF-G4", "fieldIndex": 7, "tag": "500", "subfieldIndex": 0, "message": "Подполе 1 поля 500 имеет недопустимый код \"\"."}
+{"rule": "VF-G5", "fieldIndex": 7, "tag": "500", "subfieldIndex": 1, "message": "Подполе 2 поля 500 имеет недопустимый код \"Ð\"."}
+{"rule": "SF-G4", "fieldIndex": 7, "tag": "500", "subfieldIndex": 1, "message": "Подполе 2 поля 500 имеет недопустимый код \"Ð\"."}
+
+Fields:
+fieldIndex=0; byteOffset=315676164; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=315676176; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=315676210; length=0021; raw="001  Lnafpn-000329704"
+fieldIndex=2; byteOffset=315676235; length=0022; raw="005  L20250902155913.0"
+fieldIndex=3; byteOffset=315676261; length=0046; raw="008  L250827^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=315676311; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=315676343; length=0053; raw="1001 L$$aParamaditha, Intan$$d1979-$$0RSL11-000329704"
+fieldIndex=6; byteOffset=315676400; length=0052; raw="400  L$$aIntan Paramaditha$$d1979-$$0RSL11-000329704"
+fieldIndex=7; byteOffset=315676456; length=0067; raw="500  L$$\u001fПарамадита, Интан$$d1979-$$0RSL11-000329704"
+fieldIndex=8; byteOffset=315676527; length=0045; raw="CAT  L$$aCVL12$$b40$$c20250827$$lRSL11$$h1640"
+fieldIndex=9; byteOffset=315676576; length=0045; raw="CAT  L$$aCVL12$$b40$$c20250902$$lRSL11$$h1559"
+fieldIndex=10; byteOffset=315676625; length=0035; raw="COR  L$$aParamaditha, Intan$$d1979-"
+fieldIndex=11; byteOffset=315676664; length=0010; raw="UPD  L$$aY"
+fieldIndex=12; byteOffset=315676678; length=1536; raw="678  L$$aИнтан Парамадхита (Intan Paramaditha), род. 15 ноября 1979 года в Бандунге, Западная Ява, — индонезийская писательница и академик. Её литературные и научные работы часто посвящены взаимосвязям между гендером, сексуальностью, культурой и политикой. Она получила Ph.D. в Нью-Йоркском университете в 2014 году. Ее рассказы выходили в сборниках «Женское колдовство» (Sihir Perempuan, 2005), «Клуб сатанистов» (Kumpulan Budak Setan, 2010). В 2017 г. был издан хаотичный, фасеточный роман-игра «Скитания» (Gentayangan), один из самых «эталонных» постмодернистских текстов в индонезий- ской литературе. 2023 г. выходит второй роман Интан Парамадиты «Ночь тысячи адов» (Malam Seribu Jahanam)4, Роман выдержан в «фирменной» стилистике писательницы — «страшный», «готический», и идеологически феминистский, антипатриархальный. Интан Парамадита получила от критиков титул \"Королевы феминистской готики\"."
+fieldIndex=13; byteOffset=315678218; length=0254; raw="670  L$$aФролова М. В. Метамодерн в индонезийской литературе: роман Ночь тысячи адов Интан Парамадиты (2023) // Studia Litterarum. — 2024. — Т. 9, № 4. — С. 138–159."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 315676154 /tmp/000329704.dat

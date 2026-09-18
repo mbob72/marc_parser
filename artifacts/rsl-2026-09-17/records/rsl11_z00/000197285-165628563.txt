@@ -1,0 +1,28 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000197285; recordIndex (0-based): 190120; byteOffset: 165628563
+Record length: 1337 bytes; record SHA-256: eedb28552446fcbf3308598e62ace69f06715d616b7aa56d21bf55bc49b29767
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 5, "tag": "100", "indicatorIndex": 0, "message": "Индикатор 1 поля 100 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=165628573; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=165628585; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=165628619; length=0021; raw="001  Lnafpn-000197285"
+fieldIndex=2; byteOffset=165628644; length=0022; raw="005  L20171130150753.0"
+fieldIndex=3; byteOffset=165628670; length=0046; raw="008  L171130^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=165628720; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=165628752; length=0042; raw="100\u0001 L$$aHinze-Reinhold, Bruno$$d1877-1964"
+fieldIndex=6; byteOffset=165628798; length=0062; raw="5001 L$$aХинце-Райнхольд, Бруно$$d1877-1964"
+fieldIndex=7; byteOffset=165628864; length=0045; raw="CAT  L$$aOKZ16$$b40$$c20171130$$lRSL11$$h1507"
+fieldIndex=8; byteOffset=165628913; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0202"
+fieldIndex=9; byteOffset=165628963; length=0014; raw="065  L$$2rubbk"
+fieldIndex=10; byteOffset=165628981; length=0039; raw="670  L$$aKammerkonzert A-dur, cop. 1963"
+fieldIndex=11; byteOffset=165629024; length=0058; raw="670  L$$aВикипедия$$bбиогр. сведения"
+fieldIndex=12; byteOffset=165629086; length=0809; raw="6780 L$$aНемецкий пианист и музыкальный педагог. Учился в Лейпцигской консерватории, преподавал в Берлинской высшей школе музыки, в Веймарской школе музыки. Как пианист был известен исполнением произведений Ференца Листа. Подготовил ряд изданий музыки Листа, Иоганна Себастьяна Баха и Вольфганга Амадея Моцарта, переложения четырёхручных пьес Франца Шуберта для двух фортепиано, в первое десятилетие XX века опубликовал ряд собственных песен."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 165628563 /tmp/000197285.dat

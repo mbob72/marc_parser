@@ -1,0 +1,42 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000108507; recordIndex (0-based): 330761; byteOffset: 318896523
+Record length: 3116 bytes; record SHA-256: ad555a72160d4263f64ef18d84cf52345d62787d050b2c2b05a52877d1438aaa
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 7, "tag": "500", "subfieldIndex": 3, "message": "Подполе 4 поля 500 имеет недопустимый код \"C\"."}
+{"rule": "SF-G4", "fieldIndex": 7, "tag": "500", "subfieldIndex": 3, "message": "Подполе 4 поля 500 имеет недопустимый код \"C\"."}
+
+Fields:
+fieldIndex=0; byteOffset=318896533; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=318896545; length=0030; raw="LDR  L00956nz^^a2200181n^^4500"
+fieldIndex=1; byteOffset=318896579; length=0021; raw="001  Lnafpn-000108507"
+fieldIndex=2; byteOffset=318896604; length=0022; raw="005  L20251023111837.0"
+fieldIndex=3; byteOffset=318896630; length=0046; raw="008  L100526^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=318896680; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=318896712; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=318896730; length=0086; raw="1001 L$$aКулиш, Евгений Алексеевич$$d1931-2010$$0RSL11-000108507"
+fieldIndex=7; byteOffset=318896820; length=0096; raw="5001 L$$aКулiш, Євген Олексiйович$$d1931-2010$$0RSL11-000108507$$COR000331951"
+fieldIndex=8; byteOffset=318896920; length=0044; raw="CAT  L$$aNO08$$b40$$c20100526$$lRSL11$$h1241"
+fieldIndex=9; byteOffset=318896968; length=0032; raw="CAT  L$$c20121212$$lRSL11$$h2100"
+fieldIndex=10; byteOffset=318897004; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0200"
+fieldIndex=11; byteOffset=318897054; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20251021$$lRSL11$$h1145"
+fieldIndex=12; byteOffset=318897103; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20251021$$lRSL11$$h1146"
+fieldIndex=13; byteOffset=318897152; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20251021$$lRSL11$$h1147"
+fieldIndex=14; byteOffset=318897201; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20251021$$lRSL11$$h1152"
+fieldIndex=15; byteOffset=318897250; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20251021$$lRSL11$$h1156"
+fieldIndex=16; byteOffset=318897299; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20251021$$lRSL11$$h1206"
+fieldIndex=17; byteOffset=318897348; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20251022$$lRSL11$$h1120"
+fieldIndex=18; byteOffset=318897397; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20251023$$lRSL11$$h1058"
+fieldIndex=19; byteOffset=318897446; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20251023$$lRSL11$$h1116"
+fieldIndex=20; byteOffset=318897495; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20251023$$lRSL11$$h1117"
+fieldIndex=21; byteOffset=318897544; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20251023$$lRSL11$$h1118"
+fieldIndex=22; byteOffset=318897593; length=0010; raw="UPD  L$$aN"
+fieldIndex=23; byteOffset=318897607; length=0155; raw="663  L$$aПроизведения автора на укр. языке см. под именем:$$bКулiш, Євген Олексiйович (1931-2010)"
+fieldIndex=24; byteOffset=318897766; length=0156; raw="670  L$$aИз кн.: Стратегические минеральные ресурсы Украины и Дальнего Востока России, 2009"
+fieldIndex=25; byteOffset=318897926; length=1708; raw="6780 L$$aСоветский и украинский геолог, член-корреспондент АН СССР (1979-1991) и РАН (с 1991), академик НАН Украины (с 2006). Родился в с. Александровка (ныне Ростовская обл.). Окончил Ростовский государственный университет. В 1961-1966 гг.работал в ДВГИ, организатор и первый заведующий Хабаровской геолого-геофизической лабораторией АН СССР. Область исследований в тот период - генетическая и региональная металлогения, метаморфогенное рудообразование. 1966-1983 гг. - первый директор Дальневосточного научно-исследовательского института минерального сырья (ДВИМС). 1983—1996 — заведующий отделом рудных формаций, и в 1985-1988 зам. директора по научной работе Института геохимии, минералогии и рудообразования НАНУ (Киев), 1996-2010 - зав. отделом металлогении и минеральных ресурсов Института геохимии окружающей среды НАНУ (Киев). В 1992-1998 гг. - зам. академика-секретаря отдела наук о Земле НАНУ. Автор более 400 опубликованных научных работ. Умер в Киеве 21 октября 2010 г."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 318896523 /tmp/000108507.dat

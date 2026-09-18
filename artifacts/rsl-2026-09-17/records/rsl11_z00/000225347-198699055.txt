@@ -1,0 +1,41 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000225347; recordIndex (0-based): 219426; byteOffset: 198699055
+Record length: 1996 bytes; record SHA-256: 822af722e92dbc3f22cb883404c87443b74327edaff8f5010939086e8b3d4e4f
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 15, "tag": "400", "subfieldIndex": 1, "message": "Подполе 2 поля 400 имеет недопустимый код \"L\"."}
+{"rule": "SF-G4", "fieldIndex": 15, "tag": "400", "subfieldIndex": 1, "message": "Подполе 2 поля 400 имеет недопустимый код \"L\"."}
+
+Fields:
+fieldIndex=0; byteOffset=198699065; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=198699077; length=0030; raw="LDR  L00819nz^^a2200169o^^4500"
+fieldIndex=1; byteOffset=198699111; length=0021; raw="001  Lnafpn-000225347"
+fieldIndex=2; byteOffset=198699136; length=0022; raw="005  L20191125132432.0"
+fieldIndex=3; byteOffset=198699162; length=0046; raw="008  L191101^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=198699212; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=198699244; length=0048; raw="1000 L$$aBhaktisiddhānta Sarasvatī$$d1874-1937"
+fieldIndex=6; byteOffset=198699296; length=0047; raw="4000 L$$aBhakti Siddhanta Saraswati$$d1874-1937"
+fieldIndex=7; byteOffset=198699347; length=0040; raw="4000 L$$aSiddhanta Saraswati$$d1874-1937"
+fieldIndex=8; byteOffset=198699391; length=0041; raw="4001 L$$aSaraswati, Siddhanta$$d1874-1937"
+fieldIndex=9; byteOffset=198699436; length=0048; raw="4001 L$$aSaraswati, Bhakti Siddhanta$$d1874-1937"
+fieldIndex=10; byteOffset=198699488; length=0054; raw="4000 L$$aBhaktisiddhanta Sarasvati Thakura$$d1874-1937"
+fieldIndex=11; byteOffset=198699546; length=0059; raw="4001 L$$aṬhakura, Bhaktisiddhānta Saraswatī$$d1874-1937"
+fieldIndex=12; byteOffset=198699609; length=0056; raw="4001 L$$aGoswami, Bhakti Siddhanta Saraswati$$d1874-1937"
+fieldIndex=13; byteOffset=198699669; length=0063; raw="4001 L$$aThakur, Bhakti Siddhanta Saraswati Goswami$$d1874-1937"
+fieldIndex=14; byteOffset=198699736; length=0070; raw="4001 L$$aBhaktisiddhānta Sarasvatī Gosvāmī, Mahārāja$$d1874-1937"
+fieldIndex=15; byteOffset=198699810; length=0042; raw="4000 L$$aBimalā Prasād Datta$$L1874-1937"
+fieldIndex=16; byteOffset=198699856; length=0070; raw="5000 L$$aБхактисиддханта Сарасвати$$d1874-1937"
+fieldIndex=17; byteOffset=198699930; length=0044; raw="CAT  L$$aNO16$$b40$$c20191101$$lRSL11$$h1615"
+fieldIndex=18; byteOffset=198699978; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20191125$$lRSL11$$h1233"
+fieldIndex=19; byteOffset=198700027; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20191125$$lRSL11$$h1324"
+fieldIndex=20; byteOffset=198700076; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0202"
+fieldIndex=21; byteOffset=198700126; length=0010; raw="UPD  L$$aN"
+fieldIndex=22; byteOffset=198700140; length=0014; raw="065  L$$2rubbk"
+fieldIndex=23; byteOffset=198700158; length=0156; raw="670  L$$aПрабхупада Сарасвати Тхакур: жизнь и идеалы Шрилы Бхактисиддханты Сарасвати, 2018"
+fieldIndex=24; byteOffset=198700318; length=0728; raw="6780 L$$aБхактисиддханта Сарасвати (Bhaktisiddhānta Sarasvatī, имя при рождении - Бимала Прасад Датта, Bimalā Prasād Datta; 06.02.1874, Пури, Орисса, Британская Индия - 01.01.1936, Калькутта, Бенгалия, Британская Индия) - индийский религиозный деятель, вайшнавский гуру и проповедник, реформатор гаудия-вайшнавизма, духовный учитель основателя Международного общества сознания Кришны (ИСККОН) Бхактиведанты Свами Прабхупады (1896-1977)."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 198699055 /tmp/000225347.dat

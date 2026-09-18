@@ -1,0 +1,21 @@
+Source: data/rsl-2026-09-17/raw/rsl07_z00.dat
+Source SHA-256: 4dfcc187ae80f6710bd08d14f5a367d29b84ae6c6103c3836dff21fb28df127f
+recordId: 000355406; recordIndex (0-based): 355564; byteOffset: 41937731
+Record length: 238 bytes; record SHA-256: c653ae09da85c53e747c3d071bc2723d0f94d3763bc25324ca2dd65c898e461a
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DF-G3", "fieldIndex": 1, "tag": "DEL", "message": "Поле DEL не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=41937741; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=41937753; length=0030; raw="LDR  L^^^^^nam^a22^^^^^^i^4500"
+fieldIndex=1; byteOffset=41937787; length=0019; raw="DEL  LDL12 20190627"
+fieldIndex=2; byteOffset=41937810; length=0010; raw="DEL  L$$aY"
+fieldIndex=3; byteOffset=41937824; length=0044; raw="CAT  L$$aDL12$$b90$$c20190627$$lRSL07$$h1259"
+fieldIndex=4; byteOffset=41937872; length=0044; raw="CAT  L$$aDL04$$b90$$c20200225$$lRSL07$$h1148"
+fieldIndex=5; byteOffset=41937920; length=0044; raw="CAT  L$$aDL04$$b90$$c20200225$$lRSL07$$h1149"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl07_z00.dat 41937731 /tmp/000355406.dat

@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006752; recordIndex (0-based): 10611; byteOffset: 9482348
+Record length: 901 bytes; record SHA-256: b6eeeabb8a01e144aef1d85baa9ff323d05a818670d067c21bcaea56d2741051
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9482358; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9482370; length=0030; raw="LDR  L01111nam^a22002652ic4500"
+fieldIndex=1; byteOffset=9482404; length=0015; raw="001  L000006752"
+fieldIndex=2; byteOffset=9482423; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9482437; length=0022; raw="005  L20190206142212.0"
+fieldIndex=4; byteOffset=9482463; length=0046; raw="008  L100622s1920^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9482513; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00070486"
+fieldIndex=6; byteOffset=9482552; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9482591; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9482607; length=0014; raw="24500L$$aЧ. 1"
+fieldIndex=9; byteOffset=9482625; length=0013; raw="260  L$$c1920"
+fieldIndex=10; byteOffset=9482642; length=0028; raw="300  L$$a250, 66 с.$$bил."
+fieldIndex=11; byteOffset=9482674; length=0075; raw="504  L$$aБиблиография: \"Литература\" (стр. 189-250)"
+fieldIndex=12; byteOffset=9482753; length=0298; raw="77318L$$7p1am$$gЧ. 1$$aБлох, Макс Абрамович$$tРазвитие и значение химической промышленности$$dПетроград : Науч.-техн. отд. В.С.Н.Х. Науч. хим.-техн. изд-во, 1920$$h22 см.$$k(Р.С.Ф.С.Р.)$$w6751"
+fieldIndex=13; byteOffset=9483055; length=0123; raw="LKR  L$$aUP$$lRSL06$$b6751$$mЧ. 1$$nРазвитие и значение химической промышленности"
+fieldIndex=14; byteOffset=9483182; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=15; byteOffset=9483198; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190206$$lRSL06$$h1422"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9482348 /tmp/000006752.dat

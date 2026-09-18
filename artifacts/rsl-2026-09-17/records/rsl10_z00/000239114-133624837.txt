@@ -1,0 +1,29 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000239114; recordIndex (0-based): 238192; byteOffset: 133624837
+Record length: 958 bytes; record SHA-256: 3f41b580935c8aab02733a13acd3f8b7c8c3ac2bc037fd1575d9b72710ad4029
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DR-E2", "fieldIndex": 10, "tag": "@08", "message": "Некорректный тег \"@08\"."}
+{"rule": "DF-G3", "fieldIndex": 10, "tag": "@08", "message": "Поле @08 не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=133624847; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=133624859; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=133624893; length=0015; raw="001  L000239114"
+fieldIndex=2; byteOffset=133624912; length=0022; raw="005  L20220407130014.0"
+fieldIndex=3; byteOffset=133624938; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=4; byteOffset=133624970; length=0014; raw="065  L$$2rubbk"
+fieldIndex=5; byteOffset=133624988; length=0064; raw="1102 L$$a\"Нейрософт\", компания (Иваново)"
+fieldIndex=6; byteOffset=133625056; length=0046; raw="CAT  L$$aOKZ106$$b40$$c20220407$$lRSL10$$h1258"
+fieldIndex=7; byteOffset=133625106; length=0046; raw="CAT  L$$aOKZ106$$b40$$c20220407$$lRSL10$$h1259"
+fieldIndex=8; byteOffset=133625156; length=0046; raw="CAT  L$$aOKZ106$$b40$$c20220407$$lRSL10$$h1300"
+fieldIndex=9; byteOffset=133625206; length=0010; raw="UPD  L$$aN"
+fieldIndex=10; byteOffset=133625220; length=0046; raw="@08  L220407^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=11; byteOffset=133625270; length=0108; raw="670  L$$aНейрософт. Продукт правильно организованной мысли, 2022"
+fieldIndex=12; byteOffset=133625382; length=0408; raw="6781 L$$aПроизводитель медицинского оборудования. Компания основана в в 1992 году в городе Иваново. Создаёт медицинское диагностическое оборудования для нейрофизиологии, функциональной диагностики, аудиологии и реабилитации."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 133624837 /tmp/000239114.dat

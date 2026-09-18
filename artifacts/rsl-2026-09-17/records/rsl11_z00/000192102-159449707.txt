@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000192102; recordIndex (0-based): 184655; byteOffset: 159449707
+Record length: 2602 bytes; record SHA-256: d4572369d6d604999cf5a0dadca260672406057db49365530e414a993010a13a
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 14, "tag": "678", "subfieldIndex": 1, "message": "Подполе 2 поля 678 имеет недопустимый код \"\\u0001\"."}
+{"rule": "SF-G4", "fieldIndex": 14, "tag": "678", "subfieldIndex": 1, "message": "Подполе 2 поля 678 имеет недопустимый код \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=159449717; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=159449729; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=159449763; length=0021; raw="001  Lnafpn-000192102"
+fieldIndex=2; byteOffset=159449788; length=0022; raw="005  L20170630110952.0"
+fieldIndex=3; byteOffset=159449814; length=0046; raw="008  L170630^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=159449864; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=159449896; length=0064; raw="1001 L$$aПашков, Геннадий Петрович$$d1948-"
+fieldIndex=6; byteOffset=159449964; length=0062; raw="5001 L$$aПашкоў, Генадзь Пятровіч$$d1948-"
+fieldIndex=7; byteOffset=159450030; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20170630$$lRSL11$$h1109"
+fieldIndex=8; byteOffset=159450079; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20170630$$lRSL11$$h1109"
+fieldIndex=9; byteOffset=159450128; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0202"
+fieldIndex=10; byteOffset=159450178; length=0010; raw="UPD  L$$aN"
+fieldIndex=11; byteOffset=159450192; length=0014; raw="065  L$$2rubbk"
+fieldIndex=12; byteOffset=159450210; length=0166; raw="663  L$$aПроизведения этого авт. на белорус. языке см. под именем:$$bПашкоў, Генадзь Пятровіч (1948-"
+fieldIndex=13; byteOffset=159450380; length=0038; raw="670  L$$aПарад планет, 2016"
+fieldIndex=14; byteOffset=159450422; length=1882; raw="6780 L$$aБелорусский и советский поэт, переводчик, публицист, журналист. Родился в д. Липовичи (Чашникский р-н, Витебская обл., БелорусскаяССР). Окончил факультет журналистики Белорусского государственного университета имени В. И. Ленина (1971). Работал редактором литературно-драматических передач для детей и юношества на Белорусском радио (1971-1972). С 1972 года в литературном журнале \"Полымя\" на разных должностях, с 1979 года — заместитель главного редактора. С 1989 года - консультант гуманитарного отдела в аппарате ЦК КПБ, работал заместителем главного редактора журнала \"Тэатральная Беларусь\", редактировал \"Цэнтральную газету\". В 1996—2008 годы - главный редактор изд-ва \"Белорусская Энциклопедия имени Петруся Бровки\". Лауреат премии Ленинского комсомола Белорусской ССР (1980). Лауреат Государственной премии Республики Беларусь имени Янки Купалы (1998). Заслуженный деятель культуры Республики Беларусь (2013). Член-корреспондент Международной Славянской Академии наук, образования, искусств и культуры (1996). Член Союза писателей СССР (1977).$$\u0001Ё"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 159449707 /tmp/000192102.dat

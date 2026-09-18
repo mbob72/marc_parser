@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000008060; recordIndex (0-based): 11925; byteOffset: 10848616
+Record length: 831 bytes; record SHA-256: c95ff4fbf086a91031b40736aeeecb43448949b52980b5fd7cc4cc4743ac6034
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10848626; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10848638; length=0030; raw="LDR  L00901nam^a22002292ic4500"
+fieldIndex=1; byteOffset=10848672; length=0015; raw="001  L000008060"
+fieldIndex=2; byteOffset=10848691; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10848705; length=0022; raw="005  L20190618094128.0"
+fieldIndex=4; byteOffset=10848731; length=0046; raw="008  L100514s1920^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10848781; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00001596"
+fieldIndex=6; byteOffset=10848820; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10848859; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10848875; length=0041; raw="24500L$$aДо революции 1848 г."
+fieldIndex=9; byteOffset=10848920; length=0052; raw="260  L$$a[Москва]$$bГос. изд-во$$c1920"
+fieldIndex=10; byteOffset=10848976; length=0021; raw="300  L$$a358, [1] с."
+fieldIndex=11; byteOffset=10849001; length=0046; raw="500  L$$aНа обл. дата: 1921$$5RuMoRGB"
+fieldIndex=12; byteOffset=10849051; length=0188; raw="77318L$$7p1am$$gТ. 1$$aМеринг, Франц$$tИстория германской социал-демократии$$d[Москва] : Гос. изд-во, 1920-1922$$h23 см.$$w8059"
+fieldIndex=13; byteOffset=10849243; length=0133; raw="LKR  L$$aUP$$lRSL06$$b8059$$mДо революции 1848 г.$$nИстория германской социал-демократии"
+fieldIndex=14; byteOffset=10849380; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=15; byteOffset=10849396; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190618$$lRSL06$$h0941"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10848616 /tmp/000008060.dat

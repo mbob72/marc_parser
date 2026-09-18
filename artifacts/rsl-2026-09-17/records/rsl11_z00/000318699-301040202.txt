@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000318699; recordIndex (0-based): 315730; byteOffset: 301040202
+Record length: 1983 bytes; record SHA-256: 9103c831a37a929bdd2a2bdc9130ad811cb2ff7d18098603cdbdbcefbf9fe475
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 12, "tag": "678", "subfieldIndex": 0, "message": "Подполе 1 поля 678 имеет недопустимый код \"D\"."}
+{"rule": "SF-G4", "fieldIndex": 12, "tag": "678", "subfieldIndex": 0, "message": "Подполе 1 поля 678 имеет недопустимый код \"D\"."}
+
+Fields:
+fieldIndex=0; byteOffset=301040212; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=301040224; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=301040258; length=0021; raw="001  Lnafpn-000318699"
+fieldIndex=2; byteOffset=301040283; length=0022; raw="005  L20250902154234.0"
+fieldIndex=3; byteOffset=301040309; length=0046; raw="008  L250212nn^cznnnbbbn^^^^^^^^^^^n^abn^^^^^d"
+fieldIndex=4; byteOffset=301040359; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=301040391; length=0049; raw="1001 L$$6Said, A. Samad$$d1935-$$0RSL11-000318699"
+fieldIndex=6; byteOffset=301040444; length=0051; raw="4000 L$$aAbdul Samad Said$$d1935-$$0RSL11-000318699"
+fieldIndex=7; byteOffset=301040499; length=0066; raw="5001 L$$aСаид, Абдул Самад$$d1935-$$0RSL11-000318699"
+fieldIndex=8; byteOffset=301040569; length=0045; raw="CAT  L$$aCVL12$$b40$$c20250212$$lRSL11$$h1944"
+fieldIndex=9; byteOffset=301040618; length=0045; raw="CAT  L$$aCVL12$$b40$$c20250902$$lRSL11$$h1542"
+fieldIndex=10; byteOffset=301040667; length=0023; raw="COR  L$$6Said, A. Samad"
+fieldIndex=11; byteOffset=301040694; length=0010; raw="UPD  L$$aY"
+fieldIndex=12; byteOffset=301040708; length=1260; raw="678  L$$DАбдул Самад Саид (Abdul Samad Said, род. 9 апреля 1935, Durian Tungga) — малайзийский поэт, прозаик, литературный критик, пишущий на малайском языке, продолжатель традиций Поколения пятидесятников. Автор поэтических сборников «Бешенство в огне» (1961), «Опавшие листья» (1962 совместно с поэтессой Салми Манджа), сборника рассказов «У обочины шоссе» (1961), ряда романов о жизни городских низов, из которых наиболее известен «Салина» (1961). В своих стихах сумел найти яркую форму для выражения социально-критических, философских и нравственных идей. Ряд стихов положены на музыку и послужили основой для популярных песен.Награды: Литературная премия Юго-Восточной Азии (1979), Национальный писатель Малайзии (1985)."
+fieldIndex=13; byteOffset=301041972; length=0208; raw="670  L$$aАбдул Самад Саид // РУВИКИ. [2024]. Дата обновления: 05.08.2024. URL: https://ru.ruwiki.ru/?curid=3722844&oldid=1193122530 (дата обращения: 05.08.2024)."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 301040202 /tmp/000318699.dat

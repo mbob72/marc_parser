@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000004254; recordIndex (0-based): 7413; byteOffset: 6544900
+Record length: 756 bytes; record SHA-256: 006773df430391303a6b1b787b1c5d513cf4faa044d5a004fee805e3d8953887
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=6544910; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=6544922; length=0030; raw="LDR  L01173nam^a22002652ic4500"
+fieldIndex=1; byteOffset=6544956; length=0015; raw="001  L000004254"
+fieldIndex=2; byteOffset=6544975; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=6544989; length=0022; raw="005  L20160217112258.0"
+fieldIndex=4; byteOffset=6545015; length=0046; raw="008  L121029s1980^^^^ru^|||||^||||||||^||rus^d"
+fieldIndex=5; byteOffset=6545065; length=0017; raw="017  L$$a80-51512"
+fieldIndex=6; byteOffset=6545086; length=0035; raw="035  L$$a(RuMoELAR)1975-76-20130219"
+fieldIndex=7; byteOffset=6545125; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=8; byteOffset=6545164; length=0012; raw="0410 L$$arus"
+fieldIndex=9; byteOffset=6545180; length=0011; raw="044  L$$aru"
+fieldIndex=10; byteOffset=6545195; length=0131; raw="24500L$$aСоветская военная энциклопедия [в 8 томах] /$$bТом 8. \"Ташкент\" - Ячейка"
+fieldIndex=11; byteOffset=6545330; length=0049; raw="260  L$$aМосква$$bВоениздат$$c1980"
+fieldIndex=12; byteOffset=6545383; length=0085; raw="300  L$$a687 с., 26 л. ил., карт., 1 отд. л. табл.$$bил., карт."
+fieldIndex=13; byteOffset=6545472; length=0112; raw="653  L$$aВоенное дело - Энциклопедия - Военное справочное издание"
+fieldIndex=14; byteOffset=6545588; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=15; byteOffset=6545604; length=0047; raw="CAT  L$$aKOMPL37$$b10$$c20160217$$lRSL06$$h1122"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 6544900 /tmp/000004254.dat

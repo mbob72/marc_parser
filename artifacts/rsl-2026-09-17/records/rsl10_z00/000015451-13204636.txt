@@ -1,0 +1,29 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000015451; recordIndex (0-based): 27603; byteOffset: 13204636
+Record length: 427 bytes; record SHA-256: fa6edb3e22d7c43a69ac35346c52883cca390519aa2a705effd7e550c49e2799
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"message": "Error: Поле LDR Aleph-записи содержит 25 байт; ожидалось 24."}
+
+Fields:
+fieldIndex=0; byteOffset=13204646; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=13204658; length=0031; raw="LDR  L00358nz^^a2200169т^^4500"
+fieldIndex=1; byteOffset=13204693; length=0015; raw="001  L000015451"
+fieldIndex=2; byteOffset=13204712; length=0013; raw="003  LRuMoRGB"
+fieldIndex=3; byteOffset=13204729; length=0022; raw="005  L20090701104558.0"
+fieldIndex=4; byteOffset=13204755; length=0046; raw="008  L031225^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=5; byteOffset=13204805; length=0033; raw="035  L$$a(RuMoRGB)MEKACOL-0004127"
+fieldIndex=6; byteOffset=13204842; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=7; byteOffset=13204874; length=0014; raw="065  L$$2rubbk"
+fieldIndex=8; byteOffset=13204892; length=0018; raw="1102 L$$aAGRI-SCOP"
+fieldIndex=9; byteOffset=13204914; length=0045; raw="CAT  L$$aRSL10$$b00$$c20031225$$lRSL10$$h0020"
+fieldIndex=10; byteOffset=13204963; length=0044; raw="CAT  L$$aNO04$$b40$$c20090701$$lRSL10$$h1045"
+fieldIndex=11; byteOffset=13205011; length=0010; raw="UPD  L$$aN"
+fieldIndex=12; byteOffset=13205025; length=0018; raw="670  L$$aHTD Publ."
+fieldIndex=13; byteOffset=13205047; length=0011; raw="961  L$$a63"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 13204636 /tmp/000015451.dat

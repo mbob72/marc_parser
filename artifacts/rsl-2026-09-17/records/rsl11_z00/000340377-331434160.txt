@@ -1,0 +1,29 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000340377; recordIndex (0-based): 340065; byteOffset: 331434160
+Record length: 1727 bytes; record SHA-256: e99ea7c8f02cb36655d4c62312677cb76e0a787a8e628fcb02ef7cd4b46191a9
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 5, "tag": "100", "subfieldIndex": 2, "message": "Подполе 3 поля 100 имеет недопустимый код \">\"."}
+{"rule": "SF-G4", "fieldIndex": 5, "tag": "100", "subfieldIndex": 2, "message": "Подполе 3 поля 100 имеет недопустимый код \">\"."}
+
+Fields:
+fieldIndex=0; byteOffset=331434170; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=331434182; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=331434216; length=0021; raw="001  Lnafpn-000340377"
+fieldIndex=2; byteOffset=331434241; length=0022; raw="005  L20260522132025.0"
+fieldIndex=3; byteOffset=331434267; length=0046; raw="008  L260522^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=331434317; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=331434349; length=0078; raw="1001 L$$aСиница, Елена Фёдоровна$$d1959-$$>RSL11-000340377"
+fieldIndex=6; byteOffset=331434431; length=0078; raw="4001 L$$aСиница, Елена Федоровна$$d1959-$$0RSL11-000340377"
+fieldIndex=7; byteOffset=331434513; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20260522$$lRSL11$$h1114"
+fieldIndex=8; byteOffset=331434562; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20260522$$lRSL11$$h1320"
+fieldIndex=9; byteOffset=331434611; length=0078; raw="COR  L$$aСиница, Елена Фёдоровна$$d1959-$$0RSL11-000340377"
+fieldIndex=10; byteOffset=331434693; length=0010; raw="UPD  L$$aN"
+fieldIndex=11; byteOffset=331434707; length=0082; raw="670  L$$aЕлена Синица. Художник, учитель, муза, 2025"
+fieldIndex=12; byteOffset=331434793; length=1089; raw="6780 L$$aСанкт-Петербургский художник и педагог. Родилась в посёлке Коммунар под Павловском. Выпускница отделения изобразительного искусства Ленинградского государственного университета им. А. С. Пушкина (1998 г.). Работала преподавателем в общеобразовательной школе, с 1995 по 2017 год заведовала отделом в Коммунаровской школе искусств, работала преподавателем Детского творческого центра Государственного музея-заповедника \"Павловск\". В 2009–2021 гг. преподавала на ежегодной летней практике на базе Академии художеств в Алупке. Работы Елены Синицы находятся в частных собраниях России и других стран"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 331434160 /tmp/000340377.dat

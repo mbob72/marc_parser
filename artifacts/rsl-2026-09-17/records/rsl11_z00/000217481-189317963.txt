@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000217481; recordIndex (0-based): 211193; byteOffset: 189317963
+Record length: 1373 bytes; record SHA-256: f4d0e03025fb6f93917e473be7b44d0d4f17c91ffd419555d3a89b78271c8bd3
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 7, "tag": "500", "subfieldIndex": 0, "message": "Подполе 1 поля 500 имеет недопустимый код \"D\"."}
+{"rule": "SF-G4", "fieldIndex": 7, "tag": "500", "subfieldIndex": 0, "message": "Подполе 1 поля 500 имеет недопустимый код \"D\"."}
+
+Fields:
+fieldIndex=0; byteOffset=189317973; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=189317985; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=189318019; length=0021; raw="001  Lnafpn-000217481"
+fieldIndex=2; byteOffset=189318044; length=0022; raw="005  L20190412150244.0"
+fieldIndex=3; byteOffset=189318070; length=0046; raw="008  L190412^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=189318120; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=189318152; length=0031; raw="1001 L$$aДеВос, Меган"
+fieldIndex=6; byteOffset=189318187; length=0031; raw="4001 L$$aДевос, Меган"
+fieldIndex=7; byteOffset=189318222; length=0021; raw="5001 L$$DDeVos, Megan"
+fieldIndex=8; byteOffset=189318247; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20190412$$lRSL11$$h1501"
+fieldIndex=9; byteOffset=189318296; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20190412$$lRSL11$$h1502"
+fieldIndex=10; byteOffset=189318345; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0202"
+fieldIndex=11; byteOffset=189318395; length=0010; raw="UPD  L$$aN"
+fieldIndex=12; byteOffset=189318409; length=0014; raw="065  L$$2rubbk"
+fieldIndex=13; byteOffset=189318427; length=0120; raw="663  L$$aПроизведения автора на иностр. языках см. под именем:$$bDeVos, Megan"
+fieldIndex=14; byteOffset=189318551; length=0029; raw="670  L$$aАнархия, 2019"
+fieldIndex=15; byteOffset=189318584; length=0747; raw="6780 L$$aАмериканская писательница. Выросла в г. Су-Фолс (штат Южная Дакота). Получила медицинское образование в университете, работала медсестрой хирургического отделения. В настоящее время занимается литературным трудом профессионально. Автор цикла \"Анархия\", который публиковался на сервисе Wattpad, теперь опубликован в электронном и бумажном виде во многих странах мира. В 2019 году планируется его экранизация"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 189317963 /tmp/000217481.dat

@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007926; recordIndex (0-based): 11791; byteOffset: 10719635
+Record length: 929 bytes; record SHA-256: 8027185b1980ac5b0dd50732da288706bcea5e180bf8d1809e91e61a34ab33d2
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10719645; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10719657; length=0030; raw="LDR  L01171nam^a22002772ic4500"
+fieldIndex=1; byteOffset=10719691; length=0015; raw="001  L000007926"
+fieldIndex=2; byteOffset=10719710; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10719724; length=0022; raw="005  L20190426125823.0"
+fieldIndex=4; byteOffset=10719750; length=0046; raw="008  L110121s1933^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10719800; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00327241"
+fieldIndex=6; byteOffset=10719839; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10719878; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10719894; length=0029; raw="24500L$$aТ. 2$$h[Текст]"
+fieldIndex=9; byteOffset=10719927; length=0013; raw="260  L$$c1933"
+fieldIndex=10; byteOffset=10719944; length=0053; raw="300  L$$a560 с., 3 л. ил., портр., факс."
+fieldIndex=11; byteOffset=10720001; length=0035; raw="504  L$$aБиблиогр.: с. 558"
+fieldIndex=12; byteOffset=10720040; length=0350; raw="77318L$$7p1am$$gТ. 2$$aСлепцов, Василий Алексеевич$$tСочинения [Текст] : В 2 томах$$d[Москва] ; [Ленинград] : Academia, 1932-1933 (Л. : тип. им. Евг. Соколовой)$$h2 т.; 17х13 см.$$k(Русские писатели. XIX век. В. А. Слепцов. 1836-1878)$$w7925"
+fieldIndex=13; byteOffset=10720394; length=0099; raw="LKR  L$$aUP$$lRSL06$$b7925$$mТ. 2 [Текст]$$nСочинения [Текст] : В 2 томах"
+fieldIndex=14; byteOffset=10720497; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=15; byteOffset=10720513; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190426$$lRSL06$$h1258"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10719635 /tmp/000007926.dat

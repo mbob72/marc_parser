@@ -1,0 +1,37 @@
+Source: data/rsl-2026-09-17/raw/rsl07_z00.dat
+Source SHA-256: 4dfcc187ae80f6710bd08d14f5a367d29b84ae6c6103c3836dff21fb28df127f
+recordId: 000401465; recordIndex (0-based): 400706; byteOffset: 78953596
+Record length: 1576 bytes; record SHA-256: 92879247d9a1b1e096f69246d5be4ad963685d2ad5df8db8e006768c458f2890
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DF-G3", "fieldIndex": 11, "tag": "110", "message": "Поле 110 не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=78953606; length=0008; raw="FMT  LSE"
+fieldIndex=LDR; byteOffset=78953618; length=0030; raw="LDR  L^^^^^nas^a22^^^^^^i^4500"
+fieldIndex=1; byteOffset=78953652; length=0015; raw="001  L000401465"
+fieldIndex=2; byteOffset=78953671; length=0022; raw="005  L20250605161243.0"
+fieldIndex=3; byteOffset=78953697; length=0046; raw="008  L190409c20189999ru^|u||^r^^^^^0|||u|rus|d"
+fieldIndex=4; byteOffset=78953747; length=0018; raw="022  L$$a2619-1148"
+fieldIndex=5; byteOffset=78953769; length=0013; raw="02470L$$2RSPR"
+fieldIndex=6; byteOffset=78953786; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=7; byteOffset=78953818; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=78953834; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=78953849; length=0025; raw="084  L$$aХ62я43$$2rubbk"
+fieldIndex=10; byteOffset=78953878; length=0024; raw="084  L$$aС.я43$$2rubbk"
+fieldIndex=11; byteOffset=78953906; length=0119; raw="1102 LКузбасский институт Федеральной службы исполнения наказаний"
+fieldIndex=12; byteOffset=78954029; length=0463; raw="24500L$$aВестник молодого ученого Кузбасского института :$$bсборник научных статей$$cФедеральное казенное образовательное учреждение высшего образования \"Кузбасский институт Федеральной службы исполнения наказаний\" ; [ответственный редактор А. Г. Чириков]"
+fieldIndex=13; byteOffset=78954496; length=0169; raw="260  L$$aНовокузнецк$$bФКОУ ВО Кузбасский институт Федеральной службы исполнения наказаний$$c2018-"
+fieldIndex=14; byteOffset=78954669; length=0016; raw="300  L$$c29 см"
+fieldIndex=15; byteOffset=78954689; length=0046; raw="504  L$$aБиблиогр. в конце ст."
+fieldIndex=16; byteOffset=78954739; length=0149; raw="650 7L$$aГосударство и право. Юридические науки -- Российская Федерация -- Сборник$$2rubbk"
+fieldIndex=17; byteOffset=78954892; length=0084; raw="650 7L$$aОбщественные науки в целом -- Сборник$$2rubbk"
+fieldIndex=18; byteOffset=78954980; length=0074; raw="7001 L$$aЧириков, Анатолий Геннадьевич$$eред."
+fieldIndex=19; byteOffset=78955058; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=20; byteOffset=78955074; length=0044; raw="CAT  L$$aDL03$$b90$$c20200411$$lRSL07$$h0812"
+fieldIndex=21; byteOffset=78955122; length=0045; raw="CAT  L$$aDK410$$b40$$c20250605$$lRSL07$$h1612"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl07_z00.dat 78953596 /tmp/000401465.dat

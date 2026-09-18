@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000241213; recordIndex (0-based): 240310; byteOffset: 135670814
+Record length: 762 bytes; record SHA-256: db72fc545da51d3ae61990f71323ff32e901277db1b7737b40ab53e1b48e60ce
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DF-G3", "fieldIndex": 8, "tag": "410", "message": "Поле 410 не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=135670824; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=135670836; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=135670870; length=0015; raw="001  L000241213"
+fieldIndex=2; byteOffset=135670889; length=0022; raw="005  L20220701101054.0"
+fieldIndex=3; byteOffset=135670915; length=0046; raw="008  L220701^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=135670965; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=135670997; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=135671015; length=0080; raw="1102 L$$a\"Матисс Клуб\", галерея (Санкт-Петербург)"
+fieldIndex=7; byteOffset=135671099; length=0079; raw="4101 L$$aСанкт-Петербург$$bГалерея \"Матисс Клуб\""
+fieldIndex=8; byteOffset=135671182; length=0036; raw="4102 LООО \"Матисс Клуб\""
+fieldIndex=9; byteOffset=135671222; length=0033; raw="4102 L$$aMatiss Club, art gallery"
+fieldIndex=10; byteOffset=135671259; length=0032; raw="4102 L$$aArt gallery Matiss Club"
+fieldIndex=11; byteOffset=135671295; length=0045; raw="CAT  L$$aOKZ23$$b40$$c20220701$$lRSL10$$h1010"
+fieldIndex=12; byteOffset=135671344; length=0010; raw="UPD  L$$aN"
+fieldIndex=13; byteOffset=135671358; length=0046; raw="670  L$$aГеоргий Ковенчук, 2005"
+fieldIndex=14; byteOffset=135671408; length=0163; raw="6781 L$$aГалерея современного искусства «Матисс Клуб» в Санкт-Петербурге основана в 2003 году."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 135670814 /tmp/000241213.dat

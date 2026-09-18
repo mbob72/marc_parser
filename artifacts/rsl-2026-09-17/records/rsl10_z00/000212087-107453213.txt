@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000212087; recordIndex (0-based): 210843; byteOffset: 107453213
+Record length: 726 bytes; record SHA-256: 43eb396ae5cd0e97394e62241a9722d8a8900395405d6ec83cbd394703d32ff0
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DF-G2", "fieldIndex": 11, "tag": "667", "message": "Поле 667 содержит 0 индикатор(а), ожидалось 2."}
+{"rule": "VF-G5", "fieldIndex": 11, "tag": "667", "subfieldIndex": 0, "message": "Подполе 1 поля 667 имеет недопустимый код \" \"."}
+{"rule": "SF-G4", "fieldIndex": 11, "tag": "667", "subfieldIndex": 0, "message": "Подполе 1 поля 667 имеет недопустимый код \" \"."}
+
+Fields:
+fieldIndex=0; byteOffset=107453223; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=107453235; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=107453269; length=0015; raw="001  L000212087"
+fieldIndex=2; byteOffset=107453288; length=0022; raw="005  L20180130173924.0"
+fieldIndex=3; byteOffset=107453314; length=0046; raw="008  L180130^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=107453364; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=107453396; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=107453414; length=0073; raw="1112 L$$aНеврологические чтения в Перми$$d2017"
+fieldIndex=7; byteOffset=107453491; length=0072; raw="4112 L$$aНеврологические чтения$$d2017$$cПермь"
+fieldIndex=8; byteOffset=107453567; length=0167; raw="4112 L$$aМежрегиональная научно-практическая конференция \"Неврологические чтения в Перми\"$$d2017"
+fieldIndex=9; byteOffset=107453738; length=0044; raw="CAT  L$$aNO16$$b40$$c20180130$$lRSL10$$h1739"
+fieldIndex=10; byteOffset=107453786; length=0010; raw="UPD  L$$aN"
+fieldIndex=11; byteOffset=107453800; length=0058; raw="667\u001f L$$aПермь, 21-22 сентября 2017 года."
+fieldIndex=12; byteOffset=107453862; length=0072; raw="670  L$$aНеврологические чтения в Перми, 2017"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 107453213 /tmp/000212087.dat

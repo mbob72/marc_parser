@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007836; recordIndex (0-based): 11701; byteOffset: 10620812
+Record length: 848 bytes; record SHA-256: 671a6420c88cfa0c075ac767eb2c4f115381ef0c753a04f41e070df052cbb03e
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10620822; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10620834; length=0030; raw="LDR  L01222nam^a22002892ic4500"
+fieldIndex=1; byteOffset=10620868; length=0015; raw="001  L000007836"
+fieldIndex=2; byteOffset=10620887; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10620901; length=0022; raw="005  L20190423125850.0"
+fieldIndex=4; byteOffset=10620927; length=0046; raw="008  L100720q1930^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10620977; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00027153"
+fieldIndex=6; byteOffset=10621016; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10621055; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10621071; length=0014; raw="24500L$$aТ. 2"
+fieldIndex=9; byteOffset=10621089; length=0013; raw="260  L$$c1930"
+fieldIndex=10; byteOffset=10621106; length=0016; raw="300  L$$a599 с."
+fieldIndex=11; byteOffset=10621126; length=0319; raw="77318L$$7p1am$$gТ. 2$$aДельвиг, Андрей Иванович$$tПолвека русской жизни : Воспоминания А. И. Дельвига. 1820-1870$$dМосква ; Ленинград : Academia, MCMXXX [1930] (Л. : гос. тип. им. Евг. Соколовой)$$h2 т.; 17 см.$$w7835"
+fieldIndex=12; byteOffset=10621449; length=0140; raw="LKR  L$$aUP$$lRSL06$$b7835$$mТ. 2$$nПолвека русской жизни : Воспоминания А. И. Дельвига. 1820-1870"
+fieldIndex=13; byteOffset=10621593; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=14; byteOffset=10621609; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190423$$lRSL06$$h1258"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10620812 /tmp/000007836.dat

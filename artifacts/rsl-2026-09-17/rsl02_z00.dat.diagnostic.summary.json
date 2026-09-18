@@ -1,0 +1,52 @@
+{
+  "file": "rsl02_z00.dat",
+  "mode": "diagnostic",
+  "category": "bibliographic",
+  "source": "https://mrsadman.ru/ac34d2e7ff814dac/",
+  "revision": "47d517aa270e431874abe1524a2ae069b7910d97",
+  "node": "v24.12.0",
+  "startedAt": "2026-09-17T15:23:35.395Z",
+  "completedAt": "2026-09-17T15:23:38.912Z",
+  "complete": true,
+  "fileBytes": 30947700,
+  "sha256": "76499311fda50f230c31945f601e9ad0679217b5d8cc20deae53bfc84638d9a4",
+  "recordsProcessed": 37028,
+  "validRecords": 35267,
+  "recordsWithValidationErrors": 756,
+  "recordsWithParsingErrors": 1005,
+  "validationErrors": 756,
+  "inputBytes": 30947700,
+  "serializedBytes": 102438150,
+  "rules": {
+    "LD-02": 756
+  },
+  "messages": {
+    "LD-02: Leader/19 содержит недопустимый для схемы РГБ код \"c\".": {
+      "count": 629,
+      "first": {
+        "recordIndex": 18,
+        "byteOffset": 12719,
+        "rule": "LD-02",
+        "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."
+      }
+    },
+    "LD-02: Leader/19 содержит недопустимый для схемы РГБ код \"b\".": {
+      "count": 30,
+      "first": {
+        "recordIndex": 410,
+        "byteOffset": 243624,
+        "rule": "LD-02",
+        "message": "Leader/19 содержит недопустимый для схемы РГБ код \"b\"."
+      }
+    },
+    "LD-02: Leader/19 содержит недопустимый для схемы РГБ код \"a\".": {
+      "count": 97,
+      "first": {
+        "recordIndex": 1007,
+        "byteOffset": 610290,
+        "rule": "LD-02",
+        "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."
+      }
+    }
+  }
+}

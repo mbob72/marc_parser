@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007863; recordIndex (0-based): 11728; byteOffset: 10653682
+Record length: 1025 bytes; record SHA-256: 8cfc7bca2ee4e64bbcfcd81f71a0d28c64c97a7bffa535142923b0ea26fd5ecc
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10653692; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10653704; length=0030; raw="LDR  L00980nam^a22002052ia4500"
+fieldIndex=1; byteOffset=10653738; length=0015; raw="001  L000007863"
+fieldIndex=2; byteOffset=10653757; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10653771; length=0022; raw="005  L20190424094022.0"
+fieldIndex=4; byteOffset=10653797; length=0046; raw="008  L101028s1930^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10653847; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00178434"
+fieldIndex=6; byteOffset=10653886; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10653925; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10653941; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=10653956; length=0302; raw="24500L$$aОписание гидротехнических лабораторий СССР$$h[Текст] :$$b[Сборник статей]$$cГос. науч.-экспериментальный ин-т гражданских, пром. и инж. сооружений. Гидротехн. сектор"
+fieldIndex=10; byteOffset=10654262; length=0112; raw="260  L$$aМосква$$bГос. техн. изд-во$$c[1930]$$eЛ.$$fтип. \"Красный печатник\""
+fieldIndex=11; byteOffset=10654378; length=0029; raw="300  L$$a1 т.$$c30х21 см."
+fieldIndex=12; byteOffset=10654411; length=0065; raw="500  L$$aВ коленкоровом переплете$$5RuMoRGB"
+fieldIndex=13; byteOffset=10654480; length=0135; raw="7102 L$$aНаучно-экспериментальный инст. гражд. пром. и инж. сооружений (Москва)"
+fieldIndex=14; byteOffset=10654619; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=15; byteOffset=10654640; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=16; byteOffset=10654656; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190424$$lRSL06$$h0940"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10653682 /tmp/000007863.dat

@@ -1,0 +1,29 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000073570; recordIndex (0-based): 70313; byteOffset: 56287512
+Record length: 589 bytes; record SHA-256: 306a5b2f5c50262f7b1c7639d8d72d59450e5a6f8f3bebafbbb3607fd8286f54
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DR-E2", "fieldIndex": 11, "tag": " --", "message": "Некорректный тег \" --\"."}
+
+Fields:
+fieldIndex=0; byteOffset=56287522; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=56287534; length=0030; raw="LDR  L00386nz^^a2200133n^^4500"
+fieldIndex=1; byteOffset=56287568; length=0021; raw="001  Lnafpn-000073570"
+fieldIndex=2; byteOffset=56287593; length=0022; raw="005  L20180607121645.0"
+fieldIndex=3; byteOffset=56287619; length=0046; raw="008  L071210|n|azz||a|||^^^^^^^^^^||^a|c^^^^^d"
+fieldIndex=4; byteOffset=56287669; length=0038; raw="040  L$$aRuMoRKP$$bru$$dRuMoRGB$$ePSBO"
+fieldIndex=5; byteOffset=56287711; length=0056; raw="1001 L$$aЦепилова, Вера Алексеевна"
+fieldIndex=6; byteOffset=56287771; length=0032; raw="CAT  L$$c20100114$$lRSL11$$h1859"
+fieldIndex=7; byteOffset=56287807; length=0032; raw="CAT  L$$c20100908$$lRSL11$$h2116"
+fieldIndex=8; byteOffset=56287843; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20180607$$lRSL11$$h1216"
+fieldIndex=9; byteOffset=56287892; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20180607$$lRSL11$$h1216"
+fieldIndex=10; byteOffset=56287941; length=0010; raw="UPD  L$$aN"
+fieldIndex=11; byteOffset=56287955; length=0014; raw=" --  L$$d1968-"
+fieldIndex=12; byteOffset=56287973; length=0030; raw="667  L$$aRU\\RKP\\AUTH\\02-011220"
+fieldIndex=13; byteOffset=56288007; length=0089; raw="678  L$$aХудожник-иллюстратор. Российская Федерация"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 56287512 /tmp/000073570.dat

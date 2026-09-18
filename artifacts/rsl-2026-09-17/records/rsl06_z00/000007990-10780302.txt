@@ -1,0 +1,34 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007990; recordIndex (0-based): 11856; byteOffset: 10780302
+Record length: 1252 bytes; record SHA-256: f52276d65a2f641c960453fe18a6a6c52293b3eb5307ebc657be6515795e0120
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10780312; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10780324; length=0030; raw="LDR  L01212nam^a22002292ia4500"
+fieldIndex=1; byteOffset=10780358; length=0015; raw="001  L000007990"
+fieldIndex=2; byteOffset=10780377; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10780391; length=0022; raw="005  L20190430113027.0"
+fieldIndex=4; byteOffset=10780417; length=0046; raw="008  L101028s1930^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10780467; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00191459"
+fieldIndex=6; byteOffset=10780506; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10780545; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10780561; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=10780576; length=0307; raw="24500L$$aРусская журналистика..$$h[Текст]$$cПод ред. и с пред. Валерьяна Полянского ; Папка и супер-обложка: Д. И. Митрохин ; Ин-т языка и лит-ры РАНИОН. Отд. критики и публицистики"
+fieldIndex=10; byteOffset=10780887; length=0129; raw="260  L$$aМосква ;$$aЛенинград$$bAcademia$$c1930$$eЛ.$$fгос. тип. изд-ва \"Ленингр. правда\""
+fieldIndex=11; byteOffset=10781020; length=0029; raw="300  L$$a1 т.$$c20х14 см."
+fieldIndex=12; byteOffset=10781053; length=0147; raw="500  L$$aВ переплете-папке и супер-обложке. Папка и супер-обложка: Д. И. Митрохин$$5RuMoRGB"
+fieldIndex=13; byteOffset=10781204; length=0117; raw="7001 L$$aПолянский, Валерьян$$eРедактор$$eАвтор введения / заключения"
+fieldIndex=14; byteOffset=10781325; length=0059; raw="7001 L$$aМитрохин, Д. И.$$eИллюстратор"
+fieldIndex=15; byteOffset=10781388; length=0074; raw="7102 L$$aИнститут языка и литературы. Москва"
+fieldIndex=16; byteOffset=10781466; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=17; byteOffset=10781487; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=18; byteOffset=10781503; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190430$$lRSL06$$h1130"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10780302 /tmp/000007990.dat

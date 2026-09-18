@@ -1,0 +1,44 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000105783; recordIndex (0-based): 149049; byteOffset: 122590445
+Record length: 3158 bytes; record SHA-256: bcf5f39ed998d7a2497dd045ff1de0c2861374a228440b8291fc8675ff35222b
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DF-G3", "fieldIndex": 4, "tag": "035", "message": "Поле 035 не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=122590455; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=122590467; length=0030; raw="LDR  L00765nz^^a2200217n^^4500"
+fieldIndex=1; byteOffset=122590501; length=0021; raw="001  Lnafpn-000105783"
+fieldIndex=2; byteOffset=122590526; length=0022; raw="005  L20250717153607.0"
+fieldIndex=3; byteOffset=122590552; length=0046; raw="008  L061213^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=122590602; length=0015; raw="035  L000089963"
+fieldIndex=5; byteOffset=122590621; length=0028; raw="040  L$$aRuMoRGB$$brus$$erpk"
+fieldIndex=6; byteOffset=122590653; length=0014; raw="065  L$$2rubbk"
+fieldIndex=7; byteOffset=122590671; length=0059; raw="1001 L$$aNhất Hạnh Thích$$d1926-2022$$0RSL11-000105783"
+fieldIndex=8; byteOffset=122590734; length=0054; raw="4000 L$$aThich Nhat Hanh$$d1926-2022$$0RSL11-000105783"
+fieldIndex=9; byteOffset=122590792; length=0059; raw="4000 L$$aThích Nhất Hạnh$$d1926-2022$$0RSL11-000105783"
+fieldIndex=10; byteOffset=122590855; length=0050; raw="4000 L$$aTit Nat Han$$d1926-2022$$0RSL11-000105783"
+fieldIndex=11; byteOffset=122590909; length=0054; raw="4001 L$$aNhat Hanh Thich$$d1926-2022$$0RSL11-000105783"
+fieldIndex=12; byteOffset=122590967; length=0059; raw="4000 L$$aHạnh Thích Nhất$$d1926-2022$$0RSL11-000105783"
+fieldIndex=13; byteOffset=122591030; length=0059; raw="4001 L$$aNguyễn Xuân Bảo$$d1926-2022$$0RSL11-000105783"
+fieldIndex=14; byteOffset=122591093; length=0071; raw="5001 L$$aНат Хан Тик$$d1926-2022$$w000105779$$0RSL11-000105783"
+fieldIndex=15; byteOffset=122591168; length=0063; raw="5001 L$$a一行禪師$$d1926-2022$$w000157011$$0RSL11-000105783"
+fieldIndex=16; byteOffset=122591235; length=0044; raw="CAT  L$$aNO07$$b40$$c20100129$$lRSL11$$h1414"
+fieldIndex=17; byteOffset=122591283; length=0032; raw="CAT  L$$c20121212$$lRSL11$$h2100"
+fieldIndex=18; byteOffset=122591319; length=0044; raw="CAT  L$$aNO16$$b40$$c20141022$$lRSL11$$h1204"
+fieldIndex=19; byteOffset=122591367; length=0045; raw="CAT  L$$aOKZ23$$b40$$c20210607$$lRSL11$$h0939"
+fieldIndex=20; byteOffset=122591416; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0200"
+fieldIndex=21; byteOffset=122591466; length=0044; raw="CAT  L$$aNO16$$b40$$c20250717$$lRSL11$$h1527"
+fieldIndex=22; byteOffset=122591514; length=0044; raw="CAT  L$$aNO16$$b40$$c20250717$$lRSL11$$h1530"
+fieldIndex=23; byteOffset=122591562; length=0044; raw="CAT  L$$aNO16$$b40$$c20250717$$lRSL11$$h1530"
+fieldIndex=24; byteOffset=122591610; length=0044; raw="CAT  L$$aNO16$$b40$$c20250717$$lRSL11$$h1531"
+fieldIndex=25; byteOffset=122591658; length=0044; raw="CAT  L$$aNO16$$b40$$c20250717$$lRSL11$$h1536"
+fieldIndex=26; byteOffset=122591706; length=0010; raw="UPD  L$$aN"
+fieldIndex=27; byteOffset=122591720; length=0075; raw="670  L$$aИз кн.: Счастье внутренней тишины, 2006"
+fieldIndex=28; byteOffset=122591799; length=1799; raw="6780 L$$aНат Хан Тик (11.10.1926, Хюэ, Французский Индокитай - 22.01.2022, Хюэ, Вьетнам) - вьетнамский дзэн-буддийский монах, настоятель буддийского медитативного центра в Дордони (Франция), автор ряда книг по дзэн-буддизму, поэт, ученый. В начале 1960-х годов организовал молодёжную школу социальной помощи (SYSS) в Сайгоне. Эта организация занималась восстановлением разрушенных в ходе войны деревень, строительством школ и больниц, помогала бездомным. Позднее переехал в США, где учился в Принстонском университете, после чего некоторое время читал лекции в Корнелльском и Колумбийском университетах. В январе 1967 года Мартином Лютером Кингом был выдвинут на получение Нобелевской премии мира, однако не получил её. В настоящее время живёт в небольшой буддийской коммуне Plum Village («Деревня Слив») на юге Франции, где преподаёт, пишет книги и занимается садоводством. Время от времени посещает другие страны (дважды, в 1992 и 1994 годах, посещал Россию). Издал более 100 книг, включая больше 40 на английском языке."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 122590445 /tmp/000105783.dat

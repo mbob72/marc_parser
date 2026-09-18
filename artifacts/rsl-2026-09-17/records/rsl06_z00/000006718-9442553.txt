@@ -1,0 +1,33 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006718; recordIndex (0-based): 10577; byteOffset: 9442553
+Record length: 744 bytes; record SHA-256: 3a929a1836c8460e939f93c129ea784e2a8581f2e32219334e70b0edc64908d4
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9442563; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9442575; length=0030; raw="LDR  L00693nam^a22002172ia4500"
+fieldIndex=1; byteOffset=9442609; length=0015; raw="001  L000006718"
+fieldIndex=2; byteOffset=9442628; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9442642; length=0022; raw="005  L20190206102103.0"
+fieldIndex=4; byteOffset=9442668; length=0046; raw="008  L100514s1926^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9442718; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00050360"
+fieldIndex=6; byteOffset=9442757; length=0035; raw="040  L$$aRuMoRGB$$brus$$ercr$$cELAR"
+fieldIndex=7; byteOffset=9442796; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9442812; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=9442827; length=0056; raw="1001 L$$aСоболь, Андрей Михайлович"
+fieldIndex=10; byteOffset=9442887; length=0087; raw="24500L$$aСобрание сочинений$$h[Текст]$$cАндрей Соболь"
+fieldIndex=11; byteOffset=9442978; length=0082; raw="260  L$$aМосква$$bЗемля и фабрика$$c[1926]$$aЛенинград"
+fieldIndex=12; byteOffset=9443064; length=0017; raw="300  L$$c24 см."
+fieldIndex=13; byteOffset=9443085; length=0054; raw="500  L$$aНапеч. в Ленинграде$$5RuMoRGB"
+fieldIndex=14; byteOffset=9443143; length=0062; raw="7001 L$$aГорбов, Д.$$eАвтор предисловия"
+fieldIndex=15; byteOffset=9443209; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=16; byteOffset=9443230; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=17; byteOffset=9443246; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190206$$lRSL06$$h1021"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9442553 /tmp/000006718.dat

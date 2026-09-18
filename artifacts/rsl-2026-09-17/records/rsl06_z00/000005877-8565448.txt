@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000005877; recordIndex (0-based): 9744; byteOffset: 8565448
+Record length: 783 bytes; record SHA-256: 772c57bf96796f90a25cef2948ed82f66bf1fe3dabaeafa8bb1cee24da2a66f8
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=8565458; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=8565470; length=0030; raw="LDR  L00794nam^a22002172ic4500"
+fieldIndex=1; byteOffset=8565504; length=0015; raw="001  L000005877"
+fieldIndex=2; byteOffset=8565523; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=8565537; length=0022; raw="005  L20181128121905.0"
+fieldIndex=4; byteOffset=8565563; length=0046; raw="008  L100622s1918^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=8565613; length=0017; raw="017  L$$a15640-37"
+fieldIndex=6; byteOffset=8565634; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00092939"
+fieldIndex=7; byteOffset=8565673; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=8; byteOffset=8565712; length=0012; raw="0410 L$$arus"
+fieldIndex=9; byteOffset=8565728; length=0014; raw="24500L$$aТ. 5"
+fieldIndex=10; byteOffset=8565746; length=0015; raw="260  L$$c[1918]"
+fieldIndex=11; byteOffset=8565765; length=0038; raw="300  L$$a348 с., 19 л. ил.$$bил."
+fieldIndex=12; byteOffset=8565807; length=0225; raw="77318L$$7p1am$$gТ. 5$$aПокровский, Михаил Николаевич (1868-1932)$$tРусская история с древнейших времен$$b2-е изд.$$dМосква : Мир, [1918]$$h27 см.$$w5876"
+fieldIndex=13; byteOffset=8566036; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=14; byteOffset=8566057; length=0103; raw="LKR  L$$aUP$$lRSL06$$b5876$$mТ. 5$$nРусская история с древнейших времен"
+fieldIndex=15; byteOffset=8566164; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=16; byteOffset=8566180; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20181128$$lRSL06$$h1219"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 8565448 /tmp/000005877.dat

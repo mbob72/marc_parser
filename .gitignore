@@ -3,3 +3,8 @@ dist/
 release/
 *.tmp-*
 .DS_Store
+data/rsl-2026-09-17/raw/
+data/rsl-2026-09-17/archives/rsl01_z00.tar.gz
+data/rsl-2026-09-17/archives/*.range-*
+data/rsl-2026-09-17/archives/*.partial
+artifacts/rsl-2026-09-17/records/rsl01_z00/

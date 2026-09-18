@@ -1,0 +1,35 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006727; recordIndex (0-based): 10586; byteOffset: 9452056
+Record length: 1146 bytes; record SHA-256: d536af3142f011ba60b7b0092308ca687fea6cfdb78a242be7e670b163e2df49
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9452066; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9452078; length=0030; raw="LDR  L01113nam^a22002412ia4500"
+fieldIndex=1; byteOffset=9452112; length=0015; raw="001  L000006727"
+fieldIndex=2; byteOffset=9452131; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9452145; length=0022; raw="005  L20190206111515.0"
+fieldIndex=4; byteOffset=9452171; length=0046; raw="008  L101028m19281932ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9452221; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00219394"
+fieldIndex=6; byteOffset=9452260; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9452299; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9452315; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=9452330; length=0286; raw="24500L$$aЭнциклопедия советского экспорта$$h[Текст]$$cРед. коллегия: М. Г. Бронский, Ш. М. Дволайцкий, Ф. Я. Рабинович ; Глав. ред. Ш. М. Дволайцкий ; Пом. ред. В. И. Позин..."
+fieldIndex=10; byteOffset=9452620; length=0057; raw="250  L$$a2-е изд., полностью перераб."
+fieldIndex=11; byteOffset=9452681; length=0123; raw="260  L$$aМосква$$bСов. энциклопедия$$c1928-1932$$f16 тип. треста \"Полиграфкнига\""
+fieldIndex=12; byteOffset=9452808; length=0072; raw="7001 L$$aДволайцкий, Ш. Моисеевич$$eРедактор"
+fieldIndex=13; byteOffset=9452884; length=0053; raw="7001 L$$aБронский, М. Г.$$eРедактор"
+fieldIndex=14; byteOffset=9452941; length=0055; raw="7001 L$$aРабинович, Ф. Я.$$eРедактор"
+fieldIndex=15; byteOffset=9453000; length=0047; raw="7001 L$$aПозин, В. И.$$eРедактор"
+fieldIndex=16; byteOffset=9453051; length=0059; raw="7102 L$$aЭкспорт. СССР. Энциклопедии"
+fieldIndex=17; byteOffset=9453114; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=18; byteOffset=9453135; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=19; byteOffset=9453151; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190206$$lRSL06$$h1115"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9452056 /tmp/000006727.dat

@@ -1,0 +1,33 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000306918; recordIndex (0-based): 303463; byteOffset: 287574738
+Record length: 2049 bytes; record SHA-256: f2ac0cfd752f3e513256d201d5021197700411d01aacbf642e3681d4a54072bb
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DR-E2", "fieldIndex": 7, "tag": "5O0", "message": "Некорректный тег \"5O0\"."}
+
+Fields:
+fieldIndex=0; byteOffset=287574748; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=287574760; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=287574794; length=0021; raw="001  Lnafpn-000306918"
+fieldIndex=2; byteOffset=287574819; length=0022; raw="005  L20240729113321.0"
+fieldIndex=3; byteOffset=287574845; length=0046; raw="008  L240729^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=287574895; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=287574927; length=0067; raw="1000 L$$aΠλήθων Γεώργιος Γεμιστός$$d1360-1452"
+fieldIndex=6; byteOffset=287574998; length=0068; raw="4001 L$$aΠλήθων, Γεώργιος Γεμιστός$$d1360-1452"
+fieldIndex=7; byteOffset=287575070; length=0061; raw="5O00 L$$aПлифон Георгий Гемист$$d1360-1452"
+fieldIndex=8; byteOffset=287575135; length=0045; raw="CAT  L$$aOKZ23$$b40$$c20240729$$lRSL11$$h1131"
+fieldIndex=9; byteOffset=287575184; length=0045; raw="CAT  L$$aOKZ23$$b40$$c20240729$$lRSL11$$h1131"
+fieldIndex=10; byteOffset=287575233; length=0045; raw="CAT  L$$aOKZ23$$b40$$c20240729$$lRSL11$$h1132"
+fieldIndex=11; byteOffset=287575282; length=0045; raw="CAT  L$$aOKZ23$$b40$$c20240729$$lRSL11$$h1133"
+fieldIndex=12; byteOffset=287575331; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0203"
+fieldIndex=13; byteOffset=287575381; length=0010; raw="UPD  L$$aN"
+fieldIndex=14; byteOffset=287575395; length=0014; raw="065  L$$2rubbk"
+fieldIndex=15; byteOffset=287575413; length=0158; raw="663  L$$aПроизведения этого авт. на рус. языке см. под именем:$$bПлифон Георгий Гемист (1360-1452)"
+fieldIndex=16; byteOffset=287575575; length=0076; raw="670  L$$aΒυζαντινή Αναγέννηση και Ουτοπία, 2017"
+fieldIndex=17; byteOffset=287575655; length=1127; raw="6780 L$$aПоздневизантийский философ, политический и церковный деятель, историк, представитель византийского неоплатонизма. Родился в церковной семье в Константинополе, здесь же получил образование. Испытал влияние византийского гуманиста Дм. Кидониса, вероятно, некоторое время провел в Бруссе (столице османского государства). Константинопольский патриарх Геннадий Схоларий сообщает о его увлечении эллинской литературой и увлечение еретическими идеями, что стало причиной отпадения Плифона от христианства. Само имя Плифон («Наполненный») было принято Георгием Гемистом в молодости в подражание имени Платона."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 287574738 /tmp/000306918.dat

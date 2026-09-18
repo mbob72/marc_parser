@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007671; recordIndex (0-based): 11536; byteOffset: 10432568
+Record length: 1204 bytes; record SHA-256: 2b1dd18c5a4644826edc304090d73e3110389f9e354756abaa223f3e4a9837d0
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10432578; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10432590; length=0030; raw="LDR  L01400nam^a22002772ic4500"
+fieldIndex=1; byteOffset=10432624; length=0015; raw="001  L000007671"
+fieldIndex=2; byteOffset=10432643; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10432657; length=0022; raw="005  L20190419113920.0"
+fieldIndex=4; byteOffset=10432683; length=0046; raw="008  L160210s1938^^^^ru^|||||^||||||||^||rus^d"
+fieldIndex=5; byteOffset=10432733; length=0040; raw="035  L$$a(RuMoELAR)lacunas1917-79-142298"
+fieldIndex=6; byteOffset=10432777; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10432816; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10432832; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=10432847; length=0096; raw="24500L$$aИсторическое развитие русской фабрики в XIX веке"
+fieldIndex=10; byteOffset=10432947; length=0013; raw="260  L$$c1938"
+fieldIndex=11; byteOffset=10432964; length=0036; raw="300  L$$aXVI, 460 с., 1 вкл. л."
+fieldIndex=12; byteOffset=10433004; length=0165; raw="500  L$$aИзд. 6: Туган-Барановский, М. И. Русская фабрика. (См. № 3 \"Кн. лет\". 1935 г., запись № 1113)$$5RuMoRGB"
+fieldIndex=13; byteOffset=10433173; length=0323; raw="77318L$$7p1am$$gТ. 1$$aТуган-Барановский, Михаил Иванович$$tРусская фабрика в прошлом и настоящем [Текст] / Предисл.: С. Заводник$$b7-е изд.$$dМосква : Соцэкгиз, 1938 (Образцовая тип.)$$h1 т.; 23 см$$w7670"
+fieldIndex=14; byteOffset=10433500; length=0201; raw="LKR  L$$aUP$$lRSL06$$b7670$$mИсторическое развитие русской фабрики в XIX веке$$nРусская фабрика в прошлом и настоящем [Текст]"
+fieldIndex=15; byteOffset=10433705; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=16; byteOffset=10433721; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190419$$lRSL06$$h1139"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10432568 /tmp/000007671.dat

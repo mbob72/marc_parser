@@ -1,0 +1,34 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000008492; recordIndex (0-based): 9181; byteOffset: 8020259
+Record length: 803 bytes; record SHA-256: f98353a3000af2af316065e2738a2dcc80712d55471c82472e1d1d96b774e74b
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=8020269; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=8020281; length=0030; raw="LDR  L00770nam^a22002292ia4500"
+fieldIndex=1; byteOffset=8020315; length=0015; raw="001  L000008492"
+fieldIndex=2; byteOffset=8020334; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=8020348; length=0022; raw="005  L20211116100628.0"
+fieldIndex=4; byteOffset=8020374; length=0046; raw="008  L100514m19221923ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=8020424; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00001156"
+fieldIndex=6; byteOffset=8020463; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=8020502; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=8020518; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=8020533; length=0066; raw="1001 L$$aКоваленский, Михаил Николаевич"
+fieldIndex=10; byteOffset=8020603; length=0095; raw="24500L$$aХрестоматия по русской истории$$cМ. Коваленский"
+fieldIndex=11; byteOffset=8020702; length=0021; raw="250  L$$a2-е изд."
+fieldIndex=12; byteOffset=8020727; length=0080; raw="260  L$$aМосква ;$$aПетроград$$bГос. изд-во$$c[1922]-1923"
+fieldIndex=13; byteOffset=8020811; length=0017; raw="300  L$$c25 см."
+fieldIndex=14; byteOffset=8020832; length=0097; raw="4900 L$$aУчебники и учебные пособия для школ I и II ступени"
+fieldIndex=15; byteOffset=8020933; length=0037; raw="500  L$$aНапеч. в М.$$5RuMoRGB"
+fieldIndex=16; byteOffset=8020974; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=17; byteOffset=8020995; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=18; byteOffset=8021011; length=0046; raw="CAT  L$$aKOMPL4$$b40$$c20211116$$lRSL06$$h1006"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 8020259 /tmp/000008492.dat

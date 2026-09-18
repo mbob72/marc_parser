@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006914; recordIndex (0-based): 10773; byteOffset: 9654073
+Record length: 888 bytes; record SHA-256: b3da2504d0dea9134443a16c8940cb42fa82c00ca5aca01d8bfe594098b2b5ec
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9654083; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9654095; length=0030; raw="LDR  L00937nam^a22002172ic4500"
+fieldIndex=1; byteOffset=9654129; length=0015; raw="001  L000006914"
+fieldIndex=2; byteOffset=9654148; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9654162; length=0022; raw="005  L20190213110818.0"
+fieldIndex=4; byteOffset=9654188; length=0046; raw="008  L110121s1931^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9654238; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00301882"
+fieldIndex=6; byteOffset=9654277; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9654316; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9654332; length=0031; raw="24500L$$aКн. 1$$h[Текст]"
+fieldIndex=9; byteOffset=9654367; length=0013; raw="260  L$$c1931"
+fieldIndex=10; byteOffset=9654384; length=0016; raw="300  L$$a240 с."
+fieldIndex=11; byteOffset=9654404; length=0393; raw="77318L$$7p1am$$gКн. 1$$aНикитин, Иван Федорович$$tГнев [Текст] : Роман...$$b2-е изд.$$dЛенинград ; Москва : ВОПКП - [Огиз]. Гос. изд-во худ. лит-ры, 1931 (Л. : тип. им. Евг. Соколовой)$$h1 т.; 20х14 см.$$k(Новинки пролетарско-колхозной литературы)$$66913"
+fieldIndex=12; byteOffset=9654801; length=0089; raw="LKR  L$$aUP$$lRSL06$$b6913$$mКн. 1 [Текст]$$nГнев [Текст] : Роман..."
+fieldIndex=13; byteOffset=9654894; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=14; byteOffset=9654910; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190213$$lRSL06$$h1108"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9654073 /tmp/000006914.dat

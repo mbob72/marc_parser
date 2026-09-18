@@ -1,0 +1,33 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000083978; recordIndex (0-based): 148926; byteOffset: 122476787
+Record length: 1501 bytes; record SHA-256: d31c83f0d68478da93dce9603e9330b8af014b24dab8c701b388128578f630e6
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 8, "tag": "400", "indicatorIndex": 0, "message": "Индикатор 1 поля 400 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=122476797; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=122476809; length=0030; raw="LDR  L00708nz^^a2200193n^^4500"
+fieldIndex=1; byteOffset=122476843; length=0021; raw="001  Lnafpn-000083978"
+fieldIndex=2; byteOffset=122476868; length=0022; raw="005  L20141020131141.0"
+fieldIndex=3; byteOffset=122476894; length=0046; raw="008  L040729|n|azz||a|||^^^^^^^^^^||^a|a^^^^^d"
+fieldIndex=4; byteOffset=122476944; length=0042; raw="040  L$$aRuMoRGB$$bru$$eГОСТ 7.80-2000"
+fieldIndex=5; byteOffset=122476990; length=0043; raw="065  L$$aТ3(2)5-8Титов А.А.$$2rubbk"
+fieldIndex=6; byteOffset=122477037; length=0044; raw="065  L$$aТ1(2)52-8Титов А.А.$$2rubbk"
+fieldIndex=7; byteOffset=122477085; length=0072; raw="1001 L$$aТитов, Андрей Александрович$$d1844-1911"
+fieldIndex=8; byteOffset=122477161; length=0043; raw="400\u0001 L$$wnnna$$aКаово, А.$$d1844-1911"
+fieldIndex=9; byteOffset=122477208; length=0032; raw="CAT  L$$c20100114$$lRSL11$$h1919"
+fieldIndex=10; byteOffset=122477244; length=0032; raw="CAT  L$$c20100908$$lRSL11$$h2118"
+fieldIndex=11; byteOffset=122477280; length=0046; raw="CAT  L$$aSPK12L$$b90$$c20141020$$lRSL11$$h1311"
+fieldIndex=12; byteOffset=122477330; length=0010; raw="UPD  L$$aN"
+fieldIndex=13; byteOffset=122477344; length=0022; raw="670  L$$aГАК РГБ"
+fieldIndex=14; byteOffset=122477370; length=0026; raw="675  L$$aБСЭ$$aВБЭС"
+fieldIndex=15; byteOffset=122477400; length=0698; raw="678  L$$aПисал также под псевдонимом: А. Каово. Русский историк-краевед, этнограф, археолог, палеограф. Основатель Ростовского исторического музея. Предприниматель из богатой купеческой семьи. Собиратель и издатель книжных и рукописных памятников. Действительный член Московского археологического общества с 1882 года. Собрание рукописей передал в Императорскую публичную библиотеку"
+fieldIndex=16; byteOffset=122478102; length=0027; raw="667  L$$a(RuMoRGB)000084061"
+fieldIndex=17; byteOffset=122478133; length=0150; raw="678  L$$aИсторик. Труды по истории церкви, биографические очерки о церковных иерархах"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 122476787 /tmp/000083978.dat

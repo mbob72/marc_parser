@@ -1,0 +1,27 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000275843; recordIndex (0-based): 271705; byteOffset: 254829313
+Record length: 1151 bytes; record SHA-256: cea03b5e41069738bb7f23d83cec0fe018e314df2d774437ecf1ffc29395b826
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 10, "tag": "670", "indicatorIndex": 0, "message": "Индикатор 1 поля 670 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=254829323; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=254829335; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=254829369; length=0021; raw="001  Lnafpn-000275843"
+fieldIndex=2; byteOffset=254829394; length=0022; raw="005  L20221019145126.0"
+fieldIndex=3; byteOffset=254829420; length=0046; raw="008  L221019^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=254829470; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=254829502; length=0046; raw="1001 L$$aГак, Сергей Павлович"
+fieldIndex=6; byteOffset=254829552; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20221019$$lRSL11$$h1451"
+fieldIndex=7; byteOffset=254829601; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0203"
+fieldIndex=8; byteOffset=254829651; length=0010; raw="UPD  L$$aN"
+fieldIndex=9; byteOffset=254829665; length=0014; raw="065  L$$2rubbk"
+fieldIndex=10; byteOffset=254829683; length=0037; raw="670\u0001 L$$aЭлектроника, 2004"
+fieldIndex=11; byteOffset=254829724; length=0735; raw="6780 L$$aКандидат технических наук, доцент кафедры \"Инфокоммуникационные технологии\" Южно-Уральского государственного университета (ранее работал на кафедре радиотехнических систем, которая объединившись с кафедрой ЦРТС, получила нынешнее название - кафедра \"Инфокоммуникационные технологии). Область научных интересов: микропроцессорные и радиоэлектронные системы и устройства широкого назначения"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 254829313 /tmp/000275843.dat

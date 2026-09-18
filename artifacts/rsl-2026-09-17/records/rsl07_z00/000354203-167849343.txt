@@ -1,0 +1,47 @@
+Source: data/rsl-2026-09-17/raw/rsl07_z00.dat
+Source SHA-256: 4dfcc187ae80f6710bd08d14f5a367d29b84ae6c6103c3836dff21fb28df127f
+recordId: 000354203; recordIndex (0-based): 512202; byteOffset: 167849343
+Record length: 2944 bytes; record SHA-256: a9000df44dac530abdb5b5cc8eea0472f02f7bf38fda70b5e593620f60f42233
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=167849353; length=0008; raw="FMT  LSE"
+fieldIndex=LDR; byteOffset=167849365; length=0030; raw="LDR  L01792nas^a2200313^ic4500"
+fieldIndex=1; byteOffset=167849399; length=0015; raw="001  L000354203"
+fieldIndex=2; byteOffset=167849418; length=0022; raw="005  L20220808155415.0"
+fieldIndex=3; byteOffset=167849444; length=0046; raw="008  L150526c20159999ru^fr|p^^^^^^^0||^||rus|d"
+fieldIndex=4; byteOffset=167849494; length=0018; raw="022  L$$a1682-2358"
+fieldIndex=5; byteOffset=167849516; length=0038; raw="040  L$$aRuMoRGB$$brus$$ercr$$dRuMoRGB"
+fieldIndex=6; byteOffset=167849558; length=0018; raw="0410 L$$arus$$feng"
+fieldIndex=7; byteOffset=167849580; length=0011; raw="044  L$$aru"
+fieldIndex=8; byteOffset=167849595; length=0025; raw="084  L$$aХ621я5$$2rubbk"
+fieldIndex=9; byteOffset=167849624; length=0025; raw="084  L$$aХ620я5$$2rubbk"
+fieldIndex=10; byteOffset=167849653; length=0023; raw="084  L$$aУ.я5$$2rubbk"
+fieldIndex=11; byteOffset=167849680; length=0117; raw="1102 L$$aПоволжский институт управления им. П. А. Столыпина (Саратов)"
+fieldIndex=12; byteOffset=167849801; length=0377; raw="24500L$$aВестник Поволжского института управления =$$bBulletin of the Volga Region institute of administration : научный журнал$$cучредитель и издатель: Российская академия народного хозяйства и государственной службы при Президенте РФ"
+fieldIndex=13; byteOffset=167850182; length=0065; raw="24621L$$aBulletin of the Volga Region institute of administration"
+fieldIndex=14; byteOffset=167850251; length=0127; raw="260  L$$aСаратов$$bПоволжский ин-т упр. им. П. А. Столыпина -фил. РАНХиГС$$c2015-"
+fieldIndex=15; byteOffset=167850382; length=0016; raw="300  L$$c24 см"
+fieldIndex=16; byteOffset=167850402; length=0026; raw="3620 L$$a2015, № 2 (47)-"
+fieldIndex=17; byteOffset=167850432; length=0093; raw="5100 L$$aРоссийский индекс научного цитирования (РИНЦ)"
+fieldIndex=18; byteOffset=167850529; length=0046; raw="504  L$$aБиблиогр. в конце ст."
+fieldIndex=19; byteOffset=167850579; length=0255; raw="650 7L$$aГосударство и право. Юридические науки -- Административное право -- Российская Федерация -- Периодические и продолжающиеся издания$$2rubbk"
+fieldIndex=20; byteOffset=167850838; length=0286; raw="650 7L$$aГосударство и право. Юридические науки -- Государственное (конституционное) право -- Российская Федерация -- Периодические и продолжающиеся издания$$2rubbk"
+fieldIndex=21; byteOffset=167851128; length=0178; raw="650 7L$$aЭкономика. Экономические науки -- Общий раздел -- Периодические и продолжающиеся издания$$2rubbk"
+fieldIndex=22; byteOffset=167851310; length=0159; raw="651 7L$$aСаратов, город (Российская Федерация, Саратовская область, Саратовский район)$$2rubbk"
+fieldIndex=23; byteOffset=167851473; length=0060; raw="653  L$$aГосударственное управление"
+fieldIndex=24; byteOffset=167851537; length=0056; raw="653  L$$aМуниципальное управление"
+fieldIndex=25; byteOffset=167851597; length=0368; raw="78002L$$aПоволжская академия государственной службы им. П. А. Столыпина (Саратов)$$tВестник Поволжской академии государственной службы$$dСаратов : Поволжский ин-т упр. им. П. А. Столыпина, 2001-2015, 1(46)$$w2723023$$x1682-2358"
+fieldIndex=26; byteOffset=167851969; length=0100; raw="979  L$$aperi$$bКаталог журналов и продолжающихся изданий$$crgb"
+fieldIndex=27; byteOffset=167852073; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=28; byteOffset=167852089; length=0044; raw="CAT  L$$aDL04$$b90$$c20190530$$lRSL07$$h1320"
+fieldIndex=29; byteOffset=167852137; length=0044; raw="CAT  L$$aDL04$$b90$$c20190530$$lRSL07$$h1321"
+fieldIndex=30; byteOffset=167852185; length=0044; raw="CAT  L$$aDL04$$b90$$c20220808$$lRSL07$$h1554"
+fieldIndex=31; byteOffset=167852233; length=0049; raw="CAT  L$$aBATCH-UPD$$b90$$c20240402$$lRSL07$$h1611"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl07_z00.dat 167849343 /tmp/000354203.dat

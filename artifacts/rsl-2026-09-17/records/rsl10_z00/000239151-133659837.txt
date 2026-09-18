@@ -1,0 +1,28 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000239151; recordIndex (0-based): 238228; byteOffset: 133659837
+Record length: 931 bytes; record SHA-256: af5d440cf11932578e2234044c332370de2848b737930c22e51a2e56d4eca3b9
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 11, "tag": "667", "indicatorIndex": 0, "message": "Индикатор 1 поля 667 имеет недопустимое значение \"\\u001c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=133659847; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=133659859; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=133659893; length=0015; raw="001  L000239151"
+fieldIndex=2; byteOffset=133659912; length=0022; raw="005  L20220408140708.0"
+fieldIndex=3; byteOffset=133659938; length=0046; raw="008  L220408^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=133659988; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=133660020; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=133660038; length=0177; raw="1102 L$$aПрофсоюз рабочих металлургической промышленности СССР$$bЦентральный комитет$$bПленум$$n8$$d1985"
+fieldIndex=7; byteOffset=133660219; length=0133; raw="4112 L$$aПленум ЦК профсоюза рабочих металлургической промышленности$$n8$$d1985"
+fieldIndex=8; byteOffset=133660356; length=0134; raw="4112 L$$aVIII Пленум ЦК профсоюза рабочих металлургической промышленности$$d1985"
+fieldIndex=9; byteOffset=133660494; length=0046; raw="CAT  L$$aOKZ107$$b40$$c20220408$$lRSL10$$h1407"
+fieldIndex=10; byteOffset=133660544; length=0010; raw="UPD  L$$aN"
+fieldIndex=11; byteOffset=133660558; length=0047; raw="667\u001c L$$aМосква, 15 ноября 1985 г."
+fieldIndex=12; byteOffset=133660609; length=0154; raw="670  L$$aМатериалы VIII пленума ЦК профсоюза рабочих металлургической промышленности, 1985"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 133659837 /tmp/000239151.dat

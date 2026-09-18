@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000252888; recordIndex (0-based): 252186; byteOffset: 147325171
+Record length: 1175 bytes; record SHA-256: ddff56f16529ec356be78ec277ece94323b3ce585be9ffd58cfda1066d201dc0
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 9, "tag": "510", "indicatorIndex": 0, "message": "Индикатор 1 поля 510 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=147325181; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=147325193; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=147325227; length=0015; raw="001  L000252888"
+fieldIndex=2; byteOffset=147325246; length=0022; raw="005  L20230829123455.0"
+fieldIndex=3; byteOffset=147325272; length=0046; raw="008  L230829^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=147325322; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=147325354; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=147325372; length=0135; raw="1102 L$$aСвердловский центральный парк культуры и отдыха им. В. В. Маяковского"
+fieldIndex=7; byteOffset=147325511; length=0133; raw="4102 L$$aЦентральный парк культуры и отдыха им. В. В. Маяковского (Свердловск)"
+fieldIndex=8; byteOffset=147325648; length=0073; raw="4102 L$$aПарк культуры и отдыха (Свердловск)"
+fieldIndex=9; byteOffset=147325725; length=0142; raw="510\u0001 L$$aЕкатеринбургский Центральный парк культуры и отдыха им В. В. Маяковского"
+fieldIndex=10; byteOffset=147325871; length=0045; raw="CAT  L$$aOKZ23$$b40$$c20230829$$lRSL10$$h1224"
+fieldIndex=11; byteOffset=147325920; length=0045; raw="CAT  L$$aOKZ23$$b40$$c20230829$$lRSL10$$h1225"
+fieldIndex=12; byteOffset=147325969; length=0045; raw="CAT  L$$aOKZ23$$b40$$c20230829$$lRSL10$$h1229"
+fieldIndex=13; byteOffset=147326018; length=0045; raw="CAT  L$$aOKZ23$$b40$$c20230829$$lRSL10$$h1234"
+fieldIndex=14; byteOffset=147326067; length=0010; raw="UPD  L$$aN"
+fieldIndex=15; byteOffset=147326081; length=0211; raw="667  L$$aИздания после 1991 года см. в каталоге:$$bЕкатеринбургский Центральный парк культуры и отдыха им В. В. Маяковского"
+fieldIndex=16; byteOffset=147326296; length=0045; raw="670  L$$aЦирк мюзик-холла, 1941"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 147325171 /tmp/000252888.dat

@@ -1,0 +1,43 @@
+{
+  "file": "rsl06_z00.dat",
+  "mode": "strict",
+  "category": "bibliographic",
+  "source": "https://mrsadman.ru/ac34d2e7ff814dac/",
+  "revision": "47d517aa270e431874abe1524a2ae069b7910d97",
+  "node": "v24.12.0",
+  "startedAt": "2026-09-17T15:24:12.154Z",
+  "completedAt": "2026-09-17T15:24:17.757Z",
+  "complete": false,
+  "fatalError": "Error: Aleph-поле содержит неподдерживаемый маркер \" \".",
+  "fileBytes": 143391440,
+  "recordsProcessed": 61620,
+  "validRecords": 61514,
+  "recordsWithValidationErrors": 106,
+  "recordsWithParsingErrors": 1,
+  "validationErrors": 106,
+  "inputBytes": 58232378,
+  "serializedBytes": 136596822,
+  "rules": {
+    "LD-02": 106
+  },
+  "messages": {
+    "LD-02: Leader/19 содержит недопустимый для схемы РГБ код \"a\".": {
+      "count": 43,
+      "first": {
+        "recordIndex": 4516,
+        "byteOffset": 4307340,
+        "rule": "LD-02",
+        "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."
+      }
+    },
+    "LD-02: Leader/19 содержит недопустимый для схемы РГБ код \"c\".": {
+      "count": 63,
+      "first": {
+        "recordIndex": 5901,
+        "byteOffset": 5517693,
+        "rule": "LD-02",
+        "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."
+      }
+    }
+  }
+}

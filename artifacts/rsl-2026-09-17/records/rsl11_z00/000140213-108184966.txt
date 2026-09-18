@@ -1,0 +1,34 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000140213; recordIndex (0-based): 132623; byteOffset: 108184966
+Record length: 1219 bytes; record SHA-256: 57f0cdf056d27c90d1a088c192f85f8c62f7e0389913680dbec3d89ace1a0eae
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DR-E2", "fieldIndex": 14, "tag": ";0 ", "message": "Некорректный тег \";0 \"."}
+{"rule": "DF-G3", "fieldIndex": 14, "tag": ";0 ", "message": "Поле ;0  не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=108184976; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=108184988; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=108185022; length=0021; raw="001  Lnafpn-000140213"
+fieldIndex=2; byteOffset=108185047; length=0022; raw="005  L20201229110345.0"
+fieldIndex=3; byteOffset=108185073; length=0046; raw="008  L131018^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=108185123; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=108185155; length=0070; raw="1001 L$$aДронова, Ольга Александровна$$d1980-"
+fieldIndex=6; byteOffset=108185229; length=0031; raw="4001 L$$aDronova, O. A.$$d1980-"
+fieldIndex=7; byteOffset=108185264; length=0044; raw="CAT  L$$aNO08$$b40$$c20131018$$lRSL11$$h1433"
+fieldIndex=8; byteOffset=108185312; length=0043; raw="CAT  L$$aODK$$b40$$c20180709$$lRSL11$$h1215"
+fieldIndex=9; byteOffset=108185359; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20201229$$lRSL11$$h1103"
+fieldIndex=10; byteOffset=108185408; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20201229$$lRSL11$$h1103"
+fieldIndex=11; byteOffset=108185457; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0200"
+fieldIndex=12; byteOffset=108185507; length=0010; raw="UPD  L$$aN"
+fieldIndex=13; byteOffset=108185521; length=0014; raw="065  L$$2rubbk"
+fieldIndex=14; byteOffset=108185539; length=0021; raw=";0   Lnafpn-000140213"
+fieldIndex=15; byteOffset=108185564; length=0145; raw="670  L$$aЯзык профессиональной коммуникации в условиях межкультурного диалога, 2013"
+fieldIndex=16; byteOffset=108185713; length=0135; raw="670  L$$aРоманы \"новой деловитости\"$$bпроблематика, жанровый диапазон, поэтика"
+fieldIndex=17; byteOffset=108185852; length=0328; raw="6780 L$$aДоктор филологических наук, доцент (Тамбовский гос. ун-т им. Г. Р. Державина). Окончила Институт филологии Тамбовского государственного университета имени Г.Р. Державина (2002 г.)"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 108184966 /tmp/000140213.dat

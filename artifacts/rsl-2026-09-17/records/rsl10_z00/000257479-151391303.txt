@@ -1,0 +1,25 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000257479; recordIndex (0-based): 256853; byteOffset: 151391303
+Record length: 772 bytes; record SHA-256: 167a3cabdf7db27b1a1b44ba5bbf99fee76fd5107c085a311e424de9988ae636
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 9, "tag": "670", "indicatorIndex": 0, "message": "Индикатор 1 поля 670 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=151391313; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=151391325; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=151391359; length=0015; raw="001  L000257479"
+fieldIndex=2; byteOffset=151391378; length=0022; raw="005  L20231211113131.0"
+fieldIndex=3; byteOffset=151391404; length=0046; raw="008  L231211^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=151391454; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=151391486; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=151391504; length=0264; raw="1102 L$$aСанкт-Петербургский государственный университет водных коммуникаций$$bКафедра электропривода и электрооборудования береговых установок"
+fieldIndex=7; byteOffset=151391772; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20231211$$lRSL10$$h1131"
+fieldIndex=8; byteOffset=151391821; length=0010; raw="UPD  L$$aN"
+fieldIndex=9; byteOffset=151391835; length=0235; raw="670\u0001 L$$aМетодические указания по выполнению курсовой работы по курсу \"Электрооборудование шлюзов и дноуглубительных снарядов\", 1993"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 151391303 /tmp/000257479.dat

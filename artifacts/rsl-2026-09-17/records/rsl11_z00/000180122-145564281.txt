@@ -1,0 +1,28 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000180122; recordIndex (0-based): 172215; byteOffset: 145564281
+Record length: 1401 bytes; record SHA-256: 1339c9d91c220e5f3f7123ccc68edf83fe4555ba8aa35fdf82fc1dab3eddffd5
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 5, "tag": "100", "indicatorIndex": 0, "message": "Индикатор 1 поля 100 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=145564291; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=145564303; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=145564337; length=0021; raw="001  Lnafpn-000180122"
+fieldIndex=2; byteOffset=145564362; length=0022; raw="005  L20160610150831.0"
+fieldIndex=3; byteOffset=145564388; length=0046; raw="008  L160610^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=145564438; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=145564470; length=0070; raw="100\u0001 L$$aКанукова, Лариса Харитоновна$$d1951-"
+fieldIndex=6; byteOffset=145564544; length=0045; raw="CAT  L$$aOKZ16$$b40$$c20160610$$lRSL11$$h1508"
+fieldIndex=7; byteOffset=145564593; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0201"
+fieldIndex=8; byteOffset=145564643; length=0010; raw="UPD  L$$aN"
+fieldIndex=9; byteOffset=145564657; length=0014; raw="065  L$$2rubbk"
+fieldIndex=10; byteOffset=145564675; length=0039; raw="670  L$$aПроизведения, 2016"
+fieldIndex=11; byteOffset=145564718; length=0058; raw="670  L$$aВикипедия$$bбиогр. сведения"
+fieldIndex=12; byteOffset=145564780; length=0897; raw="6780 L$$aСоветский и российский композитор, педагог, заместитель председателя правления Союза композиторов Республики Северная Осетия-Алания. Заслуженный деятель искусств РФ (1993). Член Союза композиторов СССР с 1975 года. Автор 3 симфоний, 5 кантат, многочисленных хоровых, вокальных, инструментальных циклов, камерной и программной музыки, музыки к спектаклям и кино. С 2004 года директор и художественный руководитель, созданной ей, Государственной музыкальной школы композиции в г. Владикавказ."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 145564281 /tmp/000180122.dat

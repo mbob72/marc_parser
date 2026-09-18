@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007496; recordIndex (0-based): 11358; byteOffset: 10251690
+Record length: 784 bytes; record SHA-256: 32f8f4253c6e77bb2bc8cdba69f40dba3a02bca613e7cbbb6e5281ad963ddf8d
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10251700; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10251712; length=0030; raw="LDR  L00744nam^a22002052ia4500"
+fieldIndex=1; byteOffset=10251746; length=0015; raw="001  L000007496"
+fieldIndex=2; byteOffset=10251765; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10251779; length=0022; raw="005  L20190412093215.0"
+fieldIndex=4; byteOffset=10251805; length=0046; raw="008  L100622s1920^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10251855; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00110462"
+fieldIndex=6; byteOffset=10251894; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10251933; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10251949; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=10251964; length=0062; raw="1001 L$$aЧаянов, Александр Васильевич"
+fieldIndex=10; byteOffset=10252030; length=0205; raw="24500L$$aПутешествие моего брата Алексея в страну крестьянской утопии /$$cПсевд. Ив. Кремнев ; С предисл. П. Орловского"
+fieldIndex=11; byteOffset=10252239; length=0050; raw="260  L$$aМосква$$bГос. изд-во$$c1920"
+fieldIndex=12; byteOffset=10252293; length=0017; raw="300  L$$c18 см."
+fieldIndex=13; byteOffset=10252314; length=0068; raw="7001 L$$aОрловский, П.$$eАвтор предисловия"
+fieldIndex=14; byteOffset=10252386; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=15; byteOffset=10252407; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=16; byteOffset=10252423; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190412$$lRSL06$$h0932"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10251690 /tmp/000007496.dat

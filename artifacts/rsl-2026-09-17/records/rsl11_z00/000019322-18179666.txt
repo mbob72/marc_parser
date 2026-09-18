@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000019322; recordIndex (0-based): 18704; byteOffset: 18179666
+Record length: 1382 bytes; record SHA-256: 31b52952f5c0eacf7d99ed31a027f7b471d26c19d3a56bc2220f039a498f0ab4
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 5, "tag": "100", "indicatorIndex": 0, "message": "Индикатор 1 поля 100 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=18179676; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=18179688; length=0030; raw="LDR  L01333nz^^a2200193o^^4500"
+fieldIndex=1; byteOffset=18179722; length=0021; raw="001  Lnafpn-000019322"
+fieldIndex=2; byteOffset=18179747; length=0022; raw="005  L20050331135728.0"
+fieldIndex=3; byteOffset=18179773; length=0046; raw="008  L800104|n|azz||a|||^^^^^^^^^^||^a|c^^^^^d"
+fieldIndex=4; byteOffset=18179823; length=0043; raw="040  L$$aRuMoRGB$$brus$$eГОСТ 7.80-2000"
+fieldIndex=5; byteOffset=18179870; length=0085; raw="100\u0001 L$$aΕπιφανιος$$cΘεοδωροπουλος I.$$cархим.$$d1930-1986"
+fieldIndex=6; byteOffset=18179959; length=0050; raw="4001 L$$aΘεοδωροπουλος I.$$d1930-1986"
+fieldIndex=7; byteOffset=18180013; length=0093; raw="5000 L$$aЕпифаний$$cФеодоропулос$$cстарец из Афин$$d1930-1986"
+fieldIndex=8; byteOffset=18180110; length=0032; raw="CAT  L$$c20100114$$lRSL11$$h1707"
+fieldIndex=9; byteOffset=18180146; length=0032; raw="CAT  L$$c20100908$$lRSL11$$h2104"
+fieldIndex=10; byteOffset=18180182; length=0010; raw="UPD  L$$aN"
+fieldIndex=11; byteOffset=18180196; length=0014; raw="065  L$$2rubbk"
+fieldIndex=12; byteOffset=18180214; length=0190; raw="663  L$$aПроизведения этого авт. на рус. языке см. под именем:$$bЕпифаний (Феодоропулос ; старец из Афин ; 1930-1986)"
+fieldIndex=13; byteOffset=18180408; length=0027; raw="667  L$$a(RuMoRGB)000059851"
+fieldIndex=14; byteOffset=18180439; length=0025; raw="670  L$$a00-22056, с.109"
+fieldIndex=15; byteOffset=18180468; length=0575; raw="678  L$$aРодился в местечке Вурнази нома Мессиния. Человек с призванием к священству, с жаждой знания, юный старец. Незаметный клирик и известный писатель. Любил священные каноны, которые изучал и соблюдал. Отказался стать епископом. Духовный отец многих людей и основатель монастыря Благодатной Богородицы в Тризине."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 18179666 /tmp/000019322.dat

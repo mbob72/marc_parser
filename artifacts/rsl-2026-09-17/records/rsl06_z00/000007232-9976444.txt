@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007232; recordIndex (0-based): 11094; byteOffset: 9976444
+Record length: 1014 bytes; record SHA-256: d4a33ba64feab777344e11b0252b53c1af2ad9de178f9e02c3f042aca311db26
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9976454; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9976466; length=0030; raw="LDR  L01019nam^a22002172ic4500"
+fieldIndex=1; byteOffset=9976500; length=0015; raw="001  L000007232"
+fieldIndex=2; byteOffset=9976519; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9976533; length=0022; raw="005  L20190305144511.0"
+fieldIndex=4; byteOffset=9976559; length=0046; raw="008  L100514s1920^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9976609; length=0040; raw="017  L$$aф33-2993$$aф33-9145$$aXX-2370"
+fieldIndex=6; byteOffset=9976653; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00020426"
+fieldIndex=7; byteOffset=9976692; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=8; byteOffset=9976731; length=0012; raw="0410 L$$arus"
+fieldIndex=9; byteOffset=9976747; length=0172; raw="24500L$$aКапитал. Критика политической экономии. Т. 1. Кн. 1. Процесс производства капитала$$cК. Маркс"
+fieldIndex=10; byteOffset=9976923; length=0050; raw="260  L$$aМосква$$bГос. изд-во$$c1920"
+fieldIndex=11; byteOffset=9976977; length=0020; raw="300  L$$aIV, 799 с."
+fieldIndex=12; byteOffset=9977001; length=0148; raw="77318L$$7p1am$$gТ. 4$$aМаркс, Карл$$tСобрание сочинений$$dМосква : Гос. изд-во, 1918-1922$$h24 см.$$w7231"
+fieldIndex=13; byteOffset=9977153; length=0017; raw="979  L$$afb20vrus"
+fieldIndex=14; byteOffset=9977174; length=0213; raw="LKR  L$$aUP$$lRSL06$$b7231$$mКапитал. Критика политической экономии. Т. 1. Кн. 1. Процесс производства капитала$$nСобрание сочинений"
+fieldIndex=15; byteOffset=9977391; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=16; byteOffset=9977407; length=0046; raw="CAT  L$$aKOMPL1$$b10$$c20190305$$lRSL06$$h1445"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9976444 /tmp/000007232.dat

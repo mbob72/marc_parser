@@ -1,0 +1,27 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000239573; recordIndex (0-based): 234032; byteOffset: 214164664
+Record length: 1388 bytes; record SHA-256: 635e75a960a534c4e789390e0405ed5093c09364d86133d8898af53562706fcf
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DR-E2", "fieldIndex": 8, "tag": "=:8", "message": "Некорректный тег \"=:8\"."}
+{"rule": "DF-G3", "fieldIndex": 8, "tag": "=:8", "message": "Поле =:8 не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=214164674; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=214164686; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=214164720; length=0021; raw="001  Lnafpn-000239573"
+fieldIndex=2; byteOffset=214164745; length=0022; raw="005  L20201208142312.0"
+fieldIndex=3; byteOffset=214164771; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=4; byteOffset=214164803; length=0014; raw="065  L$$2rubbk"
+fieldIndex=5; byteOffset=214164821; length=0062; raw="1001 L$$aАстахов, Юрий Михайлович$$d1965-"
+fieldIndex=6; byteOffset=214164887; length=0045; raw="CAT  L$$aOKZ23$$b40$$c20201208$$lRSL11$$h1423"
+fieldIndex=7; byteOffset=214164936; length=0010; raw="UPD  L$$aN"
+fieldIndex=8; byteOffset=214164950; length=0046; raw="=:8  L^^^^^^^n^aznnnaaba^^^^^^^^^^^^^aaa^^^^^d"
+fieldIndex=9; byteOffset=214165000; length=0078; raw="670  L$$aОфицер - профессия Родину защищать, 2020"
+fieldIndex=10; byteOffset=214165082; length=0965; raw="6780 L$$aАвтор прозы и стихов. С 2019 года - член Российского союза писателей. Родился в посёлке Стеклозавод Козельского района Калужской области. В 1987 году окончил Калининградское высшее военно-морское училище (ныне Балтийский военно-морской институт имени Ф. Ф. Ушакова), а в 2003 году - институт управления и бизнеса по президентской программе. С 2017 года - член литературного клуба \"Светоч\" города Кремёнки Жуковского района Калужской области. Живёт в гоороде Обнинске Калужской области. Учредитель и начальик отдела АНО ЦСО ГБ \"НАБАТ\"."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 214164664 /tmp/000239573.dat

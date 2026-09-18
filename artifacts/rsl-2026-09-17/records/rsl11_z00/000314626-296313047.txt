@@ -1,0 +1,26 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000314626; recordIndex (0-based): 311506; byteOffset: 296313047
+Record length: 2197 bytes; record SHA-256: 31a20c013d02fc5fdcb26ec77ba74b77012ee3efbaec6a250ff9bf8451ac3821
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DF-G3", "fieldIndex": 10, "tag": "678", "message": "Поле 678 не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=296313057; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=296313069; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=296313103; length=0021; raw="001  Lnafpn-000314626"
+fieldIndex=2; byteOffset=296313128; length=0022; raw="005  L20241206103715.0"
+fieldIndex=3; byteOffset=296313154; length=0046; raw="008  L241206|abacn||aab|||||||||||^||aaa||||^d"
+fieldIndex=4; byteOffset=296313204; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=296313236; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=296313254; length=0080; raw="1001 L$$aГорлинский, Владимир Владимирович$$d1984-"
+fieldIndex=7; byteOffset=296313338; length=0045; raw="CAT  L$$aOKZ07$$b40$$c20241206$$lRSL11$$h1037"
+fieldIndex=8; byteOffset=296313387; length=0010; raw="UPD  L$$aN"
+fieldIndex=9; byteOffset=296313401; length=0078; raw="670  L$$aЗа светом. Путешествие по ансамблю, 2024"
+fieldIndex=10; byteOffset=296313483; length=1756; raw="6780 LРоссийский композитор, импровизатор, автор пространственных композиций и звуковых инсталляций. Окончил Московскую Консерваторию им. П. И. Чайковского (проф. Владимир Тарнопольский), преподавал на кафедре современной музыки. Посещал мастер-классы композиторов Беата Фуррера, Петера Аблингера и других. В 2009 и 2013 гг. проходил стажировку в международной академии Impuls (Грац, Австрия), в 2010 и 2014 гг. на Международных курсах новой музыки в Дармштадте (Германия), в 2017 г. на композиторском семинаре ансамбля Modern (Франкфурт, Германия). Пьесы, инсталляции и перформансы Владимира Горлинского исполняются в рамках международных фестивалей и проектов — в Германии (Дни новой музыки в Виттене, фестиваль Acht Brucken в Кёльне, Кассельский фестиваль, академия IEMA во Франкфурте, концерты радио SWR и WDR) и других. Является автором лекционных курсов по истории и практике композиции и импровизации 2015-го года как композитор и перформер сотрудничает с Электротеатром Станиславский."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 296313047 /tmp/000314626.dat

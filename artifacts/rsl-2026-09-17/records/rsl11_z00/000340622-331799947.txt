@@ -1,0 +1,29 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000340622; recordIndex (0-based): 340339; byteOffset: 331799947
+Record length: 890 bytes; record SHA-256: 03578292276d37530b905df23f7d98f150a0241da4db1903c1f1258c2f17aca0
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DR-E2", "fieldIndex": 13, "tag": " 78", "message": "Некорректный тег \" 78\"."}
+
+Fields:
+fieldIndex=0; byteOffset=331799957; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=331799969; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=331800003; length=0021; raw="001  Lnafpn-000340622"
+fieldIndex=2; byteOffset=331800028; length=0022; raw="005  L20260528134759.0"
+fieldIndex=3; byteOffset=331800054; length=0046; raw="008  L250808^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=331800104; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=331800136; length=0062; raw="1001 L$$aKöprülü, Mehmet Fuat$$d1890-1966$$0RSL11-000328821"
+fieldIndex=6; byteOffset=331800202; length=0066; raw="4000 L$$aKöprülüzade, Mehmet Fuat$$d1890-1966$$0RSL11-000328821"
+fieldIndex=7; byteOffset=331800272; length=0061; raw="4000 L$$aMehmet Fuat Köprülü$$d1890-1966$$0RSL11-000328821"
+fieldIndex=8; byteOffset=331800337; length=0065; raw="4000 L$$aMehmet Fuat Köprülüzade$$d1890-1966$$0RSL11-000328821"
+fieldIndex=9; byteOffset=331800406; length=0045; raw="CAT  L$$aCVL13$$b40$$c20260528$$lRSL11$$h1347"
+fieldIndex=10; byteOffset=331800455; length=0044; raw="COR  L$$aKöprülü, Mehmet Fuat$$d1890-1966"
+fieldIndex=11; byteOffset=331800503; length=0010; raw="UPD  L$$aN"
+fieldIndex=12; byteOffset=331800517; length=0119; raw="670  L$$aXVII nci asir sazşairlerinden Kayikci Kul Mustafa ve Genc Osman hikayesi. - İstanbul : Evkaf matbaası, 1930"
+fieldIndex=13; byteOffset=331800640; length=0192; raw=" 780 L$$aМехмет Фуат Кёпрюлю - турецкий государственный деятель, историк, филолог, тюрколог, публицист (1890-1966)"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 331799947 /tmp/000340622.dat

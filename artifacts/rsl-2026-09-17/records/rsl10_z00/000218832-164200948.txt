@@ -1,0 +1,39 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000218832; recordIndex (0-based): 269002; byteOffset: 164200948
+Record length: 2486 bytes; record SHA-256: f75f1a46e441149102563d11100567045793557337c8224322d3d185334904c2
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 22, "tag": "670", "indicatorIndex": 1, "message": "Индикатор 2 поля 670 имеет недопустимое значение \";\"."}
+
+Fields:
+fieldIndex=0; byteOffset=164200958; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=164200970; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=164201004; length=0015; raw="001  L000218832"
+fieldIndex=2; byteOffset=164201023; length=0022; raw="005  L20250619171631.0"
+fieldIndex=3; byteOffset=164201049; length=0046; raw="008  L190125^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=164201099; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=164201131; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=164201149; length=0223; raw="1102 L$$aСанкт-Петербургский государственный медицинский университет им. И. П. Павлова (1)$$bКафедра русского языка (2)$$0RSL10-000218832"
+fieldIndex=7; byteOffset=164201376; length=0207; raw="4102 L$$aСанкт-Петербургский государственный медицинский университет им. И. П. Павлова (1)$$bКафедра русского языка № 2"
+fieldIndex=8; byteOffset=164201587; length=0231; raw="5102 L$$aСанкт-Петербургский государственный медицинский университет им. И. П. Павлова$$bКафедра русского языка (2)$$0RSL10-000218832$$w000175153"
+fieldIndex=9; byteOffset=164201822; length=0044; raw="CAT  L$$aNO04$$b40$$c20190125$$lRSL10$$h1141"
+fieldIndex=10; byteOffset=164201870; length=0045; raw="CAT  L$$aOKZ29$$b40$$c20210413$$lRSL10$$h1238"
+fieldIndex=11; byteOffset=164201919; length=0045; raw="CAT  L$$aOKZ36$$b40$$c20211111$$lRSL10$$h1604"
+fieldIndex=12; byteOffset=164201968; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20250619$$lRSL10$$h1642"
+fieldIndex=13; byteOffset=164202017; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20250619$$lRSL10$$h1644"
+fieldIndex=14; byteOffset=164202066; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20250619$$lRSL10$$h1653"
+fieldIndex=15; byteOffset=164202115; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20250619$$lRSL10$$h1707"
+fieldIndex=16; byteOffset=164202164; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20250619$$lRSL10$$h1716"
+fieldIndex=17; byteOffset=164202213; length=0235; raw="COR  L$$aСанкт-Петербургский государственный медицинский университет им. И. П. Павлова (1)$$bКафедра русского языка (2)$$0RSL10-000218832$$w000175153"
+fieldIndex=18; byteOffset=164202452; length=0205; raw="COR  L$$aСанкт-Петербургский государственный медицинский университет им. И. П. Павлова (1)$$bКафедра русского языка (2)"
+fieldIndex=19; byteOffset=164202661; length=0207; raw="COR  L$$aСанкт-Петербургский государственный медицинский университет им. И. П. Павлова (1)$$bКафедра русского языка № 2"
+fieldIndex=20; byteOffset=164202872; length=0010; raw="UPD  L$$aY"
+fieldIndex=21; byteOffset=164202886; length=0243; raw="663  L$$aДо 2013 г. см. в каталоге:$$bСанкт-Петербургский государственный медицинский университет им. И. П. Павлова. Кафедра русского языка (2)"
+fieldIndex=22; byteOffset=164203133; length=0135; raw="670 ;L$$aУказания по научному стилю речи для подготовительного отделения, 2018-"
+fieldIndex=23; byteOffset=164203272; length=0157; raw="670  L$$aЗаболевания сердечно-сосудистой системы (подготовка к клинической практике), 2007-"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 164200948 /tmp/000218832.dat

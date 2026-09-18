@@ -1,0 +1,37 @@
+Source: data/rsl-2026-09-17/raw/rsl07_z00.dat
+Source SHA-256: 4dfcc187ae80f6710bd08d14f5a367d29b84ae6c6103c3836dff21fb28df127f
+recordId: 000508986; recordIndex (0-based): 509747; byteOffset: 166128330
+Record length: 2488 bytes; record SHA-256: 9a7d37ca59edb10a46fcc79740d8bb2d4a6f737d4c16a653e8d768747c1bba32
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DF-G3", "fieldIndex": 13, "tag": "490", "message": "Поле 490 не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=166128340; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=166128352; length=0030; raw="LDR  L^^^^^nam^a22^^^^^^i^4500"
+fieldIndex=1; byteOffset=166128386; length=0015; raw="001  L000508986"
+fieldIndex=2; byteOffset=166128405; length=0022; raw="005  L20220711115055.0"
+fieldIndex=3; byteOffset=166128431; length=0046; raw="008  L191021m2023^^^^ru^^^^^b^^^^^^000^0^rus^d"
+fieldIndex=4; byteOffset=166128481; length=0026; raw="020  L$$a978-5-09-096820-1"
+fieldIndex=5; byteOffset=166128511; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=6; byteOffset=166128543; length=0012; raw="0410 L$$arus"
+fieldIndex=7; byteOffset=166128559; length=0011; raw="044  L$$aru"
+fieldIndex=8; byteOffset=166128574; length=0034; raw="084  L$$aШ141.2-973.380.1$$2rubbk"
+fieldIndex=9; byteOffset=166128612; length=0072; raw="1001 L$$aАксенова, Алевтина Константиновна"
+fieldIndex=10; byteOffset=166128688; length=0370; raw="24500L$$aПропись. 1 класс :$$bучебное пособие для общеобразовательных организаций, реализующих адаптированные основные общеобразовательные программы : в 3 частях : 6+$$cА. К. Аксёнова, С. В. Комарова, М. И. Шишкова"
+fieldIndex=11; byteOffset=166129062; length=0033; raw="250  L$$a11-е изд., стер."
+fieldIndex=12; byteOffset=166129099; length=0053; raw="260  L$$aМосква$$bПросвещение$$c2023"
+fieldIndex=13; byteOffset=166129156; length=0021; raw="4900 LФГОС ОВЗ"
+fieldIndex=14; byteOffset=166129181; length=0072; raw="500  L$$aФактическая дата выхода в свет - 2022"
+fieldIndex=15; byteOffset=166129257; length=0055; raw="500  L$$aБез тит. л. Описано по обл."
+fieldIndex=16; byteOffset=166129316; length=0520; raw="5203 L$$aПропись входит в учебно-методический комплект по обучению грамоте, предназначенный для обучающихся с интеллектуальными нарушениями и обеспечивающий реализацию требований адаптированной основной общеобразовательной программы в предметной области «Язык и речевая практика»."
+fieldIndex=17; byteOffset=166129840; length=0785; raw="650 7L$$aФилологические науки. Художественная литература -- Языкознание -- Индоевропейские языки -- Славянские языки -- Восточнославянские языки -- Русский язык -- Преподавание и методика изучения языка -- Учебники и учебные пособия для специальных школ -- Учебники и учебные пособия для вспомогательных школ -- Учебники и учебные пособия по отдельным аспектам языка -- Пособия по письму и чистописанию -- Учебники для начальной школы$$2rubbk"
+fieldIndex=18; byteOffset=166130629; length=0056; raw="7001 L$$aКомарова, Софья Вадимовна"
+fieldIndex=19; byteOffset=166130689; length=0060; raw="7001 L$$aШишкова, Маргарита Игоревна"
+fieldIndex=20; byteOffset=166130753; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=21; byteOffset=166130769; length=0044; raw="CAT  L$$aDL02$$b90$$c20220711$$lRSL07$$h1150"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl07_z00.dat 166128330 /tmp/000508986.dat

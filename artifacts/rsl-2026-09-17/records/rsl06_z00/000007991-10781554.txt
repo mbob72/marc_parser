@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007991; recordIndex (0-based): 11857; byteOffset: 10781554
+Record length: 787 bytes; record SHA-256: 037364468a9a7f4a35650116c814ca38cc18efd976c76f2e9e7538ebe3db5f43
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10781564; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10781576; length=0030; raw="LDR  L01006nam^a22002652ic4500"
+fieldIndex=1; byteOffset=10781610; length=0015; raw="001  L000007991"
+fieldIndex=2; byteOffset=10781629; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10781643; length=0022; raw="005  L20190430113127.0"
+fieldIndex=4; byteOffset=10781669; length=0046; raw="008  L101028s1930^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10781719; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00191460"
+fieldIndex=6; byteOffset=10781758; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10781797; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10781813; length=0057; raw="24500L$$aШестидесятые годы$$h[Текст]"
+fieldIndex=9; byteOffset=10781874; length=0013; raw="260  L$$c1930"
+fieldIndex=10; byteOffset=10781891; length=0016; raw="300  L$$a236 с."
+fieldIndex=11; byteOffset=10781911; length=0223; raw="77318L$$7nnam$$g1$$tРусская журналистика.. [Текст]$$dМосква ; Ленинград : Academia, 1930 (Л. : гос. тип. изд-ва \"Ленингр. правда\")$$h1 т.; 20х14 см.$$w7990"
+fieldIndex=12; byteOffset=10782138; length=0132; raw="LKR  L$$aUP$$lRSL06$$b7990$$mШестидесятые годы [Текст]$$nРусская журналистика.. [Текст]"
+fieldIndex=13; byteOffset=10782274; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=14; byteOffset=10782290; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190430$$lRSL06$$h1131"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10781554 /tmp/000007991.dat

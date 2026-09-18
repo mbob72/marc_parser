@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000237650; recordIndex (0-based): 236715; byteOffset: 132119912
+Record length: 1232 bytes; record SHA-256: 2b9291193b0d56c0d7ef102e26c7192b1e6d525171002ad8ec4e471262f13768
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DR-E2", "fieldIndex": 14, "tag": "\u001110", "message": "Некорректный тег \"\\u001110\"."}
+
+Fields:
+fieldIndex=0; byteOffset=132119922; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=132119934; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=132119968; length=0015; raw="001  L000237650"
+fieldIndex=2; byteOffset=132119987; length=0022; raw="005  L20220204143059.0"
+fieldIndex=3; byteOffset=132120013; length=0046; raw="008  L220204^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=132120063; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=132120095; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=132120113; length=0155; raw="1102 L$$aУсть-Цилемский районный центр культуры, досуга и кино (с. Усть-Цильма, Респ. Коми)"
+fieldIndex=7; byteOffset=132120272; length=0127; raw="4102 L$$aРайонный центр культуры, досуга и кино (с. Усть-Цильма, Респ. Коми)"
+fieldIndex=8; byteOffset=132120403; length=0196; raw="4102 L$$aМуниципальное бюджетное учреждение \"Районный центр культуры, досуга и кино\" (с. Усть-Цильма, Респ. Коми)"
+fieldIndex=9; byteOffset=132120603; length=0136; raw="4102 L$$aМБУ \"Районный центр культуры, досуга и кино\" (с. Усть-Цильма, Респ. Коми)"
+fieldIndex=10; byteOffset=132120743; length=0078; raw="4102 L$$aМБУ \"РЦКДиК\" (с. Усть-Цильма, Респ. Коми)"
+fieldIndex=11; byteOffset=132120825; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20220204$$lRSL10$$h1430"
+fieldIndex=12; byteOffset=132120874; length=0010; raw="UPD  L$$aN"
+fieldIndex=13; byteOffset=132120888; length=0118; raw="670  L$$aУсть-Цилемский культурный центр: взгляд сквозь столетие, 2021"
+fieldIndex=14; byteOffset=132121010; length=0129; raw="\u0011102 L$$a\"Районный центр культуры, досуга и кино\" (с. Усть-Цильма, Респ. Коми)"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 132119912 /tmp/000237650.dat

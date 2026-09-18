@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000252834; recordIndex (0-based): 252136; byteOffset: 147280478
+Record length: 1168 bytes; record SHA-256: 27bdc37d2d6bbe621e7307bfa17818e4708ac51a01fc8b41ebfb6e9672f9350b
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DR-E2", "fieldIndex": 13, "tag": " 10", "message": "Некорректный тег \" 10\"."}
+
+Fields:
+fieldIndex=0; byteOffset=147280488; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=147280500; length=0030; raw="LDR  L00918nz^^a2200169n^^4500"
+fieldIndex=1; byteOffset=147280534; length=0015; raw="001  L000252834"
+fieldIndex=2; byteOffset=147280553; length=0022; raw="005  L20230828110851.0"
+fieldIndex=3; byteOffset=147280579; length=0046; raw="008  L080303^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=147280629; length=0028; raw="040  L$$aRuMoRGB$$brus$$erpk"
+fieldIndex=5; byteOffset=147280661; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=147280679; length=0116; raw="1102 L$$aСтарооскольский технологический институт им. А. А. Угарова"
+fieldIndex=7; byteOffset=147280799; length=0026; raw="4102 L$$aСТИ МИСиС"
+fieldIndex=8; byteOffset=147280829; length=0015; raw="4102 L$$aСТИ"
+fieldIndex=9; byteOffset=147280848; length=0468; raw="4102 L$$aСтарооскольский технологический институт им А. А. Угарова (филиал) Федерального государственного автономного образовательного учреждения высшего профессионального образования \"Национальный исследовательский технологический университет \"МИСИиС\""
+fieldIndex=10; byteOffset=147281320; length=0087; raw="5102 L$$aСтарооскольский технологический институт"
+fieldIndex=11; byteOffset=147281411; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20230828$$lRSL10$$h1108"
+fieldIndex=12; byteOffset=147281460; length=0010; raw="UPD  L$$aN"
+fieldIndex=13; byteOffset=147281474; length=0087; raw=" 102 L$$aСтарооскольский технологический институт"
+fieldIndex=14; byteOffset=147281565; length=0076; raw="670  L$$aИз кн.: Язык. Культура. Духовность , 2007"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 147280478 /tmp/000252834.dat

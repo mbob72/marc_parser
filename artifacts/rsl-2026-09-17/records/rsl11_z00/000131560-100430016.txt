@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000131560; recordIndex (0-based): 124065; byteOffset: 100430016
+Record length: 1763 bytes; record SHA-256: c02c58550e51b1808d3a65d2b643b24b45731de5c544def8b9a10f49eec88c5d
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"message": "Error: Aleph-запись должна содержать ровно одно поле LDR; найдено 2."}
+
+Fields:
+fieldIndex=0; byteOffset=100430026; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=100430038; length=0030; raw="LDR  L^^^^^cam^a2200205^i^4500"
+fieldIndex=LDR; byteOffset=100430072; length=0030; raw="LDR  L00786nz^^a2200169o^^4500"
+fieldIndex=1; byteOffset=100430106; length=0021; raw="001  Lnafpn-000131560"
+fieldIndex=2; byteOffset=100430131; length=0022; raw="005  L20130221191236.0"
+fieldIndex=3; byteOffset=100430157; length=0046; raw="008  L130221^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=100430207; length=0028; raw="040  L$$brus$$aRuMoRGB$$ercr"
+fieldIndex=5; byteOffset=100430239; length=0137; raw="1000 L$$aИаков$$cТупиков Олег Иванович$$cиеромонах Новоспасского монастыря$$d1972-"
+fieldIndex=6; byteOffset=100430380; length=0057; raw="4001 L$$aТупиков Олег Иванович$$d1972-"
+fieldIndex=7; byteOffset=100430441; length=0129; raw="4000 L$$aИаков$$cТупиков Олег Иванович$$cмонах Новоспасского монастыря$$d1972-"
+fieldIndex=8; byteOffset=100430574; length=0139; raw="4000 L$$aИаков$$cТупиков Олег Иванович$$cиеродиакон Новоспасского монастыря$$d1972-"
+fieldIndex=9; byteOffset=100430717; length=0044; raw="CAT  L$$aNO01$$b40$$c20130221$$lRSL11$$h1908"
+fieldIndex=10; byteOffset=100430765; length=0044; raw="CAT  L$$aNO01$$b40$$c20130221$$lRSL11$$h1910"
+fieldIndex=11; byteOffset=100430813; length=0044; raw="CAT  L$$aNO01$$b40$$c20130221$$lRSL11$$h1912"
+fieldIndex=12; byteOffset=100430861; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0200"
+fieldIndex=13; byteOffset=100430911; length=0010; raw="UPD  L$$aN"
+fieldIndex=14; byteOffset=100430925; length=0014; raw="065  L$$2rubbk"
+fieldIndex=15; byteOffset=100430943; length=0831; raw="6780 L$$aЗакончил МДС. Постриг: в рясофор - 23 апреля 1994 г., в мантию. 27.09.1996 г. рукоположен в сан иеродиакона Преосвященным Алексием (Фроловым), епископом Орехово-Зуевским, наместником Новоспасского монастыря. В сан иеромонаха рукоположен 14.03.2004 г. Преосвященным Алексием (Фроловым), епископом Орехово-Зуевским, наместником Новоспасского монастыря. Несение послушаний и назначений: ризничий, помощник благочинного и заведующий экскурсионной службой монастыря."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 100430016 /tmp/000131560.dat

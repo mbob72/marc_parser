@@ -1,0 +1,9 @@
+{"recordIndex":355564,"byteOffset":41937731,"errors":[{"rule":"DF-G3","fieldIndex":1,"tag":"DEL","message":"Поле DEL не содержит кода подполя."}]}
+{"recordIndex":355565,"byteOffset":41937969,"errors":[{"rule":"DF-G3","fieldIndex":1,"tag":"DEL","message":"Поле DEL не содержит кода подполя."}]}
+{"recordIndex":376466,"byteOffset":59934699,"errors":[{"rule":"LD-02","message":"Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}]}
+{"recordIndex":382449,"byteOffset":64656319,"errors":[{"rule":"LD-02","message":"Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}]}
+{"recordIndex":400706,"byteOffset":78953596,"errors":[{"rule":"DF-G3","fieldIndex":11,"tag":"110","message":"Поле 110 не содержит кода подполя."}]}
+{"recordIndex":472585,"byteOffset":138867027,"errors":[{"rule":"LD-02","message":"Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}]}
+{"recordIndex":509747,"byteOffset":166128330,"errors":[{"rule":"DF-G3","fieldIndex":13,"tag":"490","message":"Поле 490 не содержит кода подполя."}]}
+{"recordIndex":512202,"byteOffset":167849343,"errors":[{"rule":"LD-02","message":"Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}]}
+{"recordIndex":518568,"byteOffset":172845362,"parsingError":"Aleph-запись должна содержать ровно одно поле LDR; найдено 0."}

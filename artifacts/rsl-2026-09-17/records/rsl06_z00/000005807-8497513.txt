@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000005807; recordIndex (0-based): 9686; byteOffset: 8497513
+Record length: 1185 bytes; record SHA-256: 4d6f99910a3bb3d1647b29a67b7c511674029f77d7cd34d8fce34eabdf63c120
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=8497523; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=8497535; length=0030; raw="LDR  L01420nam^a22002892ic4500"
+fieldIndex=1; byteOffset=8497569; length=0015; raw="001  L000005807"
+fieldIndex=2; byteOffset=8497588; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=8497602; length=0022; raw="005  L20181122154823.0"
+fieldIndex=4; byteOffset=8497628; length=0046; raw="008  L160210s1972^^^^ru^|||||^||||||||^||rus^d"
+fieldIndex=5; byteOffset=8497678; length=0040; raw="035  L$$a(RuMoELAR)lacunas1917-79-050670"
+fieldIndex=6; byteOffset=8497722; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=8497761; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=8497777; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=8497792; length=0018; raw="24500L$$a1890-1917"
+fieldIndex=10; byteOffset=8497814; length=0013; raw="260  L$$c1972"
+fieldIndex=11; byteOffset=8497831; length=0024; raw="300  L$$a222 с.$$bил."
+fieldIndex=12; byteOffset=8497859; length=0039; raw="504  L$$aБиблиогр.: с. 211-216"
+fieldIndex=13; byteOffset=8497902; length=0450; raw="77318L$$7nnam$$gВып. 5$$tРусский костюм. 1750-1917 [Текст] : Материалы для сценич. постановок русской драматургии от Фонвизина до Горького : [Альбом] : В 5 вып. / Рис. В. Козлинского ; Текст Е. Берман и Е. Курбатовой$$dМосква : Всерос. театральное о-во, 1960-1972$$h4 т.; 30 см$$w5805"
+fieldIndex=14; byteOffset=8498356; length=0271; raw="LKR  L$$aUP$$lRSL06$$b5805$$m1890-1917$$nРусский костюм. 1750-1917 [Текст] : Материалы для сценич. постановок русской драматургии от Фонвизина до Горького : [Альбом] : В 5 вып."
+fieldIndex=15; byteOffset=8498631; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=16; byteOffset=8498647; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20181122$$lRSL06$$h1548"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 8497513 /tmp/000005807.dat

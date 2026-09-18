@@ -1,0 +1,33 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000250489; recordIndex (0-based): 245334; byteOffset: 226758357
+Record length: 1248 bytes; record SHA-256: 1a27e7c1cb883196bc6fdcef5f9b4281a5fba8bd0554ffcee95f2390cf1eb13c
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 14, "tag": "663", "indicatorIndex": 0, "message": "Индикатор 1 поля 663 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=226758367; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=226758379; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=226758413; length=0021; raw="001  Lnafpn-000250489"
+fieldIndex=2; byteOffset=226758438; length=0022; raw="005  L20260401110306.0"
+fieldIndex=3; byteOffset=226758464; length=0046; raw="008  L210625^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=226758514; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=226758546; length=0054; raw="1001 L$$aMunger, Charles$$d1924-2023$$0RSL11-000250489"
+fieldIndex=6; byteOffset=226758604; length=0061; raw="4001 L$$aMunger, Charles Thomas$$d1924-2023$$0RSL11-000250489"
+fieldIndex=7; byteOffset=226758669; length=0054; raw="4001 L$$aMunger, Charlie$$d1924-2023$$0RSL11-000250489"
+fieldIndex=8; byteOffset=226758727; length=0075; raw="5001 L$$aМангер, Чарли$$d1924-2023$$0RSL11-000250489$$w000250487"
+fieldIndex=9; byteOffset=226758806; length=0044; raw="CAT  L$$aNO16$$b40$$c20210625$$lRSL11$$h1107"
+fieldIndex=10; byteOffset=226758854; length=0045; raw="CAT  L$$aOKZ43$$b40$$c20260401$$lRSL11$$h1058"
+fieldIndex=11; byteOffset=226758903; length=0045; raw="CAT  L$$aOKZ43$$b40$$c20260401$$lRSL11$$h1101"
+fieldIndex=12; byteOffset=226758952; length=0045; raw="CAT  L$$aOKZ43$$b40$$c20260401$$lRSL11$$h1103"
+fieldIndex=13; byteOffset=226759001; length=0010; raw="UPD  L$$aN"
+fieldIndex=14; byteOffset=226759015; length=0142; raw="663\u0001 L$$aПроизведения этого авт. на рус. языке см. под именем:$$bМангер, Чарли (1924-2023)"
+fieldIndex=15; byteOffset=226759161; length=0056; raw="670  L$$aУниверситет Berkshire Hathaway, 2021"
+fieldIndex=16; byteOffset=226759221; length=0323; raw="6780 L$$aМангер Чарли - американский бизнесмен, инвестор, юрист и филантроп, вице-председатель совета директоров холдинговой компании Berkshire Hathaway, контролируемой Уорреном Баффетом."
+fieldIndex=17; byteOffset=226759548; length=0052; raw="670  L$$aЧарли Мангер. Лучшее, 2026"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 226758357 /tmp/000250489.dat

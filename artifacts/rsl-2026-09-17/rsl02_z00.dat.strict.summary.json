@@ -1,0 +1,51 @@
+{
+  "file": "rsl02_z00.dat",
+  "category": "bibliographic",
+  "source": "https://mrsadman.ru/ac34d2e7ff814dac/",
+  "revision": "47d517aa270e431874abe1524a2ae069b7910d97",
+  "node": "v24.12.0",
+  "startedAt": "2026-09-17T15:22:39.574Z",
+  "completedAt": "2026-09-17T15:22:39.770Z",
+  "complete": false,
+  "fatalError": "Error: Поле LDR Aleph-записи содержит 22 байт; ожидалось 24.",
+  "fileBytes": 30947700,
+  "recordsProcessed": 1631,
+  "validRecords": 1599,
+  "recordsWithValidationErrors": 32,
+  "recordsWithParsingErrors": 1,
+  "validationErrors": 32,
+  "inputBytes": 899249,
+  "serializedBytes": 3232950,
+  "rules": {
+    "LD-02": 32
+  },
+  "messages": {
+    "LD-02: Leader/19 содержит недопустимый для схемы РГБ код \"c\".": {
+      "count": 28,
+      "first": {
+        "recordIndex": 18,
+        "byteOffset": 12719,
+        "rule": "LD-02",
+        "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."
+      }
+    },
+    "LD-02: Leader/19 содержит недопустимый для схемы РГБ код \"b\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 410,
+        "byteOffset": 243624,
+        "rule": "LD-02",
+        "message": "Leader/19 содержит недопустимый для схемы РГБ код \"b\"."
+      }
+    },
+    "LD-02: Leader/19 содержит недопустимый для схемы РГБ код \"a\".": {
+      "count": 3,
+      "first": {
+        "recordIndex": 1007,
+        "byteOffset": 610290,
+        "rule": "LD-02",
+        "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."
+      }
+    }
+  }
+}

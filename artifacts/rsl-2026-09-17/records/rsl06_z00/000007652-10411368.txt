@@ -1,0 +1,36 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007652; recordIndex (0-based): 11517; byteOffset: 10411368
+Record length: 1125 bytes; record SHA-256: 73df6bc14f3134a6a5ccf5aa6b9039b049942f3546f6e9fe360d821279b491de
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10411378; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10411390; length=0030; raw="LDR  L01122nam^a22002652ia4500"
+fieldIndex=1; byteOffset=10411424; length=0015; raw="001  L000007652"
+fieldIndex=2; byteOffset=10411443; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10411457; length=0022; raw="005  L20190419095312.0"
+fieldIndex=4; byteOffset=10411483; length=0046; raw="008  L100514m19251927ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10411533; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00009286"
+fieldIndex=6; byteOffset=10411572; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10411611; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10411627; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=10411642; length=0058; raw="1001 L$$aЛебедев, Алексей Матвеевич"
+fieldIndex=10; byteOffset=10411704; length=0229; raw="24500L$$aК новой жизни$$bПодвижная хрестоматия для чтения и бесед$$cСост.: А. Лебедев, В. Поляков, И. Устинов Под общ. ред. А. С. Курской"
+fieldIndex=11; byteOffset=10411937; length=0096; raw="260  L$$aМосква ;$$aЛенинград$$bДолой неграмотность$$c1925-1927"
+fieldIndex=12; byteOffset=10412037; length=0017; raw="300  L$$c26 см."
+fieldIndex=13; byteOffset=10412058; length=0104; raw="500  L$$aРед. вып. 6: агр. Г. И. Лебедев; вып. 18: К. Я. Киндеев$$5RuMoRGB"
+fieldIndex=14; byteOffset=10412166; length=0048; raw="504  L$$aБиблиогр. в конце вып."
+fieldIndex=15; byteOffset=10412218; length=0062; raw="7001 L$$aПоляков, Василий Григорьевич"
+fieldIndex=16; byteOffset=10412284; length=0028; raw="7001 L$$aУстинов, И."
+fieldIndex=17; byteOffset=10412316; length=0051; raw="7001 L$$aКурская, А. С.$$eРедактор"
+fieldIndex=18; byteOffset=10412371; length=0051; raw="7001 L$$aЛебедев, Г. М.$$eРедактор"
+fieldIndex=19; byteOffset=10412426; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=20; byteOffset=10412442; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190419$$lRSL06$$h0953"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10411368 /tmp/000007652.dat

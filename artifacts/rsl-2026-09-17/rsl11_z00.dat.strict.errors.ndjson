@@ -1,0 +1,7 @@
+{"recordIndex":18704,"byteOffset":18179666,"errors":[{"rule":"IN-G3","fieldIndex":5,"tag":"100","indicatorIndex":0,"message":"Индикатор 1 поля 100 имеет недопустимое значение \"\\u0001\"."}]}
+{"recordIndex":19317,"byteOffset":18614760,"errors":[{"rule":"DF-G3","fieldIndex":19,"tag":"678","message":"Поле 678 не содержит кода подполя."}]}
+{"recordIndex":70313,"byteOffset":56287512,"errors":[{"rule":"DR-E2","fieldIndex":11,"tag":" --","message":"Некорректный тег \" --\"."}]}
+{"recordIndex":80114,"byteOffset":65305765,"errors":[{"rule":"IN-G3","fieldIndex":16,"tag":"065","indicatorIndex":0,"message":"Индикатор 1 поля 065 имеет недопустимое значение \"\\u0001\"."}]}
+{"recordIndex":110097,"byteOffset":88687444,"errors":[{"rule":"DR-E2","fieldIndex":14,"tag":"67 ","message":"Некорректный тег \"67 \"."}]}
+{"recordIndex":112925,"byteOffset":90992189,"errors":[{"rule":"IN-G3","fieldIndex":14,"tag":"065","indicatorIndex":0,"message":"Индикатор 1 поля 065 имеет недопустимое значение \"\\u0001\"."}]}
+{"recordIndex":124065,"byteOffset":100430016,"parsingError":"Aleph-запись должна содержать ровно одно поле LDR; найдено 2."}

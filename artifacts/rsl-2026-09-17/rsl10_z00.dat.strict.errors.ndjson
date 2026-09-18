@@ -1,0 +1,2 @@
+{"recordIndex":1309,"byteOffset":547326,"errors":[{"rule":"DF-G3","fieldIndex":14,"tag":"678","message":"Поле 678 не содержит кода подполя."}]}
+{"recordIndex":27603,"byteOffset":13204636,"parsingError":"Поле LDR Aleph-записи содержит 25 байт; ожидалось 24."}

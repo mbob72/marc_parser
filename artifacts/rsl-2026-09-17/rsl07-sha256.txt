@@ -1,0 +1,2 @@
+1812e12096ecd41a6ec4cad19bbac03baf155880eed223c90d96090289cda84c  data/rsl-2026-09-17/archives/rsl07_z00.tar.gz
+4dfcc187ae80f6710bd08d14f5a367d29b84ae6c6103c3836dff21fb28df127f  data/rsl-2026-09-17/raw/rsl07_z00.dat

@@ -1,0 +1,28 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000269790; recordIndex (0-based): 265483; byteOffset: 248356278
+Record length: 764 bytes; record SHA-256: fc2be57ce8105cca87b57a1fba71d61e3c85cf7e689f6da8c3a926287d7b84b1
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "VF-G5", "fieldIndex": 9, "tag": "065", "subfieldIndex": 0, "message": "Подполе 1 поля 065 имеет недопустимый код \"D\"."}
+{"rule": "SF-G4", "fieldIndex": 9, "tag": "065", "subfieldIndex": 0, "message": "Подполе 1 поля 065 имеет недопустимый код \"D\"."}
+
+Fields:
+fieldIndex=0; byteOffset=248356288; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=248356300; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=248356334; length=0021; raw="001  Lnafpn-000269790"
+fieldIndex=2; byteOffset=248356359; length=0022; raw="005  L20220701115937.0"
+fieldIndex=3; byteOffset=248356385; length=0046; raw="008  L220701^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=248356435; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=248356467; length=0058; raw="1001 L$$aЕфимова, Наталья Ильинична"
+fieldIndex=6; byteOffset=248356529; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20220701$$lRSL11$$h1159"
+fieldIndex=7; byteOffset=248356578; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0203"
+fieldIndex=8; byteOffset=248356628; length=0010; raw="UPD  L$$aN"
+fieldIndex=9; byteOffset=248356642; length=0014; raw="065  L$$Drubbk"
+fieldIndex=10; byteOffset=248356660; length=0166; raw="670  L$$aМеждународные научные чтения: национальная специфика композиторского творчества, 2021"
+fieldIndex=11; byteOffset=248356830; length=0207; raw="6780 L$$aДоктор искусствоведения, профессор, проректор по научной работе Академии хорового искусства им. В. С. Попова"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 248356278 /tmp/000269790.dat

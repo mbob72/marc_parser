@@ -1,0 +1,25 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000326455; recordIndex (0-based): 325025; byteOffset: 311587114
+Record length: 1565 bytes; record SHA-256: 5caa4081f630b0f122c3f7e3bf77c07bc6b745167893144a9147a3731a99ddf8
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 5, "tag": "100", "indicatorIndex": 0, "message": "Индикатор 1 поля 100 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=311587124; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=311587136; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=311587170; length=0021; raw="001  Lnafpn-000326455"
+fieldIndex=2; byteOffset=311587195; length=0022; raw="005  L20250619134848.0"
+fieldIndex=3; byteOffset=311587221; length=0046; raw="008  L250619^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=311587271; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=311587303; length=0066; raw="100\u0001 L$$aМеркушев, Сергей Александрович"
+fieldIndex=6; byteOffset=311587373; length=0045; raw="CAT  L$$aOKZ31$$b40$$c20250619$$lRSL11$$h1348"
+fieldIndex=7; byteOffset=311587422; length=0010; raw="UPD  L$$aN"
+fieldIndex=8; byteOffset=311587436; length=0080; raw="670  L$$aЭкзаменационные тесты по географии, 1999"
+fieldIndex=9; byteOffset=311587520; length=1154; raw="6780 L$$aМеркушев, Сергей Александрович - российский географ, кандидат географических наук (1997), доцент кафедры социально-экономической географии, доцент кафедры туризма Пермского государственного национального исследовательского университета. Окончил Пермский государственный университет (география). Возглавлял отдел социально-экономического развития Департамента экономического развития Администрации Пермской области (1997-2007 гг.). Автор около 30 работ, в том числе 3 учебных пособий. Область научных интересов: территориальный анализ качества жизни населения, изучение городского транспорта и городских транспортных систем."
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 311587114 /tmp/000326455.dat

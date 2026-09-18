@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006826; recordIndex (0-based): 10685; byteOffset: 9563755
+Record length: 951 bytes; record SHA-256: 4045f6c6f4b259cdde20b4aede6b729029ed1ca5e6a7739410ac0fea1df9ba29
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9563765; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9563777; length=0030; raw="LDR  L01197nam^a22002652ic4500"
+fieldIndex=1; byteOffset=9563811; length=0015; raw="001  L000006826"
+fieldIndex=2; byteOffset=9563830; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9563844; length=0022; raw="005  L20190211110445.0"
+fieldIndex=4; byteOffset=9563870; length=0046; raw="008  L110121s1934^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9563920; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00275225"
+fieldIndex=6; byteOffset=9563959; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9563998; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9564014; length=0062; raw="24500L$$aЭкспедиция в Сойотию$$h[Текст]"
+fieldIndex=9; byteOffset=9564080; length=0013; raw="260  L$$c1934"
+fieldIndex=10; byteOffset=9564097; length=0024; raw="300  L$$a293 с.$$bил."
+fieldIndex=11; byteOffset=9564125; length=0342; raw="77318L$$7p1am$$gТ. 3$$aКон, Феликс Яковлевич (1864 -)$$tЗа пятьдесят лет [Текст] : Собрание сочинений$$dМосква : [изд-во Всес. о-ва политкаторжан и ссыльно-поселенцев], 1932-1934 (тип. Профиздата)$$h3 т.; 22х15 см.$$w6825"
+fieldIndex=12; byteOffset=9564471; length=0164; raw="LKR  L$$aUP$$lRSL06$$b6825$$mЭкспедиция в Сойотию [Текст]$$nЗа пятьдесят лет [Текст] : Собрание сочинений"
+fieldIndex=13; byteOffset=9564639; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=14; byteOffset=9564655; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190211$$lRSL06$$h1104"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9563755 /tmp/000006826.dat

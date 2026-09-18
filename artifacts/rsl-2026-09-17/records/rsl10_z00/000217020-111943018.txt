@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000217020; recordIndex (0-based): 215797; byteOffset: 111943018
+Record length: 1640 bytes; record SHA-256: 4c8f97e75df3e3f52b72cb7f3d5779ed5567b74260fa70ca2c3be118353368e2
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DF-G3", "fieldIndex": 8, "tag": "410", "message": "Поле 410 не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=111943028; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=111943040; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=111943074; length=0015; raw="001  L000217020"
+fieldIndex=2; byteOffset=111943093; length=0022; raw="005  L20181017122702.0"
+fieldIndex=3; byteOffset=111943119; length=0046; raw="008  L181017^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=4; byteOffset=111943169; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=111943201; length=0014; raw="065  L$$2rubbk"
+fieldIndex=6; byteOffset=111943219; length=0083; raw="1102 L$$aДеревяницкий монастырь (Новгородский у.)"
+fieldIndex=7; byteOffset=111943306; length=0110; raw="4102 L$$aДеревяницкий Воскресенский монастырь (Новгородский у.)"
+fieldIndex=8; byteOffset=111943420; length=0064; raw="4102 LДеревяницкий женский монастырь"
+fieldIndex=9; byteOffset=111943488; length=0152; raw="4102 L$$aДеревяницкий в честь Воскресения Христова женский монастырь (Новгородский у.)"
+fieldIndex=10; byteOffset=111943644; length=0045; raw="CAT  L$$aNIOR9$$b40$$c20181017$$lRSL10$$h1227"
+fieldIndex=11; byteOffset=111943693; length=0010; raw="UPD  L$$aN"
+fieldIndex=12; byteOffset=111943707; length=0091; raw="670  L$$aЭСБЕ. - СПб., 1893. - Т. X: Давенпорт — Десмин. - С. 459"
+fieldIndex=13; byteOffset=111943802; length=0199; raw="670  L$$aП. П. Сойкинъ. «Православныя русскія обители». — С.-Петербургъ: Книгоиздательство П. П. Сойкина, 1910. — С. 147"
+fieldIndex=14; byteOffset=111944005; length=0648; raw="6781 L$$aБывший православный монастырь Новгородской епархии, на правом берегу небольшой протоки — Деревянки. Известен с 1335 г. В 1875 г. преобразован в женский. В нем разместилось училище для девиц духовного ведомства, преобразованное в 1882 г. в Новгородское епархиальное женское училище. Сейчас - стационар Новгородского областного наркодиспансера «Катарсис»"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 111943018 /tmp/000217020.dat

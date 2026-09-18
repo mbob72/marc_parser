@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000008063; recordIndex (0-based): 11928; byteOffset: 10851510
+Record length: 694 bytes; record SHA-256: b52dfc0ede7195316106fea4cfed159df637cc33f98eeccf5d5f29941394ad01
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10851520; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10851532; length=0030; raw="LDR  L00655nam^a22002052ia4500"
+fieldIndex=1; byteOffset=10851566; length=0015; raw="001  L000008063"
+fieldIndex=2; byteOffset=10851585; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10851599; length=0022; raw="005  L20190618095128.0"
+fieldIndex=4; byteOffset=10851625; length=0046; raw="008  L100622m19201922ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10851675; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00106592"
+fieldIndex=6; byteOffset=10851714; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10851753; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10851769; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=10851784; length=0054; raw="1001 L$$aТюменев, Александр Ильич"
+fieldIndex=10; byteOffset=10851842; length=0138; raw="24500L$$aОчерки экономической и социальной истории древней Греции /$$cА. Тюменев"
+fieldIndex=11; byteOffset=10851984; length=0042; raw="24613L$$aКризис демократии"
+fieldIndex=12; byteOffset=10852030; length=0061; raw="260  L$$aПетербург$$bГос. изд-во$$c1920-1922"
+fieldIndex=13; byteOffset=10852095; length=0017; raw="300  L$$c22 см."
+fieldIndex=14; byteOffset=10852116; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=15; byteOffset=10852137; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=16; byteOffset=10852153; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190618$$lRSL06$$h0951"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10851510 /tmp/000008063.dat

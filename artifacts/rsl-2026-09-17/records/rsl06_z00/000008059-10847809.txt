@@ -1,0 +1,33 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000008059; recordIndex (0-based): 11924; byteOffset: 10847809
+Record length: 807 bytes; record SHA-256: d6b6e79c13ae36e8e540e7371df943fcb4581461ce2cfe21c7caa7d7df0ca6c4
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10847819; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10847831; length=0030; raw="LDR  L00770nam^a22002172ia4500"
+fieldIndex=1; byteOffset=10847865; length=0015; raw="001  L000008059"
+fieldIndex=2; byteOffset=10847884; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10847898; length=0022; raw="005  L20190618094005.0"
+fieldIndex=4; byteOffset=10847924; length=0046; raw="008  L100514m19201922ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10847974; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00001595"
+fieldIndex=6; byteOffset=10848013; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10848052; length=0018; raw="0411 L$$arus$$hger"
+fieldIndex=8; byteOffset=10848074; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=10848089; length=0033; raw="1001 L$$aМеринг, Франц"
+fieldIndex=10; byteOffset=10848126; length=0154; raw="24500L$$aИстория германской социал-демократии$$cФ. Меринг Пер. со 2-го нем. изд. М. Е. Ландау"
+fieldIndex=11; byteOffset=10848284; length=0057; raw="260  L$$a[Москва]$$bГос. изд-во$$c1920-1922"
+fieldIndex=12; byteOffset=10848345; length=0017; raw="300  L$$c23 см."
+fieldIndex=13; byteOffset=10848366; length=0101; raw="504  L$$aБиблиогр.: \"Примечания\" в конце текста каждого тома"
+fieldIndex=14; byteOffset=10848471; length=0053; raw="7001 L$$aЛандау, М. Е.$$eПереводчик"
+fieldIndex=15; byteOffset=10848528; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=16; byteOffset=10848549; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=17; byteOffset=10848565; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190618$$lRSL06$$h0940"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10847809 /tmp/000008059.dat

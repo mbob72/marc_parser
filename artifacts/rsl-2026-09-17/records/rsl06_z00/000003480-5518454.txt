@@ -1,0 +1,33 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000003480; recordIndex (0-based): 5902; byteOffset: 5518454
+Record length: 776 bytes; record SHA-256: 7f3f44d2f857ccd4fce2e27cee9fe98905ed437e224120b49e9345c890af5b8f
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=5518464; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=5518476; length=0030; raw="LDR  L01173nam^a22003012ic4500"
+fieldIndex=1; byteOffset=5518510; length=0015; raw="001  L000003480"
+fieldIndex=2; byteOffset=5518529; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=5518543; length=0022; raw="005  L20160516150625.0"
+fieldIndex=4; byteOffset=5518569; length=0046; raw="008  L121029s1976^^^^ru^|||||^||||||||^||rus^d"
+fieldIndex=5; byteOffset=5518619; length=0017; raw="017  L$$a76-29455"
+fieldIndex=6; byteOffset=5518640; length=0035; raw="035  L$$a(RuMoELAR)1975-76-20110445"
+fieldIndex=7; byteOffset=5518679; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=8; byteOffset=5518718; length=0012; raw="0410 L$$arus"
+fieldIndex=9; byteOffset=5518734; length=0011; raw="044  L$$aru"
+fieldIndex=10; byteOffset=5518749; length=0140; raw="24500L$$aКультурная жизнь в СССР : 1928-1941. Хроника$$c... М. А. Суслова (отв. сост.) [и др.]"
+fieldIndex=11; byteOffset=5518893; length=0041; raw="260  L$$aМосква$$bНаука$$c1976"
+fieldIndex=12; byteOffset=5518938; length=0016; raw="300  L$$a814 с."
+fieldIndex=13; byteOffset=5518958; length=0088; raw="504  L$$aУказ. имен, геогр. назв., предм.-темат.: с. 785-815"
+fieldIndex=14; byteOffset=5519050; length=0057; raw="70012L$$aСуслова, М. А.$$eСоставитель"
+fieldIndex=15; byteOffset=5519111; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=16; byteOffset=5519127; length=0047; raw="CAT  L$$aKOMPL37$$b10$$c20160128$$lRSL06$$h1326"
+fieldIndex=17; byteOffset=5519178; length=0047; raw="CAT  L$$aKOMPL37$$b10$$c20160516$$lRSL06$$h1506"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 5518454 /tmp/000003480.dat

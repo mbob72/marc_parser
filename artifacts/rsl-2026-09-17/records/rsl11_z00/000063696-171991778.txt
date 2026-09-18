@@ -1,0 +1,39 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000063696; recordIndex (0-based): 195820; byteOffset: 171991778
+Record length: 1399 bytes; record SHA-256: c27c66bb382111cb3f97f421ba29864a7d1983f57443a6150a85665053c1806e
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "DR-E2", "fieldIndex": 17, "tag": ";01", "message": "Некорректный тег \";01\"."}
+{"rule": "DF-G3", "fieldIndex": 17, "tag": ";01", "message": "Поле ;01 не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=171991788; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=171991800; length=0030; raw="LDR  L00730nz^^a2200193o^^4500"
+fieldIndex=1; byteOffset=171991834; length=0021; raw="001  Lnafpn-000063696"
+fieldIndex=2; byteOffset=171991859; length=0022; raw="005  L20191112142008.0"
+fieldIndex=3; byteOffset=171991885; length=0046; raw="008  L000426|n|azz||a|||^^^^^^^^^^||^a|a^^^^^d"
+fieldIndex=4; byteOffset=171991935; length=0041; raw="040  L$$aNLR$$brus$$cNLR$$dRuMoRGB$$epsbo"
+fieldIndex=5; byteOffset=171991980; length=0094; raw="1001 L$$aТуси, Насир ад-Дин Мухаммад ибн Мухаммад$$d1201-1274"
+fieldIndex=6; byteOffset=171992078; length=0068; raw="4001 L$$aНасирэддин Туси, Мухаммед$$d1201-1274"
+fieldIndex=7; byteOffset=171992150; length=0029; raw="4000 L$$aТуси$$d1201-1274"
+fieldIndex=8; byteOffset=171992183; length=0057; raw="4000 L$$aНасир ад-Дин ат Туси$$d1201-1274"
+fieldIndex=9; byteOffset=171992244; length=0048; raw="4001 L$$aطوسي، نصرالدين$$d1201-1274"
+fieldIndex=10; byteOffset=171992296; length=0032; raw="CAT  L$$c20100114$$lRSL11$$h1839"
+fieldIndex=11; byteOffset=171992332; length=0032; raw="CAT  L$$c20100908$$lRSL11$$h2114"
+fieldIndex=12; byteOffset=171992368; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20180416$$lRSL11$$h1221"
+fieldIndex=13; byteOffset=171992417; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20180416$$lRSL11$$h1221"
+fieldIndex=14; byteOffset=171992466; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20180416$$lRSL11$$h1223"
+fieldIndex=15; byteOffset=171992515; length=0044; raw="CAT  L$$aCVL7$$b40$$c20191112$$lRSL11$$h1420"
+fieldIndex=16; byteOffset=171992563; length=0010; raw="UPD  L$$aN"
+fieldIndex=17; byteOffset=171992577; length=0021; raw=";01  Lnafpn-000063696"
+fieldIndex=18; byteOffset=171992602; length=0027; raw="667  L$$aRU\\NLR\\AUTH\\779714"
+fieldIndex=19; byteOffset=171992633; length=0029; raw="670  L$$aРНБ ГАКрус."
+fieldIndex=20; byteOffset=171992666; length=0085; raw="670  L$$aБольшая cоветская энциклопедия-3.- М.,1969-1978."
+fieldIndex=21; byteOffset=171992755; length=0090; raw="670  L$$aКраткая литературная энциклопедия.- М.,1964-1978."
+fieldIndex=22; byteOffset=171992849; length=0323; raw="678  L$$aПерсидский математик, механик и астроном XIII века, государственный деятель. Автор сочинений по философии, географии, музыке, оптике, медицине. Ученик Камал ад-Дина ибн Юниса"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 171991778 /tmp/000063696.dat

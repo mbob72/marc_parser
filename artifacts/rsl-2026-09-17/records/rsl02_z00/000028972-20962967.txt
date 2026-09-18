@@ -1,0 +1,32 @@
+Source: data/rsl-2026-09-17/raw/rsl02_z00.dat
+Source SHA-256: 76499311fda50f230c31945f601e9ad0679217b5d8cc20deae53bfc84638d9a4
+recordId: 000028972; recordIndex (0-based): 25635; byteOffset: 20962967
+Record length: 855 bytes; record SHA-256: c2898de4edeac997b0dda7233e1b27a43246ea79ce4d4b35cc7b4dd6c186814d
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=20962977; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=20962989; length=0030; raw="LDR  L01541nam^a22002412ic4500"
+fieldIndex=1; byteOffset=20963023; length=0010; raw="DEL  L$$aY"
+fieldIndex=2; byteOffset=20963037; length=0044; raw="CAT  L$$aDL05$$b40$$c20230314$$lRSL02$$h1327"
+fieldIndex=3; byteOffset=20963085; length=0049; raw="CAT  L$$aBATCH-UPD$$b40$$c20230622$$lRSL02$$h0933"
+fieldIndex=4; byteOffset=20963138; length=0049; raw="CAT  L$$aBATCH-UPD$$b40$$c20230623$$lRSL02$$h1604"
+fieldIndex=5; byteOffset=20963191; length=0049; raw="CAT  L$$aBATCH-UPD$$b40$$c20230623$$lRSL02$$h1605"
+fieldIndex=6; byteOffset=20963244; length=0049; raw="CAT  L$$aBATCH-UPD$$b40$$c20230623$$lRSL02$$h1606"
+fieldIndex=7; byteOffset=20963297; length=0049; raw="CAT  L$$aBATCH-UPD$$b40$$c20230829$$lRSL02$$h1407"
+fieldIndex=8; byteOffset=20963350; length=0049; raw="CAT  L$$aBATCH-UPD$$b40$$c20230830$$lRSL02$$h1210"
+fieldIndex=9; byteOffset=20963403; length=0049; raw="CAT  L$$aBATCH-UPD$$b40$$c20230905$$lRSL02$$h0920"
+fieldIndex=10; byteOffset=20963456; length=0049; raw="CAT  L$$aBATCH-UPD$$b40$$c20230905$$lRSL02$$h0921"
+fieldIndex=11; byteOffset=20963509; length=0049; raw="CAT  L$$aBATCH-UPD$$b40$$c20230905$$lRSL02$$h0922"
+fieldIndex=12; byteOffset=20963562; length=0049; raw="CAT  L$$aBATCH-UPD$$b40$$c20230905$$lRSL02$$h0922"
+fieldIndex=13; byteOffset=20963615; length=0049; raw="CAT  L$$aBATCH-UPD$$b40$$c20231027$$lRSL02$$h1110"
+fieldIndex=14; byteOffset=20963668; length=0049; raw="CAT  L$$aBATCH-UPD$$b40$$c20250113$$lRSL02$$h1039"
+fieldIndex=15; byteOffset=20963721; length=0046; raw="CAT  L$$aPTUF01$$b99$$c20260330$$lRSL02$$h0942"
+fieldIndex=16; byteOffset=20963771; length=0046; raw="CAT  L$$aPTUF01$$b99$$c20260330$$lRSL02$$h0942"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl02_z00.dat 20962967 /tmp/000028972.dat

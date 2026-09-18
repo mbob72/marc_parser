@@ -1,0 +1,34 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006913; recordIndex (0-based): 10772; byteOffset: 9653158
+Record length: 915 bytes; record SHA-256: 653a20db05143e8d66d31b8f7ed71ced902801f3d435dee5d4329ee67c18e7f1
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9653168; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9653180; length=0030; raw="LDR  L00877nam^a22002292ia4500"
+fieldIndex=1; byteOffset=9653214; length=0015; raw="001  L000006913"
+fieldIndex=2; byteOffset=9653233; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9653247; length=0022; raw="005  L20190213110712.0"
+fieldIndex=4; byteOffset=9653273; length=0046; raw="008  L110121s1931^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9653323; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00301881"
+fieldIndex=6; byteOffset=9653362; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9653401; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9653417; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=9653432; length=0052; raw="1001 L$$aНикитин, Иван Федорович"
+fieldIndex=10; byteOffset=9653488; length=0115; raw="24500L$$aГнев$$h[Текст] :$$bРоман...$$cИван Никитин ; Обложка: В. Кочегура"
+fieldIndex=11; byteOffset=9653607; length=0021; raw="250  L$$a2-е изд."
+fieldIndex=12; byteOffset=9653632; length=0167; raw="260  L$$aЛенинград ;$$aМосква$$bВОПКП - [Огиз]. Гос. изд-во худ. лит-ры$$c1931$$eЛ.$$fтип. им. Евг. Соколовой"
+fieldIndex=13; byteOffset=9653803; length=0029; raw="300  L$$a1 т.$$c20х14 см."
+fieldIndex=14; byteOffset=9653836; length=0086; raw="4900 L$$aНовинки пролетарско-колхозной литературы"
+fieldIndex=15; byteOffset=9653926; length=0055; raw="7001 L$$aКочегура, В.$$eИллюстратор"
+fieldIndex=16; byteOffset=9653985; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=17; byteOffset=9654006; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=18; byteOffset=9654022; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190213$$lRSL06$$h1107"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9653158 /tmp/000006913.dat

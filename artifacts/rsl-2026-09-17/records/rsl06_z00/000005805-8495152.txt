@@ -1,0 +1,36 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000005805; recordIndex (0-based): 9684; byteOffset: 8495152
+Record length: 1219 bytes; record SHA-256: 3ce69241166ad0da1b90f46c56c75f5bb2dbac9d4f4e94e06795d5167c674d24
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=8495162; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=8495174; length=0030; raw="LDR  L01191nam^a22002532ia4500"
+fieldIndex=1; byteOffset=8495208; length=0015; raw="001  L000005805"
+fieldIndex=2; byteOffset=8495227; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=8495241; length=0022; raw="005  L20181122154117.0"
+fieldIndex=4; byteOffset=8495267; length=0046; raw="008  L160210m19601972ru^|||||^||||||||^||rus^d"
+fieldIndex=5; byteOffset=8495317; length=0040; raw="035  L$$a(RuMoELAR)lacunas1917-79-050665"
+fieldIndex=6; byteOffset=8495361; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=8495400; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=8495416; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=8495431; length=0041; raw="084  L$$aЩ334.3(2Р=Р)5-677я61$$2rubbk"
+fieldIndex=10; byteOffset=8495476; length=0038; raw="084  L$$aЩ126.63(2Р=Р)5я61$$2rubbk"
+fieldIndex=11; byteOffset=8495518; length=0338; raw="24500L$$aРусский костюм. 1750-1917$$h[Текст] :$$bМатериалы для сценич. постановок русской драматургии от Фонвизина до Горького : [Альбом] : В 5 вып.$$cРис. В. Козлинского ; Текст Е. Берман и Е. Курбатовой"
+fieldIndex=12; byteOffset=8495860; length=0080; raw="260  L$$aМосква$$bВсерос. театральное о-во$$c1960-1972"
+fieldIndex=13; byteOffset=8495944; length=0024; raw="300  L$$a4 т.$$c30 см"
+fieldIndex=14; byteOffset=8495972; length=0087; raw="500  L$$aРед. вып. 1-2 не указан; вып. 3-5: В. Рындин$$5RuMoRGB"
+fieldIndex=15; byteOffset=8496063; length=0062; raw="7001 L$$aБерман, Елизавета Максимовна"
+fieldIndex=16; byteOffset=8496129; length=0071; raw="7001 L$$aРындин, Вадим Федорович$$eРедактор"
+fieldIndex=17; byteOffset=8496204; length=0075; raw="7102 L$$aВсероссийское театральное общество"
+fieldIndex=18; byteOffset=8496283; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=19; byteOffset=8496304; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=20; byteOffset=8496320; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20181122$$lRSL06$$h1541"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 8495152 /tmp/000005805.dat

@@ -1,0 +1,29 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000022352; recordIndex (0-based): 34117; byteOffset: 17354060
+Record length: 549 bytes; record SHA-256: 06eb2ab947b218f4da22a228cd2e78c25bd255cca3187a0b81d86c9ee2dcfaac
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"message": "Error: Поле LDR Aleph-записи содержит 25 байт; ожидалось 24."}
+
+Fields:
+fieldIndex=0; byteOffset=17354070; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=17354082; length=0031; raw="LDR  L00430nz^^a2200157т^^4500"
+fieldIndex=1; byteOffset=17354117; length=0015; raw="001  L000022352"
+fieldIndex=2; byteOffset=17354136; length=0013; raw="003  LRuMoRGB"
+fieldIndex=3; byteOffset=17354153; length=0022; raw="005  L20090615134848.0"
+fieldIndex=4; byteOffset=17354179; length=0046; raw="008  L031225^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d"
+fieldIndex=5; byteOffset=17354229; length=0033; raw="035  L$$a(RuMoRGB)MEKACOL-0025211"
+fieldIndex=6; byteOffset=17354266; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=7; byteOffset=17354298; length=0014; raw="065  L$$2rubbk"
+fieldIndex=8; byteOffset=17354316; length=0103; raw="1112 L$$aHenry Goldberg workshop on interactive phenomena in the cardiac system$$d1992$$cBethesda (Md.)"
+fieldIndex=9; byteOffset=17354423; length=0045; raw="CAT  L$$aRSL10$$b00$$c20031225$$lRSL10$$h0127"
+fieldIndex=10; byteOffset=17354472; length=0044; raw="CAT  L$$aNO04$$b40$$c20090615$$lRSL10$$h1348"
+fieldIndex=11; byteOffset=17354520; length=0044; raw="CAT  L$$aNO04$$b40$$c20090615$$lRSL10$$h1348"
+fieldIndex=12; byteOffset=17354568; length=0010; raw="UPD  L$$aN"
+fieldIndex=13; byteOffset=17354582; length=0022; raw="670  L$$aГАК РГБ"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 17354060 /tmp/000022352.dat

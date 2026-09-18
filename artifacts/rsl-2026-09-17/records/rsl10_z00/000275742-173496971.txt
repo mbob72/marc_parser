@@ -1,0 +1,33 @@
+Source: data/rsl-2026-09-17/raw/rsl10_z00.dat
+Source SHA-256: 261208869ffcec0ba4caa1a387f12582649c787f1ee3b2c011f2e316b91cc101
+recordId: 000275742; recordIndex (0-based): 275692; byteOffset: 173496971
+Record length: 1993 bytes; record SHA-256: ed35b28d574296fd1e1f1e687289275e5ed7c32df328296129ddbe5cc2ec6435
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 15, "tag": "LVL", "indicatorIndex": 0, "message": "Индикатор 1 поля LVL имеет недопустимое значение \"X\"."}
+{"rule": "IN-G3", "fieldIndex": 15, "tag": "LVL", "indicatorIndex": 1, "message": "Индикатор 2 поля LVL имеет недопустимое значение \"X\"."}
+{"rule": "DF-G3", "fieldIndex": 15, "tag": "LVL", "message": "Поле LVL не содержит кода подполя."}
+
+Fields:
+fieldIndex=0; byteOffset=173496981; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=173496993; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=173497027; length=0015; raw="001  L000275742"
+fieldIndex=2; byteOffset=173497046; length=0022; raw="005  L20260728204711.0"
+fieldIndex=3; byteOffset=173497072; length=0046; raw="008  L260728^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=173497122; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=173497154; length=0215; raw="1102 L$$aЦентральная база производственного обслуживания по прокату и ремонту электропогружных установок (Альметьевск)"
+fieldIndex=6; byteOffset=173497373; length=0217; raw="4102 L$$aАльметьевская центральная база производственного обслуживания по прокату и ремонту электропогружных установок"
+fieldIndex=7; byteOffset=173497594; length=0026; raw="4102 L$$aАЦБПО ЭПУ"
+fieldIndex=8; byteOffset=173497624; length=0024; raw="4102 L$$aЦБПО ЭПУ"
+fieldIndex=9; byteOffset=173497652; length=0158; raw="5102 L$$a\"Управляющая компания \"Система-Сервис\", общество с ограниченной ответственностью"
+fieldIndex=10; byteOffset=173497814; length=0046; raw="CAT  L$$aOKZ24L$$b40$$c20260728$$lRSL10$$h2047"
+fieldIndex=11; byteOffset=173497864; length=0010; raw="UPD  L$$aN"
+fieldIndex=12; byteOffset=173497878; length=0199; raw="663  L$$aС 2008 г. см. в каталоге:$$b\"Управляющая компания \"Система-Сервис\", общество с ограниченной ответственностью"
+fieldIndex=13; byteOffset=173498081; length=0807; raw="6781 L$$aАльметьевская центральная база производственного обслуживания по прокату и ремонту электропогружных установок (АЦБПО ЭПУ) была создана 8 апреля 1976 года, на базе производственного объединения \"Татнефть\" для централизованного обслуживания и ремонта установок электроцентробежных насосов. В 2008 году произошла реорганизация - \"АЦБПО ЭПУ\" была выведена из состава объединения и преобразована в ООО \"Управляющая компания \"Система-Сервис\"."
+fieldIndex=14; byteOffset=173498892; length=0055; raw="670  L$$aПолвека большого пути, 2026"
+fieldIndex=15; byteOffset=173498951; length=0008; raw="LVLXXL40"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl10_z00.dat 173496971 /tmp/000275742.dat

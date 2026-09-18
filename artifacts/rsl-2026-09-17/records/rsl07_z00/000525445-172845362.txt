@@ -1,0 +1,16 @@
+Source: data/rsl-2026-09-17/raw/rsl07_z00.dat
+Source SHA-256: 4dfcc187ae80f6710bd08d14f5a367d29b84ae6c6103c3836dff21fb28df127f
+recordId: 000525445; recordIndex (0-based): 518568; byteOffset: 172845362
+Record length: 75 bytes; record SHA-256: ed1ca3d85fccb6ab22e75758b24e9e35790c04ca1a5abb7fdd07c053f46688c3
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"message": "Error: Aleph-запись должна содержать ровно одно поле LDR; найдено 0."}
+
+Fields:
+fieldIndex=0; byteOffset=172845372; length=0032; raw="CAT  L$$c20230608$$lRSL07$$h1138"
+fieldIndex=1; byteOffset=172845408; length=0024; raw="DEL  L          20230608"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl07_z00.dat 172845362 /tmp/000525445.dat

@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007020; recordIndex (0-based): 10880; byteOffset: 9757119
+Record length: 707 bytes; record SHA-256: 664da0060cb10127bd2c6fbc297afc5e8a6c0c9df93bf5001e03e15b563f3de9
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9757129; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9757141; length=0030; raw="LDR  L00664nam^a22001932ia4500"
+fieldIndex=1; byteOffset=9757175; length=0015; raw="001  L000007020"
+fieldIndex=2; byteOffset=9757194; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9757208; length=0022; raw="005  L20190215104056.0"
+fieldIndex=4; byteOffset=9757234; length=0046; raw="008  L160210nuuuuuuuuru^|||||^||||||||^||rus^d"
+fieldIndex=5; byteOffset=9757284; length=0040; raw="035  L$$a(RuMoELAR)lacunas1917-79-109280"
+fieldIndex=6; byteOffset=9757328; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9757367; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9757383; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=9757398; length=0060; raw="1001 L$$aСоловьев, Сергей Михайлович"
+fieldIndex=10; byteOffset=9757462; length=0153; raw="24500L$$aИстория России с древнейших времен$$h[Текст]$$cСоч. Сергея Михайловича Соловьева"
+fieldIndex=11; byteOffset=9757619; length=0087; raw="260  L$$aСанкт-Петербург$$bОбщественная польза$$c[19--]"
+fieldIndex=12; byteOffset=9757710; length=0024; raw="300  L$$a6 т.$$c27 см"
+fieldIndex=13; byteOffset=9757738; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=14; byteOffset=9757759; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=15; byteOffset=9757775; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190215$$lRSL06$$h1040"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9757119 /tmp/000007020.dat

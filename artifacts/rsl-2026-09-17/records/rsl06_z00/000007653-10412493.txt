@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007653; recordIndex (0-based): 11518; byteOffset: 10412493
+Record length: 1004 bytes; record SHA-256: b10fb2105ef71ead372a73b2c3075b7a40a4b9f8c2e387c99e92c17a77e542cd
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10412503; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10412515; length=0030; raw="LDR  L01096nam^a22002292ic4500"
+fieldIndex=1; byteOffset=10412549; length=0015; raw="001  L000007653"
+fieldIndex=2; byteOffset=10412568; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10412582; length=0022; raw="005  L20190419095437.0"
+fieldIndex=4; byteOffset=10412608; length=0046; raw="008  L100514s1926^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=10412658; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00009302"
+fieldIndex=6; byteOffset=10412697; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10412736; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10412752; length=0080; raw="24500L$$aНа борьбу с суеверием и предрассудками"
+fieldIndex=9; byteOffset=10412836; length=0070; raw="260  L$$aМосква ;$$bДолой неграмотность$$c1926"
+fieldIndex=10; byteOffset=10412910; length=0015; raw="300  L$$a93 с."
+fieldIndex=11; byteOffset=10412929; length=0288; raw="77318L$$7p1am$$gВып. 17$$aЛебедев, Алексей Матвеевич$$tК новой жизни : Подвижная хрестоматия для чтения и бесед$$dМосква ; Ленинград : Долой неграмотность, 1925-1927$$h26 см.$$w7652"
+fieldIndex=12; byteOffset=10413221; length=0205; raw="LKR  L$$aUP$$lRSL06$$b7652$$mНа борьбу с суеверием и предрассудками$$nК новой жизни : Подвижная хрестоматия для чтения и бесед"
+fieldIndex=13; byteOffset=10413430; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=14; byteOffset=10413446; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190419$$lRSL06$$h0954"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10412493 /tmp/000007653.dat

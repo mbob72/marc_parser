@@ -1,0 +1,31 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000007460; recordIndex (0-based): 11322; byteOffset: 10208352
+Record length: 854 bytes; record SHA-256: e75db59a2590829d4dc3c4f7a136601cbd6b0b740ce0dd124b694c4b315c0ed6
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"a\"."}
+
+Fields:
+fieldIndex=0; byteOffset=10208362; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=10208374; length=0030; raw="LDR  L00810nam^a22001932ia4500"
+fieldIndex=1; byteOffset=10208408; length=0015; raw="001  L000007460"
+fieldIndex=2; byteOffset=10208427; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=10208441; length=0022; raw="005  L20190411094553.0"
+fieldIndex=4; byteOffset=10208467; length=0046; raw="008  L160210nuuuuuuuuru^|||||^||||||||^||rus^d"
+fieldIndex=5; byteOffset=10208517; length=0040; raw="035  L$$a(RuMoELAR)lacunas1917-79-131539"
+fieldIndex=6; byteOffset=10208561; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=10208600; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=10208616; length=0011; raw="044  L$$aru"
+fieldIndex=9; byteOffset=10208631; length=0315; raw="24500L$$aТехническая энциклопедия$$h[Текст] :$$bСловарь по всем отраслям техники и примыкающим к ней наукам : Около 7000 с., 50000 статей и терминов и свыше 12000 ил. и конструктивных черт."
+fieldIndex=10; byteOffset=10208950; length=0072; raw="260  L$$aСанкт-Петербург$$bПросвещение$$c[19--]"
+fieldIndex=11; byteOffset=10209026; length=0024; raw="300  L$$a8 т.$$c26 см"
+fieldIndex=12; byteOffset=10209054; length=0060; raw="650 7L$$aТехника - Энциклопедии$$2RuMoRGB"
+fieldIndex=13; byteOffset=10209118; length=0017; raw="979  L$$aorf20rus"
+fieldIndex=14; byteOffset=10209139; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=15; byteOffset=10209155; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190411$$lRSL06$$h0945"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 10208352 /tmp/000007460.dat

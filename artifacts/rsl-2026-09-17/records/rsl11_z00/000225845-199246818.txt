@@ -1,0 +1,27 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000225845; recordIndex (0-based): 219933; byteOffset: 199246818
+Record length: 707 bytes; record SHA-256: 3acfcdb8081461c3c5df2aefe56078bce3e52f1fc89be43e2c389da8643e3f33
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 10, "tag": "670", "indicatorIndex": 0, "message": "Индикатор 1 поля 670 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=199246828; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=199246840; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=199246874; length=0021; raw="001  Lnafpn-000225845"
+fieldIndex=2; byteOffset=199246899; length=0022; raw="005  L20191114150813.0"
+fieldIndex=3; byteOffset=199246925; length=0046; raw="008  L191114^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=199246975; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=199247007; length=0058; raw="1001 L$$aБорисевич, Сергей Петрович"
+fieldIndex=6; byteOffset=199247069; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20191114$$lRSL11$$h1508"
+fieldIndex=7; byteOffset=199247118; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0202"
+fieldIndex=8; byteOffset=199247168; length=0010; raw="UPD  L$$aN"
+fieldIndex=9; byteOffset=199247182; length=0014; raw="065  L$$2rubbk"
+fieldIndex=10; byteOffset=199247200; length=0131; raw="670\u0001 L$$aИдея патриотизма в системе воспитания подрастающего поколения, 2019"
+fieldIndex=11; byteOffset=199247335; length=0185; raw="6780 L$$aКандидат исторических наук, доцент филиала Сочинского государственного университета в г. Анапе"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 199246818 /tmp/000225845.dat

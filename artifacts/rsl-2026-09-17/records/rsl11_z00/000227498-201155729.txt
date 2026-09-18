@@ -1,0 +1,27 @@
+Source: data/rsl-2026-09-17/raw/rsl11_z00.dat
+Source SHA-256: ba2a2b0f291607671343ae5b472872b53063ad9bd0c821107ac83f6c2dfc6f5b
+recordId: 000227498; recordIndex (0-based): 221661; byteOffset: 201155729
+Record length: 823 bytes; record SHA-256: a841d41de2147e06530469c0eb5713f7698347cdb50dbc5a268e873bb0fb0920
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "IN-G3", "fieldIndex": 10, "tag": "670", "indicatorIndex": 0, "message": "Индикатор 1 поля 670 имеет недопустимое значение \"\\u0001\"."}
+
+Fields:
+fieldIndex=0; byteOffset=201155739; length=0008; raw="FMT  LAU"
+fieldIndex=LDR; byteOffset=201155751; length=0030; raw="LDR  L^^^^^nz^^a22^^^^^n^^4500"
+fieldIndex=1; byteOffset=201155785; length=0021; raw="001  Lnafpn-000227498"
+fieldIndex=2; byteOffset=201155810; length=0022; raw="005  L20191219124014.0"
+fieldIndex=3; byteOffset=201155836; length=0046; raw="008  L191219^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d"
+fieldIndex=4; byteOffset=201155886; length=0028; raw="040  L$$aRuMoRGB$$brus$$ercr"
+fieldIndex=5; byteOffset=201155918; length=0064; raw="1001 L$$aЗаичкин, Алексей Вячеславович"
+fieldIndex=6; byteOffset=201155986; length=0045; raw="CAT  L$$aOKZ04$$b40$$c20191219$$lRSL11$$h1240"
+fieldIndex=7; byteOffset=201156035; length=0046; raw="CAT  L$$aPTUF01$$b40$$c20250520$$lRSL11$$h0202"
+fieldIndex=8; byteOffset=201156085; length=0010; raw="UPD  L$$aN"
+fieldIndex=9; byteOffset=201156099; length=0014; raw="065  L$$2rubbk"
+fieldIndex=10; byteOffset=201156117; length=0255; raw="670\u0001 L$$aАдаптированная образовательная программа профессионального обучения о профессии 16053 \"Оператор стиральных машин\". 342 учебных часов, 2019"
+fieldIndex=11; byteOffset=201156376; length=0171; raw="6780 L$$aМетодист Мультицентра социальной и трудовой интеграции (Всеволожск, Ленинградская обл.)"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl11_z00.dat 201155729 /tmp/000227498.dat

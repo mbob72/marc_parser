@@ -1,0 +1,30 @@
+Source: data/rsl-2026-09-17/raw/rsl06_z00.dat
+Source SHA-256: 3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0
+recordId: 000006985; recordIndex (0-based): 10844; byteOffset: 9718279
+Record length: 1234 bytes; record SHA-256: 98863f4bdf8d0c76b18efb21119b3e6224d1ded61172b0a766df70ac4d233b16
+Readable view: one original field per line; JSON escaping exposes tabs/newlines/control bytes.
+Length prefixes and field values are original; ^ has NOT been changed to space.
+byteOffset points to the four-byte length prefix; fieldIndex excludes LDR, matching the validator.
+Errors:
+{"rule": "LD-02", "message": "Leader/19 содержит недопустимый для схемы РГБ код \"c\"."}
+
+Fields:
+fieldIndex=0; byteOffset=9718289; length=0008; raw="FMT  LBK"
+fieldIndex=LDR; byteOffset=9718301; length=0030; raw="LDR  L01284nam^a22002172ic4500"
+fieldIndex=1; byteOffset=9718335; length=0015; raw="001  L000006985"
+fieldIndex=2; byteOffset=9718354; length=0010; raw="003  LELAR"
+fieldIndex=3; byteOffset=9718368; length=0022; raw="005  L20190214124832.0"
+fieldIndex=4; byteOffset=9718394; length=0046; raw="008  L100622s1923^^^^ru^||||^|||||||||^||rus^d"
+fieldIndex=5; byteOffset=9718444; length=0035; raw="035  L$$a(RuMoELAR)1917-45-00088515"
+fieldIndex=6; byteOffset=9718483; length=0035; raw="040  L$$aRuMoRGB$$brus$$cELAR$$ercr"
+fieldIndex=7; byteOffset=9718522; length=0012; raw="0410 L$$arus"
+fieldIndex=8; byteOffset=9718538; length=0065; raw="24500L$$aКн. 2 :$$bДля 1 и 2-го года обучения"
+fieldIndex=9; byteOffset=9718607; length=0013; raw="260  L$$c1923"
+fieldIndex=10; byteOffset=9718624; length=0023; raw="300  L$$a87 с.$$bил."
+fieldIndex=11; byteOffset=9718651; length=0481; raw="77318L$$7p1am$$gКн. 2$$aФлеров, Всеволод Александрович$$tНаглядные уроки письма : Прописи, картинки, задачи, правила : Пособия для учащихся, сост. согласно современной психологии$$dМосква ; Петроград : Гос. изд-во, 1923$$h23 см.$$k(Учебники и учебные пособия для школ I и II ступени)$$w6984"
+fieldIndex=12; byteOffset=9719136; length=0306; raw="LKR  L$$aUP$$lRSL06$$b6984$$mКн. 2 : Для 1 и 2-го года обучения$$nНаглядные уроки письма : Прописи, картинки, задачи, правила : Пособия для учащихся, сост. согласно современной психологии"
+fieldIndex=13; byteOffset=9719446; length=0012; raw="OWN  L$$aRSL"
+fieldIndex=14; byteOffset=9719462; length=0046; raw="CAT  L$$aKOMPL8$$b90$$c20190214$$lRSL06$$h1248"
+
+Extract exact original record (from repository root):
+python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/rsl06_z00.dat 9718279 /tmp/000006985.dat
