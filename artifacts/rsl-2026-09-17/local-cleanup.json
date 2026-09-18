@@ -1,0 +1,31 @@
+{
+  "completedAt": "2026-09-18T16:41:48.697264+00:00",
+  "verifiedRemoteCommit": "6bf789aa6315ce5e5e337d04f4bae5301fcc3274",
+  "remoteLfsObjectsAvailable": 11,
+  "localSha256VerifiedBeforeRemoval": true,
+  "rawFilesRemoved": [
+    "rsl01_z00.dat",
+    "rsl02_z00.dat",
+    "rsl03_z00.dat",
+    "rsl06_z00.dat",
+    "rsl07_z00.dat",
+    "rsl10_z00.dat",
+    "rsl11_z00.dat"
+  ],
+  "assembledRsl01ArchiveRemoved": true,
+  "archivePointersRetained": [
+    "data/rsl-2026-09-17/archives/rsl01_z00.tar.gz.part-aa",
+    "data/rsl-2026-09-17/archives/rsl01_z00.tar.gz.part-ab",
+    "data/rsl-2026-09-17/archives/rsl01_z00.tar.gz.part-ac",
+    "data/rsl-2026-09-17/archives/rsl01_z00.tar.gz.part-ad",
+    "data/rsl-2026-09-17/archives/rsl02_z00.tar.gz",
+    "data/rsl-2026-09-17/archives/rsl03_z00.tar.gz",
+    "data/rsl-2026-09-17/archives/rsl06_z00.tar.gz",
+    "data/rsl-2026-09-17/archives/rsl07_z00.tar.gz",
+    "data/rsl-2026-09-17/archives/rsl10_z00.tar.gz",
+    "data/rsl-2026-09-17/archives/rsl11_z00.tar.gz"
+  ],
+  "archiveLfsCacheObjectsRemoved": 10,
+  "logicalBytesReleased": 38517391500,
+  "errorArtifactsRetained": true
+}
