@@ -106,3 +106,7 @@ wiki = pathlib.Path('/tmp/marc-parser-wiki-rsl-20260917')
 if wiki.is_dir(): (wiki / path.name).write_text(text)
 (ROOT/'by-type-manifest.json').write_text(json.dumps({'counts':counts, 'chunks':chunks},ensure_ascii=False,indent=2)+'\n')
 print('Grouped occurrences:',sum(counts.values()),flush=True)
+
+# Add maintained explanations without changing the diagnostic data.
+import runpy
+runpy.run_path(str(pathlib.Path(__file__).with_name('describe-rsl-errors.py')))

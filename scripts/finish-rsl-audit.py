@@ -53,7 +53,10 @@ if links != occurrences:
 for checksums in sorted(root.glob('*sha256.txt')):
     subprocess.run(['shasum', '-a', '256', '-c', str(checksums)], check=True)
 wiki = pathlib.Path('/tmp/marc-parser-wiki-rsl-20260917/RSL-validation-2026-09-17.md')
-if wiki.read_bytes() != pathlib.Path('docs/RSL-validation-2026-09-17.md').read_bytes():
+expected_wiki = pathlib.Path('docs/RSL-validation-2026-09-17.md').read_text()
+for group in manifest['counts']:
+    expected_wiki = expected_wiki.replace(f'(rsl-errors-2026-09-17/{group}.md)', f'(RSL-errors-2026-09-17-{group})')
+if wiki.read_text() != expected_wiki:
     raise RuntimeError('Local Wiki copy differs from documentation')
 (root / 'completion.json').write_text(json.dumps({
     'complete': True, 'files': expected, 'errorOccurrences': occurrences,
