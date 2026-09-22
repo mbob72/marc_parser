@@ -105,7 +105,7 @@ test("сохраняет неизвестный формат и недопуст
   assert.equal(roundTrip.format, "НЕИЗВЕСТНО");
   assert.equal(roundTrip.leader.slice(18, 20), "ca");
   assert.deepEqual(new MarcRecordValidator().validate(record).errors.map(e => e.rule),
-    ["LD-02", "LD-02", "FMT"]);
+    ["LD-02", "FMT"]);
 });
 
 test("не вводит дополнительный запрет управляющих символов в значениях", () => {

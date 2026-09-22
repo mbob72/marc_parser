@@ -44,16 +44,17 @@ source.on('data', chunk => hash.update(chunk));
 const parser = new AlephSequentialMarcParser();
 const validator = new MarcRecordValidator('utf-8');
 const serializer = new MarcJsonSerializer('utf-8');
-const stats = { recordsProcessed: 0, validRecords: 0, recordsWithValidationErrors: 0, recordsWithParsingErrors: 0, validationErrors: 0, inputBytes: 0 };
+const stats = { recordsProcessed: 0, validRecords: 0, recordsWithValidationErrors: 0, recordsWithParsingErrors: 0, validationErrors: 0, skippedDeletedRecords: 0, inputBytes: 0 };
 const diagnostic = new AlephSequentialRecordSplitter({
   async process(buffer, context) {
     stats.recordsProcessed++; stats.inputBytes += buffer.length;
     let record;
-    try { record = parser.parse(buffer); } catch (error) {
+    try { record = parser.parseForImport(buffer); } catch (error) {
       stats.recordsWithParsingErrors++;
       await report.writeFile(JSON.stringify({ ...context, recordId: buffer.subarray(0, 9).toString(), parsingError: String(error) }) + '\n');
       return;
     }
+    if (record === null) { stats.skippedDeletedRecords++; return; }
     const result = validator.validate(record);
     if (result.valid) stats.validRecords++;
     else {

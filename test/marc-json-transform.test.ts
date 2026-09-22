@@ -97,7 +97,7 @@ test("прерывает поток при структурной ошибке",
   assert.equal(logger.parsingErrors.length, 1);
   assert.equal(logger.parsingErrors[0]?.context.recordIndex, 1);
   assert.deepEqual(transform.statistics, {
-    recordsProcessed: 1,
+    skippedDeletedRecords: 0, recordsProcessed: 1,
     validRecords: 1,
     recordsWithValidationErrors: 0,
     recordsWithParsingErrors: 1,

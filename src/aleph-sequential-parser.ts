@@ -1,5 +1,6 @@
 import { Iso2709MarcParser, type MarcParser } from "./marc-parser.js";
 import type { MarcRecord } from "./marc-record.js";
+import { hasDeletionFlag, keepImportedField } from "./marc-import-policy.js";
 
 const RECORD_PREFIX_LENGTH = 10;
 const FIELD_LENGTH_SIZE = 4;
@@ -16,6 +17,7 @@ interface AlephField {
   readonly tag: string;
   readonly indicators: Buffer;
   readonly value: Buffer;
+  readonly marker: string;
 }
 
 interface IsoField {
@@ -28,22 +30,43 @@ export class AlephSequentialMarcParser implements MarcParser {
   private readonly isoParser = new Iso2709MarcParser();
 
   parse(record: Buffer): MarcRecord {
+    return this.parseRecord(record, false)!;
+  }
+
+  parseForImport(record: Buffer): MarcRecord | null {
+    return this.parseRecord(record, true);
+  }
+
+  private parseRecord(record: Buffer, importing: boolean): MarcRecord | null {
     const sourceRecordId = removeLineEnding(record)
       .subarray(0, 9)
       .toString("ascii");
+    const isoRecord = buildIsoRecord(record, importing);
+    if (isoRecord === null) return null;
     return {
-      ...this.isoParser.parse(buildIsoRecord(record)),
+      ...this.isoParser.parse(isoRecord),
       sourceRecordId,
     };
   }
 }
 
-function buildIsoRecord(source: Buffer): Buffer {
+function buildIsoRecord(source: Buffer, importing: boolean): Buffer | null {
   const record = removeLineEnding(source);
   validatePrefix(record);
 
-  const alephFields = parseFields(record);
-  const leaderFields = alephFields.filter(({ tag }) => tag === "LDR");
+  const sourceFields = parseFields(record);
+  if (importing && sourceFields.some(({ tag, value }) =>
+    tag.toUpperCase() === "DEL" && hasDeletionFlag(value, Buffer.from("$$")))) {
+    return null;
+  }
+  const alephFields = sourceFields.filter(({ tag }) =>
+    !importing || tag.toUpperCase() === "LDR" || keepImportedField(tag));
+  for (const field of alephFields) {
+    if (field.marker !== "L") {
+      throw new Error(`Aleph-поле содержит неподдерживаемый маркер ${JSON.stringify(field.marker)}.`);
+    }
+  }
+  const leaderFields = alephFields.filter(({ tag }) => tag.toUpperCase() === "LDR");
   if (leaderFields.length !== 1) {
     throw new Error(
       `Aleph-запись должна содержать ровно одно поле LDR; найдено ${leaderFields.length}.`,
@@ -58,7 +81,7 @@ function buildIsoRecord(source: Buffer): Buffer {
   }
 
   const fields = alephFields
-    .filter(({ tag }) => tag !== "LDR")
+    .filter(({ tag }) => tag.toUpperCase() !== "LDR")
     .map(toIsoField);
   const baseAddress = 24 + fields.length * 12 + 1;
   let fieldPosition = 0;
@@ -144,16 +167,12 @@ function parseFields(record: Buffer): AlephField[] {
 
     const rawField = record.subarray(fieldStart, fieldEnd);
     const marker = rawField.subarray(5, 6).toString("ascii");
-    if (marker !== "L") {
-      throw new Error(
-        `Aleph-поле содержит неподдерживаемый маркер ${JSON.stringify(marker)}.`,
-      );
-    }
 
     fields.push({
       tag: rawField.subarray(0, 3).toString("ascii"),
       indicators: rawField.subarray(3, 5),
       value: rawField.subarray(FIELD_HEADER_LENGTH),
+      marker,
     });
     offset = fieldEnd;
   }
@@ -176,7 +195,7 @@ function toIsoField(field: AlephField): IsoField {
 }
 
 function isControlField(tag: string): boolean {
-  return tag.startsWith("00") || tag === "FMT";
+  return tag.startsWith("00") || tag.toUpperCase() === "FMT";
 }
 
 function normalizeCarets(value: Buffer): Buffer {

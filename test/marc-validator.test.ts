@@ -100,16 +100,26 @@ test("собирает нарушения всех правил", async () => {
       "DR-E2",
       "VF-G3",
       "LD-02",
-      "VF-G5",
       "DF-G3",
       "DF-G2",
       "IN-G3",
       "SF-G4",
     ]),
   );
+  assert.deepEqual(
+    result.errors.filter(({ subfieldIndex }) => subfieldIndex !== undefined),
+    [{
+      rule: "SF-G4",
+      fieldIndex: 0,
+      tag: "245",
+      subfieldIndex: 0,
+      message: 'Подполе 1 поля 245 имеет недопустимый код "A".',
+    }],
+    "one invalid subfield produces exactly one SF-G4 error",
+  );
 });
 
-test("отклоняет отсутствующие в схеме РГБ коды Leader/18 и Leader/19", async () => {
+test("сохраняет ограничение Leader/18, принимая a в Leader/19", async () => {
   const source = await readFile(recordUrl);
   const parsed = new Iso2709MarcParser().parse(source);
   const record: MarcRecord = {
@@ -125,7 +135,20 @@ test("отклоняет отсутствующие в схеме РГБ код�
   const result = new MarcRecordValidator().validate(record);
 
   assert.equal(result.valid, false);
-  assert.equal(result.errors.filter(({ rule }) => rule === "LD-02").length, 2);
+  assert.equal(result.errors.filter(({ rule }) => rule === "LD-02").length, 1);
   assert.match(result.errors[0]?.message ?? "", /Leader\/18/);
-  assert.match(result.errors[1]?.message ?? "", /Leader\/19/);
 });
+
+for (const code of ["a", "b", "c", " ", "r"]) {
+  test(`принимает Leader/19=${JSON.stringify(code)}`, async () => {
+    const parsed = new Iso2709MarcParser().parse(await readFile(recordUrl));
+    const result = new MarcRecordValidator().validate({
+      ...parsed,
+      leader: { ...parsed.leader,
+        raw: parsed.leader.raw.slice(0, 19) + code + parsed.leader.raw.slice(20),
+        multipartResourceRecordLevel: code,
+      },
+    });
+    assert.deepEqual(result.errors, []);
+  });
+}

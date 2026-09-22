@@ -18,6 +18,7 @@ export class MarcJsonTransform extends Transform {
   private recordsWithValidationErrors = 0;
   private recordsWithParsingErrors = 0;
   private validationErrors = 0;
+  private skippedDeletedRecords = 0;
 
   constructor(
     private readonly parser: MarcParser,
@@ -35,6 +36,7 @@ export class MarcJsonTransform extends Transform {
       recordsWithValidationErrors: this.recordsWithValidationErrors,
       recordsWithParsingErrors: this.recordsWithParsingErrors,
       validationErrors: this.validationErrors,
+      skippedDeletedRecords: this.skippedDeletedRecords,
       inputBytes: this.byteOffset,
     };
   }
@@ -58,12 +60,21 @@ export class MarcJsonTransform extends Transform {
     let record;
 
     try {
-      record = this.parser.parse(recordBuffer);
+      record = this.parser.parseForImport
+        ? this.parser.parseForImport(recordBuffer)
+        : this.parser.parse(recordBuffer);
     } catch (error) {
       await this.logger?.logParsingError(toError(error), context);
 
       this.recordsWithParsingErrors += 1;
       throw error;
+    }
+
+    if (record === null) {
+      this.skippedDeletedRecords += 1;
+      this.recordIndex += 1;
+      this.byteOffset += recordBuffer.length;
+      return undefined;
     }
 
     const validationResult = this.validator.validate(record);

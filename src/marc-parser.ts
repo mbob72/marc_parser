@@ -1,3 +1,4 @@
+import { hasDeletionFlag, keepImportedField } from "./marc-import-policy.js";
 import type {
   MarcControlField,
   MarcDataField,
@@ -17,10 +18,20 @@ const INDICATOR_COUNT = 2;
 
 export interface MarcParser {
   parse(record: Buffer): MarcRecord;
+  /** Apply import policy before field parsing/validation; null means DEL$a=Y. */
+  parseForImport?(record: Buffer): MarcRecord | null;
 }
 
 export class Iso2709MarcParser implements MarcParser {
   parse(record: Buffer): MarcRecord {
+    return this.parseRecord(record, false)!;
+  }
+
+  parseForImport(record: Buffer): MarcRecord | null {
+    return this.parseRecord(record, true);
+  }
+
+  private parseRecord(record: Buffer, importing: boolean): MarcRecord | null {
     if (record.length < LEADER_LENGTH) {
       throw new Error(
         `Недостаточно данных для Leader: получено ${record.length} байт, требуется ${LEADER_LENGTH}.`,
@@ -42,11 +53,36 @@ export class Iso2709MarcParser implements MarcParser {
     const directory = parseDirectory(record, leader, baseAddressOfData);
     const rawFields = parseRawFields(record, directory, baseAddressOfData);
 
+    if (importing && rawFields.some(({ tag, raw }) =>
+      tag.toUpperCase() === "DEL" &&
+      hasDeletionFlag(raw.subarray(0, -1), Buffer.from([SUBFIELD_DELIMITER])))) {
+      return null;
+    }
+    const retained = rawFields.map((field, index) => ({ field, entry: directory[index]! }))
+      .filter(({ field }) => !importing || keepImportedField(field.tag));
+    if (retained.length !== rawFields.length) {
+      // Rebuild structural positions so the filtered JSON survives a round trip.
+      let position = 0;
+      const newDirectory = retained.map(({ field, entry }) => {
+        const offset = String(position).padStart(Number(leader.lengthOfStartingCharacterPositionPortion), "0");
+        position += field.raw.length;
+        return Buffer.from(field.tag + entry.fieldLength + offset + entry.implementationDefined, "ascii");
+      });
+      const baseAddress = LEADER_LENGTH + newDirectory.reduce((n, entry) => n + entry.length, 0) + 1;
+      const normalizedLeader = Buffer.from(rawLeader, "ascii");
+      normalizedLeader.write(String(baseAddress + position + 1).padStart(5, "0"), 0, "ascii");
+      normalizedLeader.write(String(baseAddress).padStart(5, "0"), 12, "ascii");
+      return this.parse(Buffer.concat([
+        normalizedLeader, ...newDirectory, Buffer.from([FIELD_TERMINATOR]),
+        ...retained.map(({ field }) => field.raw), Buffer.from([0x1d]),
+      ]));
+    }
+
     return {
       byteLength: record.length,
       leader,
-      directory,
-      fields: rawFields.map(parseField),
+      directory: retained.map(({ entry }) => entry),
+      fields: retained.map(({ field }) => parseField(field)),
     };
   }
 }

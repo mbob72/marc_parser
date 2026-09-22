@@ -11,7 +11,6 @@ export type MarcValidationRule =
   | "DR-E2"
   | "VF-G3"
   | "LD-02"
-  | "VF-G5"
   | "DF-G3"
   | "DF-G2"
   | "IN-G3"
@@ -105,15 +104,6 @@ function validateLeader(
       message:
         `Leader/18 содержит недопустимый для схемы РГБ код ` +
         `${JSON.stringify(record.leader.descriptiveCatalogingForm)}.`,
-    });
-  }
-
-  if (["a", "b", "c"].includes(record.leader.multipartResourceRecordLevel)) {
-    errors.push({
-      rule: "LD-02",
-      message:
-        `Leader/19 содержит недопустимый для схемы РГБ код ` +
-        `${JSON.stringify(record.leader.multipartResourceRecordLevel)}.`,
     });
   }
 }
@@ -221,13 +211,6 @@ function validateSubfieldCode(
     `Подполе ${subfieldIndex + 1} поля ${field.tag} имеет ` +
     `недопустимый код ${JSON.stringify(subfield.code)}.`;
 
-  errors.push({
-    rule: "VF-G5",
-    fieldIndex,
-    tag: field.tag,
-    subfieldIndex,
-    message,
-  });
   errors.push({
     rule: "SF-G4",
     fieldIndex,

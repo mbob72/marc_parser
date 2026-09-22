@@ -98,7 +98,7 @@ function createJob(id: string, status: JobStatus): ConversionJob {
 
 test("сборщик удаляет отчёт валидации вместе с результатом", async () => {
   const job = { ...createJob(JOB_ID, "completed"), summary: {
-    recordsProcessed: 1, validRecords: 0, recordsWithValidationErrors: 1,
+    skippedDeletedRecords: 0, recordsProcessed: 1, validRecords: 0, recordsWithValidationErrors: 1,
     recordsWithParsingErrors: 0, validationErrors: 1, inputBytes: 42,
     durationMilliseconds: 1, validationErrorsObjectKey: "outputs/errors.ndjson",
   } };

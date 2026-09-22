@@ -36,6 +36,7 @@ export class MarcJsonToIsoTransform extends Transform {
       recordsWithValidationErrors: this.recordsWithValidationErrors,
       recordsWithParsingErrors: 0,
       validationErrors: this.validationErrors,
+      skippedDeletedRecords: 0,
       inputBytes: this.inputBytes,
     };
   }

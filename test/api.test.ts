@@ -407,7 +407,7 @@ test("API выдаёт отчёт валидации только для зав�
     id, status: "completed", originalFilename: "input.mrc", encoding: "utf-8",
     direction: "iso-to-json", inputFormat: "iso2709", inputObjectKey: "input",
     inputBytes: 1, outputObjectKey: "output", outputFilename: "result.iso.json",
-    summary: { recordsProcessed: 1, validRecords: 0, recordsWithValidationErrors: 1,
+    summary: { skippedDeletedRecords: 0, recordsProcessed: 1, validRecords: 0, recordsWithValidationErrors: 1,
       recordsWithParsingErrors: 0, validationErrors: 1, inputBytes: 1,
       durationMilliseconds: 1, validationErrorsObjectKey: key },
     error: null, createdAt: new Date(), updatedAt: new Date(), expiresAt: new Date(),

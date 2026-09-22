@@ -185,7 +185,7 @@ for (const container of ["iso", "aleph"]) {
     assert.equal(reverse.recordsWithValidationErrors, 1);
     assert.ok(reverse.validationErrorsPath);
     const report = JSON.parse(await readFile(reverse.validationErrorsPath, "utf8"));
-    assert.deepEqual(report.errors.map(e => e.rule), ["DR-E2", "IN-G3", "VF-G5", "SF-G4"]);
+    assert.deepEqual(report.errors.map(e => e.rule), ["DR-E2", "IN-G3", "SF-G4"]);
 
     const forward = await convertMarcFile({
       encoding: "utf-8", inputPath: reverse.outputPath, outputPath: join(directory, "restored"),
@@ -196,6 +196,6 @@ for (const container of ["iso", "aleph"]) {
     assert.deepEqual(restored.fields, record.fields);
     assert.ok(forward.validationErrorsPath);
     const forwardReport = JSON.parse(await readFile(forward.validationErrorsPath, "utf8"));
-    assert.deepEqual(forwardReport.errors.map(e => e.rule), ["DR-E2", "IN-G3", "VF-G5", "SF-G4"]);
+    assert.deepEqual(forwardReport.errors.map(e => e.rule), ["DR-E2", "IN-G3", "SF-G4"]);
   });
 }

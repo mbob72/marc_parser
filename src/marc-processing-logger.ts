@@ -9,6 +9,7 @@ export interface MarcProcessingStatistics {
   readonly recordsWithValidationErrors: number;
   readonly recordsWithParsingErrors: number;
   readonly validationErrors: number;
+  readonly skippedDeletedRecords: number;
   readonly inputBytes: number;
 }
 
@@ -111,6 +112,7 @@ export class ConsoleMarcProcessingLogger implements MarcProcessingLogger {
       [
         `Обработано записей: ${summary.recordsProcessed}`,
         `Корректных: ${summary.validRecords}`,
+        `Пропущено удалённых (DEL$a=Y): ${summary.skippedDeletedRecords}`,
         `С ошибками валидации: ${summary.recordsWithValidationErrors}`,
         `С ошибками парсинга: ${summary.recordsWithParsingErrors}`,
         `Всего ошибок валидации: ${summary.validationErrors}`,

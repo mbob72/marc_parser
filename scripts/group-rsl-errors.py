@@ -3,6 +3,7 @@ import collections
 import csv
 import gzip
 import json
+from validation_rule_status import annotate_historical_status as annotate_rule_status
 import pathlib
 import re
 
@@ -62,7 +63,7 @@ intro = ['## Полные реестры по типам ошибок', '',
          'Все срабатывания сохранены в TSV, разделённых по типам и по 10 000 строк. '
          'Файлы сжаты gzip без потерь; ни одна ошибка не исключена. '
          'Каждая строка содержит файл, recordId, номер записи, байтовое смещение, поле, индикатор/подполе и сообщение. '
-         'VF-G5 и SF-G4 могут относиться к одному дефекту.', '',
+         'В историческом прогоне VF-G5 и SF-G4 относились к одному дефекту; VF-G5 теперь deprecated.', '',
          '| Тип | Срабатываний | Частей реестра |', '|---|---:|---:|']
 for group in sorted(counts):
     page = DOCS / f'{group}.md'
@@ -82,7 +83,7 @@ for group in sorted(counts):
                   f'[Исходный архив / восстановление]({BASE}{archive}). byteOffset: `{offset}`.', '', row[-2], '',
                   '```bash', f'python3 scripts/rsl_record.py data/rsl-2026-09-17/raw/{name} {offset} /tmp/{rid}-{offset}.dat',
                   f'subl /tmp/{rid}-{offset}.dat', '```', '']
-    page.write_text('\n'.join(lines)+'\n')
+    page.write_text(annotate_rule_status('\n'.join(lines)+'\n'))
 intro += ['', '## Как найти проблемное место в Sublime Text', '',
           '1. Откройте страницу нужного типа, скачайте и распакуйте часть TSV-реестра. Все ошибки перечислены; примеры на странице — только для иллюстрации.',
           '2. В TSV выберите запись по `file` и `recordId`. Восстановите исходный DAT из '
@@ -101,6 +102,7 @@ intro += ['', '## Как найти проблемное место в Sublime T
           '[Документация командной строки Sublime](https://www.sublimetext.com/docs/command_line.html).', '']
 path = pathlib.Path('docs/RSL-validation-2026-09-17.md')
 text = path.read_text().replace('## Интерпретация для продуктовой команды', '\n'.join(intro)+'\n## Интерпретация для продуктовой команды')
+text = annotate_rule_status(text)
 path.write_text(text)
 wiki = pathlib.Path('/tmp/marc-parser-wiki-rsl-20260917')
 if wiki.is_dir(): (wiki / path.name).write_text(text)

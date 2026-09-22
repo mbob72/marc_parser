@@ -17,7 +17,7 @@ test("по умолчанию выводит ошибки и итог, но не
   await logger.logValidationResult({ valid: true, errors: [] }, context);
   await logger.logValidationResult(invalidResult(), context);
   await logger.logSummary({
-    recordsProcessed: 3,
+    skippedDeletedRecords: 0, recordsProcessed: 3,
     validRecords: 2,
     recordsWithValidationErrors: 1,
     recordsWithParsingErrors: 0,

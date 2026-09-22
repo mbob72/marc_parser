@@ -1,5 +1,13 @@
 # Источники правил для выгрузок РГБ 17.09.2026
 
+<!-- rsl-import-policy:start -->
+**Исторический прогон 17.09.2026. Правила изменены 22.09.2026:** Leader/19 `a`, `b`, `c` разрешены; записи с `DEL$a=Y` пропускаются до валидации, остальные буквенные поля исключаются (LDR/FMT переходят в `leader`/`format`). Leader/18 не изменён. Пропуски учитываются в `skippedDeletedRecords`. Приведённые ниже количества, примеры и ссылки относятся к прежнему прогону и не пересчитывались; описание прежнего поведения не является инструкцией для нового импорта.
+<!-- rsl-import-policy:end -->
+
+<!-- vf-g5-deprecated:start -->
+**VF-G5 — deprecated с 22.09.2026.** В новых проверках недопустимый код подполя даёт только SF-G4. VF-G5 в прежних выгрузках сохранён как исторический дубликат SF-G4; старые количества и реестры не пересчитывались. Упоминания пары ниже описывают поведение на момент соответствующего прогона.
+<!-- vf-g5-deprecated:end -->
+
 Проверено 21.09.2026 по исходному `DevRGB-170826-1001-43.pdf` (208 страниц), документам проекта и Wiki версии `9bad47fbd51d77d8cb09f537b0f2190363c913a9`. Номера страниц физические. Ссылки на строки выделяют текст Markdown-выдержки или документа проекта, а не строки PDF. Изображение страницы позволяет проверить оригинал. [Паспорт PDF и контрольная сумма](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/README.md).
 
 | Тип | Статус основания | Документ, страница и строки |
@@ -10,12 +18,12 @@
 | [FMT](rsl-errors-2026-09-17/FMT.md) | Закрытый словарь задан проектом | [PDF, страница 84](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-084.png); [точная выдержка, строка 9](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-084.md?plain=1#L9)<br>[PDF, страница 28](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-028.png); [точная выдержка, строка 9](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-028.md?plain=1#L9)<br>[PDF, страница 29](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-029.png); [точная выдержка, строка 9](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-029.md?plain=1#L9)<br>[Документ проекта, строки 22–25](https://github.com/mbob72/marc_parser/blob/8a67485d0337460020dd8d2084db81b321e0d010/docs/%D0%92%D1%8B%D1%87%D0%B8%D1%81%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BF%D0%BE%D0%BB%D1%8F%20format.md?plain=1#L22-L25) |
 | [IN-G3](rsl-errors-2026-09-17/IN-G3.md) | Подтверждено с оговоркой о # | [PDF, страница 30](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.png); [точная выдержка, строка 22](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.md?plain=1#L22) |
 | [LD-02-Leader-18](rsl-errors-2026-09-17/LD-02-Leader-18.md) | Положение схемы РГБ | [PDF, страница 19](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-019.png); [точная выдержка, строка 10](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-019.md?plain=1#L10) |
-| [LD-02-Leader-19](rsl-errors-2026-09-17/LD-02-Leader-19.md) | Противоречие в источнике | [PDF, страница 19](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-019.png); [точная выдержка, строка 11](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-019.md?plain=1#L11)<br>[PDF, страница 33](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-033.png); [точная выдержка, строки 13–14](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-033.md?plain=1#L13-L14) |
+| [LD-02-Leader-19](rsl-errors-2026-09-17/LD-02-Leader-19.md) | Историческое ограничение; a/b/c разрешены 22.09.2026 | [PDF, страница 19](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-019.png); [точная выдержка, строка 11](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-019.md?plain=1#L11)<br>[PDF, страница 33](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-033.png); [точная выдержка, строки 13–14](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-033.md?plain=1#L13-L14) |
 | [PARSE-LDR-count](rsl-errors-2026-09-17/PARSE-LDR-count.md) | Требование построения модели | [PDF, страница 30](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.png); [точная выдержка, строка 9](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.md?plain=1#L9)<br>[Документ проекта, строка 115](https://github.com/mbob72/marc_parser/blob/8a67485d0337460020dd8d2084db81b321e0d010/docs/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B5%D0%B9%20%D0%BA%D0%BE%D0%BD%D0%B2%D0%B5%D1%80%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20MARC%20%D0%A0%D0%93%D0%91.md?plain=1#L115) |
 | [PARSE-LDR-length](rsl-errors-2026-09-17/PARSE-LDR-length.md) | Структура MARC и байтовый контракт | [PDF, страница 30](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.png); [точная выдержка, строка 9](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.md?plain=1#L9)<br>[Документ проекта, строка 115](https://github.com/mbob72/marc_parser/blob/8a67485d0337460020dd8d2084db81b321e0d010/docs/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B5%D0%B9%20%D0%BA%D0%BE%D0%BD%D0%B2%D0%B5%D1%80%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20MARC%20%D0%A0%D0%93%D0%91.md?plain=1#L115) |
 | [PARSE-field-marker](rsl-errors-2026-09-17/PARSE-field-marker.md) | Контракт реализации Aleph | [Документ проекта, строки 88–90](https://github.com/mbob72/marc_parser/blob/8a67485d0337460020dd8d2084db81b321e0d010/docs/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B5%D0%B9%20%D0%BA%D0%BE%D0%BD%D0%B2%D0%B5%D1%80%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20MARC%20%D0%A0%D0%93%D0%91.md?plain=1#L88-L90) |
 | [SF-G4](rsl-errors-2026-09-17/SF-G4.md) | Подтверждено структурой MARC | [PDF, страница 30](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.png); [точная выдержка, строка 26](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.md?plain=1#L26) |
-| [VF-G5](rsl-errors-2026-09-17/VF-G5.md) | Подтверждено структурой MARC | [PDF, страница 30](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.png); [точная выдержка, строка 26](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.md?plain=1#L26) |
+| [VF-G5](rsl-errors-2026-09-17/VF-G5.md) | Deprecated: исторический дубликат SF-G4 | [PDF, страница 30](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.png); [точная выдержка, строка 26](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.md?plain=1#L26) |
 
 ## Ограничения и расхождения
 
@@ -45,7 +53,7 @@ PDF фиксирует отсутствие кодов в схеме. Приме
 
 ### LD-02-Leader-19
 
-На странице 19 коды a/b/c отсутствуют в схеме, но строка № 12 таблицы на странице 33 перечисляет b/c. Текущий валидатор следует странице 19. Приоритет разделов и применимость профиля надо согласовать; 5 083 166 срабатываний нельзя автоматически считать доказанными дефектами исходных записей.
+На странице 19 коды a/b/c отсутствуют в схеме, но строка № 12 таблицы на странице 33 перечисляет b/c. Валидатор прогона следовал странице 19. С 22.09.2026 a/b/c разрешены решением владельца требований; 5 083 166 срабатываний нельзя автоматически считать доказанными дефектами исходных записей.
 
 ### PARSE-LDR-count
 
@@ -61,11 +69,11 @@ PDF формулирует длину как 24 позиции символов.
 
 ### SF-G4
 
-PDF описывает двухсимвольный код как разделитель и идентификатор. Валидатор проверяет только односимвольный идентификатор. SF-G4 и VF-G5 отмечают один дефект дважды на разных уровнях.
+PDF описывает двухсимвольный код как разделитель и идентификатор. Валидатор проверяет только односимвольный идентификатор. В историческом прогоне одна проверка создавала SF-G4 и VF-G5. С 22.09.2026 VF-G5 deprecated, новые проверки создают только SF-G4.
 
 ### VF-G5
 
-То же основание, что у SF-G4; наличие двух кодов ошибки не означает двух независимых нарушений требования.
+Deprecated с 22.09.2026: новые проверки используют только SF-G4. Исторические сообщения VF-G5 сохранены без пересчёта; пара VF-G5/SF-G4 отражала один дефект, а не два независимых нарушения требования.
 
 ## Что изменилось после проверки Wiki
 

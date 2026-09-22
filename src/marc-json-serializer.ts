@@ -1,4 +1,5 @@
 import type { MarcField, MarcRecord } from "./marc-record.js";
+import { isAlphabeticTag } from "./marc-import-policy.js";
 export type KnownMarcJsonFormat =
   | "AN"
   | "AU"
@@ -59,7 +60,7 @@ export class MarcJsonSerializer implements MarcRecordSerializer<MarcJsonRecord> 
       leader: record.leader.raw,
       format: format ? this.decoder.decode(format.raw.subarray(0, -1)) : "",
       fields: record.fields
-        .filter(({ tag }) => tag.toUpperCase() !== "FMT")
+        .filter(({ tag }) => !isAlphabeticTag(tag))
         .map((field) => this.serializeField(field)),
     };
   }

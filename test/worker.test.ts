@@ -13,9 +13,10 @@ const JOB_ID = "5de1669a-1aa1-4e0d-8f9e-7bc71afccaa7";
 
 for (const invalid of [false, true]) {
 test(`worker конвертирует Aleph и выгружает отчёт при ошибках: ${invalid}`, async () => {
-  const source = await readFile(
+  const fixture = await readFile(
     new URL("./fixtures/aleph-sequential-real.dat", import.meta.url),
   );
+  const source = Buffer.concat([fixture, Buffer.from("000000999\t0010DEL  L$$aY\n")]);
   if (invalid) {
     const indicator = source.indexOf(Buffer.from("245 0L"));
     assert.ok(indicator >= 0);
@@ -105,7 +106,8 @@ test(`worker конвертирует Aleph и выгружает отчёт п�
   assert.ok(completed);
   assert.equal(completed.outputObjectKey, `outputs/${JOB_ID}.aleph.json`);
   assert.equal(completed.outputFilename, "records.aleph.json");
-  assert.equal(completed.summary.recordsProcessed, 3);
+  assert.equal(completed.summary.recordsProcessed, 4);
+  assert.equal(completed.summary.skippedDeletedRecords, 1);
   assert.equal(completed.summary.recordsWithParsingErrors, 0);
 
   const result = outputs.get(`outputs/${JOB_ID}.aleph.json`);
@@ -213,7 +215,7 @@ test("worker выбирает Aleph по имени .aleph.json и сохран�
   const firstLineEnd = fixture.indexOf(0x0a) + 1;
   const original = fixture.subarray(0, firstLineEnd);
   const json = new MarcJsonSerializer("utf-8").serialize(
-    new AlephSequentialMarcParser().parse(original),
+    new AlephSequentialMarcParser().parseForImport(original)!,
   );
   const source = Buffer.from(`${JSON.stringify(json)}\n`, "utf8");
   const outputs = new Map<string, Buffer>();
