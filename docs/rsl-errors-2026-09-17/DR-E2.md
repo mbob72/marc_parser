@@ -104,7 +104,17 @@ subl /tmp/000108201-74124870.dat
 
 ## Основание проверки
 
-[Реализация проверки](https://github.com/mbob72/marc_parser/blob/main/src/marc-validator.ts), [преобразование Aleph](https://github.com/mbob72/marc_parser/blob/main/src/aleph-sequential-parser.ts), [JSON-сериализатор](https://github.com/mbob72/marc_parser/blob/main/src/marc-json-serializer.ts). Это описание реализованного поведения, а не новая нормативная спецификация.
+**Статус: PDF и расширение проекта.**
+
+- [PDF, страница 30](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.png); [точная выдержка, строка 13](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.md?plain=1#L13)
+- [PDF, страница 30](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.png); [точная выдержка, строка 14](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.md?plain=1#L14)
+- [Документ проекта, строка 9](https://github.com/mbob72/marc_parser/blob/8a67485d0337460020dd8d2084db81b321e0d010/docs/%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D0%B0%20%D0%B2%D0%B0%D0%BB%D0%B8%D0%B4%D0%B0%D1%86%D0%B8%D0%B8%20MARC%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B8.md?plain=1#L9)
+
+PDF описывает трёхзначные цифровые метки. Допуск трёх букв и запрет смешанного регистра заданы документом проекта, а не приведённой страницей PDF. Служебные поля FMT/OWN/CAT/SYS на странице 84 демонстрируют расширение Aleph, но не доказывают всю регулярку.
+
+[Реализация в проверенной версии, строка 41](https://github.com/mbob72/marc_parser/blob/8a67485d0337460020dd8d2084db81b321e0d010/src/marc-validator.ts?plain=1#L41). Это ссылка на код, а не замена документального основания.
+
+Строки относятся к Markdown-выдержке или документу проекта. Ссылки на PDF ведут к изображению физической страницы.
 <!-- error-description:end -->
 
 ## Полный реестр

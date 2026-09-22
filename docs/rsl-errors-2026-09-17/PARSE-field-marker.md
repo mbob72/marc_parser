@@ -105,7 +105,15 @@ subl /tmp/007887508-10267595482.dat
 
 ## Основание проверки
 
-[Реализация проверки](https://github.com/mbob72/marc_parser/blob/main/src/aleph-sequential-parser.ts), [преобразование Aleph](https://github.com/mbob72/marc_parser/blob/main/src/aleph-sequential-parser.ts), [JSON-сериализатор](https://github.com/mbob72/marc_parser/blob/main/src/marc-json-serializer.ts). Это описание реализованного поведения, а не новая нормативная спецификация.
+**Статус: Контракт реализации Aleph.**
+
+- [Документ проекта, строки 88–90](https://github.com/mbob72/marc_parser/blob/8a67485d0337460020dd8d2084db81b321e0d010/docs/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC%20%D0%B4%D0%B2%D1%83%D1%81%D1%82%D0%BE%D1%80%D0%BE%D0%BD%D0%BD%D0%B5%D0%B9%20%D0%BA%D0%BE%D0%BD%D0%B2%D0%B5%D1%80%D1%82%D0%B0%D1%86%D0%B8%D0%B8%20MARC%20%D0%A0%D0%93%D0%91.md?plain=1#L88-L90)
+
+Проект описывает контейнер по реальным выгрузкам; сам контейнер в PDF не описан. Требование только ASCII L подтверждено кодом, но внешнего документа с запретом других маркеров не найдено.
+
+[Реализация в проверенной версии, строка 147](https://github.com/mbob72/marc_parser/blob/8a67485d0337460020dd8d2084db81b321e0d010/src/aleph-sequential-parser.ts?plain=1#L147). Это ссылка на код, а не замена документального основания.
+
+Строки относятся к Markdown-выдержке или документу проекта. Ссылки на PDF ведут к изображению физической страницы.
 <!-- error-description:end -->
 
 ## Полный реестр

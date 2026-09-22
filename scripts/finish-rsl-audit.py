@@ -54,6 +54,7 @@ for checksums in sorted(root.glob('*sha256.txt')):
     subprocess.run(['shasum', '-a', '256', '-c', str(checksums)], check=True)
 wiki = pathlib.Path('/tmp/marc-parser-wiki-rsl-20260917/RSL-validation-2026-09-17.md')
 expected_wiki = pathlib.Path('docs/RSL-validation-2026-09-17.md').read_text()
+expected_wiki = expected_wiki.replace('(RSL-rule-sources-2026-09-17.md)', '(RSL-rule-sources-2026-09-17)')
 for group in manifest['counts']:
     expected_wiki = expected_wiki.replace(f'(rsl-errors-2026-09-17/{group}.md)', f'(RSL-errors-2026-09-17-{group})')
 if wiki.read_text() != expected_wiki:

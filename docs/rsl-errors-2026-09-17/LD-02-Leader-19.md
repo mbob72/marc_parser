@@ -97,7 +97,16 @@ subl /tmp/003531223-6610.dat
 
 ## Основание проверки
 
-[Реализация проверки](https://github.com/mbob72/marc_parser/blob/main/src/marc-validator.ts), [преобразование Aleph](https://github.com/mbob72/marc_parser/blob/main/src/aleph-sequential-parser.ts), [JSON-сериализатор](https://github.com/mbob72/marc_parser/blob/main/src/marc-json-serializer.ts). Это описание реализованного поведения, а не новая нормативная спецификация.
+**Статус: Противоречие в источнике.**
+
+- [PDF, страница 19](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-019.png); [точная выдержка, строка 11](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-019.md?plain=1#L11)
+- [PDF, страница 33](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-033.png); [точная выдержка, строки 13–14](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-033.md?plain=1#L13-L14)
+
+На странице 19 коды a/b/c отсутствуют в схеме, но строка № 12 таблицы на странице 33 перечисляет b/c. Текущий валидатор следует странице 19. Приоритет разделов и применимость профиля надо согласовать; 5 083 166 срабатываний нельзя автоматически считать доказанными дефектами исходных записей.
+
+[Реализация в проверенной версии, строка 111](https://github.com/mbob72/marc_parser/blob/8a67485d0337460020dd8d2084db81b321e0d010/src/marc-validator.ts?plain=1#L111). Это ссылка на код, а не замена документального основания.
+
+Строки относятся к Markdown-выдержке или документу проекта. Ссылки на PDF ведут к изображению физической страницы.
 <!-- error-description:end -->
 
 ## Полный реестр

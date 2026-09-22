@@ -104,7 +104,15 @@ subl /tmp/001204706-1019962676.dat
 
 ## Основание проверки
 
-[Реализация проверки](https://github.com/mbob72/marc_parser/blob/main/src/marc-validator.ts), [преобразование Aleph](https://github.com/mbob72/marc_parser/blob/main/src/aleph-sequential-parser.ts), [JSON-сериализатор](https://github.com/mbob72/marc_parser/blob/main/src/marc-json-serializer.ts). Это описание реализованного поведения, а не новая нормативная спецификация.
+**Статус: Подтверждено структурой MARC.**
+
+- [PDF, страница 30](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.png); [точная выдержка, строка 26](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.md?plain=1#L26)
+
+PDF описывает двухсимвольный код как разделитель и идентификатор. Валидатор проверяет только односимвольный идентификатор. SF-G4 и VF-G5 отмечают один дефект дважды на разных уровнях.
+
+[Реализация в проверенной версии, строка 43](https://github.com/mbob72/marc_parser/blob/8a67485d0337460020dd8d2084db81b321e0d010/src/marc-validator.ts?plain=1#L43). Это ссылка на код, а не замена документального основания.
+
+Строки относятся к Markdown-выдержке или документу проекта. Ссылки на PDF ведут к изображению физической страницы.
 <!-- error-description:end -->
 
 ## Полный реестр

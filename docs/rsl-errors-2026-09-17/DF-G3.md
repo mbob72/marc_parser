@@ -105,7 +105,16 @@ subl /tmp/001204621-1019842606.dat
 
 ## Основание проверки
 
-[Реализация проверки](https://github.com/mbob72/marc_parser/blob/main/src/marc-validator.ts), [преобразование Aleph](https://github.com/mbob72/marc_parser/blob/main/src/aleph-sequential-parser.ts), [JSON-сериализатор](https://github.com/mbob72/marc_parser/blob/main/src/marc-json-serializer.ts). Это описание реализованного поведения, а не новая нормативная спецификация.
+**Статус: Подтверждено структурой MARC.**
+
+- [PDF, страница 30](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.png); [точная выдержка, строка 18](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.md?plain=1#L18)
+- [PDF, страница 30](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.png); [точная выдержка, строка 26](https://github.com/mbob72/marc_parser/blob/main/docs/rsl-rule-sources/DevRGB-170826-1001-43/page-030.md?plain=1#L26)
+
+Источник описывает подполе перед элементом данных; проверка требует хотя бы один односимвольный идентификатор. Требование наличия именно подполя a этим правилом не вводится.
+
+[Реализация в проверенной версии, строка 189](https://github.com/mbob72/marc_parser/blob/8a67485d0337460020dd8d2084db81b321e0d010/src/marc-validator.ts?plain=1#L189). Это ссылка на код, а не замена документального основания.
+
+Строки относятся к Markdown-выдержке или документу проекта. Ссылки на PDF ведут к изображению физической страницы.
 <!-- error-description:end -->
 
 ## Полный реестр

@@ -5,6 +5,7 @@ import gzip
 import json
 import pathlib
 import re
+import runpy
 from rsl_record import read_record
 
 ROOT = pathlib.Path('artifacts/rsl-2026-09-17')
@@ -172,3 +173,8 @@ if wiki.is_dir():
     for group in manifest['counts']:
         text=text.replace(f'(rsl-errors-2026-09-17/{group}.md)', f'(RSL-errors-2026-09-17-{group})')
     (wiki/overview.name).write_text(text)
+
+# Keep reviewed document citations when regenerating descriptions from raw data.
+runpy.run_path(str(pathlib.Path(__file__).with_name('link-rsl-rule-sources.py')))['update'](
+    wiki if wiki.is_dir() else None
+)
