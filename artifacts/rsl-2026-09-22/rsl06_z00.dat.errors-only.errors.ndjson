@@ -1,0 +1,2 @@
+{"recordIndex":61620,"byteOffset":58232378,"recordId":"000125997","parsingError":"Error: Aleph-поле содержит неподдерживаемый маркер \" \"."}
+{"recordIndex":149884,"byteOffset":139268764,"recordId":"000143178","errors":[{"rule":"SF-G4","fieldIndex":6,"tag":"245","subfieldIndex":1,"message":"Подполе 2 поля 245 имеет недопустимый код \"$\"."}]}

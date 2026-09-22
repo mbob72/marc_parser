@@ -1,0 +1,41 @@
+file: rsl01_z00.dat
+recordId: 006552707; recordIndex: 6068408; byteOffset: 8457781983
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=8457781993 | length=0008 | FMT  L | BK
+002 | byteOffset=8457782005 | length=0030 | LDR  L | ^^^^^nam^a22^^^^^^i^4500
+003 | byteOffset=8457782039 | length=0015 | 001  L | 006552707
+004 | byteOffset=8457782058 | length=0022 | 005  L | 20130529141522.0
+005 | byteOffset=8457782084 | length=0046 | 008  L | 130401s1957^^^^sp^||||^^^^^^^0||^|^spa|d
+006 | byteOffset=8457782134 | length=0028 | 017  L | $$aИ2753-13$$bRuMoRGB
+007 | byteOffset=8457782166 | length=0028 | 040  L | $$aRuMoRGB$$brus$$ercr
+008 | byteOffset=8457782198 | length=0012 | 0410 L | $$aspa
+009 | byteOffset=8457782214 | length=0011 | 044  L | $$asp
+010 | byteOffset=8457782229 | length=0036 | 084  L | $$aЧ610.611г(0)6я26$$2rubbk
+011 | byteOffset=8457782269 | length=0033 | 084  L | $$aЩ158.73(0)6л62$$2rubbk
+012 | byteOffset=8457782306 | length=0066 | 1112 R | $$aExposición international de ex libris$$d1957$$cBarcelona
+013 | byteOffset=8457782376 | length=0180 | 24500L | $$aCatálogo ilustrado de la Exposición international de ex libris$$h[Текст] :$$bcelebrada en los salones del Real círculo artístico de Barcelona del 9 al 17 de marzo
+014 | byteOffset=8457782560 | length=0049 | 260  L | $$aBarcelona$$bAssoc. de exlibristas$$c1957
+015 | byteOffset=8457782613 | length=0035 | 300  L | $$a[30] с.$$bил.$$c26 см
+016 | byteOffset=8457782652 | length=0045 | 336  L | $$aтекст (text)$$btxt$$2rdacontent
+017 | byteOffset=8457782701 | length=0069 | 337  L | $$aнеопосредованный (unmediated)$$bn$$2rdamedia
+018 | byteOffset=8457782774 | length=0042 | 338  L | $$aтом (volume)$$bnc$$2rdacarrier
+019 | byteOffset=8457782820 | length=0342 | 650 7L | $$aКультура. Наука. Просвещение -- Печать -- Коллекционирование произведений печати -- Коллекционирование книжных знаков -- История -- Страны мира -- 20 век -- Каталоги. Перечни предметов$$2rubbk
+020 | byteOffset=8457783166 | length=0219 | 650 7L | $$aИскусство. Искусствознание -- Графика -- Прикладная графика -- Книжный знак -- История книжного знака -- 20 в. -- Выставки
+021 | byteOffset=8457783389 | length=0063 | 979  L | $$aizo$$bКаталог изо-документов$$crgb
+022 | byteOffset=8457783456 | length=0012 | OWN  L | $$aRSL
+023 | byteOffset=8457783472 | length=0044 | CAT  L | $$aOIK4$$b10$$c20130401$$lRSL01$$h1228
+024 | byteOffset=8457783520 | length=0045 | CAT  L | $$aOKZ53$$b40$$c20130403$$lRSL01$$h1335
+025 | byteOffset=8457783569 | length=0045 | CAT  L | $$aOKZ53$$b40$$c20130403$$lRSL01$$h1335
+026 | byteOffset=8457783618 | length=0044 | CAT  L | $$aNO05$$b40$$c20130405$$lRSL01$$h1130
+027 | byteOffset=8457783666 | length=0045 | CAT  L | $$aSPK27$$b40$$c20130426$$lRSL01$$h1231
+028 | byteOffset=8457783715 | length=0045 | CAT  L | $$aSPK27$$b40$$c20130426$$lRSL01$$h1231
+029 | byteOffset=8457783764 | length=0045 | CAT  L | $$aSPK19$$b40$$c20130529$$lRSL01$$h1415
+030 | byteOffset=8457783813 | length=0043 | CAT  L | $$aJSP$$b90$$c20130531$$lRSL01$$h1021
+031 | byteOffset=8457783860 | length=0049 | CAT  L | $$aBATCH-UPD$$b90$$c20220726$$lRSL01$$h2120
+032 | byteOffset=8457783913 | length=0049 | CAT  L | $$aBATCH-UPD$$b90$$c20220919$$lRSL01$$h1214
+033 | byteOffset=8457783966 | length=0046 | CAT  L | $$aPTUF01$$b40$$c20230125$$lRSL01$$h2200
+034 | byteOffset=8457784016 | length=0049 | CAT  L | $$aBATCH-UPD$$b40$$c20230402$$lRSL01$$h0323
+035 | byteOffset=8457784069 | length=0011 | STS  L | $$a81
+036 | byteOffset=8457784084 | length=0012 | SBL  L | $$aIZO
+037 | byteOffset=8457784100 | length=0030 | LOC  L | $$bIZO$$hЕ3/4.94$$oBOOK

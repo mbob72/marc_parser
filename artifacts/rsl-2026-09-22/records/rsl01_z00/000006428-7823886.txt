@@ -1,0 +1,35 @@
+file: rsl01_z00.dat
+recordId: 000006428; recordIndex: 5841; byteOffset: 7823886
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=7823896 | length=0008 | FMT  L | BK
+002 | byteOffset=7823908 | length=0030 | LDR  L | 01057nam^a2200277^i^4500
+003 | byteOffset=7823942 | length=0030 | LDR  L | 01354nam^a2200289^i^4500
+004 | byteOffset=7823976 | length=0015 | 001  L | 000006428
+005 | byteOffset=7823995 | length=0013 | 003  L | RuMoRGB
+006 | byteOffset=7824012 | length=0022 | 005  L | 20101213113511.0
+007 | byteOffset=7824038 | length=0046 | 008  L | 990131s1997^^^^ru^||||^^a^^^^|00^u^rus^d
+008 | byteOffset=7824088 | length=0028 | 017  L | $$a97-7155А$$bRuMoRKP
+009 | byteOffset=7824120 | length=0029 | 017  L | $$a98-12275А$$bRuMoRKP
+010 | byteOffset=7824153 | length=0028 | 017  L | $$a97-7155А$$bRuMoRKP
+011 | byteOffset=7824185 | length=0029 | 017  L | $$a98-12275А$$bRuMoRKP
+012 | byteOffset=7824218 | length=0029 | 035  L | $$a(RuMoRGB)DIS-0199658
+013 | byteOffset=7824251 | length=0032 | 040  L | $$aRuMoRGB$$brus$$cRuMoRGB
+014 | byteOffset=7824287 | length=0012 | 0410 L | $$arus
+015 | byteOffset=7824303 | length=0024 | 072 7L | $$a08.00.12$$2nsnr
+016 | byteOffset=7824331 | length=0032 | 084  L | $$aУ052.9(2)229,0$$2rubbk
+017 | byteOffset=7824367 | length=0038 | 084  L | $$aУ052.9(2)20-149.31,0$$2rubbk
+018 | byteOffset=7824409 | length=0048 | 1001 L | $$aПятов, Михаил Львович
+019 | byteOffset=7824461 | length=0253 | 24500L | $$aБухгалтерский учет вексельных операций :$$bавтореферат дис. ... кандидата экономических наук : 08.00.12$$cСанкт-Петербург. торгово-экон. ин-т
+020 | byteOffset=7824718 | length=0045 | 260  L | $$aСанкт-Петербург$$c1997
+021 | byteOffset=7824767 | length=0015 | 300  L | $$a15 с.
+022 | byteOffset=7824786 | length=0290 | 650 7L | $$aЭкономика -- Учет -- Российская Федерация -- Бухгалтерский учет -- Учет финансовой деятельности -- Учет денежных средств, расчетных и кредитных операций$$2rubbk
+023 | byteOffset=7825080 | length=0137 | 650 7L | $$aБухгалтерский учет, контроль и анализ хозяйственной деятельности$$2nsnr
+024 | byteOffset=7825221 | length=0089 | 979  L | $$aautoref$$bКаталог авторефератов диссертаций$$crgb
+025 | byteOffset=7825314 | length=0012 | OWN  L | $$aRSL
+026 | byteOffset=7825330 | length=0032 | CAT  L | $$c20071026$$lRSL01$$h2001
+027 | byteOffset=7825366 | length=0032 | CAT  L | $$c20071028$$lRSL01$$h2356
+028 | byteOffset=7825402 | length=0032 | CAT  L | $$c20080106$$lRSL01$$h1641
+029 | byteOffset=7825438 | length=0046 | CAT  L | $$aTEHNO6$$b40$$c20101213$$lRSL01$$h1135
+030 | byteOffset=7825488 | length=0046 | CAT  L | $$aPTUF01$$b40$$c20220921$$lRSL01$$h0958
+031 | byteOffset=7825538 | length=0049 | CAT  L | $$aBATCH-UPD$$b40$$c20230403$$lRSL01$$h2102

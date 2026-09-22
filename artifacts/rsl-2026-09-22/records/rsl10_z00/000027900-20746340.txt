@@ -1,0 +1,23 @@
+file: rsl10_z00.dat
+recordId: 000027900; recordIndex: 39297; byteOffset: 20746340
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=20746350 | length=0008 | FMT  L | AU
+002 | byteOffset=20746362 | length=0030 | LDR  L | 00576nz^^a2200169n^^4500
+003 | byteOffset=20746396 | length=0015 | 001  L | 000027900
+004 | byteOffset=20746415 | length=0013 | 003  L | RuMoRGB
+005 | byteOffset=20746432 | length=0022 | 005  L | 20150401100439.0
+006 | byteOffset=20746458 | length=0046 | 008  L | 031225^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d
+007 | byteOffset=20746508 | length=0033 | 035  L | $$a(RuMoRGB)MEKACOL-0044206
+008 | byteOffset=20746545 | length=0028 | 040  L | $$aRuMoRGB$$brus$$ercr
+009 | byteOffset=20746577 | length=0014 | 065  L | $$2rubbk
+010 | byteOffset=20746595 | length=0058 | 111\x01 L | $$aSymposium on vectorcardiography$$d1965$$cNew York
+011 | byteOffset=20746657 | length=0054 | 5112 L | $$aInternational symposium on vectorcardiography
+012 | byteOffset=20746715 | length=0045 | CAT  L | $$aRSL10$$b00$$c20031225$$lRSL10$$h0221
+013 | byteOffset=20746764 | length=0032 | CAT  L | $$c20100331$$lRSL10$$h0818
+014 | byteOffset=20746800 | length=0044 | CAT  L | $$aNO08$$b40$$c20111227$$lRSL10$$h1104
+015 | byteOffset=20746848 | length=0044 | CAT  L | $$aNO05$$b40$$c20150401$$lRSL10$$h1004
+016 | byteOffset=20746896 | length=0010 | UPD  L | $$aN
+017 | byteOffset=20746910 | length=0128 | 663  L | $$aИздания 11-го Симпозиума см.:$$bInternational symposium on vectorcardiography (11; 1970; New York)
+018 | byteOffset=20747042 | length=0011 | 960  L | $$a62
+019 | byteOffset=20747057 | length=0011 | 961  L | $$a64

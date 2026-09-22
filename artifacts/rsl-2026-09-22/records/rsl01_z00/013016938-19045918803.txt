@@ -1,0 +1,34 @@
+file: rsl01_z00.dat
+recordId: 013016938; recordIndex: 12681870; byteOffset: 19045918803
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=19045918813 | length=0008 | FMT  L | BK
+002 | byteOffset=19045918825 | length=0055 | LDR  L | 01195nab^a2200361^ic4500,00528nab^a2200157^ic4500
+003 | byteOffset=19045918884 | length=0015 | 001  L | 013016938
+004 | byteOffset=19045918903 | length=0022 | 005  L | 20241014132136.0
+005 | byteOffset=19045918929 | length=0046 | 008  L | 240528e20240601ru^^^^^^^^^^^^0^^^^^rus^d
+006 | byteOffset=19045918979 | length=0036 | 017  L | $$aЖЛ-П-24-028463$$bRuMoRGB
+007 | byteOffset=19045919019 | length=0028 | 040  L | $$aRuMoRGB$$brus$$ercr
+008 | byteOffset=19045919051 | length=0024 | 0410 L | $$arus$$beng$$feng
+009 | byteOffset=19045919079 | length=0011 | 044  L | $$aru
+010 | byteOffset=19045919094 | length=0026 | 24500L | $$a2024, № 3 (124)
+011 | byteOffset=19045919124 | length=0013 | 260  L | $$c2024
+012 | byteOffset=19045919141 | length=0032 | 300  L | $$a219, [1] c.$$bтабл.
+013 | byteOffset=19045919177 | length=0042 | 336  L | $$aТекст (визуальный)
+014 | byteOffset=19045919223 | length=0041 | 337  L | $$aнепосредственный
+015 | byteOffset=19045919268 | length=0208 | 77318L | $$7nnas$$tСовременная Европа = Contemporary Europe : журнал общественно-политических исследований$$dМосква$$g2024, № 3 (124)$$w004620534
+016 | byteOffset=19045919480 | length=0124 | 85641L | $$qapplication/pdf$$uhttp://dlib.rsl.ru/rsl01013000000/rsl01013016000/rsl01013016938/rsl01013016938.pdf$$yЧитать
+017 | byteOffset=19045919608 | length=0013 | 865  L | $$i2024
+018 | byteOffset=19045919625 | length=0025 | 977  L | $$adlstrict$$bdloek
+019 | byteOffset=19045919654 | length=0100 | 979  L | $$aperi$$bКаталог журналов и продолжающихся изданий$$crgb
+020 | byteOffset=19045919758 | length=0248 | LKR  L | $$aANA$$b012893604$$lRSL01$$y2024$$v-$$i3$$m2024, № 3 (124)$$nСовременная Европа = Contemporary Europe : журнал общественно-политических исследований: Выпуски за 2024 год
+021 | byteOffset=19045920010 | length=0012 | OWN  L | $$aRSL
+022 | byteOffset=19045920026 | length=0044 | CAT  L | $$aDL02$$b40$$c20240712$$lRSL01$$h1030
+023 | byteOffset=19045920074 | length=0044 | CAT  L | $$aDL02$$b40$$c20240712$$lRSL01$$h1030
+024 | byteOffset=19045920122 | length=0047 | CAT  L | $$aKOMPL66$$b40$$c20241014$$lRSL01$$h1321
+025 | byteOffset=19045920173 | length=0046 | CAT  L | $$aPTUF01$$b40$$c20250212$$lRSL01$$h0457
+026 | byteOffset=19045920223 | length=0049 | CAT  L | $$aBATCH-UPD$$b40$$c20250303$$lRSL01$$h1122
+027 | byteOffset=19045920276 | length=0046 | CAT  L | $$aRBNBIS$$b40$$c20250325$$lRSL01$$h0104
+028 | byteOffset=19045920326 | length=0046 | CAT  L | $$aPTUF01$$b40$$c20250516$$lRSL01$$h0204
+029 | byteOffset=19045920376 | length=0046 | CAT  L | $$aPTUF01$$b40$$c20250610$$lRSL01$$h0501
+030 | byteOffset=19045920426 | length=0046 | CAT  L | $$aRBNBIS$$b40$$c20251023$$lRSL01$$h0201

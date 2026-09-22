@@ -1,0 +1,19 @@
+file: rsl10_z00.dat
+recordId: 000015451; recordIndex: 27603; byteOffset: 13204636
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=13204646 | length=0008 | FMT  L | AU
+002 | byteOffset=13204658 | length=0031 | LDR  L | 00358nz^^a2200169т^^4500
+003 | byteOffset=13204693 | length=0015 | 001  L | 000015451
+004 | byteOffset=13204712 | length=0013 | 003  L | RuMoRGB
+005 | byteOffset=13204729 | length=0022 | 005  L | 20090701104558.0
+006 | byteOffset=13204755 | length=0046 | 008  L | 031225^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d
+007 | byteOffset=13204805 | length=0033 | 035  L | $$a(RuMoRGB)MEKACOL-0004127
+008 | byteOffset=13204842 | length=0028 | 040  L | $$aRuMoRGB$$brus$$ercr
+009 | byteOffset=13204874 | length=0014 | 065  L | $$2rubbk
+010 | byteOffset=13204892 | length=0018 | 1102 L | $$aAGRI-SCOP
+011 | byteOffset=13204914 | length=0045 | CAT  L | $$aRSL10$$b00$$c20031225$$lRSL10$$h0020
+012 | byteOffset=13204963 | length=0044 | CAT  L | $$aNO04$$b40$$c20090701$$lRSL10$$h1045
+013 | byteOffset=13205011 | length=0010 | UPD  L | $$aN
+014 | byteOffset=13205025 | length=0018 | 670  L | $$aHTD Publ.
+015 | byteOffset=13205047 | length=0011 | 961  L | $$a63

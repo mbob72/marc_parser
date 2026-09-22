@@ -1,0 +1,19 @@
+file: rsl11_z00.dat
+recordId: 000268162; recordIndex: 263840; byteOffset: 246714061
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=246714071 | length=0008 | FMT  L | AU
+002 | byteOffset=246714083 | length=0030 | LDR  L | ^^^^^nz^^a22^^^^^n^^4500
+003 | byteOffset=246714117 | length=0021 | 001  L | nafpn-000268162
+004 | byteOffset=246714142 | length=0022 | 005  L | 20220601144414.0
+005 | byteOffset=246714168 | length=0046 | 008  L | 220601^n^aznnnaaba^^^^^^^^^^^|^aaa^^^^^d
+006 | byteOffset=246714218 | length=0028 | 040  L | $$aRuMoRGB$$brus$$ercr
+007 | byteOffset=246714250 | length=0058 | 1001 L | $$aГубарева, Людмила Ивановна
+008 | byteOffset=246714312 | length=0036 | 4001\x1fL | $$aGubareva, Lyudmila Ivanovna
+009 | byteOffset=246714352 | length=0045 | CAT  L | $$aOKZ04$$b40$$c20220601$$lRSL11$$h1433
+010 | byteOffset=246714401 | length=0045 | CAT  L | $$aOKZ04$$b40$$c20220601$$lRSL11$$h1444
+011 | byteOffset=246714450 | length=0046 | CAT  L | $$aPTUF01$$b40$$c20250520$$lRSL11$$h0203
+012 | byteOffset=246714500 | length=0010 | UPD  L | $$aN
+013 | byteOffset=246714514 | length=0014 | 065  L | $$2rubbk
+014 | byteOffset=246714532 | length=0152 | 670  L | $$aИнтеграция туризма в экономическую систему региона: перспективы и барьеры, 2021
+015 | byteOffset=246714688 | length=0288 | 6780 L | $$aКандидат педагогических наук, доцент, доцент кафедры профессионального обучения и бизнеса Орловского государственного университета им. И. С. Тургенева

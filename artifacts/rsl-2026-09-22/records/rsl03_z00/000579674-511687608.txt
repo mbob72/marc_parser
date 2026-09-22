@@ -1,0 +1,24 @@
+file: rsl03_z00.dat
+recordId: 000579674; recordIndex: 580137; byteOffset: 511687608
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=511687618 | length=0008 | FMT  L | BK
+002 | byteOffset=511687630 | length=0030 | LDR  L | ^^^^^cam^a2200145^i^4500
+003 | byteOffset=511687664 | length=0015 | 001  L | 000579674
+004 | byteOffset=511687683 | length=0022 | 005  L | 20090209142928.0
+005 | byteOffset=511687709 | length=0046 | 008  L | 060531s2009^^^^ru^^^^^^r^^^^^000^u^rus^^
+006 | byteOffset=511687759 | length=0018 | 017  L | $$a08-103256
+007 | byteOffset=511687781 | length=0026 | 020  L | $$D978-5-98227-573-8
+008 | byteOffset=511687811 | length=0030 | 035  L | $$a(LIBNET)EL/0000067259
+009 | byteOffset=511687845 | length=0060 | 040  L | $$aАгентство CIP РГБ$$brus$$ercr$$dRuMoRGB
+010 | byteOffset=511687909 | length=0012 | 0410 L | $$arus
+011 | byteOffset=511687925 | length=0031 | 080  L | $$a94(47+57)"8/18"(075.8)
+012 | byteOffset=511687960 | length=0193 | 24500L | $$aРоссийская повседневность: от истоков до середины XIX века :$$bучеб. пособие$$cпод ред. Л. И. Семенниковой
+013 | byteOffset=511688157 | length=0037 | 260  L | $$aМосква$$bКДУ$$c2009
+014 | byteOffset=511688198 | length=0015 | 300  L | $$a239с.
+015 | byteOffset=511688217 | length=0078 | 7001 L | $$aСеменникова, Любовь Ивановна$$eред.$$4edt
+016 | byteOffset=511688299 | length=0016 | 912  L | $$a08-6074
+017 | byteOffset=511688319 | length=0012 | OWN  L | $$aRSL
+018 | byteOffset=511688335 | length=0044 | CAT  L | $$aCONV$$b00$$c20081222$$lRSL03$$h2232
+019 | byteOffset=511688383 | length=0044 | CAT  L | $$aCIP3$$b40$$c20090209$$lRSL03$$h1429
+020 | byteOffset=511688431 | length=0024 | SID  L | $$aZ39$$bCIPLIBNET

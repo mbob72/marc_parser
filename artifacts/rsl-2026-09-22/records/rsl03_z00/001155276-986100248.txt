@@ -1,0 +1,21 @@
+file: rsl03_z00.dat
+recordId: 001155276; recordIndex: 1155462; byteOffset: 986100248
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=986100258 | length=0008 | FMT  L | BK
+002 | byteOffset=986100270 | length=0030 | LDR  L | ^^^^^nam^a22^^^^^^i^4500
+003 | byteOffset=986100304 | length=0015 | 001  L | 001155276
+004 | byteOffset=986100323 | length=0022 | 005  L | 20140311171201.0
+005 | byteOffset=986100349 | length=0046 | 008  L | 140311s200u^^^^^^^||||^^^^^^^0||^|^^^^|d
+006 | byteOffset=986100399 | length=0037 | 020  L | $$a5-86007-194-9$$c1100 экз.
+007 | byteOffset=986100440 | length=0028 | 040  L | $$aRuMoRGB$$brus$$ercr
+008 | byteOffset=986100472 | length=0012 | 041  L | $$arus
+009 | byteOffset=986100488 | length=0020 | 084 7L | $$a83$$2rubbkm
+010 | byteOffset=986100512 | length=0107 | 245 0L | $$aТруды Отдела древнерусской литературы. Том LII$$h[Текст]
+011 | byteOffset=986100623 | length=0056 | 260\x01 L | $$aCПб.$$b"Дмитрий Буланин"$$c2001
+012 | byteOffset=986100683 | length=0043 | 300  L | $$a798 с.$$bс илл.$$c27х17 см
+013 | byteOffset=986100730 | length=0049 | 700  L | $$aД. С. Лихачев$$eотв. ред.
+014 | byteOffset=986100783 | length=0012 | 979  L | $$aorf
+015 | byteOffset=986100799 | length=0012 | OWN  L | $$aRSL
+016 | byteOffset=986100815 | length=0044 | CAT  L | $$aSHOP$$b10$$c20140311$$lRSL03$$h1111
+017 | byteOffset=986100863 | length=0044 | CAT  L | $$aSHOP$$b10$$c20140311$$lRSL03$$h1712

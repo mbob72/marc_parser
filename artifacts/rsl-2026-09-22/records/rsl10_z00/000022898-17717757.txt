@@ -1,0 +1,26 @@
+file: rsl10_z00.dat
+recordId: 000022898; recordIndex: 34616; byteOffset: 17717757
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=17717767 | length=0008 | FMT  L | AU
+002 | byteOffset=17717779 | length=0030 | LDR  L | 00408nz^^a2200169n^^4500
+003 | byteOffset=17717813 | length=0015 | 001  L | 000022898
+004 | byteOffset=17717832 | length=0013 | 003  L | RuMoRGB
+005 | byteOffset=17717849 | length=0022 | 005  L | 20060314143124.0
+006 | byteOffset=17717875 | length=0046 | 008  L | 031225^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d
+007 | byteOffset=17717925 | length=0033 | 035  L | $$a(RuMoRGB)MEKACOL-0026924
+008 | byteOffset=17717962 | length=0028 | 040  L | $$aRuMoRGB$$brus$$erpk
+009 | byteOffset=17717994 | length=0014 | 065  L | $$2rubbk
+010 | byteOffset=17718012 | length=0050 | 1102 L | $$aSyndicat national des graphistes (France)
+011 | byteOffset=17718066 | length=0019 | 410\x01 L | $$wdgnb$$aSNG
+012 | byteOffset=17718089 | length=0045 | CAT  L | $$aRSL10$$b00$$c20031225$$lRSL10$$h0132
+013 | byteOffset=17718138 | length=0044 | CAT  L | $$aNO08$$b40$$c20060314$$lRSL10$$h1429
+014 | byteOffset=17718186 | length=0044 | CAT  L | $$aNO08$$b40$$c20060314$$lRSL10$$h1431
+015 | byteOffset=17718234 | length=0010 | UPD  L | $$aN
+016 | byteOffset=17718248 | length=0022 | 670  L | $$aГАК РГБ
+017 | byteOffset=17718274 | length=0011 | 675  L | $$aWL
+018 | byteOffset=17718289 | length=0012 | 675  L | $$aNUC
+019 | byteOffset=17718305 | length=0019 | 675  L | $$aEuropa yb.
+020 | byteOffset=17718328 | length=0015 | 675  L | $$aBiblio
+021 | byteOffset=17718347 | length=0015 | 667  L | $$aГБЛ
+022 | byteOffset=17718366 | length=0011 | 961  L | $$a63

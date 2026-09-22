@@ -1,0 +1,30 @@
+file: rsl01_z00.dat
+recordId: 006572532; recordIndex: 1015171; byteOffset: 1374185384
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=1374185394 | length=0008 | FMT  L | BK
+002 | byteOffset=1374185406 | length=0030 | LDR  L | ^^^^^cam^a2200193^i^4500
+003 | byteOffset=1374185440 | length=0015 | 001  L | 006572532
+004 | byteOffset=1374185459 | length=0022 | 005  L | 20130508123805.0
+005 | byteOffset=1374185485 | length=0046 | 008  L | 111003s2013^^^^ru^^^^^^^^^^^^000^u^rus^^
+006 | byteOffset=1374185535 | length=0017 | 017  L | $$a13-32735
+007 | byteOffset=1374185556 | length=0026 | 020  L | $$a978-5-389-05668-8
+008 | byteOffset=1374185586 | length=0038 | 040  L | $$aRuMoRKP$$brus$$ercr$$dRuMoRGB
+009 | byteOffset=1374185628 | length=0012 | 0410 L | $$arus
+010 | byteOffset=1374185644 | length=0032 | 084  L | $$aШ5(2=Р)75-644$$2rubbk
+011 | byteOffset=1374185680 | length=0070 | 1001 L | $$aДовлатов, Сергей Донатович$$d1941-1990
+012 | byteOffset=1374185754 | length=0064 | 24500L | $$aНаши$$h[Текст]$$cСергей Довлатов
+013 | byteOffset=1374185822 | length=0060 | 260  L | $$aСанкт-Петербург$$bАзбука$$c2013
+014 | byteOffset=1374185886 | length=0031 | 300  L | $$a153, [2] с.$$c18 см
+015 | byteOffset=1374185921 | length=0038 | 4900 L | $$aАзбука-классика
+016 | byteOffset=1374185963 | length=0393 | 650 7L | $$aФилологические науки. Художественная литература -- Российская Федерация -- Русская литература -- с сер. 50-х гг. 20 в. -- Произведения художественной литературы -- Художественная проза -- Романы. Повести. Рассказы$$2rubbk
+017 | byteOffset=1374186360 | length=0125 | 85641L | $$qapplication/pdf$$uhttp://dlib.rsl.ru/rsl01006000000/rsl01006572000/rsl01006572532/rsl01006572532.epub$$yЧитать
+018 | byteOffset=1374186489 | length=0124 | 977  L | $$adllocal$$f31.12.2016$$bdllic$$eДоговор с правообладателем № 13102015/Л-1 от 13.10.2015
+019 | byteOffset=1374186617 | length=0089 | 979  L | $$arkp07$$bЛитературно-художественные издания$$crkp
+020 | byteOffset=1374186710 | length=0012 | OWN  L | $$aRSL
+021 | byteOffset=1374186726 | length=0044 | CAT  L | $$aCIP5$$b40$$c20130508$$lRSL01$$h1238
+022 | byteOffset=1374186774 | length=0043 | CAT  L | $$aJSP$$b90$$c20130513$$lRSL01$$h1244
+023 | byteOffset=1374186821 | length=0049 | CAT  L | $$aBATCH-UPD$$b90$$c20240424$$lRSL01$$h0335
+024 | byteOffset=1374186874 | length=0046 | CAT  L | $$aRBNBIS$$b40$$c20260424$$lRSL01$$h0400
+025 | byteOffset=1374186924 | length=0127 |  8564  | $$qapplication/pdf$$uhttp://dlib.rsl.ru/rsl01 00000000/rsl01 00752000/rsl01 007523621/rsl01 007523621.epub$$yЧитать
+026 | byteOffset=1374187055 | length=0124 |  977   | $$adllocal$$f31.12.2016$$bdllic$$eДоговор с правообладателем № 13102015/Л-1 от 13.10.2015

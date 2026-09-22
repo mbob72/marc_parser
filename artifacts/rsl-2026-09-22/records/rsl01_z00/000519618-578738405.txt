@@ -1,0 +1,37 @@
+file: rsl01_z00.dat
+recordId: 000519618; recordIndex: 445559; byteOffset: 578738405
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=578738415 | length=0008 | FMT  L | BK
+002 | byteOffset=578738427 | length=0030 | LDR  L | 01184nam^a2200301^i^4500
+003 | byteOffset=578738461 | length=0015 | 001  L | 000519618
+004 | byteOffset=578738480 | length=0013 | 003  L | RuMoRGB
+005 | byteOffset=578738497 | length=0022 | 005  L | 20230906192308.0
+006 | byteOffset=578738523 | length=0046 | 008  L | 940901s1993^^^^xxk||||^^^^^^|001^||eng^d
+007 | byteOffset=578738573 | length=0028 | 017  L | $$aИ8369-94$$bRuMoRGB
+008 | byteOffset=578738605 | length=0022 | 020  L | $$a0-312-09722-0
+009 | byteOffset=578738631 | length=0030 | 035  L | $$a(RuMoRGB)OLDI-0148763
+010 | byteOffset=578738665 | length=0038 | 040  L | $$aRuMoRGB$$brus$$cRuMoRGB$$ercr
+011 | byteOffset=578738707 | length=0012 | 0410 L | $$aeng
+012 | byteOffset=578738723 | length=0009 | 044  L | xxk
+013 | byteOffset=578738736 | length=0036 | 084  L | $$aЦ35(0)63(4Вн),02$$2rubbk
+014 | byteOffset=578738776 | length=0036 | 084  L | $$aЦ4,6(3)1(4Вн),02$$2rubbk
+015 | byteOffset=578738816 | length=0026 | 1001 L | $$aBarany, Zoltan D.
+016 | byteOffset=578738846 | length=0220 | 24200L | $$aВзаимоотношения ВС с коммунистическими партиями в странах Восточной Европы на примере событий в Венгрии (1945-1990)$$yrus
+017 | byteOffset=578739070 | length=0100 | 24500L | $$aSoldiers and politics in Eastern Europe, 1945-90 :$$bthe case of Hungary$$cZoltan D. Barany
+018 | byteOffset=578739174 | length=0068 | 260  L | $$aBasingstoke (Hants.) ;$$aLondon$$bSt. Martin's press$$c1993
+019 | byteOffset=578739246 | length=0030 | 300  L | $$aXI, 241 с.$$c23 см
+020 | byteOffset=578739280 | length=0039 | 504  L | $$aБиблиогр.: с. 217-231
+021 | byteOffset=578739323 | length=0018 | 555  L | $$aУказ.
+022 | byteOffset=578739345 | length=0108 | 901  L | $$a20021001$$bКаталог 'Старые иностранные книги' АИБС МЕКА РГБ
+023 | byteOffset=578739457 | length=0012 | OWN  L | $$aRSL
+024 | byteOffset=578739473 | length=0044 | CAT  L | $$aCONV$$b00$$c20021004$$lRSL01$$h0331
+025 | byteOffset=578739521 | length=0032 | CAT  L | $$c20021105$$lRSL01$$h1002
+026 | byteOffset=578739557 | length=0044 | CAT  L | $$aCONV$$b00$$c20040501$$lRSL01$$h1412
+027 | byteOffset=578739605 | length=0032 | CAT  L | $$c20041229$$lRSL01$$h1203
+028 | byteOffset=578739641 | length=0032 | CAT  L | $$c20120411$$lRSL01$$h2320
+029 | byteOffset=578739677 | length=0032 | CAT  L | $$c20130215$$lRSL01$$h2030
+030 | byteOffset=578739713 | length=0049 | CAT  L | $$aBATCH-UPD$$b00$$c20220922$$lRSL01$$h2010
+031 | byteOffset=578739766 | length=0046 | CAT  L | $$aOKEK05$$b40$$c20230906$$lRSL01$$h1923
+032 | byteOffset=578739816 | length=0049 | CAT  L | $$aBATCH-UPD$$b40$$c20250216$$lRSL01$$h1019
+033 | byteOffset=578739869 | length=0030 | UID  L | $$a(RuMoRGB)OLDI-0148763

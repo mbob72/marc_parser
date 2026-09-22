@@ -1,0 +1,34 @@
+file: rsl01_z00.dat
+recordId: 012126072; recordIndex: 13226519; byteOffset: 19924781418
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=19924781428 | length=0008 | FMT  L | BK
+002 | byteOffset=19924781440 | length=0055 | LDR  L | ^^^^^nab^a22^^^^^^ic4500,^^^^^nab^a22^^^^^^ic4500
+003 | byteOffset=19924781499 | length=0015 | 001  L | 012126072
+004 | byteOffset=19924781518 | length=0022 | 005  L | 20231123083105.0
+005 | byteOffset=19924781544 | length=0046 | 008  L | 230221e20230801ru^^^^^^^^^^^^0^^^^^rus^d
+006 | byteOffset=19924781594 | length=0036 | 017  L | $$aЖЛ-П-23-034958$$bRuMoRGB
+007 | byteOffset=19924781634 | length=0028 | 040  L | $$aRuMoRGB$$brus$$ercr
+008 | byteOffset=19924781666 | length=0012 | 0410 L | $$arus
+009 | byteOffset=19924781682 | length=0020 | 24500L | $$a2023, № 8
+010 | byteOffset=19924781706 | length=0013 | 260  L | $$c2023
+011 | byteOffset=19924781723 | length=0040 | 300  L | $$a50 с.$$bцв. ил., табл.
+012 | byteOffset=19924781767 | length=0042 | 336  L | $$aТекст (визуальный)
+013 | byteOffset=19924781813 | length=0041 | 337  L | $$aнепосредственный
+014 | byteOffset=19924781858 | length=0101 | 77318L | $$7nnas$$tВятская губерния : журнал$$dКиров$$g2023, № 8$$w009777465
+015 | byteOffset=19924781963 | length=0124 | 85641L | $$qapplication/pdf$$uhttp://dlib.rsl.ru/rsl01012000000/rsl01012126000/rsl01012126072/rsl01012126072.pdf$$yЧитать
+016 | byteOffset=19924782091 | length=0013 | 865  L | $$i2023
+017 | byteOffset=19924782108 | length=0025 | 977  L | $$adlstrict$$bdloek
+018 | byteOffset=19924782137 | length=0100 | 979  L | $$aperi$$bКаталог журналов и продолжающихся изданий$$crgb
+019 | byteOffset=19924782241 | length=0144 | LKR  L | $$aANA$$b011599210$$lRSL01$$y2023$$v-$$i8$$m2023, № 8$$nВятская губерния : журнал : Выпуски за 2023 год
+020 | byteOffset=19924782389 | length=0012 | OWN  L | $$aRSL
+021 | byteOffset=19924782405 | length=0044 | CAT  L | $$aDL02$$b40$$c20230921$$lRSL01$$h1505
+022 | byteOffset=19924782453 | length=0044 | CAT  L | $$aDL02$$b40$$c20230921$$lRSL01$$h1506
+023 | byteOffset=19924782501 | length=0047 | CAT  L | $$aKOMPL53$$b90$$c20231123$$lRSL01$$h0831
+024 | byteOffset=19924782552 | length=0049 | CAT  L | $$aBATCH-UPD$$b90$$c20240515$$lRSL01$$h1438
+025 | byteOffset=19924782605 | length=0046 | CAT  L | $$aPTUF01$$b40$$c20250212$$lRSL01$$h0439
+026 | byteOffset=19924782655 | length=0049 | CAT  L | $$aBATCH-UPD$$b40$$c20250303$$lRSL01$$h1118
+027 | byteOffset=19924782708 | length=0046 | CAT  L | $$aRBNBIS$$b40$$c20250323$$lRSL01$$h1055
+028 | byteOffset=19924782758 | length=0049 | CAT  L | $$aBATCH-UPD$$b40$$c20250407$$lRSL01$$h1046
+029 | byteOffset=19924782811 | length=0046 | CAT  L | $$aPTUF01$$b40$$c20250514$$lRSL01$$h0403
+030 | byteOffset=19924782861 | length=0046 | CAT  L | $$aPTUF01$$b40$$c20250609$$lRSL01$$h0308

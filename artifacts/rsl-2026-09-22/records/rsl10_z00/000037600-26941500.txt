@@ -1,0 +1,33 @@
+file: rsl10_z00.dat
+recordId: 000037600; recordIndex: 50813; byteOffset: 26941500
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=26941510 | length=0008 | FMT  L | AU
+002 | byteOffset=26941522 | length=0030 | LDR  L | 01622nz^^a2200313n^^4500
+003 | byteOffset=26941556 | length=0015 | 001  L | 000037600
+004 | byteOffset=26941575 | length=0022 | 005  L | 20211109150406.0
+005 | byteOffset=26941601 | length=0046 | 008  L | 040520^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d
+006 | byteOffset=26941651 | length=0028 | 040  L | $$aRuMoRGB$$brus$$ercr
+007 | byteOffset=26941683 | length=0014 | 065  L | $$2rubbk
+008 | byteOffset=26941701 | length=0100 | 1102 L | $$aМосковская медицинская академия им. И. М. Сеченова
+009 | byteOffset=26941805 | length=0046 | 4102 L | $$aММА им. И. М. Сеченова
+010 | byteOffset=26941855 | length=0131 | 4102 L | $$aМосковская государственная медицинская академия им. И. М. Сеченова
+011 | byteOffset=26941990 | length=0061 | 4102 L | $$aI. M. Sechenov First Moscow State Medical University
+012 | byteOffset=26942055 | length=0148 | 510\x01 L | $$aМосковский государственный медицинский университет им. И. М. Сеченова (1)$$wbnnn
+013 | byteOffset=26942207 | length=0104 | 5102 L | $$aМосковский медицинский институт им. И. М. Сеченова (1)
+014 | byteOffset=26942315 | length=0044 | CAT  L | $$aNO07$$b40$$c20040520$$lRSL10$$h1215
+015 | byteOffset=26942363 | length=0044 | CAT  L | $$aNO07$$b40$$c20040520$$lRSL10$$h1216
+016 | byteOffset=26942411 | length=0044 | CAT  L | $$aNO06$$b40$$c20040520$$lRSL10$$h1433
+017 | byteOffset=26942459 | length=0044 | CAT  L | $$aNO06$$b40$$c20040520$$lRSL10$$h1433
+018 | byteOffset=26942507 | length=0044 | CAT  L | $$aNO09$$b40$$c20050221$$lRSL10$$h1356
+019 | byteOffset=26942555 | length=0044 | CAT  L | $$aNO02$$b40$$c20060411$$lRSL10$$h1421
+020 | byteOffset=26942603 | length=0044 | CAT  L | $$aNO02$$b40$$c20060411$$lRSL10$$h1422
+021 | byteOffset=26942651 | length=0044 | CAT  L | $$aNO09$$b40$$c20101223$$lRSL10$$h1232
+022 | byteOffset=26942699 | length=0032 | CAT  L | $$c20121212$$lRSL10$$h2102
+023 | byteOffset=26942735 | length=0045 | CAT  L | $$aOKZ23$$b40$$c20200907$$lRSL10$$h1450
+024 | byteOffset=26942784 | length=0045 | CAT  L | $$aOKZ36$$b40$$c20211109$$lRSL10$$h1504
+025 | byteOffset=26942833 | length=0010 | UPD  L | $$aN
+026 | byteOffset=26942847 | length=0154 | 663  L | $$aДо мая 1990 г. см. в каталоге:$$bМосковский медицинский институт им. И. М. Сеченова (1)
+027 | byteOffset=26943005 | length=0190 | 663  L | $$aС середины 2010 г. см. в кат.:$$bМосковский государственный медицинский университет им. И. М. Сеченова (1)
+028 | byteOffset=26943199 | length=0036 | 670  L | $$aМиома матки, 2003
+029 | byteOffset=26943239 | length=0319 | 6781 L | $$aСтарейший, крупнейший и ведущий российский медицинский университет, основанный в 1758 году. С 1955 года носит имя выдающегося русского физиолога Ивана Михайловича Сеченова

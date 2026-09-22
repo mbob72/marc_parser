@@ -1,0 +1,40 @@
+file: rsl01_z00.dat
+recordId: 003825830; recordIndex: 3488468; byteOffset: 4894347062
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=4894347072 | length=0008 | FMT  L | BK
+002 | byteOffset=4894347084 | length=0030 | LDR  L | 01281nad^a22003371ic4500
+003 | byteOffset=4894347118 | length=0015 | 001  L | 003825830
+004 | byteOffset=4894347137 | length=0022 | 005  L | 20250206092446.0
+005 | byteOffset=4894347163 | length=0046 | 008  L | 060512s1848^^^^ru^^^^^||^^^^^|||^||rus^d
+006 | byteOffset=4894347213 | length=0024 | 035  L | $$a(NLR)rc\1331019
+007 | byteOffset=4894347241 | length=0040 | 040  L | $$aRuMoRGB$$brus$$cProsoft-M$$ercr
+008 | byteOffset=4894347285 | length=0012 | 0410 L | $$arus
+009 | byteOffset=4894347301 | length=0029 | 084  L | $$aТ52(2=Р),0$$2rubbk
+010 | byteOffset=4894347334 | length=0107 | 24510L | $$a1Жилища; 3. Домоводство; 4. Наряд; 5. Образ жизни; 6. Музыка
+011 | byteOffset=4894347445 | length=0021 | 24603L | $$aЖилища
+012 | byteOffset=4894347470 | length=0031 | 24603L | $$aДомоводство
+013 | byteOffset=4894347505 | length=0019 | 24603L | $$aНаряд
+014 | byteOffset=4894347528 | length=0030 | 24603S | $$aОбраз жизни
+015 | byteOffset=4894347562 | length=0021 | 24603L | $$aМузыка
+016 | byteOffset=4894347587 | length=0024 | 300  L | $$a[6], X, 507 с.
+017 | byteOffset=4894347615 | length=0259 | 77318L | $$7p am$$aТерещенко, Александр Власьевич (1806-1865)$$tБыт русского народа / Соч. А. Терещенки. Ч. 1-7$$dСанкт-Петербург : тип. М-ва вн. дел, 1848$$h7 т.; 24$$w003506479
+018 | byteOffset=4894347878 | length=0124 | 85641L | $$qapplication/pdf$$uhttp://dlib.rsl.ru/rsl01003000000/rsl01003825000/rsl01003825830/rsl01003825830.pdf$$yЧитать
+019 | byteOffset=4894348006 | length=0067 | 977  L | $$adlopen$$bdlrgb$$cosk$$dОтдел сканирования
+020 | byteOffset=4894348077 | length=0197 | LKR  L | $$aUP$$lRSL01$$b003506479$$mНародность; 2. Жилища; 3. Домоводство; 4. Наряд; 5. Образ жизни; 6. Музыка$$nБыт русского народа /
+021 | byteOffset=4894348278 | length=0012 | OWN  L | $$aRSL
+022 | byteOffset=4894348294 | length=0032 | CAT  L | $$c20080616$$lRSL01$$h2120
+023 | byteOffset=4894348330 | length=0032 | CAT  L | $$c20080716$$lRSL01$$h2207
+024 | byteOffset=4894348366 | length=0044 | CAT  L | $$aFBER$$b40$$c20090211$$lRSL01$$h1242
+025 | byteOffset=4894348414 | length=0045 | CAT  L | $$aERES4$$b90$$c20090929$$lRSL01$$h1416
+026 | byteOffset=4894348463 | length=0032 | CAT  L | $$c20100401$$lRSL01$$h2111
+027 | byteOffset=4894348499 | length=0049 | CAT  L | $$aBATCH-UPD$$b00$$c20220302$$lRSL01$$h0822
+028 | byteOffset=4894348552 | length=0049 | CAT  L | $$aBATCH-UPD$$b00$$c20230317$$lRSL01$$h1038
+029 | byteOffset=4894348605 | length=0049 | CAT  L | $$aBATCH-UPD$$b00$$c20230318$$lRSL01$$h2012
+030 | byteOffset=4894348658 | length=0049 | CAT  L | $$aBATCH-UPD$$b00$$c20230522$$lRSL01$$h1710
+031 | byteOffset=4894348711 | length=0049 | CAT  L | $$aBATCH-UPD$$b00$$c20230525$$lRSL01$$h1718
+032 | byteOffset=4894348764 | length=0049 | CAT  L | $$aBATCH-UPD$$b00$$c20230617$$lRSL01$$h0321
+033 | byteOffset=4894348817 | length=0044 | CAT  L | $$aFB17$$b00$$c20240413$$lRSL01$$h1838
+034 | byteOffset=4894348865 | length=0044 | CAT  L | $$aFB17$$b00$$c20240413$$lRSL01$$h1838
+035 | byteOffset=4894348913 | length=0045 | CAT  L | $$aSPK70$$b40$$c20250206$$lRSL01$$h0924
+036 | byteOffset=4894348962 | length=0046 | CAT  L | $$aPTUF01$$b40$$c20250504$$lRSL01$$h0228

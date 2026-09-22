@@ -1,0 +1,38 @@
+file: rsl01_z00.dat
+recordId: 000499416; recordIndex: 429916; byteOffset: 558519749
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=558519759 | length=0008 | FMT  L | BK
+002 | byteOffset=558519771 | length=0030 | LDR  L | 01222nam^a2200325^i^4500
+003 | byteOffset=558519805 | length=0015 | 001  L | 000499416
+004 | byteOffset=558519824 | length=0013 | 003  L | RuMoRGB
+005 | byteOffset=558519841 | length=0022 | 005  L | 20231124125352.0
+006 | byteOffset=558519867 | length=0046 | 008  L | 910221s1989^^^^xxu||||^^^^^^|001^||eng^d
+007 | byteOffset=558519917 | length=0028 | 017  L | $$aИ2806-91$$bRuMoRGB
+008 | byteOffset=558519949 | length=0022 | 020  L | $$a0-944613-07-1
+009 | byteOffset=558519975 | length=0030 | 035  L | $$a(RuMoRGB)OLDI-0127521
+010 | byteOffset=558520009 | length=0038 | 040  L | $$aRuMoRGB$$brus$$cRuMoRGB$$ercr
+011 | byteOffset=558520051 | length=0018 | 0411 L | $$aeng$$hchi
+012 | byteOffset=558520073 | length=0009 | 044  L | xxu
+013 | byteOffset=558520086 | length=0038 | 084  L | $$aШ3(54Кит)-615.1,0$$2rubbk
+014 | byteOffset=558520128 | length=0027 | 1001 L | $$aGjertson, Donald E
+015 | byteOffset=558520159 | length=0122 | 24200L | $$aБуддистские волшебные сказки Китая. Исследование и тексты$$yrus
+016 | byteOffset=558520285 | length=0102 | 24500L | $$aMiraculous retribution :$$bA study a. transl. of T'ang Lin's Ming-paochi$$cDonald e. gjertson
+017 | byteOffset=558520391 | length=0108 | 260  L | $$aBerkeley$$bCenters for South a. Southeast Asia studies. Univ. of California at Berkeley$$cCop. 1989
+018 | byteOffset=558520503 | length=0021 | 300  L | $$aXIV, 305 с.
+019 | byteOffset=558520528 | length=0046 | 4900 L | $$aBerkeley Buddhist studies ser.$$v0018
+020 | byteOffset=558520578 | length=0039 | 504  L | $$aБиблиогр.: с. 279-288
+021 | byteOffset=558520621 | length=0018 | 555  L | $$aУказ.
+022 | byteOffset=558520643 | length=0033 | 60004L | $$aT'ang Lin$$tMing-pao chi
+023 | byteOffset=558520680 | length=0108 | 901  L | $$a20021001$$bКаталог 'Старые иностранные книги' АИБС МЕКА РГБ
+024 | byteOffset=558520792 | length=0012 | OWN  L | $$aRSL
+025 | byteOffset=558520808 | length=0044 | CAT  L | $$aCONV$$b00$$c20021004$$lRSL01$$h0321
+026 | byteOffset=558520856 | length=0032 | CAT  L | $$c20021105$$lRSL01$$h0919
+027 | byteOffset=558520892 | length=0044 | CAT  L | $$aCONV$$b00$$c20040501$$lRSL01$$h1401
+028 | byteOffset=558520940 | length=0032 | CAT  L | $$c20041229$$lRSL01$$h1159
+029 | byteOffset=558520976 | length=0032 | CAT  L | $$c20120411$$lRSL01$$h2314
+030 | byteOffset=558521012 | length=0032 | CAT  L | $$c20130215$$lRSL01$$h2025
+031 | byteOffset=558521048 | length=0044 | CAT  L | $$aORK1$$b90$$c20160927$$lRSL01$$h1456
+032 | byteOffset=558521096 | length=0046 | CAT  L | $$aOKEK05$$b40$$c20231124$$lRSL01$$h1253
+033 | byteOffset=558521146 | length=0049 | CAT  L | $$aBATCH-UPD$$b40$$c20250216$$lRSL01$$h1019
+034 | byteOffset=558521199 | length=0030 | UID  L | $$a(RuMoRGB)OLDI-0127521

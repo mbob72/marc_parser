@@ -1,0 +1,7 @@
+file	recordId	recordNumber	recordIndex	byteOffset	fieldIndex	tag	sourceFieldNumber	fieldByteOffset	indicatorIndex	subfieldIndex	problemByteOffset	reportLine	message
+rsl01_z00.dat	013016938	12681871	12681870	19045918803			2	19045918825				2059	Error: Поле LDR Aleph-записи содержит 49 байт; ожидалось 24.
+rsl01_z00.dat	012126072	13226520	13226519	19924781418			2	19924781440				2076	Error: Поле LDR Aleph-записи содержит 49 байт; ожидалось 24.
+rsl10_z00.dat	000015451	27604	27603	13204636			2	13204658				2	Error: Поле LDR Aleph-записи содержит 25 байт; ожидалось 24.
+rsl10_z00.dat	000018979	30924	30923	15336613			2	15336635				3	Error: Поле LDR Aleph-записи содержит 25 байт; ожидалось 24.
+rsl10_z00.dat	000022352	34118	34117	17354060			2	17354082				4	Error: Поле LDR Aleph-записи содержит 25 байт; ожидалось 24.
+rsl10_z00.dat	000027433	38870	38869	20468266			2	20468288				6	Error: Поле LDR Aleph-записи содержит 25 байт; ожидалось 24.

@@ -1,0 +1,216 @@
+{
+  "file": "rsl01_z00.dat",
+  "mode": "errors-only",
+  "category": "bibliographic",
+  "source": "https://mrsadman.ru/ac34d2e7ff814dac/",
+  "revision": "33ede6d1e543ea295aad93b4b1d6330cb4be4e3e",
+  "node": "v24.12.0",
+  "startedAt": "2026-09-22T18:03:03.402Z",
+  "completedAt": "2026-09-22T18:17:32.074Z",
+  "complete": true,
+  "fileBytes": 22895409586,
+  "sha256": "987bbbcb408a5336e7820cd3f6475dfdd4654adf5f0f6021a53368df814b02ae",
+  "recordsProcessed": 15700000,
+  "validRecords": 15063636,
+  "recordsWithValidationErrors": 257,
+  "recordsWithParsingErrors": 2067,
+  "validationErrors": 265,
+  "skippedDeletedRecords": 634040,
+  "inputBytes": 22895409586,
+  "serializationPerformed": false,
+  "serializedBytes": 0,
+  "rules": {
+    "DF-G3": 109,
+    "DR-E2": 1,
+    "IN-G3": 1,
+    "LD-02": 154
+  },
+  "messages": {
+    "DF-G3: Поле 044 не содержит кода подполя.": {
+      "count": 14,
+      "first": {
+        "recordIndex": 429916,
+        "byteOffset": 558519749,
+        "rule": "DF-G3",
+        "fieldIndex": 10,
+        "tag": "044",
+        "message": "Поле 044 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 246 не содержит кода подполя.": {
+      "count": 3,
+      "first": {
+        "recordIndex": 521401,
+        "byteOffset": 692681153,
+        "rule": "DF-G3",
+        "fieldIndex": 14,
+        "tag": "246",
+        "message": "Поле 246 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 600 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 3872993,
+        "byteOffset": 5396417325,
+        "rule": "DF-G3",
+        "fieldIndex": 12,
+        "tag": "600",
+        "message": "Поле 600 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 362 не содержит кода подполя.": {
+      "count": 4,
+      "first": {
+        "recordIndex": 4195292,
+        "byteOffset": 5882265156,
+        "rule": "DF-G3",
+        "fieldIndex": 13,
+        "tag": "362",
+        "message": "Поле 362 не содержит кода подполя."
+      }
+    },
+    "DR-E2: Некорректный тег \"Z30\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 4396488,
+        "byteOffset": 6213696760,
+        "rule": "DR-E2",
+        "fieldIndex": 25,
+        "tag": "Z30",
+        "message": "Некорректный тег \"Z30\"."
+      }
+    },
+    "IN-G3: Индикатор 1 поля Z30 имеет недопустимое значение \"-\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 4396488,
+        "byteOffset": 6213696760,
+        "rule": "IN-G3",
+        "fieldIndex": 25,
+        "tag": "Z30",
+        "indicatorIndex": 0,
+        "message": "Индикатор 1 поля Z30 имеет недопустимое значение \"-\"."
+      }
+    },
+    "LD-02: Leader/18 содержит недопустимый для схемы РГБ код \"c\".": {
+      "count": 154,
+      "first": {
+        "recordIndex": 4499259,
+        "byteOffset": 6341301547,
+        "rule": "LD-02",
+        "message": "Leader/18 содержит недопустимый для схемы РГБ код \"c\"."
+      }
+    },
+    "DF-G3: Поле 300 не содержит кода подполя.": {
+      "count": 4,
+      "first": {
+        "recordIndex": 4537316,
+        "byteOffset": 6410432793,
+        "rule": "DF-G3",
+        "fieldIndex": 9,
+        "tag": "300",
+        "message": "Поле 300 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 017 не содержит кода подполя.": {
+      "count": 4,
+      "first": {
+        "recordIndex": 9136345,
+        "byteOffset": 12875269160,
+        "rule": "DF-G3",
+        "fieldIndex": 4,
+        "tag": "017",
+        "message": "Поле 017 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 952 не содержит кода подполя.": {
+      "count": 14,
+      "first": {
+        "recordIndex": 9365885,
+        "byteOffset": 13266687693,
+        "rule": "DF-G3",
+        "fieldIndex": 16,
+        "tag": "952",
+        "message": "Поле 952 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 500 не содержит кода подполя.": {
+      "count": 2,
+      "first": {
+        "recordIndex": 9597201,
+        "byteOffset": 13657631089,
+        "rule": "DF-G3",
+        "fieldIndex": 19,
+        "tag": "500",
+        "message": "Поле 500 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 111 не содержит кода подполя.": {
+      "count": 57,
+      "first": {
+        "recordIndex": 10490655,
+        "byteOffset": 15226363450,
+        "rule": "DF-G3",
+        "fieldIndex": 12,
+        "tag": "111",
+        "message": "Поле 111 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 250 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 11363979,
+        "byteOffset": 16820207851,
+        "rule": "DF-G3",
+        "fieldIndex": 11,
+        "tag": "250",
+        "message": "Поле 250 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 534 не содержит кода подполя.": {
+      "count": 2,
+      "first": {
+        "recordIndex": 12656980,
+        "byteOffset": 19005666382,
+        "rule": "DF-G3",
+        "fieldIndex": 11,
+        "tag": "534",
+        "message": "Поле 534 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 515 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 15628761,
+        "byteOffset": 22834996619,
+        "rule": "DF-G3",
+        "fieldIndex": 14,
+        "tag": "515",
+        "message": "Поле 515 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 700 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 15634562,
+        "byteOffset": 22844424511,
+        "rule": "DF-G3",
+        "fieldIndex": 21,
+        "tag": "700",
+        "message": "Поле 700 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 504 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 15679397,
+        "byteOffset": 22865548962,
+        "rule": "DF-G3",
+        "fieldIndex": 12,
+        "tag": "504",
+        "message": "Поле 504 не содержит кода подполя."
+      }
+    }
+  }
+}

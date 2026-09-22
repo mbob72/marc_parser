@@ -1,0 +1,17 @@
+file: rsl10_z00.dat
+recordId: 000167015; recordIndex: 129640; byteOffset: 64119704
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=64119714 | length=0008 | FMT  L | BK
+002 | byteOffset=64119726 | length=0030 | LDR  L | ^^^^^nam^a22^^^^^^i^4500
+003 | byteOffset=64119760 | length=0030 | LDR  L | 00744nz^^a2200181n^^4500
+004 | byteOffset=64119794 | length=0015 | 001  L | 000167015
+005 | byteOffset=64119813 | length=0022 | 005  L | 20130805135359.0
+006 | byteOffset=64119839 | length=0046 | 008  L | 130805^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d
+007 | byteOffset=64119889 | length=0028 | 040  L | $$aRuMoRGB$$brus$$ercr
+008 | byteOffset=64119921 | length=0014 | 065  L | $$2rubbk
+009 | byteOffset=64119939 | length=0114 | 1112 L | $$a"50 years Department of zoology, Plovdiv university", international conference on zoology$$d2012$$cHissar
+010 | byteOffset=64120057 | length=0044 | CAT  L | $$aNO04$$b40$$c20130805$$lRSL10$$h1300
+011 | byteOffset=64120105 | length=0044 | CAT  L | $$aNO04$$b40$$c20130805$$lRSL10$$h1353
+012 | byteOffset=64120153 | length=0010 | UPD  L | $$aN
+013 | byteOffset=64120167 | length=0022 | 670  L | $$aГАК РГБ

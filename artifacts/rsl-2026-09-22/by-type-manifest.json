@@ -1,0 +1,93 @@
+{
+  "date": "2026-09-22",
+  "complete": true,
+  "bases": [
+    "rsl01",
+    "rsl03",
+    "rsl06",
+    "rsl07",
+    "rsl10",
+    "rsl11"
+  ],
+  "pending": [],
+  "excluded": [
+    "rsl02"
+  ],
+  "totals": {
+    "recordsProcessed": 18768524,
+    "validRecords": 17623626,
+    "skippedDeletedRecords": 1140549,
+    "recordsWithValidationErrors": 2003,
+    "recordsWithParsingErrors": 2346,
+    "validationErrors": 15346,
+    "fileBytes": 26038858632
+  },
+  "historicalSameBases": {
+    "recordsProcessed": 18768524,
+    "recordsWithParsingErrors": 25138,
+    "recordsWithValidationErrors": 5089302,
+    "validationErrors": 5102874
+  },
+  "counts": {
+    "PARSE-LDR-count": 2247,
+    "DF-G3": 4511,
+    "PARSE-field-marker": 93,
+    "DR-E2": 26,
+    "IN-G3": 9848,
+    "LD-02-Leader-18": 154,
+    "PARSE-LDR-length": 6,
+    "SF-G4": 178,
+    "DF-G2": 629
+  },
+  "byFile": {
+    "PARSE-LDR-count": {
+      "rsl01_z00.dat": 1973,
+      "rsl03_z00.dat": 271,
+      "rsl07_z00.dat": 1,
+      "rsl10_z00.dat": 1,
+      "rsl11_z00.dat": 1
+    },
+    "DF-G3": {
+      "rsl01_z00.dat": 109,
+      "rsl03_z00.dat": 4376,
+      "rsl07_z00.dat": 2,
+      "rsl10_z00.dat": 4,
+      "rsl11_z00.dat": 20
+    },
+    "PARSE-field-marker": {
+      "rsl01_z00.dat": 92,
+      "rsl06_z00.dat": 1
+    },
+    "DR-E2": {
+      "rsl01_z00.dat": 1,
+      "rsl03_z00.dat": 6,
+      "rsl10_z00.dat": 4,
+      "rsl11_z00.dat": 15
+    },
+    "IN-G3": {
+      "rsl01_z00.dat": 1,
+      "rsl03_z00.dat": 9802,
+      "rsl10_z00.dat": 14,
+      "rsl11_z00.dat": 31
+    },
+    "LD-02-Leader-18": {
+      "rsl01_z00.dat": 154
+    },
+    "PARSE-LDR-length": {
+      "rsl01_z00.dat": 2,
+      "rsl10_z00.dat": 4
+    },
+    "SF-G4": {
+      "rsl03_z00.dat": 147,
+      "rsl06_z00.dat": 1,
+      "rsl10_z00.dat": 6,
+      "rsl11_z00.dat": 24
+    },
+    "DF-G2": {
+      "rsl03_z00.dat": 627,
+      "rsl10_z00.dat": 1,
+      "rsl11_z00.dat": 1
+    }
+  },
+  "reportGeneratorSha256": "5929180dc0944bede6a1750ea547c7f8836f04ceeef79535ddd48faef8dd088a"
+}

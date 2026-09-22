@@ -1,0 +1,24 @@
+file: rsl10_z00.dat
+recordId: 000018979; recordIndex: 30923; byteOffset: 15336613
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=15336623 | length=0008 | FMT  L | AU
+002 | byteOffset=15336635 | length=0031 | LDR  L | 00795nz^^a2200193т^^4500
+003 | byteOffset=15336670 | length=0015 | 001  L | 000018979
+004 | byteOffset=15336689 | length=0013 | 003  L | RuMoRGB
+005 | byteOffset=15336706 | length=0022 | 005  L | 20101014145017.0
+006 | byteOffset=15336732 | length=0046 | 008  L | 031225^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d
+007 | byteOffset=15336782 | length=0033 | 035  L | $$a(RuMoRGB)MEKACOL-0013682
+008 | byteOffset=15336819 | length=0028 | 040  L | $$aRuMoRGB$$brus$$ercr
+009 | byteOffset=15336851 | length=0014 | 065  L | $$2rubbk
+010 | byteOffset=15336869 | length=0078 | 1101 L | $$aEspaña$$bMinisterio de obras públicas, transportes y medio ambiente
+011 | byteOffset=15336951 | length=0015 | 4102 L | $$aMOPTMA
+012 | byteOffset=15336970 | length=0062 | 5101 L | $$aEspaña$$bMinisterio de obras públicas y transportes
+013 | byteOffset=15337036 | length=0045 | CAT  L | $$aRSL10$$b00$$c20031225$$lRSL10$$h0054
+014 | byteOffset=15337085 | length=0032 | CAT  L | $$c20100331$$lRSL10$$h0817
+015 | byteOffset=15337121 | length=0044 | CAT  L | $$aNO05$$b40$$c20101014$$lRSL10$$h1450
+016 | byteOffset=15337169 | length=0010 | UPD  L | $$aN
+017 | byteOffset=15337183 | length=0102 | 663  L | $$aОбразовано в 1994 г. из:$$bEspaña. Ministerio de obras públicas y transportes
+018 | byteOffset=15337289 | length=0022 | 670  L | $$aГАК РГБ
+019 | byteOffset=15337315 | length=0011 | 960  L | $$a62
+020 | byteOffset=15337330 | length=0011 | 961  L | $$a62

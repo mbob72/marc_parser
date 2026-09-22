@@ -1,0 +1,22 @@
+file: rsl06_z00.dat
+recordId: 000143178; recordIndex: 149884; byteOffset: 139268764
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=139268774 | length=0008 | FMT  L | BK
+002 | byteOffset=139268786 | length=0030 | LDR  L | ^^^^^nam^a22^^^^^^i^4500
+003 | byteOffset=139268820 | length=0015 | 001  L | 000143178
+004 | byteOffset=139268839 | length=0013 | 003  L | RuMoRGB
+005 | byteOffset=139268856 | length=0046 | 008  L | 260617s2017^^^^|||^^^^^^^^^^^000^|^rus^d
+006 | byteOffset=139268906 | length=0045 | 020  L | $$a978-88-7642-601-8; 978-88-7642-600-1
+007 | byteOffset=139268955 | length=0025 | 1001 L | $$aDipierro, Serena
+008 | byteOffset=139268984 | length=0145 | 24500L | $$aFractional Elliptic Problems with Critical Growth in the Whole of $\R^n$$$cDipierro, Serena; Medina, María; Valdinoci, Enrico$$nVol. 15
+009 | byteOffset=139269133 | length=0040 | 260  L | $$bScuola Normale Superiore$$c2017
+010 | byteOffset=139269177 | length=0083 | 506  L | $$fВне РГБ ресурс доступен через сервис MyLOFT
+011 | byteOffset=139269264 | length=0020 | 653  L | $$aMathematics
+012 | byteOffset=139269288 | length=0042 | 7001 L | $$aMedina, María; Valdinoci, Enrico
+013 | byteOffset=139269334 | length=0075 | 85641L | $$uhttps://link.springer.com/10.1007/978-88-7642-601-8$$yЧитать
+014 | byteOffset=139269413 | length=0047 | 975  L | $$aSpringer Nature$$bSpringer eBooks-2017
+015 | byteOffset=139269464 | length=0044 | 976  L | $$ara_myloft$$bhttps://app.myloft.xyz/
+016 | byteOffset=139269512 | length=0012 | OWN  L | $$aRNR
+017 | byteOffset=139269528 | length=0046 | CAT  L | $$aRBNBIS$$b40$$c20260617$$lRSL06$$h1126
+018 | byteOffset=139269578 | length=0046 | CAT  L | $$aRBNBIS$$b40$$c20260806$$lRSL06$$h1107

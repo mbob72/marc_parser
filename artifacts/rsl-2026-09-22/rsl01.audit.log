@@ -1,0 +1,468 @@
+rsl01_z00.dat {
+  recordsProcessed: 530511,
+  validRecords: 473009,
+  recordsWithValidationErrors: 4,
+  recordsWithParsingErrors: 7,
+  validationErrors: 4,
+  skippedDeletedRecords: 57491,
+  inputBytes: 707263277
+}
+rsl01_z00.dat {
+  recordsProcessed: 1071091,
+  validRecords: 934790,
+  recordsWithValidationErrors: 5,
+  recordsWithParsingErrors: 14,
+  validationErrors: 5,
+  skippedDeletedRecords: 136282,
+  inputBytes: 1456864874
+}
+rsl01_z00.dat {
+  recordsProcessed: 1515515,
+  validRecords: 1376193,
+  recordsWithValidationErrors: 5,
+  recordsWithParsingErrors: 34,
+  validationErrors: 5,
+  skippedDeletedRecords: 139283,
+  inputBytes: 2130640799
+}
+rsl01_z00.dat {
+  recordsProcessed: 1992502,
+  validRecords: 1820306,
+  recordsWithValidationErrors: 5,
+  recordsWithParsingErrors: 49,
+  validationErrors: 5,
+  skippedDeletedRecords: 172142,
+  inputBytes: 2836266535
+}
+rsl01_z00.dat {
+  recordsProcessed: 2662191,
+  validRecords: 2283266,
+  recordsWithValidationErrors: 6,
+  recordsWithParsingErrors: 63,
+  validationErrors: 6,
+  skippedDeletedRecords: 378856,
+  inputBytes: 3656449905
+}
+rsl01_z00.dat {
+  recordsProcessed: 3152680,
+  validRecords: 2742792,
+  recordsWithValidationErrors: 6,
+  recordsWithParsingErrors: 68,
+  validationErrors: 6,
+  skippedDeletedRecords: 409814,
+  inputBytes: 4493082502
+}
+rsl01_z00.dat {
+  recordsProcessed: 3787446,
+  validRecords: 3351503,
+  recordsWithValidationErrors: 6,
+  recordsWithParsingErrors: 224,
+  validationErrors: 6,
+  skippedDeletedRecords: 435713,
+  inputBytes: 5291113235
+}
+rsl01_z00.dat {
+  recordsProcessed: 4318284,
+  validRecords: 3857674,
+  recordsWithValidationErrors: 11,
+  recordsWithParsingErrors: 257,
+  validationErrors: 11,
+  skippedDeletedRecords: 460342,
+  inputBytes: 6087311010
+}
+rsl01_z00.dat {
+  recordsProcessed: 4890602,
+  validRecords: 4387358,
+  recordsWithValidationErrors: 168,
+  recordsWithParsingErrors: 286,
+  validationErrors: 169,
+  skippedDeletedRecords: 502790,
+  inputBytes: 6902250745
+}
+rsl01_z00.dat {
+  recordsProcessed: 5434316,
+  validRecords: 4917981,
+  recordsWithValidationErrors: 169,
+  recordsWithParsingErrors: 348,
+  validationErrors: 170,
+  skippedDeletedRecords: 515818,
+  inputBytes: 7675968707
+}
+rsl01_z00.dat {
+  recordsProcessed: 6008322,
+  validRecords: 5489634,
+  recordsWithValidationErrors: 169,
+  recordsWithParsingErrors: 355,
+  validationErrors: 170,
+  skippedDeletedRecords: 518164,
+  inputBytes: 8358199106
+}
+rsl01_z00.dat {
+  recordsProcessed: 6521156,
+  validRecords: 5994702,
+  recordsWithValidationErrors: 169,
+  recordsWithParsingErrors: 408,
+  validationErrors: 170,
+  skippedDeletedRecords: 525877,
+  inputBytes: 9134800101
+}
+rsl01_z00.dat {
+  recordsProcessed: 7051607,
+  validRecords: 6522315,
+  recordsWithValidationErrors: 169,
+  recordsWithParsingErrors: 601,
+  validationErrors: 170,
+  skippedDeletedRecords: 528522,
+  inputBytes: 9837673508
+}
+rsl01_z00.dat {
+  recordsProcessed: 7543145,
+  validRecords: 7008439,
+  recordsWithValidationErrors: 169,
+  recordsWithParsingErrors: 1176,
+  validationErrors: 170,
+  skippedDeletedRecords: 533361,
+  inputBytes: 10577312207
+}
+rsl01_z00.dat {
+  recordsProcessed: 8079734,
+  validRecords: 7536608,
+  recordsWithValidationErrors: 169,
+  recordsWithParsingErrors: 1231,
+  validationErrors: 170,
+  skippedDeletedRecords: 541726,
+  inputBytes: 11351358704
+}
+rsl01_z00.dat {
+  recordsProcessed: 8616814,
+  validRecords: 8056778,
+  recordsWithValidationErrors: 169,
+  recordsWithParsingErrors: 1258,
+  validationErrors: 170,
+  skippedDeletedRecords: 558609,
+  inputBytes: 12098272603
+}
+rsl01_z00.dat {
+  recordsProcessed: 9135548,
+  validRecords: 8569603,
+  recordsWithValidationErrors: 169,
+  recordsWithParsingErrors: 1299,
+  validationErrors: 170,
+  skippedDeletedRecords: 564477,
+  inputBytes: 12873957280
+}
+rsl01_z00.dat {
+  recordsProcessed: 9601035,
+  validRecords: 9031938,
+  recordsWithValidationErrors: 172,
+  recordsWithParsingErrors: 1320,
+  validationErrors: 175,
+  skippedDeletedRecords: 567605,
+  inputBytes: 13664124649
+}
+rsl01_z00.dat {
+  recordsProcessed: 10104415,
+  validRecords: 9511714,
+  recordsWithValidationErrors: 172,
+  recordsWithParsingErrors: 1432,
+  validationErrors: 175,
+  skippedDeletedRecords: 591097,
+  inputBytes: 14498395087
+}
+rsl01_z00.dat {
+  recordsProcessed: 10570843,
+  validRecords: 9966529,
+  recordsWithValidationErrors: 175,
+  recordsWithParsingErrors: 1502,
+  validationErrors: 178,
+  skippedDeletedRecords: 602637,
+  inputBytes: 15374089690
+}
+rsl01_z00.dat {
+  recordsProcessed: 11066447,
+  validRecords: 10458465,
+  recordsWithValidationErrors: 177,
+  recordsWithParsingErrors: 1603,
+  validationErrors: 180,
+  skippedDeletedRecords: 606202,
+  inputBytes: 16284515396
+}
+rsl01_z00.dat {
+  recordsProcessed: 11529554,
+  validRecords: 10919783,
+  recordsWithValidationErrors: 183,
+  recordsWithParsingErrors: 1703,
+  validationErrors: 186,
+  skippedDeletedRecords: 607885,
+  inputBytes: 17145789896
+}
+rsl01_z00.dat {
+  recordsProcessed: 12068889,
+  validRecords: 11454375,
+  recordsWithValidationErrors: 185,
+  recordsWithParsingErrors: 1808,
+  validationErrors: 188,
+  skippedDeletedRecords: 612521,
+  inputBytes: 18022793068
+}
+rsl01_z00.dat {
+  recordsProcessed: 12575986,
+  validRecords: 11958976,
+  recordsWithValidationErrors: 185,
+  recordsWithParsingErrors: 1850,
+  validationErrors: 188,
+  skippedDeletedRecords: 614975,
+  inputBytes: 18872794229
+}
+rsl01_z00.dat {
+  recordsProcessed: 13102497,
+  validRecords: 12480899,
+  recordsWithValidationErrors: 187,
+  recordsWithParsingErrors: 1886,
+  validationErrors: 190,
+  skippedDeletedRecords: 619525,
+  inputBytes: 19729414140
+}
+rsl01_z00.dat {
+  recordsProcessed: 13658974,
+  validRecords: 13032353,
+  recordsWithValidationErrors: 188,
+  recordsWithParsingErrors: 1999,
+  validationErrors: 191,
+  skippedDeletedRecords: 624434,
+  inputBytes: 20579155677
+}
+rsl01_z00.dat {
+  recordsProcessed: 14437165,
+  validRecords: 13809148,
+  recordsWithValidationErrors: 190,
+  recordsWithParsingErrors: 2009,
+  validationErrors: 193,
+  skippedDeletedRecords: 625818,
+  inputBytes: 21433417346
+}
+rsl01_z00.dat {
+  recordsProcessed: 15138679,
+  validRecords: 14503605,
+  recordsWithValidationErrors: 246,
+  recordsWithParsingErrors: 2062,
+  validationErrors: 249,
+  skippedDeletedRecords: 632766,
+  inputBytes: 22273128429
+}
+{
+  "file": "rsl01_z00.dat",
+  "mode": "errors-only",
+  "category": "bibliographic",
+  "source": "https://mrsadman.ru/ac34d2e7ff814dac/",
+  "revision": "33ede6d1e543ea295aad93b4b1d6330cb4be4e3e",
+  "node": "v24.12.0",
+  "startedAt": "2026-09-22T18:03:03.402Z",
+  "completedAt": "2026-09-22T18:17:32.074Z",
+  "complete": true,
+  "fileBytes": 22895409586,
+  "sha256": "987bbbcb408a5336e7820cd3f6475dfdd4654adf5f0f6021a53368df814b02ae",
+  "recordsProcessed": 15700000,
+  "validRecords": 15063636,
+  "recordsWithValidationErrors": 257,
+  "recordsWithParsingErrors": 2067,
+  "validationErrors": 265,
+  "skippedDeletedRecords": 634040,
+  "inputBytes": 22895409586,
+  "serializationPerformed": false,
+  "serializedBytes": 0,
+  "rules": {
+    "DF-G3": 109,
+    "DR-E2": 1,
+    "IN-G3": 1,
+    "LD-02": 154
+  },
+  "messages": {
+    "DF-G3: Поле 044 не содержит кода подполя.": {
+      "count": 14,
+      "first": {
+        "recordIndex": 429916,
+        "byteOffset": 558519749,
+        "rule": "DF-G3",
+        "fieldIndex": 10,
+        "tag": "044",
+        "message": "Поле 044 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 246 не содержит кода подполя.": {
+      "count": 3,
+      "first": {
+        "recordIndex": 521401,
+        "byteOffset": 692681153,
+        "rule": "DF-G3",
+        "fieldIndex": 14,
+        "tag": "246",
+        "message": "Поле 246 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 600 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 3872993,
+        "byteOffset": 5396417325,
+        "rule": "DF-G3",
+        "fieldIndex": 12,
+        "tag": "600",
+        "message": "Поле 600 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 362 не содержит кода подполя.": {
+      "count": 4,
+      "first": {
+        "recordIndex": 4195292,
+        "byteOffset": 5882265156,
+        "rule": "DF-G3",
+        "fieldIndex": 13,
+        "tag": "362",
+        "message": "Поле 362 не содержит кода подполя."
+      }
+    },
+    "DR-E2: Некорректный тег \"Z30\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 4396488,
+        "byteOffset": 6213696760,
+        "rule": "DR-E2",
+        "fieldIndex": 25,
+        "tag": "Z30",
+        "message": "Некорректный тег \"Z30\"."
+      }
+    },
+    "IN-G3: Индикатор 1 поля Z30 имеет недопустимое значение \"-\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 4396488,
+        "byteOffset": 6213696760,
+        "rule": "IN-G3",
+        "fieldIndex": 25,
+        "tag": "Z30",
+        "indicatorIndex": 0,
+        "message": "Индикатор 1 поля Z30 имеет недопустимое значение \"-\"."
+      }
+    },
+    "LD-02: Leader/18 содержит недопустимый для схемы РГБ код \"c\".": {
+      "count": 154,
+      "first": {
+        "recordIndex": 4499259,
+        "byteOffset": 6341301547,
+        "rule": "LD-02",
+        "message": "Leader/18 содержит недопустимый для схемы РГБ код \"c\"."
+      }
+    },
+    "DF-G3: Поле 300 не содержит кода подполя.": {
+      "count": 4,
+      "first": {
+        "recordIndex": 4537316,
+        "byteOffset": 6410432793,
+        "rule": "DF-G3",
+        "fieldIndex": 9,
+        "tag": "300",
+        "message": "Поле 300 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 017 не содержит кода подполя.": {
+      "count": 4,
+      "first": {
+        "recordIndex": 9136345,
+        "byteOffset": 12875269160,
+        "rule": "DF-G3",
+        "fieldIndex": 4,
+        "tag": "017",
+        "message": "Поле 017 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 952 не содержит кода подполя.": {
+      "count": 14,
+      "first": {
+        "recordIndex": 9365885,
+        "byteOffset": 13266687693,
+        "rule": "DF-G3",
+        "fieldIndex": 16,
+        "tag": "952",
+        "message": "Поле 952 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 500 не содержит кода подполя.": {
+      "count": 2,
+      "first": {
+        "recordIndex": 9597201,
+        "byteOffset": 13657631089,
+        "rule": "DF-G3",
+        "fieldIndex": 19,
+        "tag": "500",
+        "message": "Поле 500 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 111 не содержит кода подполя.": {
+      "count": 57,
+      "first": {
+        "recordIndex": 10490655,
+        "byteOffset": 15226363450,
+        "rule": "DF-G3",
+        "fieldIndex": 12,
+        "tag": "111",
+        "message": "Поле 111 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 250 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 11363979,
+        "byteOffset": 16820207851,
+        "rule": "DF-G3",
+        "fieldIndex": 11,
+        "tag": "250",
+        "message": "Поле 250 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 534 не содержит кода подполя.": {
+      "count": 2,
+      "first": {
+        "recordIndex": 12656980,
+        "byteOffset": 19005666382,
+        "rule": "DF-G3",
+        "fieldIndex": 11,
+        "tag": "534",
+        "message": "Поле 534 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 515 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 15628761,
+        "byteOffset": 22834996619,
+        "rule": "DF-G3",
+        "fieldIndex": 14,
+        "tag": "515",
+        "message": "Поле 515 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 700 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 15634562,
+        "byteOffset": 22844424511,
+        "rule": "DF-G3",
+        "fieldIndex": 21,
+        "tag": "700",
+        "message": "Поле 700 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 504 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 15679397,
+        "byteOffset": 22865548962,
+        "rule": "DF-G3",
+        "fieldIndex": 12,
+        "tag": "504",
+        "message": "Поле 504 не содержит кода подполя."
+      }
+    }
+  }
+}

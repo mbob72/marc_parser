@@ -1,0 +1,25 @@
+file: rsl03_z00.dat
+recordId: 001204621; recordIndex: 1204650; byteOffset: 1019842606
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=1019842616 | length=0008 | FMT  L | BK
+002 | byteOffset=1019842628 | length=0030 | LDR  L | ^^^^^cam^a2200253^i^4500
+003 | byteOffset=1019842662 | length=0020 | 001  L | ru03-000001RKP
+004 | byteOffset=1019842686 | length=0020 | 005  L | 20210519162932
+005 | byteOffset=1019842710 | length=0046 | 008  L | 210519s2020^^^^ru^a^^^^^^^^^^000^|^rus|d
+006 | byteOffset=1019842760 | length=0033 | 017  L | $$aКН-П-21-033716$$bRuMo
+007 | byteOffset=1019842797 | length=0035 | 020KPL | \x1e$$a978-5-6045801-1-0$$c300 \xd1
+008 | byteOffset=1019842836 | length=0032 | 040  L | $$aRuMoRKP$$brus$$dRuMoRGB
+009 | byteOffset=1019842872 | length=0011 | 041ePL | SBO\x1e0
+010 | byteOffset=1019842887 | length=0035 | 080\x1faL | rus\x1e$$a94(47+57)<1941/1945>(0
+011 | byteOffset=1019842926 | length=0068 | 245ubL | bkm\x1e10$$aВ их жизни была война$$bк 75-лет
+012 | byteOffset=1019842998 | length=0037 | 260\xb8\xd1L | \x8e Великой Победы :
+013 | byteOffset=1019843039 | length=0031 | 300сL | борник\x1e$$aСама\xd1
+014 | byteOffset=1019843074 | length=0059 | 520 [L | 2] с.$$bил.$$c30 см.\x1e$$aТекст (визуал
+015 | byteOffset=1019843137 | length=0083 | 650\x8c\xd0L | \xbdый)\x1e$$aнепосредственный\x1e$$aИздание предназн
+016 | byteOffset=1019843224 | length=0080 | 650\xb0\xd1L | \x87ено для широкого круга читателей\x1e 7$$aСов\xd0
+017 | byteOffset=1019843308 | length=0075 | 650тL | ская армия на фронтах Великой Отечест
+018 | byteOffset=1019843387 | length=0020 | 912\xb2\xd0L | \xb5нной во
+019 | byteOffset=1019843411 | length=0044 | CAT  L | $$aCONV$$b00$$c20210522$$lRSL03$$h2048
+020 | byteOffset=1019843459 | length=0027 | 336аL | $$bПолиграфи
+021 | byteOffset=1019843490 | length=0024 | 337\x8f\x1fL | c2020$$e297\x1e$$a100

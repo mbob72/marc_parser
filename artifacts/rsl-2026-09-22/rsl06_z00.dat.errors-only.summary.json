@@ -1,0 +1,39 @@
+{
+  "file": "rsl06_z00.dat",
+  "mode": "errors-only",
+  "category": "bibliographic",
+  "source": "https://mrsadman.ru/ac34d2e7ff814dac/",
+  "revision": "33ede6d1e543ea295aad93b4b1d6330cb4be4e3e",
+  "node": "v24.12.0",
+  "startedAt": "2026-09-22T16:22:18.631Z",
+  "completedAt": "2026-09-22T16:22:25.016Z",
+  "complete": true,
+  "fileBytes": 143391440,
+  "sha256": "3428fdc64d75192f33b778026762694d40d2accf88f79333357238b536f73af0",
+  "recordsProcessed": 155250,
+  "validRecords": 151379,
+  "recordsWithValidationErrors": 1,
+  "recordsWithParsingErrors": 1,
+  "validationErrors": 1,
+  "skippedDeletedRecords": 3869,
+  "inputBytes": 143391440,
+  "serializationPerformed": false,
+  "serializedBytes": 0,
+  "rules": {
+    "SF-G4": 1
+  },
+  "messages": {
+    "SF-G4: Подполе 2 поля 245 имеет недопустимый код \"$\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 149884,
+        "byteOffset": 139268764,
+        "rule": "SF-G4",
+        "fieldIndex": 6,
+        "tag": "245",
+        "subfieldIndex": 1,
+        "message": "Подполе 2 поля 245 имеет недопустимый код \"$\"."
+      }
+    }
+  }
+}

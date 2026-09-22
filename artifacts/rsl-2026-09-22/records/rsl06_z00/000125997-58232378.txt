@@ -1,0 +1,21 @@
+file: rsl06_z00.dat
+recordId: 000125997; recordIndex: 61620; byteOffset: 58232378
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=58232388 | length=0008 | FMT  L | BK
+002 | byteOffset=58232400 | length=0030 | LDR  L | ^^^^^nam^a22^^^^^^i^4500
+003 | byteOffset=58232434 | length=0015 | 001  L | 000125997
+004 | byteOffset=58232453 | length=0013 | 003  L | RuMoRGB
+005 | byteOffset=58232470 | length=0046 | 008  L | 260617s2015^^^^|||^^^^^^^^^^^000^|^rus^d
+006 | byteOffset=58232520 | length=0045 | 020  L | $$a978-3-319-21284-5; 978-3-319-21283-8
+007 | byteOffset=58232569 | length=0049 | 260  L | $$bSpringer International Publishing$$c2015
+008 | byteOffset=58232622 | length=0083 | 506  L | $$fВне РГБ ресурс доступен через сервис MyLOFT
+009 | byteOffset=58232709 | length=0020 | 653  L | $$aMathematics
+010 | byteOffset=58232733 | length=0075 | 85641L | $$uhttps://link.springer.com/10.1007/978-3-319-21284-5$$yЧитать
+011 | byteOffset=58232812 | length=0047 | 975  L | $$aSpringer Nature$$bSpringer eBooks-2015
+012 | byteOffset=58232863 | length=0044 | 976  L | $$ara_myloft$$bhttps://app.myloft.xyz/
+013 | byteOffset=58232911 | length=0012 | OWN  L | $$aRNR
+014 | byteOffset=58232927 | length=0046 | CAT  L | $$aRBNBIS$$b40$$c20260617$$lRSL06$$h1125
+015 | byteOffset=58232977 | length=0046 | CAT  L | $$aRBNBIS$$b40$$c20260806$$lRSL06$$h1107
+016 | byteOffset=58233027 | length=0040 |  2450  | $$aExtended Abstracts Fall 2013$$c
+017 | byteOffset=58233071 | length=0056 | Mar Gn | ález, Paul C. Yang, Nicola Gambino, Joachim Kock"

@@ -1,0 +1,26 @@
+file: rsl03_z00.dat
+recordId: 000559185; recordIndex: 559685; byteOffset: 496194120
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=496194130 | length=0008 | FMT  L | BK
+002 | byteOffset=496194142 | length=0030 | LDR  L | ^^^^^cam^a2200169^i^4500
+003 | byteOffset=496194176 | length=0015 | 001  L | 000559185
+004 | byteOffset=496194195 | length=0022 | 005  L | 20081209130725.0
+005 | byteOffset=496194221 | length=0046 | 008  L | 060824s2008^^^^ru^^^^^^r^^^^^000^u^rus^^
+006 | byteOffset=496194271 | length=0017 | 017  L | $$a08-82883
+007 | byteOffset=496194292 | length=0026 | 020  L | $$a978-5-476-00611-4
+008 | byteOffset=496194322 | length=0030 | 035  L | $$a(LIBNET)EL/0000080390
+009 | byteOffset=496194356 | length=0060 | 040  L | $$aАгентство CIP РГБ$$brus$$ercr$$dRuMoRGB
+010 | byteOffset=496194420 | length=0012 | 0410 L | $$arus
+011 | byteOffset=496194436 | length=0026 | 080  L | $$a657.1:339.37(035)
+012 | byteOffset=496194466 | length=0062 | 1001 L | $$aАгафонова, Марина Николаевна
+013 | byteOffset=496194532 | length=0181 | 24500L | $$aБухучет в розничной торговле :$$bобразцы заполнения док. : практическое пособие$$cМ. Н. Агафонова
+014 | byteOffset=496194717 | length=0048 | 250  L | $$D4-е изд, перераб. и доп.
+015 | byteOffset=496194769 | length=0051 | 260  L | $$aМосква$$bГроссМедиа$$c2008
+016 | byteOffset=496194824 | length=0016 | 300  L | $$a445 с.
+017 | byteOffset=496194844 | length=0032 | 4900 L | $$aМалый бизнес
+018 | byteOffset=496194880 | length=0016 | 912  L | $$a08-4829
+019 | byteOffset=496194900 | length=0012 | OWN  L | $$aRSL
+020 | byteOffset=496194916 | length=0044 | CAT  L | $$aCONV$$b00$$c20081015$$lRSL03$$h2230
+021 | byteOffset=496194964 | length=0044 | CAT  L | $$aCIP3$$b40$$c20081209$$lRSL03$$h1307
+022 | byteOffset=496195012 | length=0024 | SID  L | $$aZ39$$bCIPLIBNET

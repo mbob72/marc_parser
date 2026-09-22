@@ -1,0 +1,21 @@
+file: rsl03_z00.dat
+recordId: 001166307; recordIndex: 1166448; byteOffset: 994645234
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=994645244 | length=0008 | FMT  L | BK
+002 | byteOffset=994645256 | length=0030 | LDR  L | ^^^^^nam^a22^^^^^^i^4500
+003 | byteOffset=994645290 | length=0015 | 001  L | 001166307
+004 | byteOffset=994645309 | length=0022 | 005  L | 20151119103655.0
+005 | byteOffset=994645335 | length=0046 | 008  L | 150626s200u^^^^^^^||||^^^^^^^0||^|^^^^|d
+006 | byteOffset=994645385 | length=0021 | 020  L | $$c6000 экз.
+007 | byteOffset=994645410 | length=0028 | 040  L | $$aRuMoRGB$$brus$$ercr
+008 | byteOffset=994645442 | length=0012 | 041  L | $$arus
+009 | byteOffset=994645458 | length=0022 | 084 7L | $$a85.3$$2rubbkm
+010 | byteOffset=994645484 | length=0031 | 1001 L | $$aЯнковский М.
+011 | byteOffset=994645519 | length=0124 | 245 0L | $$aН. И. Забела-Врубель ("Замечательные русские музыканты")$$h[Текст]
+012 | byteOffset=994645647 | length=0034 | 260\x01 L | $$c1953$$aМ.$$bМУЗГИЗ
+013 | byteOffset=994645685 | length=0043 | 300  L | $$a142 с.$$bс илл.$$c17х13 см
+014 | byteOffset=994645732 | length=0012 | 979  L | $$aorf
+015 | byteOffset=994645748 | length=0012 | OWN  L | $$aRSL
+016 | byteOffset=994645764 | length=0044 | CAT  L | $$aSHOP$$b10$$c20150626$$lRSL03$$h1549
+017 | byteOffset=994645812 | length=0046 | CAT  L | $$aANDREY$$b10$$c20151119$$lRSL03$$h1036

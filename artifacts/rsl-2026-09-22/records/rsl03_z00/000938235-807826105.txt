@@ -1,0 +1,26 @@
+file: rsl03_z00.dat
+recordId: 000938235; recordIndex: 940059; byteOffset: 807826105
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=807826115 | length=0008 | FMT  L | BK
+002 | byteOffset=807826127 | length=0030 | LDR  L | ^^^^^nam^a22^^^^^^i^4500
+003 | byteOffset=807826161 | length=0015 | 001  L | 000938235
+004 | byteOffset=807826180 | length=0022 | 005  L | 20120615194010.0
+005 | byteOffset=807826206 | length=0046 | 008  L | 120316s200u^^^^^^^||||^^^^^^^0||^|^^^^|d
+006 | byteOffset=807826256 | length=0038 | 020  L | $$a5-87938-059-9$$c10000 экз.
+007 | byteOffset=807826298 | length=0028 | 040  L | $$aRuMoRGB$$brus$$ercr
+008 | byteOffset=807826330 | length=0012 | 041  L | $$arus
+009 | byteOffset=807826346 | length=0022 | 084 7L | $$a26.8$$2rubbkm
+010 | byteOffset=807826372 | length=0085 | 1001 L | $$aХудякова Т. М., Блаженов В. А., Ермолова Г. А.
+011 | byteOffset=807826461 | length=0113 | 245 0L | $$aГеография России. Природно-хозяйственные районы$$h[Текст]
+012 | byteOffset=807826578 | length=0030 | 260  L | $$aВоронеж$$c1996
+013 | byteOffset=807826612 | length=0057 | 300  L | $$a128 с.$$bВОИПКПРО$$c21х13 см; 146 г
+014 | byteOffset=807826673 | length=0050 | 500  L | $$aБиблиотечный переплет
+015 | byteOffset=807826727 | length=0055 | 700  L | $$eобщ. ред.$$\x1fПоросенков Ю. В.
+016 | byteOffset=807826786 | length=0109 | 85641L | $$qapplication/pdf$$uhttp://dlib.rsl.ru/rsl03000000000/rsl03000938000/rsl03000938235/rsl03000938235.pdf
+017 | byteOffset=807826899 | length=0012 | 979  L | $$aorf
+018 | byteOffset=807826915 | length=0012 | 979  L | $$aorf
+019 | byteOffset=807826931 | length=0012 | OWN  L | $$aRSL
+020 | byteOffset=807826947 | length=0044 | CAT  L | $$aSHOP$$b10$$c20120316$$lRSL03$$h1530
+021 | byteOffset=807826995 | length=0044 | CAT  L | $$aSHOP$$b10$$c20120319$$lRSL03$$h1004
+022 | byteOffset=807827043 | length=0044 | CAT  L | $$aSHOP$$b10$$c20120615$$lRSL03$$h1940

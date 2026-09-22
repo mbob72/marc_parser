@@ -1,0 +1,49 @@
+{
+  "file": "rsl07_z00.dat",
+  "mode": "errors-only",
+  "category": "bibliographic",
+  "source": "https://mrsadman.ru/ac34d2e7ff814dac/",
+  "revision": "33ede6d1e543ea295aad93b4b1d6330cb4be4e3e",
+  "node": "v24.12.0",
+  "startedAt": "2026-09-22T16:22:35.451Z",
+  "completedAt": "2026-09-22T16:22:43.070Z",
+  "complete": true,
+  "fileBytes": 182067877,
+  "sha256": "4dfcc187ae80f6710bd08d14f5a367d29b84ae6c6103c3836dff21fb28df127f",
+  "recordsProcessed": 525689,
+  "validRecords": 106523,
+  "recordsWithValidationErrors": 2,
+  "recordsWithParsingErrors": 1,
+  "validationErrors": 2,
+  "skippedDeletedRecords": 419163,
+  "inputBytes": 182067877,
+  "serializationPerformed": false,
+  "serializedBytes": 0,
+  "rules": {
+    "DF-G3": 2
+  },
+  "messages": {
+    "DF-G3: Поле 110 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 400706,
+        "byteOffset": 78953596,
+        "rule": "DF-G3",
+        "fieldIndex": 11,
+        "tag": "110",
+        "message": "Поле 110 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 490 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 509747,
+        "byteOffset": 166128330,
+        "rule": "DF-G3",
+        "fieldIndex": 13,
+        "tag": "490",
+        "message": "Поле 490 не содержит кода подполя."
+      }
+    }
+  }
+}

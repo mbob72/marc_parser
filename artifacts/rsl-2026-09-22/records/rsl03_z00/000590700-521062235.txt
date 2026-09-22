@@ -1,0 +1,27 @@
+file: rsl03_z00.dat
+recordId: 000590700; recordIndex: 591371; byteOffset: 521062235
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=521062245 | length=0008 | FMT  L | BK
+002 | byteOffset=521062257 | length=0030 | LDR  L | ^^^^^cam^a2200157^i^4500
+003 | byteOffset=521062291 | length=0015 | 001  L | 000590700
+004 | byteOffset=521062310 | length=0022 | 005  L | 20090305174948.0
+005 | byteOffset=521062336 | length=0046 | 008  L | 060111s^^^^^^^^ru^^^^^^|^^^^^^^^^||rus^d
+006 | byteOffset=521062386 | length=0016 | 017  L | $$a09-4984
+007 | byteOffset=521062406 | length=0022 | 020  L | $$a5-365-00080-3
+008 | byteOffset=521062432 | length=0030 | 035  L | $$a(LIBNET)EL/0000043848
+009 | byteOffset=521062466 | length=0061 | 040  L | $$aАгентство CIP РГБ$$brus$$ePSBO$$dRuMoRGB
+010 | byteOffset=521062531 | length=0012 | 0410 L | $$arus
+011 | byteOffset=521062547 | length=0026 | 080  L | $$a342.5(470)(094.5)
+012 | byteOffset=521062577 | length=0041 | 080  L | $$a[342.951:355.21](470+571)(094.5)
+013 | byteOffset=521062622 | length=0146 | 24500L | $$aФедеральный закон "О системе государственной службы Российской Федерации"
+014 | byteOffset=521062772 | length=0047 | 260  L | $$aМ.$$bИзд-во ОМЕГА-Л$$c2008
+015 | byteOffset=521062823 | length=0015 | 300  L | $$a15 с.
+016 | byteOffset=521062842 | length=0061 | 4900 L | $$aЗаконы Российской Федерации
+017 | byteOffset=521062907 | length=0137 | 650 4L | $$aАдминистративное право Российской Федерации. Государственная служба
+018 | byteOffset=521063048 | length=0015 | 912  L | $$a09-280
+019 | byteOffset=521063067 | length=0012 | OWN  L | $$aRSL
+020 | byteOffset=521063083 | length=0044 | CAT  L | $$aCONV$$b00$$c20090225$$lRSL03$$h2234
+021 | byteOffset=521063131 | length=0044 | CAT  L | $$aCIP5$$b40$$c20090305$$lRSL03$$h1749
+022 | byteOffset=521063179 | length=0044 | ---  L | $$b[от 27 мая 2003 г. №58-Ф3]
+023 | byteOffset=521063227 | length=0024 | SID  L | $$aZ39$$bCIPLIBNET

@@ -1,0 +1,26 @@
+file: rsl03_z00.dat
+recordId: 000262176; recordIndex: 263416; byteOffset: 260275526
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=260275536 | length=0008 | FMT  L | BK
+002 | byteOffset=260275548 | length=0015 | 001  L | 000262176
+003 | byteOffset=260275567 | length=0022 | 005  L | 20060123105653.0
+004 | byteOffset=260275593 | length=0046 | 008  L | 051128s2005----ru-a----|||||-|||-||rus-d
+005 | byteOffset=260275643 | length=0017 | 017  L | $$a05-70075
+006 | byteOffset=260275664 | length=0029 | 020  L | $$a5-7670-1364-0$$c7500
+007 | byteOffset=260275697 | length=0035 | 035  L | $$a(LIBNET)RU\NLR\bibl\880107
+008 | byteOffset=260275736 | length=0012 | 0410 L | $$arus
+009 | byteOffset=260275752 | length=0018 | 080  L | $$a373.167.1
+010 | byteOffset=260275774 | length=0064 | 1001 L | $$aВолков, Михаил Константинович
+011 | byteOffset=260275842 | length=0181 | 24500L | $$aРусский язык :$$bучебник для 3 класса чувашской школы$$cМ.К. Волков, А.В. Рыбакова, Ф.Ф. Тринитатова
+012 | byteOffset=260276027 | length=0038 | 250  L | $$aИзд. 4-е, перераб.
+013 | byteOffset=260276069 | length=0095 | 260  L | $$aЧебоксары$$bЧувашское книжное издательство$$c2005
+014 | byteOffset=260276168 | length=0039 | 300  L | $$a221, [2] c.$$bцв. ил.$$c22
+015 | byteOffset=260276211 | length=0041 | 65017L | $$aРусский язык$$2nlr_sh
+016 | byteOffset=260276256 | length=0082 | 7001 L | $$aРыбакова, Алеквтина Витальевна$$eавт.$$4aut
+017 | byteOffset=260276342 | length=0076 | 7001 L | $$aТринитатова, Фаина Фадеевна$$eавт.$$4aut
+018 | byteOffset=260276422 | length=0029 | 912  L | $$a05-3451$$b28.10.2005
+019 | byteOffset=260276455 | length=0012 | OWN  L | $$aRSL
+020 | byteOffset=260276471 | length=0044 | CAT  L | $$aCONV$$b00$$c20051107$$lRSL03$$h1457
+021 | byteOffset=260276519 | length=0044 | CAT  L | $$aCIP1$$b40$$c20060123$$lRSL03$$h1056
+022 | byteOffset=260276567 | length=0021 | SID  L | $$aZ39$$bLIBNET

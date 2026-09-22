@@ -1,0 +1,43 @@
+diff --git a/scripts/audit-rsl.ts b/scripts/audit-rsl.ts
+index 9a80ffa20..912605cf0 100644
+--- a/scripts/audit-rsl.ts
++++ b/scripts/audit-rsl.ts
+@@ -12,8 +12,9 @@ import { MarcJsonSerializer } from '../src/marc-json-serializer.js';
+ import { MarcJsonTransform } from '../src/marc-json-transform.js';
+ 
+ const [input, output, mode = 'strict'] = process.argv.slice(2);
+-if (!['strict', 'diagnostic'].includes(mode)) throw new Error('Mode must be strict or diagnostic');
+-if (!input || !output) throw new Error('Usage: npx tsx scripts/audit-rsl.ts input.dat artifact-directory');
++if (!['strict', 'diagnostic', 'errors-only'].includes(mode)) throw new Error('Mode must be strict, diagnostic or errors-only');
++if (!input || !output) throw new Error('Usage: node --import tsx scripts/audit-rsl.ts input.dat artifact-directory [strict|diagnostic|errors-only]');
++const diagnosticMode = mode !== 'strict';
+ await mkdir(output, { recursive: true });
+ const name = basename(input);
+ const report = await open(join(output, `${name}.${mode}.errors.ndjson`), 'wx');
+@@ -67,12 +68,14 @@ const diagnostic = new AlephSequentialRecordSplitter({
+         entry.count++;
+       }
+     }
+-    serializedBytes += Buffer.byteLength(JSON.stringify(serializer.serialize(record)) + '\n');
++    if (mode !== 'errors-only') {
++      serializedBytes += Buffer.byteLength(JSON.stringify(serializer.serialize(record)) + '\n');
++    }
+   },
+ });
+-const progress = setInterval(() => console.error(name, mode === 'diagnostic' ? stats : transform.statistics), 30000);
++const progress = setInterval(() => console.error(name, diagnosticMode ? stats : transform.statistics), 30000);
+ try {
+-  if (mode === 'diagnostic') {
++  if (diagnosticMode) {
+     await pipeline(source, diagnostic, new Writable({ write(_chunk, _encoding, callback) { callback(); } }));
+   } else await pipeline(source, new AlephSequentialRecordSplitter(), transform, new Writable({
+     write(chunk, _encoding, callback) { serializedBytes += chunk.length; callback(); },
+@@ -86,7 +89,7 @@ const summary = {
+   node: process.version, startedAt: started.toISOString(), completedAt: new Date().toISOString(),
+   complete: !fatalError, fatalError, fileBytes: (await stat(input)).size,
+   sha256: fatalError ? undefined : hash.digest('hex'),
+-  ...(mode === 'diagnostic' ? stats : transform.statistics), serializedBytes, rules, messages,
++  ...(diagnosticMode ? stats : transform.statistics), serializationPerformed: mode !== 'errors-only', serializedBytes, rules, messages,
+ };
+ await writeFile(join(output, `${name}.${mode}.summary.json`), JSON.stringify(summary, null, 2) + '\n');
+ console.log(JSON.stringify(summary, null, 2));

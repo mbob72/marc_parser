@@ -1,0 +1,3 @@
+{"recordIndex":400706,"byteOffset":78953596,"recordId":"000401465","errors":[{"rule":"DF-G3","fieldIndex":11,"tag":"110","message":"Поле 110 не содержит кода подполя."}]}
+{"recordIndex":509747,"byteOffset":166128330,"recordId":"000508986","errors":[{"rule":"DF-G3","fieldIndex":13,"tag":"490","message":"Поле 490 не содержит кода подполя."}]}
+{"recordIndex":518568,"byteOffset":172845362,"recordId":"000525445","parsingError":"Error: Aleph-запись должна содержать ровно одно поле LDR; найдено 0."}

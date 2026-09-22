@@ -1,0 +1,18 @@
+file: rsl10_z00.dat
+recordId: 000212087; recordIndex: 210843; byteOffset: 107453213
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=107453223 | length=0008 | FMT  L | AU
+002 | byteOffset=107453235 | length=0030 | LDR  L | ^^^^^nz^^a22^^^^^n^^4500
+003 | byteOffset=107453269 | length=0015 | 001  L | 000212087
+004 | byteOffset=107453288 | length=0022 | 005  L | 20180130173924.0
+005 | byteOffset=107453314 | length=0046 | 008  L | 180130^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d
+006 | byteOffset=107453364 | length=0028 | 040  L | $$aRuMoRGB$$brus$$ercr
+007 | byteOffset=107453396 | length=0014 | 065  L | $$2rubbk
+008 | byteOffset=107453414 | length=0073 | 1112 L | $$aНеврологические чтения в Перми$$d2017
+009 | byteOffset=107453491 | length=0072 | 4112 L | $$aНеврологические чтения$$d2017$$cПермь
+010 | byteOffset=107453567 | length=0167 | 4112 L | $$aМежрегиональная научно-практическая конференция "Неврологические чтения в Перми"$$d2017
+011 | byteOffset=107453738 | length=0044 | CAT  L | $$aNO16$$b40$$c20180130$$lRSL10$$h1739
+012 | byteOffset=107453786 | length=0010 | UPD  L | $$aN
+013 | byteOffset=107453800 | length=0058 | 667\x1f L | $$aПермь, 21-22 сентября 2017 года.
+014 | byteOffset=107453862 | length=0072 | 670  L | $$aНеврологические чтения в Перми, 2017

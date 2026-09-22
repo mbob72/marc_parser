@@ -1,0 +1,22 @@
+file: rsl03_z00.dat
+recordId: 001178433; recordIndex: 1178558; byteOffset: 1002771649
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=1002771659 | length=0008 | FMT  L | BK
+002 | byteOffset=1002771671 | length=0030 | LDR  L | ^^^^^nam^a22^^^^^^i^4500
+003 | byteOffset=1002771705 | length=0015 | 001  L | 001178433
+004 | byteOffset=1002771724 | length=0022 | 005  L | 20170222102654.0
+005 | byteOffset=1002771750 | length=0046 | 008  L | 170222s200u^^^^^^^||||^^^^^^^0||^|^^^^|d
+006 | byteOffset=1002771800 | length=0021 | 020  L | $$c7500 экз.
+007 | byteOffset=1002771825 | length=0028 | 040  L | $$aRuMoRGB$$brus$$ercr
+008 | byteOffset=1002771857 | length=0012 | 041  L | $$arus
+009 | byteOffset=1002771873 | length=0020 | 084 7L | $$a81$$2rubbkm
+010 | byteOffset=1002771897 | length=0031 | 1001 L | $$aХавронина С.
+011 | byteOffset=1002771932 | length=0126 | 245 0L | $$aГоворите по-русски. Для лиц, говорящих на японском языке$$h[Текст]
+012 | byteOffset=1002772062 | length=0040 | 260\x01 L | $$aМ.$$b"Прогресс"$$c1969
+013 | byteOffset=1002772106 | length=0043 | 300  L | $$a279 с.$$bс илл.$$c21х14 см
+014 | byteOffset=1002772153 | length=0012 | 979  L | $$aorf
+015 | byteOffset=1002772169 | length=0012 | OWN  L | $$aRSL
+016 | byteOffset=1002772185 | length=0044 | CAT  L | $$aSHOP$$b10$$c20170222$$lRSL03$$h1022
+017 | byteOffset=1002772233 | length=0044 | CAT  L | $$aSHOP$$b10$$c20170222$$lRSL03$$h1025
+018 | byteOffset=1002772281 | length=0044 | CAT  L | $$aSHOP$$b10$$c20170222$$lRSL03$$h1026

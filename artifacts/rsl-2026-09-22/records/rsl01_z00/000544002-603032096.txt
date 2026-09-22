@@ -1,0 +1,35 @@
+file: rsl01_z00.dat
+recordId: 000544002; recordIndex: 464379; byteOffset: 603032096
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=603032106 | length=0008 | FMT  L | BK
+002 | byteOffset=603032118 | length=0030 | LDR  L | 01108nam^a2200301^i^4500
+003 | byteOffset=603032152 | length=0015 | 001  L | 000544002
+004 | byteOffset=603032171 | length=0013 | 003  L | RuMoRGB
+005 | byteOffset=603032188 | length=0022 | 005  L | 20230805203611.0
+006 | byteOffset=603032214 | length=0046 | 008  L | 951002s1995^^^^it^||||^^^^^^|000^||eng^d
+007 | byteOffset=603032264 | length=0029 | 017  L | $$aИ13009-95$$bRuMoRGB
+008 | byteOffset=603032297 | length=0030 | 035  L | $$a(RuMoRGB)OLDI-0174504
+009 | byteOffset=603032331 | length=0038 | 040  L | $$aRuMoRGB$$brus$$cRuMoRGB$$ercr
+010 | byteOffset=603032373 | length=0012 | 0410 L | $$aeng
+011 | byteOffset=603032389 | length=0008 | 044  L | it
+012 | byteOffset=603032401 | length=0027 | 084  L | $$aВ315.8,09$$2rubbk
+013 | byteOffset=603032432 | length=0032 | 1001 L | $$aГальцов, Д. В.
+014 | byteOffset=603032468 | length=0145 | 24200L | $$aU-дуализм и симплектическая формулировка дилатон-аксионной гравитации$$yrus
+015 | byteOffset=603032617 | length=0119 | 24500L | $$aU-duality and symplectic formulation of dilaton-axion gravity$$cD. V. Gal'tsov a. O. V. Kechkin ; IAEA, UNESCO
+016 | byteOffset=603032740 | length=0023 | 260  L | $$aTrieste$$c1995
+017 | byteOffset=603032767 | length=0033 | 300  L | $$a21 стб.$$c21×30 см
+018 | byteOffset=603032804 | length=0052 | 4900 L | $$aIC / Intern. centre for theoretical physics
+019 | byteOffset=603032860 | length=0041 | 504  L | $$aБиблиогр.: стб. 19-21
+020 | byteOffset=603032905 | length=0030 | 7001 L | $$aКечкин, О. В.
+021 | byteOffset=603032939 | length=0108 | 901  L | $$a20021001$$bКаталог 'Старые иностранные книги' АИБС МЕКА РГБ
+022 | byteOffset=603033051 | length=0012 | OWN  L | $$aRSL
+023 | byteOffset=603033067 | length=0044 | CAT  L | $$aCONV$$b00$$c20021004$$lRSL01$$h0344
+024 | byteOffset=603033115 | length=0032 | CAT  L | $$c20021105$$lRSL01$$h1054
+025 | byteOffset=603033151 | length=0044 | CAT  L | $$aCONV$$b00$$c20040501$$lRSL01$$h1424
+026 | byteOffset=603033199 | length=0032 | CAT  L | $$c20041229$$lRSL01$$h1209
+027 | byteOffset=603033235 | length=0032 | CAT  L | $$c20120411$$lRSL01$$h2326
+028 | byteOffset=603033271 | length=0032 | CAT  L | $$c20130215$$lRSL01$$h2036
+029 | byteOffset=603033307 | length=0049 | CAT  L | $$aBATCH-UPD$$b00$$c20220922$$lRSL01$$h2017
+030 | byteOffset=603033360 | length=0046 | CAT  L | $$aOKEK05$$b40$$c20230805$$lRSL01$$h2036
+031 | byteOffset=603033410 | length=0030 | UID  L | $$a(RuMoRGB)OLDI-0174504

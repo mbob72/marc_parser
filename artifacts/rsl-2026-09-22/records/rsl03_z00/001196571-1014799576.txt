@@ -1,0 +1,20 @@
+file: rsl03_z00.dat
+recordId: 001196571; recordIndex: 1196600; byteOffset: 1014799576
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=1014799586 | length=0008 | FMT  L | BK
+002 | byteOffset=1014799598 | length=0030 | LDR  L | ^^^^^nam^a22^^^^^^i^4500
+003 | byteOffset=1014799632 | length=0030 | LDR  L | ^^^^^nam^a22^^^^^^i^4500
+004 | byteOffset=1014799666 | length=0015 | 001  L | 001196571
+005 | byteOffset=1014799685 | length=0022 | 005  L | 20190705140206.0
+006 | byteOffset=1014799711 | length=0046 | 008  L | 190705s200u^^^^^^^||||^^^^^^^0||^|^^^^|d
+007 | byteOffset=1014799761 | length=0028 | 040  L | $$aRuMoRGB$$brus$$ercr
+008 | byteOffset=1014799793 | length=0012 | 041  L | $$arus
+009 | byteOffset=1014799809 | length=0020 | 084 7L | $$a68$$2rubbkm
+010 | byteOffset=1014799833 | length=0238 | 245 0L | $$aЕжедневная газета "Труд". Орган Всесоюзного Центрального Совета Профессиональных Союзов. №169. Вторник. 18 июля 1944 г. (г)$$h[Текст]
+011 | byteOffset=1014800075 | length=0112 | 260  L | $$aМ.$$bТип. "Известий Советов депутатов трудящихся СССР"$$c1944
+012 | byteOffset=1014800191 | length=0041 | 300  L | $$a4 с.$$bс илл.$$c60х42 см
+013 | byteOffset=1014800236 | length=0012 | 979  L | $$aorf
+014 | byteOffset=1014800252 | length=0012 | OWN  L | $$aRSL
+015 | byteOffset=1014800268 | length=0044 | CAT  L | $$aSHOP$$b10$$c20190705$$lRSL03$$h1401
+016 | byteOffset=1014800316 | length=0044 | CAT  L | $$aSHOP$$b10$$c20190705$$lRSL03$$h1402

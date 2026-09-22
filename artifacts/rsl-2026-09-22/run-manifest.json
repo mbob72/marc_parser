@@ -1,0 +1,59 @@
+{
+  "startedAt": "2026-09-22T16:16:57.619729+00:00",
+  "bases": [
+    "rsl06",
+    "rsl07",
+    "rsl10",
+    "rsl11",
+    "rsl03",
+    "rsl01"
+  ],
+  "excluded": [
+    "rsl02"
+  ],
+  "mode": "errors-only",
+  "revision": "33ede6d1e543ea295aad93b4b1d6330cb4be4e3e",
+  "sourceHashes": {
+    "src/aleph-sequential-parser.ts": "d3449c64f667b1921fbf1e68c90979571eb1cb63f2179335e6c54d7444f62952",
+    "src/aleph-sequential-record-splitter.ts": "64d95611130f95c243dba83887c1521a664a04f22b81bf70bdfce5967fe0cc32",
+    "src/api.ts": "4e22de4de300c9d51fa3663886d7c70663815583947959d285aaa6a8200ac8e4",
+    "src/cli.ts": "b74d152cc00f6bddef0d70f5f8c4587ee96bd81c89ad99c4c525d03e2449db8e",
+    "src/job-database.ts": "ce53b3848dc43f25e0cbd2810c43a7597c5b68dc227d4eafcb9577d03533c6b0",
+    "src/job-garbage-collector.ts": "23638a4037edb617715bdf2c580f71287f11bd91aa4cdcff6fe9d6b5b77d9e63",
+    "src/job-queue.ts": "2dbf5d732898cee9add3b8703cf20d54fcde52bb3822879f59aeabf862a7a75c",
+    "src/job.ts": "19fa8b4535a27438fa30f366381eb09da26334a964fc7120642b08a8a3d96e0e",
+    "src/marc-aleph-sequential-serializer.ts": "0e82a7ebaa5dd6fc65fcbdf801f927fd801ea3b2b6b0dc3c85cdb128c5df9145",
+    "src/marc-file-converter.ts": "c0eb4483a52c7205fa43e9963f6f5f4d38cd7c184af2e19b21bf4c472db9d2a6",
+    "src/marc-import-policy.ts": "1456186a59d32b517192a34520f68eed1f901f258cff86ceb1e1be5b0d33e732",
+    "src/marc-iso-serializer.ts": "da4eee42ad70a6a8e83e00063cd0544e20e3f57d47caa68ba1a343d1a85bca8a",
+    "src/marc-json-field-schema.ts": "e5a767b80fd2ea1182d7fbe51d4cbf1054be486a893269300f26fdbe53a4b74b",
+    "src/marc-json-file-converter.ts": "c133918133bd7e571345c0f13a790b5150daaf2fcdef7895fb0ffa51c3ce4131",
+    "src/marc-json-serializer.ts": "2a9a9069bfb6bf796fac91be7209bc2aeb8b2f66ff009cd042e0bf7c92328705",
+    "src/marc-json-to-iso-transform.ts": "ff9771b3dfedb0d8764f8a0f28fa81a9720f7465cbd4a219539ad11fd70123fa",
+    "src/marc-json-transform.ts": "6d7dbf35fcb68595cb5a747961b2326e49f345a3c6498078717ba9c6d2c5f28a",
+    "src/marc-parser-validator.ts": "3ad2839a0222f962bda0967abfa66bfabcbddc317ad1078101d8e0f0bfaf5058",
+    "src/marc-parser.ts": "c504bf4b7d526941fd282236a2019b85fc91d27fee263073dac70330894bb05e",
+    "src/marc-processing-logger.ts": "fb0b793b982084f95f797c14b6585d71895338c8066c6bf84f4574c98995805d",
+    "src/marc-record-processor.ts": "de8f5e48482d689bbcb34f798516f1e662be054113a7e9519711ad549dd7a516",
+    "src/marc-record-splitter.ts": "b7cff3596e097a796d0da8e7c4427dcfea9fad680674f27ccb925452003a27ba",
+    "src/marc-record.ts": "e3bb836c2ea9806dfcbf93aba8eb5d58bc94584509f291eca83b9a86336f5cbf",
+    "src/marc-validator.ts": "2a4a86bd489c58071e3e86e6dd1d27a44856cd75974f2c0590da2da2da916934",
+    "src/object-store.ts": "4450a732e5a37741c835a8b9c778718e5b500c125126812f908c8ec3ad292dcd",
+    "src/service-config.ts": "58ea0efe8ea4c2b79deaaab69fedb31bf9473459ea5d47e2e3ab4ca22f696cf9",
+    "src/version.ts": "a557fb65fbbc42168570ac9a79d85a1876a0bdaf2ba50f619a73958938d825bd",
+    "src/worker.ts": "ad2e6c2da0642c0239bf021c9fe7979f4035f42a2b8307937184e71d8de75e8f",
+    "scripts/audit-rsl.ts": "408594050b0329e72e60ae67c1b492c61b967e2ddfddb51a6da337be9f778ed5",
+    "scripts/run-rsl-errors-audit.py": "5caf5827dfa5520c4806c2c68799ad7ced983b154584290fa364839e4dea0db5"
+  },
+  "completed": [
+    "rsl06",
+    "rsl07",
+    "rsl10",
+    "rsl11",
+    "rsl03",
+    "rsl01"
+  ],
+  "current": "rsl01",
+  "stage": "complete",
+  "completedAt": "2026-09-22T18:17:33.364829+00:00"
+}

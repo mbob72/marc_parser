@@ -1,0 +1,19 @@
+file: rsl10_z00.dat
+recordId: 000022352; recordIndex: 34117; byteOffset: 17354060
+Исходная запись: одно поле на строку; управляющие символы показаны как \xNN. Номера байтов — абсолютные, с нуля.
+
+001 | byteOffset=17354070 | length=0008 | FMT  L | AU
+002 | byteOffset=17354082 | length=0031 | LDR  L | 00430nz^^a2200157т^^4500
+003 | byteOffset=17354117 | length=0015 | 001  L | 000022352
+004 | byteOffset=17354136 | length=0013 | 003  L | RuMoRGB
+005 | byteOffset=17354153 | length=0022 | 005  L | 20090615134848.0
+006 | byteOffset=17354179 | length=0046 | 008  L | 031225^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d
+007 | byteOffset=17354229 | length=0033 | 035  L | $$a(RuMoRGB)MEKACOL-0025211
+008 | byteOffset=17354266 | length=0028 | 040  L | $$aRuMoRGB$$brus$$ercr
+009 | byteOffset=17354298 | length=0014 | 065  L | $$2rubbk
+010 | byteOffset=17354316 | length=0103 | 1112 L | $$aHenry Goldberg workshop on interactive phenomena in the cardiac system$$d1992$$cBethesda (Md.)
+011 | byteOffset=17354423 | length=0045 | CAT  L | $$aRSL10$$b00$$c20031225$$lRSL10$$h0127
+012 | byteOffset=17354472 | length=0044 | CAT  L | $$aNO04$$b40$$c20090615$$lRSL10$$h1348
+013 | byteOffset=17354520 | length=0044 | CAT  L | $$aNO04$$b40$$c20090615$$lRSL10$$h1348
+014 | byteOffset=17354568 | length=0010 | UPD  L | $$aN
+015 | byteOffset=17354582 | length=0022 | 670  L | $$aГАК РГБ
