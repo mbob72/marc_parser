@@ -1,0 +1,339 @@
+rsl01_z00.dat {
+  recordsProcessed: 492726,
+  validRecords: 435510,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 57216,
+  inputBytes: 645659737
+}
+rsl01_z00.dat {
+  recordsProcessed: 1007311,
+  validRecords: 871605,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 135706,
+  inputBytes: 1362492749
+}
+rsl01_z00.dat {
+  recordsProcessed: 1424415,
+  validRecords: 1285540,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 138875,
+  inputBytes: 1988886498
+}
+rsl01_z00.dat {
+  recordsProcessed: 1838513,
+  validRecords: 1669742,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 168771,
+  inputBytes: 2618948492
+}
+rsl01_z00.dat {
+  recordsProcessed: 2312707,
+  validRecords: 2015313,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 297394,
+  inputBytes: 3170238308
+}
+rsl01_z00.dat {
+  recordsProcessed: 2823466,
+  validRecords: 2435711,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 387755,
+  inputBytes: 3949002461
+}
+rsl01_z00.dat {
+  recordsProcessed: 3308562,
+  validRecords: 2892106,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 416456,
+  inputBytes: 4700634228
+}
+rsl01_z00.dat {
+  recordsProcessed: 3885844,
+  validRecords: 3442936,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 442908,
+  inputBytes: 5417925968
+}
+rsl01_z00.dat {
+  recordsProcessed: 4371635,
+  validRecords: 3909116,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 462519,
+  inputBytes: 6170081611
+}
+rsl01_z00.dat {
+  recordsProcessed: 4892195,
+  validRecords: 4389315,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 502880,
+  inputBytes: 6904479442
+}
+rsl01_z00.dat {
+  recordsProcessed: 5377443,
+  validRecords: 4861892,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 515551,
+  inputBytes: 7609580620
+}
+rsl01_z00.dat {
+  recordsProcessed: 5891436,
+  validRecords: 5373549,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 517887,
+  inputBytes: 8219065695
+}
+rsl01_z00.dat {
+  recordsProcessed: 6337790,
+  validRecords: 5812436,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 525354,
+  inputBytes: 8911322658
+}
+rsl01_z00.dat {
+  recordsProcessed: 6840365,
+  validRecords: 6313752,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 526613,
+  inputBytes: 9518251184
+}
+rsl01_z00.dat {
+  recordsProcessed: 7302628,
+  validRecords: 6772260,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 530368,
+  inputBytes: 10155523985
+}
+rsl01_z00.dat {
+  recordsProcessed: 7756021,
+  validRecords: 7219236,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 536785,
+  inputBytes: 10908008343
+}
+rsl01_z00.dat {
+  recordsProcessed: 8226635,
+  validRecords: 7682557,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 544078,
+  inputBytes: 11588534127
+}
+rsl01_z00.dat {
+  recordsProcessed: 8759094,
+  validRecords: 8196954,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 562140,
+  inputBytes: 12251626811
+}
+rsl01_z00.dat {
+  recordsProcessed: 9195166,
+  validRecords: 8630257,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 564909,
+  inputBytes: 12975536585
+}
+rsl01_z00.dat {
+  recordsProcessed: 9643677,
+  validRecords: 9075318,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 568359,
+  inputBytes: 13736017357
+}
+rsl01_z00.dat {
+  recordsProcessed: 10105876,
+  validRecords: 9514666,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 591210,
+  inputBytes: 14501998930
+}
+rsl01_z00.dat {
+  recordsProcessed: 10540747,
+  validRecords: 9938212,
+  recordsWithValidationErrors: 0,
+  recordsWithParsingErrors: 0,
+  validationErrors: 0,
+  skippedDeletedRecords: 602535,
+  inputBytes: 15319299919
+}
+rsl01_z00.dat {
+  recordsProcessed: 10980902,
+  validRecords: 10375116,
+  recordsWithValidationErrors: 1,
+  recordsWithParsingErrors: 0,
+  validationErrors: 1,
+  skippedDeletedRecords: 605785,
+  inputBytes: 16124738697
+}
+rsl01_z00.dat {
+  recordsProcessed: 11436118,
+  validRecords: 10828411,
+  recordsWithValidationErrors: 1,
+  recordsWithParsingErrors: 0,
+  validationErrors: 1,
+  skippedDeletedRecords: 607706,
+  inputBytes: 16961763807
+}
+rsl01_z00.dat {
+  recordsProcessed: 11899237,
+  validRecords: 11287807,
+  recordsWithValidationErrors: 1,
+  recordsWithParsingErrors: 0,
+  validationErrors: 1,
+  skippedDeletedRecords: 611429,
+  inputBytes: 17757240579
+}
+rsl01_z00.dat {
+  recordsProcessed: 12400030,
+  validRecords: 11785774,
+  recordsWithValidationErrors: 1,
+  recordsWithParsingErrors: 0,
+  validationErrors: 1,
+  skippedDeletedRecords: 614255,
+  inputBytes: 18556122036
+}
+rsl01_z00.dat {
+  recordsProcessed: 12866370,
+  validRecords: 12248195,
+  recordsWithValidationErrors: 1,
+  recordsWithParsingErrors: 0,
+  validationErrors: 1,
+  skippedDeletedRecords: 618174,
+  inputBytes: 19339869057
+}
+rsl01_z00.dat {
+  recordsProcessed: 13353011,
+  validRecords: 12731708,
+  recordsWithValidationErrors: 1,
+  recordsWithParsingErrors: 0,
+  validationErrors: 1,
+  skippedDeletedRecords: 621302,
+  inputBytes: 20131280959
+}
+rsl01_z00.dat {
+  recordsProcessed: 13854412,
+  validRecords: 13228712,
+  recordsWithValidationErrors: 1,
+  recordsWithParsingErrors: 0,
+  validationErrors: 1,
+  skippedDeletedRecords: 625699,
+  inputBytes: 20892745440
+}
+rsl01_z00.dat {
+  recordsProcessed: 14645877,
+  validRecords: 14019610,
+  recordsWithValidationErrors: 1,
+  recordsWithParsingErrors: 0,
+  validationErrors: 1,
+  skippedDeletedRecords: 626266,
+  inputBytes: 21665152536
+}
+rsl01_z00.dat {
+  recordsProcessed: 15254041,
+  validRecords: 14620844,
+  recordsWithValidationErrors: 1,
+  recordsWithParsingErrors: 0,
+  validationErrors: 1,
+  skippedDeletedRecords: 633196,
+  inputBytes: 22420584994
+}
+{
+  "file": "rsl01_z00.dat",
+  "mode": "errors-only",
+  "category": "bibliographic",
+  "source": "https://mrsadman.ru/ac34d2e7ff814daf/",
+  "revision": "f6c0629759de09f9d9af5aa10a6b5efc9a85f35a",
+  "node": "v24.12.0",
+  "startedAt": "2026-09-28T09:11:12.989Z",
+  "completedAt": "2026-09-28T09:27:06.902Z",
+  "complete": true,
+  "fileBytes": 22974623576,
+  "sha256": "a0964f91fb6dadcdb35114e5eb6d43f1e7a88bf3f8434a909d907401a3471394",
+  "recordsProcessed": 15753908,
+  "validRecords": 15119501,
+  "recordsWithValidationErrors": 3,
+  "recordsWithParsingErrors": 4,
+  "validationErrors": 3,
+  "skippedDeletedRecords": 634400,
+  "inputBytes": 22974623576,
+  "serializationPerformed": false,
+  "serializedBytes": 0,
+  "rules": {
+    "DF-G3": 3
+  },
+  "messages": {
+    "DF-G3: Поле 044 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 10578150,
+        "byteOffset": 15388519369,
+        "rule": "DF-G3",
+        "fieldIndex": 11,
+        "tag": "044",
+        "message": "Поле 044 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 653 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 15701122,
+        "byteOffset": 22901194502,
+        "rule": "DF-G3",
+        "fieldIndex": 28,
+        "tag": "653",
+        "message": "Поле 653 не содержит кода подполя."
+      }
+    },
+    "DF-G3: Поле 246 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 15724116,
+        "byteOffset": 22934628971,
+        "rule": "DF-G3",
+        "fieldIndex": 14,
+        "tag": "246",
+        "message": "Поле 246 не содержит кода подполя."
+      }
+    }
+  }
+}

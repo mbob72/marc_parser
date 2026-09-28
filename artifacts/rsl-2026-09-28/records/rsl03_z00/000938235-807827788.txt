@@ -1,0 +1,26 @@
+rsl03_z00.dat recordId=000938235 byteOffset=807827788
+Подполе 3 поля 700 имеет недопустимый код "Ð".
+
+1: byteOffset=807827798 | FMT  LBK
+2: byteOffset=807827810 | LDR  L^^^^^nam^a22^^^^^^i^4500
+3: byteOffset=807827844 | 001  L000938235
+4: byteOffset=807827863 | 005  L20120615194010.0
+5: byteOffset=807827889 | 008  L120316s200u^^^^^^^||||^^^^^^^0||^|^^^^|d
+6: byteOffset=807827939 | 020  L$$a5-87938-059-9$$c10000 экз.
+7: byteOffset=807827981 | 040  L$$aRuMoRGB$$brus$$ercr
+8: byteOffset=807828013 | 041  L$$arus
+9: byteOffset=807828029 | 084 7L$$a26.8$$2rubbkm
+10: byteOffset=807828055 | 1001 L$$aХудякова Т. М., Блаженов В. А., Ермолова Г. А.
+11: byteOffset=807828144 | 245 0L$$aГеография России. Природно-хозяйственные районы$$h[Текст]
+12: byteOffset=807828261 | 260  L$$aВоронеж$$c1996
+13: byteOffset=807828295 | 300  L$$a128 с.$$bВОИПКПРО$$c21х13 см; 146 г
+14: byteOffset=807828356 | 500  L$$aБиблиотечный переплет
+15: byteOffset=807828410 | 700  L$$eобщ. ред.$$a\x1fПоросенков Ю. В.
+16: byteOffset=807828470 | 85641L$$qapplication/pdf$$uhttp://dlib.rsl.ru/rsl03000000000/rsl03000938000/rsl03000938235/rsl03000938235.pdf
+17: byteOffset=807828583 | 979  L$$aorf
+18: byteOffset=807828599 | 979  L$$aorf
+19: byteOffset=807828615 | OWN  L$$aRSL
+20: byteOffset=807828631 | CAT  L$$aSHOP$$b10$$c20120316$$lRSL03$$h1530
+21: byteOffset=807828679 | CAT  L$$aSHOP$$b10$$c20120319$$lRSL03$$h1004
+22: byteOffset=807828727 | CAT  L$$aSHOP$$b10$$c20120615$$lRSL03$$h1940
+23: byteOffset=807828775 | CAT  L$$aRBNBIS$$b40$$c20260924$$lRSL03$$h1551

@@ -1,0 +1,41 @@
+{
+  "totals": {
+    "recordsProcessed": 18863990,
+    "skippedDeletedRecords": 1173647,
+    "validRecords": 17689871,
+    "recordsWithValidationErrors": 466,
+    "recordsWithParsingErrors": 6,
+    "validationErrors": 13780
+  },
+  "counts": {
+    "DF-G3": 3280,
+    "PARSE-field-marker": 2,
+    "PARSE-LDR-count": 4,
+    "SF-G4": 82,
+    "IN-G3": 9791,
+    "DF-G2": 627
+  },
+  "byFile": {
+    "DF-G3": {
+      "rsl01_z00.dat": 3,
+      "rsl03_z00.dat": 3277
+    },
+    "PARSE-field-marker": {
+      "rsl01_z00.dat": 2
+    },
+    "PARSE-LDR-count": {
+      "rsl01_z00.dat": 2,
+      "rsl10_z00.dat": 1,
+      "rsl11_z00.dat": 1
+    },
+    "SF-G4": {
+      "rsl03_z00.dat": 82
+    },
+    "IN-G3": {
+      "rsl03_z00.dat": 9791
+    },
+    "DF-G2": {
+      "rsl03_z00.dat": 627
+    }
+  }
+}

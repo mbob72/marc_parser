@@ -1,0 +1,16 @@
+rsl10_z00.dat recordId=000167015 byteOffset=64116060
+Error: Aleph-запись должна содержать ровно одно поле LDR; найдено 2.
+
+1: byteOffset=64116070 | FMT  LBK
+2: byteOffset=64116082 | LDR  L^^^^^nam^a22^^^^^^i^4500
+3: byteOffset=64116116 | LDR  L00744nz^^a2200181n^^4500
+4: byteOffset=64116150 | 001  L000167015
+5: byteOffset=64116169 | 005  L20130805135359.0
+6: byteOffset=64116195 | 008  L130805^n^aznnnaaba^^^^^^^^^^^|^ana^^^^^d
+7: byteOffset=64116245 | 040  L$$aRuMoRGB$$brus$$ercr
+8: byteOffset=64116277 | 065  L$$2rubbk
+9: byteOffset=64116295 | 1112 L$$a"50 years Department of zoology, Plovdiv university", international conference on zoology$$d2012$$cHissar
+10: byteOffset=64116413 | CAT  L$$aNO04$$b40$$c20130805$$lRSL10$$h1300
+11: byteOffset=64116461 | CAT  L$$aNO04$$b40$$c20130805$$lRSL10$$h1353
+12: byteOffset=64116509 | UPD  L$$aN
+13: byteOffset=64116523 | 670  L$$aГАК РГБ

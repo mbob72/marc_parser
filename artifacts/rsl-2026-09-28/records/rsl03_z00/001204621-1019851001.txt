@@ -1,0 +1,24 @@
+rsl03_z00.dat recordId=001204621 byteOffset=1019851001
+Поле 337 содержит 1 индикатор(а), ожидалось 2.
+
+1: byteOffset=1019851011 | FMT  LBK
+2: byteOffset=1019851023 | LDR  L^^^^^cam^a2200253^i^4500
+3: byteOffset=1019851057 | 001  Lru03-000001RKP
+4: byteOffset=1019851081 | 005  L20210519162932
+5: byteOffset=1019851105 | 008  L210519s2020^^^^ru^a^^^^^^^^^^000^|^rus|d
+6: byteOffset=1019851155 | 017  L$$aКН-П-21-033716$$bRuMo
+7: byteOffset=1019851192 | 020KPL\x1e$$a978-5-6045801-1-0$$c300 \xd1
+8: byteOffset=1019851231 | 040  L$$aRuMoRKP$$brus$$dRuMoRGB
+9: byteOffset=1019851267 | 041ePLSBO\x1e0
+10: byteOffset=1019851282 | 080\x1faLrus\x1e$$a94(47+57)<1941/1945>(0
+11: byteOffset=1019851321 | 245ubLbkm\x1e10$$aВ их жизни была война$$bк 75-лет
+12: byteOffset=1019851393 | 260\xb8\xd1L\x8e Великой Победы :
+13: byteOffset=1019851434 | 300сLборник\x1e$$aСама\xd1
+14: byteOffset=1019851469 | 520 [L2] с.$$bил.$$c30 см.\x1e$$aТекст (визуал
+15: byteOffset=1019851532 | 650\x8c\xd0L\xbdый)\x1e$$aнепосредственный\x1e$$aИздание предназн
+16: byteOffset=1019851619 | 650\xb0\xd1L\x87ено для широкого круга читателей\x1e 7$$aСов\xd0
+17: byteOffset=1019851703 | 650тLская армия на фронтах Великой Отечест
+18: byteOffset=1019851782 | 912\xb2\xd0L\xb5нной во
+19: byteOffset=1019851806 | CAT  L$$aCONV$$b00$$c20210522$$lRSL03$$h2048
+20: byteOffset=1019851854 | 336аL$$bПолиграфи
+21: byteOffset=1019851885 | 337\x8f\x1fLc2020$$e297\x1e$$a100

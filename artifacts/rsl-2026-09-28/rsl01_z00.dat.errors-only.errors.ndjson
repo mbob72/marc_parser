@@ -1,0 +1,7 @@
+{"recordIndex":10578150,"byteOffset":15388519369,"recordId":"011197807","errors":[{"rule":"DF-G3","fieldIndex":11,"tag":"044","message":"Поле 044 не содержит кода подполя."}]}
+{"recordIndex":15644046,"byteOffset":22861083647,"recordId":"015671514","parsingError":"Error: Aleph-поле содержит неподдерживаемый маркер \"$\"."}
+{"recordIndex":15701122,"byteOffset":22901194502,"recordId":"015656280","errors":[{"rule":"DF-G3","fieldIndex":28,"tag":"653","message":"Поле 653 не содержит кода подполя."}]}
+{"recordIndex":15724116,"byteOffset":22934628971,"recordId":"015747987","errors":[{"rule":"DF-G3","fieldIndex":14,"tag":"246","message":"Поле 246 не содержит кода подполя."}]}
+{"recordIndex":15734610,"byteOffset":22949920387,"recordId":"015758016","parsingError":"Error: Aleph-запись должна содержать ровно одно поле LDR; найдено 2."}
+{"recordIndex":15738832,"byteOffset":22955292619,"recordId":"015762144","parsingError":"Error: Aleph-запись должна содержать ровно одно поле LDR; найдено 2."}
+{"recordIndex":15746217,"byteOffset":22965655771,"recordId":"015671539","parsingError":"Error: Aleph-поле содержит неподдерживаемый маркер \"$\"."}

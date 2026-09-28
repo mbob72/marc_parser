@@ -1,0 +1,24 @@
+rsl01_z00.dat recordId=015762144 byteOffset=22955292619
+Error: Aleph-запись должна содержать ровно одно поле LDR; найдено 2.
+
+1: byteOffset=22955292629 | FMT  LVM
+2: byteOffset=22955292641 | LDR  L^^^^^nkm^a22^^^^^^i^4500
+3: byteOffset=22955292675 | LDR  L^^^^^nkm^a22^^^^^^i^4500
+4: byteOffset=22955292709 | 001  L015762144
+5: byteOffset=22955292728 | 005  L20260921113233.0
+6: byteOffset=22955292754 | 007  Lkf^bo|
+7: byteOffset=22955292770 | 008  L260921s190u^^^^ru^nnn^g^^^^^^^^^^knrus^d
+8: byteOffset=22955292820 | 017  L$$a36309-58изо$$bRuMoRGB
+9: byteOffset=22955292857 | 017  L$$a11300-69изо$$bRuMoRGB
+10: byteOffset=22955292894 | 040  L$$aRuMoRGB$$brus$$ercr
+11: byteOffset=22955292926 | 0410 L$$arus
+12: byteOffset=22955292942 | 044  L$$aru
+13: byteOffset=22955292957 | 24500L$$aКавказ. Сочи$$k[открытка]
+14: byteOffset=22955293013 | 260  L$$a[Варшава]$$bB.B.W.$$c[190-]
+15: byteOffset=22955293060 | 300  L$$a1 л.$$bфототип.$$c9 х 13,7 см
+16: byteOffset=22955293113 | 336  L$$aИзображение (неподвижное)
+17: byteOffset=22955293173 | 651 4L$$aСочи (Краснодарский край, Российская Федерация)
+18: byteOffset=22955293273 | 978  L$$apostcard$$bИллюстрированные открытки
+19: byteOffset=22955293346 | 979  L$$aizo$$bКаталог изо-документов$$crgb
+20: byteOffset=22955293413 | OWN  L$$aIZO
+21: byteOffset=22955293429 | CAT  L$$aIZO15$$b40$$c20260921$$lRSL01$$h1132

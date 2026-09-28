@@ -1,0 +1,3 @@
+file	recordId	recordNumber	recordIndex	byteOffset	fieldIndex	tag	sourceFieldNumber	fieldByteOffset	indicatorIndex	subfieldIndex	problemByteOffset	reportLine	message
+rsl01_z00.dat	015671514	15644047	15644046	22861083647			10	22861084048			22861084057	2	"Error: Aleph-поле содержит неподдерживаемый маркер ""$""."
+rsl01_z00.dat	015671539	15746218	15746217	22965655771			16	22965657625			22965657634	7	"Error: Aleph-поле содержит неподдерживаемый маркер ""$""."

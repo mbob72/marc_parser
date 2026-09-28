@@ -1,0 +1,41 @@
+rsl01_z00.dat recordId=011197807 byteOffset=15388519369
+Поле 044 не содержит кода подполя.
+
+1: byteOffset=15388519379 | FMT  LVM
+2: byteOffset=15388519391 | LDR  L^^^^^nkm^a22^^^^^^i^4500
+3: byteOffset=15388519425 | 001  L011197807
+4: byteOffset=15388519444 | 005  L20260925134613.0
+5: byteOffset=15388519470 | 007  Lkf^co^
+6: byteOffset=15388519486 | 008  L220822q1925^^^^ru^nnn^g^^^^^^^^^^cnrus|d
+7: byteOffset=15388519536 | 017  L$$aXXV-42173изо$$bRuMoRGB
+8: byteOffset=15388519574 | 017  L$$a4393-38изо$$bRuMoRGB
+9: byteOffset=15388519610 | 020  L$$c25 000 экз
+10: byteOffset=15388519636 | 0247 L$$a90377$$dXXV-42173изо$$2knpam
+11: byteOffset=15388519680 | 040  L$$aRuMoRGB$$brus$$ercr
+12: byteOffset=15388519712 | 0410 L$$arus
+13: byteOffset=15388519728 | 044  Lru
+14: byteOffset=15388519740 | 24500L$$aМеталлосиндикат :$$bМеталлургический синдикат Центрального района ...$$k[Плакат]
+15: byteOffset=15388519896 | 260  L$$aМосква$$b6-я типо-литография "Транспечати" НКПС$$c[1925]
+16: byteOffset=15388520001 | 300  L$$a1 л.$$bхромолит.$$c72,0 х 53,0 см
+17: byteOffset=15388520059 | 336  L$$aИзображение (неподвижное)
+18: byteOffset=15388520119 | 337  L$$aнепосредственное
+19: byteOffset=15388520164 | 500  L$$aДатировано по году регистрации в библиотеке
+20: byteOffset=15388520258 | 85641L$$qapplication/pdf$$uhttp://dlib.rsl.ru/rsl01011000000/rsl01011197000/rsl01011197807/rsl01011197807.pdf$$yЧитать
+21: byteOffset=15388520386 | 977  L$$adlopen$$bdlrgb$$cosk$$dОтдел сканирования
+22: byteOffset=15388520457 | 978  L$$aizokp$$bКнижные памятники ИЗО
+23: byteOffset=15388520518 | 979  L$$aizo$$bКаталог изо-документов$$crgb
+24: byteOffset=15388520585 | OWN  L$$aIZO
+25: byteOffset=15388520601 | CAT  L$$aIZO3$$b40$$c20220822$$lRSL01$$h1423
+26: byteOffset=15388520649 | CAT  L$$aIZO3$$b40$$c20220822$$lRSL01$$h1434
+27: byteOffset=15388520697 | CAT  L$$aBATCH-UPD$$b40$$c20230402$$lRSL01$$h2004
+28: byteOffset=15388520750 | CAT  L$$aIZO3$$b40$$c20231128$$lRSL01$$h1358
+29: byteOffset=15388520798 | CAT  L$$aIZO3$$b40$$c20241205$$lRSL01$$h1142
+30: byteOffset=15388520846 | CAT  L$$aIZO3$$b40$$c20241205$$lRSL01$$h1143
+31: byteOffset=15388520894 | CAT  L$$aIZO3$$b40$$c20241205$$lRSL01$$h1147
+32: byteOffset=15388520942 | CAT  L$$aIZO3$$b40$$c20241205$$lRSL01$$h1148
+33: byteOffset=15388520990 | CAT  L$$aIZO3$$b40$$c20241205$$lRSL01$$h1606
+34: byteOffset=15388521038 | CAT  L$$aIZO28$$b40$$c20250310$$lRSL01$$h1804
+35: byteOffset=15388521087 | CAT  L$$aRBNDL$$b40$$c20250403$$lRSL01$$h1749
+36: byteOffset=15388521136 | CAT  L$$aPTUF01$$b40$$c20250801$$lRSL01$$h0301
+37: byteOffset=15388521186 | CAT  L$$aBATCH-UPD$$b40$$c20260318$$lRSL01$$h1324
+38: byteOffset=15388521239 | CAT  L$$aDK410$$b40$$c20260925$$lRSL01$$h1346

@@ -1,0 +1,37 @@
+{
+  "rsl02_z00.dat.tar.gz": {
+    "bytes": 2261749,
+    "sha256": "0e88ad8c40761df614aacae3d9aaf505c05cf206190662c056ac83c4b54bbb8d",
+    "gzipCRC": "passed"
+  },
+  "rsl06_z00.dat.tar.gz": {
+    "bytes": 19218682,
+    "sha256": "a7a2003855a482d3963361531efab8b65dc45263b7f3ef8e4ac785922e0af68f",
+    "gzipCRC": "passed"
+  },
+  "rsl07_z00.dat.tar.gz": {
+    "bytes": 16960916,
+    "sha256": "12881d373d0d6321d9edcdf7f3e55dd7eea4614de0f59b29115e54f4fe6416b7",
+    "gzipCRC": "passed"
+  },
+  "rsl10_z00.dat.tar.gz": {
+    "bytes": 27100591,
+    "sha256": "77f118faa1b6c28733b3dd04fb06525ce8e9d0cebaaa25f33fb1f3347a99f645",
+    "gzipCRC": "passed"
+  },
+  "rsl11_z00.dat.tar.gz": {
+    "bytes": 62250563,
+    "sha256": "a3285f67b14852071592dd4bb08bc387d377f0e0b6392457a26994a0d8b32b20",
+    "gzipCRC": "passed"
+  },
+  "rsl03_z00.dat.tar.gz": {
+    "bytes": 444585091,
+    "sha256": "faa2c41efd1750f6e03219123fe0eb39c2e963cc53f999922218b63ab141e913",
+    "gzipCRC": "passed"
+  },
+  "rsl01_z00.dat.tar.gz": {
+    "bytes": 3782119309,
+    "sha256": "cffef3c84d7fd354c550a601543f6865d17fb6ca5ad9557e95cfdf942315c9f0",
+    "gzipCRC": "passed"
+  }
+}

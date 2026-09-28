@@ -1,0 +1,5 @@
+file	recordId	recordNumber	recordIndex	byteOffset	fieldIndex	tag	sourceFieldNumber	fieldByteOffset	indicatorIndex	subfieldIndex	problemByteOffset	reportLine	message
+rsl01_z00.dat	015758016	15734611	15734610	22949920387								5	Error: Aleph-запись должна содержать ровно одно поле LDR; найдено 2.
+rsl01_z00.dat	015762144	15738833	15738832	22955292619								6	Error: Aleph-запись должна содержать ровно одно поле LDR; найдено 2.
+rsl10_z00.dat	000167015	129627	129626	64116060								1	Error: Aleph-запись должна содержать ровно одно поле LDR; найдено 2.
+rsl11_z00.dat	000131560	124056	124055	100442310								1	Error: Aleph-запись должна содержать ровно одно поле LDR; найдено 2.

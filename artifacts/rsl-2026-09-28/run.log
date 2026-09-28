@@ -1,0 +1,37 @@
+rsl02_z00.dat audit started 2026-09-28T07:06:55.803412+00:00
+rsl02_z00.dat complete 37028 0 0
+Traceback (most recent call last):
+  File "/Users/macm1/Desktop/marc_parser/scripts/audit-rsl-new-batch.py", line 47, in <module>
+    time.sleep(5)
+    ~~~~~~~~~~^^^
+KeyboardInterrupt
+rsl02_z00.dat audit started 2026-09-28T07:08:23.196428+00:00
+rsl02_z00.dat complete 37028 0 0
+rsl06_z00.dat audit started 2026-09-28T07:09:53.305070+00:00
+rsl06_z00.dat complete 155250 0 0
+rsl07_z00.dat audit started 2026-09-28T07:14:37.123620+00:00
+rsl07_z00.dat complete 525689 0 0
+rsl10_z00.dat audit started 2026-09-28T07:15:40.109675+00:00
+rsl10_z00.dat complete 276557 0 1
+rsl11_z00.dat audit started 2026-09-28T07:28:33.531202+00:00
+rsl11_z00.dat complete 344030 0 1
+Traceback (most recent call last):
+  File "/Users/macm1/Desktop/marc_parser/scripts/audit-rsl-new-batch.py", line 46, in <module>
+    if time.monotonic() > deadline: raise TimeoutError(name)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: rsl03_z00.dat
+rsl02_z00.dat audit started 2026-09-28T09:40:35.328623+00:00
+rsl02_z00.dat complete 37028 0 0
+rsl06_z00.dat audit started 2026-09-28T09:40:35.447085+00:00
+rsl06_z00.dat complete 155250 0 0
+rsl07_z00.dat audit started 2026-09-28T09:40:35.543448+00:00
+rsl07_z00.dat complete 525689 0 0
+rsl10_z00.dat audit started 2026-09-28T09:40:35.693809+00:00
+rsl10_z00.dat complete 276557 0 1
+rsl11_z00.dat audit started 2026-09-28T09:40:36.008375+00:00
+rsl11_z00.dat complete 344030 0 1
+rsl03_z00.dat audit started 2026-09-28T10:37:10.090706+00:00
+rsl03_z00.dat complete 1771528 13777 0
+rsl01_z00.dat audit started 2026-09-28T10:39:19.418450+00:00
+rsl01_z00.dat complete 15753908 3 4
+{"recordsProcessed": 18863990, "skippedDeletedRecords": 1173647, "validRecords": 17689871, "recordsWithValidationErrors": 466, "recordsWithParsingErrors": 6, "validationErrors": 13780}
