@@ -1,0 +1,147 @@
+name: Documents image
+
+# Только main публикует серверный образ; PR проверяет обычный Checks workflow.
+# DOC-PREVIEW:/docs/documents-deployment.md#ci-trigger
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# Новая публикация не прерывает текущую; перед подвижным тегом проверяется HEAD main.
+concurrency:
+  group: documents-main
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # CI использует только временную БД. DOC-PREVIEW:/docs/documents-deployment.md#ci-verify
+    services:
+      postgres:
+        image: postgres:17-bookworm
+        env:
+          POSTGRES_DB: marc_documents_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: test
+        ports: [5432:5432]
+        options: >-
+          --health-cmd "pg_isready -U postgres"
+          --health-interval 5s --health-timeout 5s --health-retries 12
+    env:
+      TEST_DATABASE_URL: postgresql://postgres:test@127.0.0.1:5432/marc_documents_test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run check
+      - run: npm run format:documents:check
+
+  publish:
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      packages: write
+    outputs:
+      image: ${{ steps.image.outputs.name }}
+      digest: ${{ steps.build.outputs.digest }}
+      current: ${{ steps.promote.outputs.current }}
+    # GITHUB_TOKEN действует только в job; deploy получает отдельный packages:read.
+    # DOC-PREVIEW:/docs/documents-deployment.md#ci-publish
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Image metadata
+        id: image
+        run: |
+          echo "name=ghcr.io/${GITHUB_REPOSITORY,,}" >> "$GITHUB_OUTPUT"
+          echo "created=$(date -u +%Y-%m-%dT%H:%M:%SZ)" >> "$GITHUB_OUTPUT"
+      - name: Build and publish commit image
+        id: build
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          target: documents
+          platforms: linux/amd64
+          provenance: false
+          push: true
+          tags: ${{ steps.image.outputs.name }}:documents-${{ github.sha }}
+          build-args: |
+            VCS_REF=${{ github.sha }}
+            SOURCE_URL=${{ github.server_url }}/${{ github.repository }}
+            RELEASED_AT=${{ steps.image.outputs.created }}
+          cache-from: type=gha,scope=documents
+          cache-to: type=gha,mode=max,scope=documents
+      - name: Publish main delivery tag
+        id: promote
+        env:
+          GH_TOKEN: ${{ github.token }}
+          IMAGE: ${{ steps.image.outputs.name }}
+          DIGEST: ${{ steps.build.outputs.digest }}
+        run: |
+          current=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)
+          if [ "$current" != "$GITHUB_SHA" ]; then
+            echo 'Newer main exists; commit image published, delivery tag unchanged.'
+            exit 0
+          fi
+          docker buildx imagetools create --prefer-index=false \
+            --tag "$IMAGE:documents-main" "$IMAGE@$DIGEST"
+          echo 'current=true' >> "$GITHUB_OUTPUT"
+
+  # Доставка запускается по завершению publish, без опроса на сервере.
+  # DOC-PREVIEW:/docs/documents-deployment.md#vpn-deploy
+  deploy:
+    needs: publish
+    if: github.ref == 'refs/heads/main' && needs.publish.outputs.current == 'true'
+    runs-on: ubuntu-latest
+    environment: documents-production
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      packages: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install OpenVPN
+        run: sudo apt-get update -qq && sudo apt-get install -y openvpn
+      - name: Check main before delivery
+        id: current
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          current=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)
+          if [ "$current" = "$GITHUB_SHA" ]; then
+            echo 'deliver=true' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Connect VPN and deliver image by digest
+        if: steps.current.outputs.deliver == 'true'
+        env:
+          VPN_PROFILE: ${{ secrets.DOCUMENTS_VPN_PROFILE }}
+          VPN_USERNAME: ${{ secrets.DOCUMENTS_VPN_USERNAME }}
+          VPN_PASSWORD: ${{ secrets.DOCUMENTS_PASSWORD }}
+          DEPLOY_SSH_KEY: ${{ secrets.DOCUMENTS_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DOCUMENTS_SSH_KNOWN_HOSTS }}
+          DEPLOY_HOST: "10.251.232.53"
+          DEPLOY_USER: bobryshevmy
+          DEPLOY_IMAGE: ${{ needs.publish.outputs.image }}
+          DEPLOY_DIGEST: ${{ needs.publish.outputs.digest }}
+          DEPLOY_REVISION: ${{ github.sha }}
+          GHCR_USERNAME: ${{ github.actor }}
+          GHCR_TOKEN: ${{ github.token }}
+        run: node scripts/deploy-documents-vpn.mjs

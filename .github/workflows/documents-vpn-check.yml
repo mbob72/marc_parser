@@ -1,0 +1,99 @@
+name: Documents VPN connection check
+
+# Отдельная диагностика использует только secrets; код приложения и Docker не запускаются.
+# DOC-PREVIEW:/docs/documents-deployment.md#vpn-check
+on:
+  workflow_dispatch:
+  push:
+    branches: ["codex/vpn-check-*"]
+
+permissions: {}
+
+concurrency:
+  group: documents-vpn-check
+  cancel-in-progress: false
+
+jobs:
+  connection:
+    runs-on: ubuntu-latest
+    environment: documents-production
+    timeout-minutes: 6
+    steps:
+      - name: Install OpenVPN
+        run: sudo apt-get update -qq && sudo apt-get install -y openvpn
+      # Временные файлы 600; значения не выводятся в logs или artifacts.
+      # DOC-PREVIEW:/docs/documents-deployment.md#vpn-check
+      - name: Connect VPN and verify SSH
+        env:
+          VPN_PROFILE: ${{ secrets.DOCUMENTS_VPN_PROFILE }}
+          VPN_USERNAME: ${{ secrets.DOCUMENTS_VPN_USERNAME }}
+          VPN_PASSWORD: ${{ secrets.DOCUMENTS_PASSWORD }}
+          SSH_KEY: ${{ secrets.DOCUMENTS_SSH_KEY }}
+          SSH_KNOWN_HOSTS: ${{ secrets.DOCUMENTS_SSH_KNOWN_HOSTS }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          umask 077
+          probe_dir=$(mktemp -d)
+          export PROBE_DIR="$probe_dir"
+          cleanup() {
+            if [ -s "$probe_dir/vpn.pid" ]; then
+              pid=$(cat "$probe_dir/vpn.pid")
+              if [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                sudo -n kill -TERM -- "$pid" 2>/dev/null || true
+              fi
+            fi
+            rm -rf -- "$probe_dir"
+          }
+          trap cleanup EXIT
+          trap 'exit 130' INT
+          trap 'exit 143' TERM
+          python3 - <<'PY'
+          import os
+          from pathlib import Path
+          for name in ('VPN_PROFILE', 'VPN_USERNAME', 'VPN_PASSWORD', 'SSH_KEY', 'SSH_KNOWN_HOSTS'):
+              if not os.environ.get(name, '').strip():
+                  raise SystemExit('Missing secret: ' + name)
+          for name in ('VPN_USERNAME', 'VPN_PASSWORD'):
+              if any(c in os.environ[name] for c in '\r\n\0'):
+                  raise SystemExit('Invalid authentication field: ' + name)
+          files = {
+              'profile.ovpn': os.environ['VPN_PROFILE'].replace('\r\n', '\n'),
+              'auth.txt': os.environ['VPN_USERNAME'] + '\n' + os.environ['VPN_PASSWORD'] + '\n',
+              'ssh-key': os.environ['SSH_KEY'].rstrip() + '\n',
+              'known_hosts': os.environ['SSH_KNOWN_HOSTS'].rstrip() + '\n',
+              'vpn.log': '', 'vpn.pid': '',
+          }
+          for name, text in files.items():
+              path = Path(os.environ['PROBE_DIR']) / name
+              path.write_text(text)
+              path.chmod(0o600)
+          PY
+          unset VPN_PROFILE VPN_USERNAME VPN_PASSWORD SSH_KEY SSH_KNOWN_HOSTS
+          sudo -n openvpn --config "$probe_dir/profile.ovpn" \
+            --dev tun --auth-user-pass "$probe_dir/auth.txt" --auth-nocache \
+            --route-nopull --route 10.251.232.53 255.255.255.255 \
+            --verb 3 --daemon marc-vpn-probe \
+            --writepid "$probe_dir/vpn.pid" --log "$probe_dir/vpn.log" >/dev/null 2>&1
+          connected=false
+          for attempt in $(seq 1 120); do
+            if grep -Eq 'AUTH_FAILED|Exiting due to fatal error' "$probe_dir/vpn.log"; then
+              echo 'VPN authentication/configuration failed; secret log withheld.' >&2
+              exit 1
+            fi
+            if grep -q 'Initialization Sequence Completed' "$probe_dir/vpn.log"; then
+              connected=true
+              break
+            fi
+            sleep 1
+          done
+          if [ "$connected" != true ]; then
+            echo 'VPN connection timeout (120 seconds).' >&2
+            exit 1
+          fi
+          echo 'VPN connection established.'
+          ssh -i "$probe_dir/ssh-key" \
+            -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes \
+            -o "UserKnownHostsFile=$probe_dir/known_hosts" -o ConnectTimeout=15 \
+            -o ServerAliveInterval=15 -o ServerAliveCountMax=2 \
+            bobryshevmy@10.251.232.53 'printf "VPN_SSH_CHECK_OK\n"'

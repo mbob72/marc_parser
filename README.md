@@ -1,5 +1,7 @@
 # MARC Parser
 
+[Импорт документов перед БЗ–БЗ](docs/documents-import.md) · [Контейнер и сервер](docs/documents-deployment.md) · [Ответственность кода](docs/documents-code.md).
+
 [Наглядный разбор MARC → JSON](docs/marc-explorer/index.html): байты, поля и правила преобразования. Страница работает локально без сервера.
 
 Двусторонний консольный конвертер MARC 21 / ISO 2709 и MARC-JSON РГБ с

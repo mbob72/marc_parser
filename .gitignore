@@ -13,3 +13,8 @@ artifacts/rsl-2026-09-17/records/rsl01_z00/
 data/rsl-2026-09-28/archives/*.tar.gz
 
 __pycache__/
+
+.env
+.env.*
+!.env.example
+work/

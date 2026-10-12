@@ -15,13 +15,17 @@
     "start:api": "node dist/api.js",
     "start:worker": "node dist/worker.js",
     "test": "tsx --test test/*.test.ts",
-    "check": "npm run build && npm test"
+    "check": "npm run build && npm test",
+    "start:documents": "node dist/documents-cli.js",
+    "format:documents:check": "prettier --check src/documents src/runtime src/documents-*.ts test/documents-*.test.ts scripts/deploy-documents-vpn.mjs compose.documents.yaml .github/workflows/documents.yml"
   },
   "devDependencies": {
     "@types/amqplib": "^0.10.8",
     "@types/node": "^26.1.2",
     "@types/pg": "^8.20.3",
+    "@types/pg-copy-streams": "^1.2.5",
     "bun": "1.3.14",
+    "prettier": "^3.9.10",
     "tsx": "^4.23.1",
     "typescript": "^7.0.2"
   },
@@ -32,6 +36,7 @@
     "iconv-lite": "^0.7.3",
     "minio": "^8.0.7",
     "pg": "^8.22.0",
+    "pg-copy-streams": "^7.0.0",
     "zod": "^4.5.4"
   }
 }

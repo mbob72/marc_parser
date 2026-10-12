@@ -1,15 +1,11 @@
-.git
-.github
-node_modules
-dist
-release
-coverage
-fixture
-docs
-test
-*.json
+# Только код сборки; выгрузки и секреты не передаются Docker.
+# DOC-PREVIEW:/docs/documents-deployment.md#image-build
+**
+!Dockerfile
 !package.json
 !package-lock.json
 !tsconfig.json
-.DS_Store
-*.tmp-*
+!src/
+!src/**
+!docker/
+!docker/**

@@ -1,0 +1,24 @@
+# Серверный worker использует существующую БД, без API-стека.
+# DOC-PREVIEW:/docs/documents-deployment.md#setup
+services:
+  documents:
+    build:
+      context: .
+      target: documents
+    image: marc-documents:local
+    user: "${DOCUMENTS_UID:?Set DOCUMENTS_UID}:${DOCUMENTS_GID:?Set DOCUMENTS_GID}"
+    command: [worker, server, --image, marc-documents:local]
+    volumes:
+      - "${DOCUMENTS_WORK:?Set DOCUMENTS_WORK}:/work"
+      - "${DOCUMENTS_SOURCE:?Set DOCUMENTS_SOURCE}:/source:ro"
+      - "${DOCUMENTS_DB_ENV:?Set DOCUMENTS_DB_ENV}:/run/db.env:ro"
+      - /var/run/postgresql:/var/run/postgresql
+    restart: unless-stopped
+    cpus: 1
+    mem_limit: 1g
+    stop_grace_period: 45s
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
