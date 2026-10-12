@@ -1,0 +1,51 @@
+{
+  "file": "rsl03_z00.dat",
+  "mode": "errors-only",
+  "category": "bibliographic",
+  "source": "https://mrsadman.ru/ac34d2e7ff814daf/",
+  "revision": "a93d78edd717dab4cbb43bc29a3707f65fcb7c4b",
+  "node": "v22.23.2",
+  "startedAt": "2026-10-11T22:14:55.564Z",
+  "completedAt": "2026-10-11T22:16:26.130Z",
+  "complete": true,
+  "fileBytes": 2323394333,
+  "sha256": "b7d88910a304d86d2063ed225ff7ca1e69b28f51a2d7d0b0b8a7408347d941a3",
+  "recordsProcessed": 1774753,
+  "validRecords": 1773160,
+  "recordsWithValidationErrors": 2,
+  "recordsWithParsingErrors": 0,
+  "validationErrors": 2,
+  "skippedDeletedRecords": 1591,
+  "inputBytes": 2323394333,
+  "serializationPerformed": false,
+  "serializedBytes": 0,
+  "rules": {
+    "SF-G4": 1,
+    "DF-G3": 1
+  },
+  "messages": {
+    "SF-G4: Подполе 2 поля 245 имеет недопустимый код \"\\u001c\".": {
+      "count": 1,
+      "first": {
+        "recordIndex": 1186122,
+        "byteOffset": 1007803580,
+        "rule": "SF-G4",
+        "fieldIndex": 7,
+        "tag": "245",
+        "subfieldIndex": 1,
+        "message": "Подполе 2 поля 245 имеет недопустимый код \"\\u001c\"."
+      }
+    },
+    "DF-G3: Поле 260 не содержит кода подполя.": {
+      "count": 1,
+      "first": {
+        "recordIndex": 1362691,
+        "byteOffset": 1357187946,
+        "rule": "DF-G3",
+        "fieldIndex": 12,
+        "tag": "260",
+        "message": "Поле 260 не содержит кода подполя."
+      }
+    }
+  }
+}

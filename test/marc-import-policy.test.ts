@@ -99,6 +99,17 @@ for (const format of ["iso2709", "aleph-sequential"] as const) {
     assert.deepEqual(errors.map((e: { rule: string }) => e.rule).sort(), ["FMT", "SF-G4"]);
   });
 
+  test(`${format}: normalizes control fields and recalculates LDR after filtering`, async t => {
+    const fields = [fmt, { tag: "008", value: "^ru^^" },
+      { tag: "OWN", value: "$$aowner" }, { ...title, value: "$$aТекст^" }];
+    const { rows } = await convert(t, build(fields), format);
+    const expected = iso(fields.filter(f => f.tag !== "OWN"));
+    assert.equal(rows[0].leader.slice(0, 5), String(expected.length).padStart(5, "0"));
+    assert.equal(rows[0].leader.slice(12, 17), "00061");
+    assert.equal(rows[0].fields[0].value, " ru  ");
+    assert.equal(rows[0].fields[1].subfields[0].value, "Текст^");
+  });
+
   test(`${format}: deletion flag requires exact subfield a=Y`, async t => {
     const values = ["$$aN", "$$aYY", "$$ay", "$$AY", "$$aY ", "$$a Y", "$$bY"];
     const records = values.map(value => build([fmt, title, { tag: "DEL", value }]));

@@ -1,5 +1,5 @@
 export interface MarcLeader {
-  /** Все 24 байта Leader в исходном виде. */
+  /** Все 24 байта Leader с пересчитанными длиной и базовым адресом данных. */
   readonly raw: string;
   /** Позиции 00-04. */
   readonly recordLength: string;
@@ -50,7 +50,7 @@ export interface MarcDirectoryEntry {
 
 export interface MarcRawField {
   readonly tag: string;
-  /** Поле целиком, включая завершающий байт 0x1E. */
+  /** Поле целиком, включая 0x1E; в контрольных полях ^ заменён на пробел. */
   readonly raw: Buffer;
 }
 

@@ -175,3 +175,31 @@ test("отклоняет длину поля, захватывающую сле�
   source.write(String(first + second).padStart(4, "0"), 27, "ascii");
   assert.throws(() => new Iso2709MarcParser().parse(source), /пропуск или пересечение/);
 });
+
+test("нормализует контрольные поля, сохраняя исходный буфер и текст подполей", async () => {
+  const source = Buffer.from(await readFile(recordUrl));
+  const parser = new Iso2709MarcParser();
+  const initial = parser.parse(source);
+  const entry = initial.directory.find(entry => entry.tag === "008")!;
+  const start = Number(initial.leader.baseAddressOfData) + Number(entry.startingCharacterPosition);
+  const length = Number(entry.fieldLength) - 1;
+  source.fill(0x5e, start, start + length);
+  const title = initial.directory.find(entry => entry.tag === "245")!;
+  const titleStart = Number(initial.leader.baseAddressOfData) + Number(title.startingCharacterPosition);
+  source[titleStart] = 0x5e;
+  source[titleStart + 4] = 0x5e;
+  const original = Buffer.from(source);
+  for (const record of [parser.parse(source), parser.parseForImport(source)!]) {
+    const field = record.fields.find(field => field.tag === "008")!;
+    assert.ok(field.kind === "control");
+    assert.equal(field.value.toString(), " ".repeat(length));
+    assert.equal(field.raw.toString(), " ".repeat(length) + "\x1e");
+    const data = record.fields.find(field => field.tag === "245")!;
+    assert.ok(data.kind === "data");
+    assert.equal(data.indicators[0], "^");
+    assert.equal(data.subfields[0]!.value[0], 0x5e);
+    assert.equal(Number(record.leader.recordLength), record.byteLength);
+    assert.equal(record.leader.raw.slice(12, 17), record.leader.baseAddressOfData);
+  }
+  assert.deepEqual(source, original);
+});

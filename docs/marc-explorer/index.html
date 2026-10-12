@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MARC → JSON · разбор по байтам</title>
+<style>
+:root{color-scheme:light;--bg:#f4f6fa;--paper:#fff;--ink:#17283c;--muted:#536478;--line:#dce3eb;--blue:#185abd;--soft:#e8f0ff;--orange:#fff1d6}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,sans-serif}main{max-width:1480px;margin:auto;padding:36px}h1{font-size:32px;letter-spacing:-1px;margin:6px 0}h2{font-size:18px;margin:0 0 14px}p{margin:8px 0 16px}.eyebrow{font-size:12px;font-weight:700;letter-spacing:2px;color:var(--blue)}.muted,small{color:var(--muted)}.toolbar{display:flex;gap:24px;align-items:center;flex-wrap:wrap;margin:24px 0}select,button{font:inherit;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink);padding:8px 12px;cursor:pointer}button:hover{border-color:var(--blue)}button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid var(--blue);outline-offset:3px}button[aria-pressed=true]{background:var(--soft);border-color:var(--blue);color:var(--blue)}.layout{display:grid;grid-template-columns:190px minmax(0,1fr);gap:20px}.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:22px;min-width:0}.nav{display:flex;flex-direction:column;gap:7px}.nav button{text-align:left}.comparison{display:grid;grid-template-columns:minmax(0,1fr) 36px minmax(0,1fr);align-items:start;gap:12px}.arrow{font-size:30px;color:var(--blue);text-align:center;padding-top:55px}.rule{margin-top:20px;border-left:4px solid var(--blue)}.bytes{display:flex;flex-wrap:wrap;gap:4px;max-height:345px;overflow:auto;padding:4px}.byte{display:inline-flex;flex-direction:column;align-items:center;min-width:38px;border:1px solid var(--line);border-radius:5px;padding:3px;font:13px ui-monospace,monospace}.byte small{font:10px ui-monospace,monospace}.byte strong{font-weight:500}.byte em{font-size:10px;font-style:normal;color:var(--muted)}.selected{background:var(--soft);border-color:var(--blue)}.changed{background:var(--orange);border-color:#ad7000}pre{font:13px/1.6 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere;margin:0;max-height:400px;overflow:auto}mark{background:var(--soft);color:inherit}code{font-family:ui-monospace,monospace}.decoded{padding:12px;background:var(--bg);margin:12px 0;white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.6 ui-monospace,monospace;max-height:180px;overflow:auto}.pill{display:inline-block;background:var(--soft);color:var(--blue);border-radius:20px;padding:3px 10px;font-size:12px}.note{background:var(--orange);padding:12px;border-radius:8px}.structure{display:flex;gap:4px;margin:18px 0;flex-wrap:wrap}.structure button{flex:1;white-space:nowrap}.details{margin-top:20px}summary{cursor:pointer;font-weight:600}a{color:var(--blue)}footer{margin-top:24px;font-size:13px;color:var(--muted)}#rule-text{white-space:pre-line}.formula{font:14px/1.8 ui-monospace,monospace;margin-top:14px;padding:12px;background:var(--bg);white-space:pre-wrap}
+@media(max-width:900px){main{padding:18px}.layout{grid-template-columns:1fr}.nav{flex-direction:row;flex-wrap:wrap}.comparison{grid-template-columns:1fr}.arrow{padding:0;transform:rotate(90deg)}h1{font-size:26px}.card{padding:16px}}
+</style>
+</head>
+<body><main>
+<div class="eyebrow">MARC / ИНТЕРАКТИВНАЯ ДОКУМЕНТАЦИЯ</div>
+<h1>Из байтов — в поля JSON</h1>
+<p class="muted">Выберите поле или участок лидера. Слева — исходные байты ISO 2709, справа — их представление в JSON, ниже — правило.</p>
+<div class="toolbar"><label>Пример <select id="sample"></select></label><label><input id="normalize" type="checkbox" checked> Подсветить замену ^ → пробел</label></div>
+<p id="status" class="note"></p>
+<div class="structure"><button data-key="length">LDR · длина</button><button data-key="base">LDR · адрес данных</button><button data-key="directory">Directory · справочник</button></div>
+<div class="layout"><aside class="card"><h2>Выбор поля</h2><nav class="nav" id="fields" aria-label="Поля записи"></nav></aside><section>
+<div class="comparison"><article class="card"><h2 id="source-title">Исходные байты</h2><small>В ячейке: абсолютное смещение / HEX / ASCII. ␠ = пробел, · = не-ASCII байт.</small><div class="decoded" id="decoded"></div><div class="bytes" id="bytes"></div></article><div class="arrow" aria-hidden="true">→</div><article class="card"><h2>Результат JSON</h2><p class="muted" id="target-label"></p><pre id="target"></pre></article></div>
+<article class="card rule" aria-live="polite"><span class="pill" id="badge"></span><h2 id="rule-title"></h2><div id="rule-text"></div><div class="formula" id="formula"></div><p><a id="source-link">Реализация правила →</a></p></article>
+<details class="card details"><summary>Полная запись JSON</summary><pre id="full"></pre></details>
+<details class="card details"><summary>Обратная сборка JSON → ISO 2709: расчёт LDR</summary><p>Числа ниже получены текущим MarcIsoSerializer. Он добавляет FMT из свойства format, даже если значение пустое. Поэтому обратная запись может отличаться от исходной.</p><div class="formula" id="rebuild"></div></details>
+</section></div>
+<footer>Статический снимок поведения конвертера. Обновление примеров: <code>node --import tsx scripts/build-marc-explorer.ts</code> из корня проекта. UTF-8. Исходные файлы не изменяются.<br><a href="../Алгоритм двусторонней конвертации MARC РГБ.md">Алгоритм конвертации</a> · <a href="../../src/marc-parser.ts">Парсер ISO 2709</a></footer>
+</main><script src="examples.js"></script><script>
+const $ = id => document.getElementById(id);
+const decode = bytes => new TextDecoder().decode(new Uint8Array(bytes));
+const visible = text => text.replaceAll(' ', '␠').replaceAll('\x1e','⟨FT⟩').replaceAll('\x1f','⟨SF⟩').replaceAll('\x1d','⟨RT⟩');
+let current = 0, key = 'length';
+examples.forEach((s,i) => { const option = document.createElement('option'); option.value=i; option.textContent=s.name; $('sample').append(option); });
+$('sample').onchange = event => {current=Number(event.target.value);key='length';render();};
+$('normalize').onchange = render;
+document.querySelectorAll('[data-key]').forEach(button => button.onclick=()=>{key=button.dataset.key;render();});
+function render(){
+ const sample=examples[current], bytes=sample.bytes, output=structuredClone(sample.output), proposed=$('normalize').checked;
+ $('status').textContent='Текущее поведение ISO → JSON: в контрольных полях 00X и служебном FMT символ ^ заменяется на пробел. LDR пересчитывается после успешного разбора. Входной файл сохраняется. Переключатель управляет только подсветкой.';
+ $('fields').replaceChildren();
+ sample.fields.forEach((f,i)=>{const button=document.createElement('button');button.textContent=f.tag+(f.tag==='FMT'?' → format':'');button.setAttribute('aria-pressed',String(key===String(i)));button.onclick=()=>{key=String(i);render();};$('fields').append(button);});
+ document.querySelectorAll('[data-key]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.key===key)));
+ let start=0,end=24, activeStart=0,activeEnd=5, target, title, rule, formula='', link='marc-parser.ts', label='leader', changed=false;
+ const base=Number(decode(bytes.slice(12,17)));
+ if(key==='length'){
+ title='LDR/00–04 · длина записи';target=output.leader;
+ rule='Пять ASCII-цифр содержат полную длину ISO-записи в байтах, включая лидер, справочник, поля и разделители. Это не длина JSON.\nПри чтении ISO парсер проверяет исходную структуру, затем пересчитывает длину по разобранным полям с учётом фильтрации. При обратной сборке сериализатор всегда вычисляет её заново.';
+ formula=`${base} (начало данных) + ${bytes.length-base-1} (поля с FT) + 1 (RT) = ${bytes.length} байт`;
+ }else if(key==='base'){
+ activeStart=12;activeEnd=17;title='LDR/12–16 · базовый адрес данных';target=output.leader;
+ rule='Пять ASCII-цифр задают абсолютное смещение первого поля от начала записи. Нумерация байтов начинается с нуля. Для этого примера каждая статья справочника занимает 12 байт.';
+ formula=`24 (LDR) + ${sample.fields.length} × 12 (Directory) + 1 (FT) = ${base}`;
+ }else if(key==='directory'){
+ start=24;end=base;activeStart=start;activeEnd=end;title='Directory · где искать каждое поле';label='fields / format';target=output;
+ rule='Каждая статья: тег (3 байта) + длина поля с FT (4 цифры) + смещение относительно начала данных (5 цифр). Сам справочник не переносится в JSON. Теги становятся code, а FMT — свойством format.';
+ formula=sample.fields.map(f=>`${f.tag}: ${base} + ${f.start-base} = байт ${f.start}; длина ${f.length}`).join('\n');
+ }else{
+ const index=Number(key), field=sample.fields[index];start=field.start;end=start+field.length;activeStart=start;activeEnd=end;
+ const value=field.tag==='FMT'?output.format:output.fields.filter(f=>f.code===field.tag)[sample.fields.slice(0,index).filter(f=>f.tag===field.tag).length];target=field.tag==='FMT'?{format:value}:value;label=field.tag==='FMT'?'format':`fields · ${field.tag}`;
+ title=`${field.tag} · ${field.tag==='FMT'?'формат':field.tag.startsWith('00')?'контрольное поле':'поле данных'}`;link='marc-json-serializer.ts';
+ if(field.tag==='FMT') rule='В FMT символ ^ заменяется на пробел, затем содержимое декодируется в format на верхнем уровне JSON. FMT исключается из fields. Если FMT отсутствует, текущий конвертер возвращает пустую строку, а не вычисляет BK по лидеру.';
+ else if(field.tag.startsWith('00')) {changed=proposed;rule='Каждый байт 0x5E (^) становится 0x20 (пробел). Число байтов не меняется. Пробелы, в том числе конечные, сохраняются. Контрольное поле не содержит индикаторов и подполей; его содержимое декодируется в value.';}
+ else rule='Первые два байта становятся ind1 и ind2. Разделитель 0x1F начинает подполе: следующий ASCII-символ — code, следующие байты до нового разделителя — value. UTF-8 декодируется в текст. ^ в текстовых подполях не заменяется.';
+ rule+='\nКонечный 0x1E (FT) отделяет поле и не входит в значение JSON.';
+ formula=`Статья Directory: ${decode(bytes.slice(field.directoryStart,field.directoryStart+12))}\nНачало: ${base} + ${start-base} = ${start}; длина с FT: ${field.length} байт`;
+ }
+ $('source-title').textContent=`ISO 2709 · байты ${start}–${end-1}`;
+ $('decoded').textContent=visible(decode(bytes.slice(start,end)));
+ $('bytes').replaceChildren();
+ bytes.slice(start,end).forEach((byte,i)=>{const pos=start+i, cell=document.createElement('span');cell.className='byte'+(pos>=activeStart&&pos<activeEnd?' selected':'')+(changed&&byte===94?' changed':'');const offset=document.createElement('small'),hex=document.createElement('strong'),char=document.createElement('em');offset.textContent=pos;hex.textContent=byte.toString(16).toUpperCase().padStart(2,'0');char.textContent=byte===32?'␠':byte===30?'FT':byte===31?'SF':byte===29?'RT':byte>32&&byte<127?String.fromCharCode(byte):'·';cell.append(offset,hex,char);$('bytes').append(cell);});
+ $('target-label').textContent=label;
+ $('target').replaceChildren();
+ if(key==='length'||key==='base'){const a=activeStart,b=activeEnd,mark=document.createElement('mark');mark.textContent=target.slice(a,b);$('target').append('"leader": "'+target.slice(0,a),mark,target.slice(b)+'"');}else{const mark=document.createElement('mark');mark.textContent=JSON.stringify(target,null,2);$('target').append(mark);}
+ $('badge').textContent='Реализовано';$('rule-title').textContent=title;$('rule-text').textContent=rule;$('formula').textContent=formula;$('source-link').href='../../src/'+link;$('full').textContent=JSON.stringify(output,null,2);
+ const rebuilt=sample.rebuilt,rb=Number(decode(rebuilt.slice(12,17)));
+ $('rebuild').textContent=`Исходный LDR: ${decode(bytes.slice(0,24))}\nСобранный LDR: ${decode(rebuilt.slice(0,24))}\nБазовый адрес: 24 + ${(rb-25)/12} × 12 + 1 = ${rb}\nДлина: ${rb} + ${rebuilt.length-rb-1} + 1 = ${rebuilt.length} байт\nЗамена ^ → пробел имеет размер 1 → 1 байт и не меняет эти числа.`;
+}
+render();
+</script></body></html>

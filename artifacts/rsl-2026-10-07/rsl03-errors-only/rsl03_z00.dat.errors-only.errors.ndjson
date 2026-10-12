@@ -1,0 +1,2 @@
+{"recordIndex":1186122,"byteOffset":1007803580,"recordId":"001185998","errors":[{"rule":"SF-G4","fieldIndex":7,"tag":"245","subfieldIndex":1,"message":"Подполе 2 поля 245 имеет недопустимый код \"\\u001c\"."}]}
+{"recordIndex":1362691,"byteOffset":1357187946,"recordId":"001429730","errors":[{"rule":"DF-G3","fieldIndex":12,"tag":"260","message":"Поле 260 не содержит кода подполя."}]}

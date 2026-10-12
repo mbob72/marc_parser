@@ -1,0 +1,3 @@
+{"recordIndex":8355608,"byteOffset":11802104184,"recordId":"008937948","errors":[{"rule":"DF-G3","fieldIndex":14,"tag":"500","message":"Поле 500 не содержит кода подполя."}]}
+{"recordIndex":15633740,"byteOffset":22846746072,"recordId":"015659863","errors":[{"rule":"DF-G3","fieldIndex":23,"tag":"653","message":"Поле 653 не содержит кода подполя."}]}
+{"recordIndex":15760901,"byteOffset":22988760883,"recordId":"015783689","errors":[{"rule":"DF-G3","fieldIndex":6,"tag":"245","message":"Поле 245 не содержит кода подполя."}]}
