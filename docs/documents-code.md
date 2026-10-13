@@ -294,6 +294,14 @@ server ждёт startWorker, публикует worker_ready и регистри
 
 </details>
 
+<a id="packaging-sequence"></a>
+
+<details>
+<summary><strong>Ручная сборка и последовательный импорт</strong><br>
+Упаковщик копирует код по allowlist без конфигурации БД.<br>
+Сценарий ждёт результат документов и проверку ready перед запуском связей.<br>
+Образы доставляет общий abis-deploy-watch.</summary>
+
 [упаковщик](../scripts/package-documents-container.mjs#L10) создаёт новый output,
 копирует allowlist файлов и src/docker, не .env. [Сценарий двух конвейеров](../scripts/run-documents-before-relations.mjs#L10)
 имеет exec (spawn Docker, bounded JSON output, ошибка exit/parse) и waitTask
