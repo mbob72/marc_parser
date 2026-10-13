@@ -55,7 +55,7 @@ jobs:
       image: ${{ steps.image.outputs.name }}
       digest: ${{ steps.build.outputs.digest }}
       current: ${{ steps.promote.outputs.current }}
-    # GITHUB_TOKEN действует только в job; deploy получает отдельный packages:read.
+    # GITHUB_TOKEN действует только в job; сервер использует собственный Registry login.
     # DOC-PREVIEW:/docs/documents-deployment.md#ci-publish
     steps:
       - uses: actions/checkout@v4
@@ -101,47 +101,3 @@ jobs:
           docker buildx imagetools create --prefer-index=false \
             --tag "$IMAGE:documents-main" "$IMAGE@$DIGEST"
           echo 'current=true' >> "$GITHUB_OUTPUT"
-
-  # Доставка запускается по завершению publish, без опроса на сервере.
-  # DOC-PREVIEW:/docs/documents-deployment.md#vpn-deploy
-  deploy:
-    needs: publish
-    if: github.ref == 'refs/heads/main' && needs.publish.outputs.current == 'true'
-    runs-on: ubuntu-latest
-    environment: documents-production
-    timeout-minutes: 15
-    permissions:
-      contents: read
-      packages: read
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-      - name: Install OpenVPN
-        run: sudo apt-get update -qq && sudo apt-get install -y openvpn
-      - name: Check main before delivery
-        id: current
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          current=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/main" --jq .object.sha)
-          if [ "$current" = "$GITHUB_SHA" ]; then
-            echo 'deliver=true' >> "$GITHUB_OUTPUT"
-          fi
-      - name: Connect VPN and deliver image by digest
-        if: steps.current.outputs.deliver == 'true'
-        env:
-          VPN_PROFILE: ${{ secrets.DOCUMENTS_VPN_PROFILE }}
-          VPN_USERNAME: ${{ secrets.DOCUMENTS_VPN_USERNAME }}
-          VPN_PASSWORD: ${{ secrets.DOCUMENTS_PASSWORD }}
-          DEPLOY_SSH_KEY: ${{ secrets.DOCUMENTS_SSH_KEY }}
-          DEPLOY_KNOWN_HOSTS: ${{ secrets.DOCUMENTS_SSH_KNOWN_HOSTS }}
-          DEPLOY_HOST: "10.251.232.53"
-          DEPLOY_USER: bobryshevmy
-          DEPLOY_IMAGE: ${{ needs.publish.outputs.image }}
-          DEPLOY_DIGEST: ${{ needs.publish.outputs.digest }}
-          DEPLOY_REVISION: ${{ github.sha }}
-          GHCR_USERNAME: ${{ github.actor }}
-          GHCR_TOKEN: ${{ github.token }}
-        run: node scripts/deploy-documents-vpn.mjs

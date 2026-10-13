@@ -2,17 +2,18 @@
 # DOC-PREVIEW:/docs/documents-deployment.md#setup
 services:
   documents:
-    build:
-      context: .
-      target: documents
-    image: marc-documents:local
+    container_name: marc-documents-worker
+    image: "${DOCUMENTS_IMAGE:?Set DOCUMENTS_IMAGE}"
+    pull_policy: never
     user: "${DOCUMENTS_UID:?Set DOCUMENTS_UID}:${DOCUMENTS_GID:?Set DOCUMENTS_GID}"
-    command: [worker, server, --image, marc-documents:local]
+    command:
+      [worker, server, --image, "${DOCUMENTS_IMAGE:?Set DOCUMENTS_IMAGE}"]
     volumes:
       - "${DOCUMENTS_WORK:?Set DOCUMENTS_WORK}:/work"
       - "${DOCUMENTS_SOURCE:?Set DOCUMENTS_SOURCE}:/source:ro"
       - "${DOCUMENTS_DB_ENV:?Set DOCUMENTS_DB_ENV}:/run/db.env:ro"
       - /var/run/postgresql:/var/run/postgresql
+    init: true
     restart: unless-stopped
     cpus: 1
     mem_limit: 1g

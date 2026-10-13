@@ -1,4 +1,8 @@
+Общая доставка образов: [общий контейнер доставки проектов АБИС](docs/shared-delivery.md).
+
 # MARC Parser
+
+[Работа на сервере через Docker: полный сценарий](docs/documents-server-run.md) · [Команды контейнера](docs/container-commands.md).
 
 [Импорт документов перед БЗ–БЗ](docs/documents-import.md) · [Контейнер и сервер](docs/documents-deployment.md) · [Ответственность кода](docs/documents-code.md).
 

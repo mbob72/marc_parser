@@ -1,8 +1,10 @@
 # Ответственность кода импорта документов
 
+[Основной сценарий на сервере](documents-server-run.md) · [Команды контейнера](container-commands.md).
+
 [Команды и контракты данных](documents-import.md) · [Docker и доставка](documents-deployment.md).
 Новые модули не заменяют MARC-ядро. CLI выбирает этап; worker запускает CLI как отдельный
-процесс; deployer управляет образами и контейнером worker, но не документами.
+процесс; общий abis-deploy-watch доставляет образы.
 
 Нормальная передача управления: `documentsMain` ждёт `prepareDocuments`, затем `prepareCopy`,
 `loadCopy`, `verifyReady`. Splitter ждёт process каждой БЗ. Писатели ждут backpressure.
@@ -272,7 +274,7 @@ Returned close ждёт server.close и удаляет socket. Это локал
 (test dependency). mkdir control/reports, проверка активного socket, чтение предыдущего
 worker.json; running → interrupted с finishedAt. Task поля:
 id/stage/input/dryRun/image/startedAt/finishedAt/exitCode/signal/status/log/report.
-Image записывается из настройки, фактический Docker image ID отдельно показывает deploy status.
+Image записывается из настройки, фактический Docker image ID отдельно показывает docker inspect.
 
 Вложенный exclusive сериализует операции через Promise chain и сохраняет возможность
 новой команды после отказа предыдущей. state создаёт snapshot; persist ждёт saveJson
@@ -291,54 +293,6 @@ server ждёт startWorker, публикует worker_ready и регистри
 [worker start/status/stop](documents-deployment.md#worker-start).
 
 </details>
-
-<a id="deployment"></a>
-
-<details>
-<summary><strong>Deployer и зависимости</strong><br>
-Registry HEAD → digest → локальная проверка → retention → pull.<br>
-start выбирает локальную версию, создаёт worker с отдельными mounts/name.<br>
-Доставка сериализуется со start; ошибки не заменяют работающий контейнер.</summary>
-
-[Docker.call](../src/runtime/docker.ts#L17) создаёт HTTP request по socket,
-JSON-serializes body, optional X-Registry-Auth. Callbacks парсят pull JSONL по строкам,
-сохраняют error, ограничивают размер ответа и timeout; HTTP≥400 даёт error.status.
-inspectContainer/inspectImage возвращают undefined только для 404; прочие ошибки уходят выше.
-[retentionPlan](../src/runtime/docker.ts#L110) — чистая функция images/used/limit:
-защищённые IDs → места для новых Created → remove; protected>limit даёт blocked.
-
-[registryCredentials](../src/runtime/registry.ts#L7) читает auths, декодирует
-username:password; вызывающий tick использует basic для token и отдельные поля для pull auth.
-[registryDigest](../src/runtime/registry.ts#L29) делает HTTPS HEAD tag, при 401
-проверяет Bearer realm/service/host/HTTPS/отсутствие port, получает token без redirect,
-повторяет HEAD, проверяет docker-content-digest sha256. Аргумент basic необязателен:
-при публичном GHCR token запрашивается без Authorization; без --anonymous используется
-Basic из серверного Docker config. HEAD принимает одиночный manifest и OCI index.
-HTTP/timeout/неподдерживаемый auth
-отклоняет Promise; credentials не возвращаются в deploy status.
-
-[createDeployer](../src/runtime/deployer.ts#L35) получает DeployOptions и injectable
-Docker/credentials/digest для тестов. Возвращает state/status/versions/start/settled/update:
-
-| Вложенная функция | Вход, результат и ответственность |
-|---|---|
-| publish | phase/details → сохранённый deploy.json, event при изменении phase/pending |
-| owned | images → tags documents-* и digests repository; выбор границ retention |
-| cleanup | limit/desired → boolean; query images/containers, retentionPlan, non-force deletes, повторная проверка лимита |
-| versions | → до трёх local image descriptors с selection/id/image/revision/releasedAt; ждёт inspectImage callbacks |
-| status | → delivery/versions/worker; чтение Docker, без request к worker socket |
-| внутренний start | selection → status; проверяет имя/версию, create/start с mounts/resources/user; не делает pull |
-| tick | → Promise<void>; при anonymous пропускает чтение credentials, затем digest/publish/inspect/cleanup/pull/cleanup/ready, catch → phase error; анонимный pull не содержит X-Registry-Auth |
-| возвращённый start | ждёт текущую операцию, исключает гонку, запускает внутренний start, очищает running в finally |
-| update | запускает один tick либо возвращает текущий running |
-| settled/state | текущий Promise либо snapshot, без новой операции |
-
-[deploy CLI main](../src/documents-deploy-cli.ts#L10) разделяет watch и
-client-команды. Watch проверяет host paths/resources/registry names, создаёт deployer,
-serve для status/versions/start/update, запускает tick и interval. Stop callback очищает
-interval, ждёт settled и server.close. Client-команды только request. Server update
-возвращает requested сразу, итог проверяется status. Подробные ограничения
-[retention/auth/API](documents-deployment.md#runtime).
 
 [упаковщик](../scripts/package-documents-container.mjs#L10) создаёт новый output,
 копирует allowlist файлов и src/docker, не .env. [Сценарий двух конвейеров](../scripts/run-documents-before-relations.mjs#L10)

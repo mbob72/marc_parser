@@ -26,7 +26,7 @@ FROM runtime AS service
 EXPOSE 3000
 CMD ["node", "dist/api.js"]
 
-# Серверный образ: команды импорта, worker и доставки.
+# Серверный образ: команды импорта и worker.
 # DOC-PREVIEW:/docs/documents-deployment.md#entrypoint
 FROM runtime AS documents
 COPY --chmod=755 docker/documents-entrypoint.sh /usr/local/bin/marc-documents

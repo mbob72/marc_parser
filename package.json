@@ -17,7 +17,7 @@
     "test": "tsx --test test/*.test.ts",
     "check": "npm run build && npm test",
     "start:documents": "node dist/documents-cli.js",
-    "format:documents:check": "prettier --check src/documents src/runtime src/documents-*.ts test/documents-*.test.ts scripts/deploy-documents-vpn.mjs compose.documents.yaml .github/workflows/documents.yml"
+    "format:documents:check": "prettier --check src/documents src/runtime src/documents-*.ts test/documents-*.test.ts compose.documents.yaml .github/workflows/documents.yml"
   },
   "devDependencies": {
     "@types/amqplib": "^0.10.8",

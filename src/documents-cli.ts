@@ -12,7 +12,7 @@ import { saveJson } from "./runtime/control.js";
 
 /**
  * CLI связывает подготовку, COPY, загрузку и проверку; .env загружается только для БД.
- * DOC-PREVIEW:/docs/documents-import.md#commands
+ * DOC-PREVIEW:/docs/documents-import.md#commands · DOC-PREVIEW:/docs/container-commands.md#documents · DOC-PREVIEW:/docs/documents-server-run.md#run
  */
 export async function documentsMain(args = process.argv.slice(2)) {
   const { positionals, values } = parseArgs({

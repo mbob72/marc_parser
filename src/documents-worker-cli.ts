@@ -3,7 +3,7 @@ import { request } from "./runtime/control.js";
 import { startWorker } from "./runtime/worker.js";
 
 /** server разворачивает исполнителя; остальные команды передают ему одну операцию. */
-// DOC-PREVIEW:/docs/documents-code.md#worker-cli
+// DOC-PREVIEW:/docs/documents-code.md#worker-cli · DOC-PREVIEW:/docs/container-commands.md#worker
 async function main() {
   const { positionals, values } = parseArgs({
     allowPositionals: true,
