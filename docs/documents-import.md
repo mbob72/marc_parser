@@ -1,3 +1,5 @@
+> Контракт хранения изменён 27.10.2026: см. [import-storage.md](import-storage.md). Имена схем и raw/JSONB-хранилище в примерах ниже описывают прежнюю реализацию; для нового цикла используйте таблицы и адреса из актуального контракта.
+
 # Подготовка и импорт документов перед БЗ–БЗ
 
 **Запуск на сервере: [пошаговый сценарий Docker](documents-server-run.md).**
@@ -22,14 +24,14 @@ prepare и prepare-copy требуют новых каталогов; load тр�
 
 [documentsMain](../src/documents-cli.ts#L17) разрешает ровно одну команду:
 
-| Команда | Вход и результат | Работа с БД |
-|---|---|---|
-| `check-db` | Проверяет типы/права/ограничения documents и document_ids | Только каталог; справочник должен существовать |
-| `prepare` | `--input FILE --output DIR`, optional `--member NAME` для tar.gz | Нет |
-| `prepare-copy` | `--input SOURCE_DIR --output COPY_DIR` | Нет |
-| `load` | `--input COPY_DIR --report FILE`, optional `--dry-run` | COPY и merge по пакету |
-| `ready` | `--input COPY_DIR` | Сверка журнала, содержимого и UUID |
-| `run` | `--input FILE --output NEW_DIR`, optional `--member NAME` | Все этапы по порядку |
+| Команда        | Вход и результат                                                 | Работа с БД                                    |
+| -------------- | ---------------------------------------------------------------- | ---------------------------------------------- |
+| `check-db`     | Проверяет типы/права/ограничения documents и document_ids        | Только каталог; справочник должен существовать |
+| `prepare`      | `--input FILE --output DIR`, optional `--member NAME` для tar.gz | Нет                                            |
+| `prepare-copy` | `--input SOURCE_DIR --output COPY_DIR`                           | Нет                                            |
+| `load`         | `--input COPY_DIR --report FILE`, optional `--dry-run`           | COPY и merge по пакету                         |
+| `ready`        | `--input COPY_DIR`                                               | Сверка журнала, содержимого и UUID             |
+| `run`          | `--input FILE --output NEW_DIR`, optional `--member NAME`        | Все этапы по порядку                           |
 
 Примеры из корня проекта, после `npm run build`:
 
@@ -102,14 +104,14 @@ COPY содержит `line` (номер JSON-строки пакета с 1), `
 затем исходный контекст берётся из той же строки NDJSON. Файл `.aleph.ndjson.gz` —
 унаследованное имя формата пакетов; для ISO исходный формат указан в source manifest.
 
-| Счётчик | Смысл |
-|---|---|
-| processed | Выделенные записи, для которых начался process |
-| deleted | Пропущены по DEL |
-| parsingErrors | Ошибка разбора выделенной записи; диагностируется и пропускается |
-| validationRecords | Записи с ошибками MARC, в том числе экспортированные при preserve |
-| rejected | Исключены по identity/NUL/reject; parsingErrors и deleted сюда не входят |
-| exported | Строки опубликованных NDJSON-пакетов при успехе |
+| Счётчик           | Смысл                                                                    |
+| ----------------- | ------------------------------------------------------------------------ |
+| processed         | Выделенные записи, для которых начался process                           |
+| deleted           | Пропущены по DEL                                                         |
+| parsingErrors     | Ошибка разбора выделенной записи; диагностируется и пропускается         |
+| validationRecords | Записи с ошибками MARC, в том числе экспортированные при preserve        |
+| rejected          | Исключены по identity/NUL/reject; parsingErrors и deleted сюда не входят |
+| exported          | Строки опубликованных NDJSON-пакетов при успехе                          |
 
 При успешной подготовке `processed = deleted + parsingErrors + rejected + exported`.
 `validationRecords` пересекается с rejected/exported, его нельзя прибавлять к этим счётчикам.

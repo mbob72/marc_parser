@@ -1,5 +1,7 @@
 Общая доставка образов: [общий контейнер доставки проектов АБИС](docs/shared-delivery.md).
 
+Новый цикл: [единая схема import, адреса исходников и порядок запуска](docs/import-storage.md). Старые пакеты/checkpoint несовместимы с новым хранением.
+
 # MARC Parser
 
 [Работа на сервере через Docker: полный сценарий](docs/documents-server-run.md) · [Команды контейнера](docs/container-commands.md).

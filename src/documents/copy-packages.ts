@@ -14,6 +14,8 @@ export interface SourceBatch {
   records: number;
 }
 export interface SourceManifest {
+  input?: string;
+  member?: string;
   complete: boolean;
   sample: boolean;
   archiveSha256: string;
@@ -37,6 +39,7 @@ export interface CopyBatch {
   idsCopySha256: string;
 }
 export interface CopyManifest {
+  sourceInput?: string;
   version: number;
   libraryCode?: string;
   complete: boolean;
@@ -209,6 +212,8 @@ export async function readSourceManifest(
     !Number.isSafeInteger(source.counts?.exported)
   )
     throw Error("Complete non-sample input required");
+  if (typeof source.input !== "string" || source.member)
+    throw Error("Uncompressed source file required: prepare again");
   const names = new Set<string>();
   for (const b of source.batches) {
     if (
@@ -233,6 +238,7 @@ export async function readSourceManifest(
 
 /** Формат совместим с Python-пакетами; manifest публикуется только после проверки выбранных данных. */
 // DOC-PREVIEW:/docs/documents-code.md#copy-prepare
+// DOC-PREVIEW:/docs/import-storage.md#code
 export async function prepareCopy(
   input: string,
   output: string,
@@ -265,6 +271,7 @@ export async function prepareCopy(
           leader: unknown;
           format: unknown;
           fields: unknown;
+          source?: { byteOffset: number; byteLength: number };
         };
         records++;
         if (
@@ -282,6 +289,14 @@ export async function prepareCopy(
         )
           throw Error(`Invalid shape: ${batch.file}:${records}`);
         if (hasNul(r)) throw Error(`PostgreSQL NUL: ${batch.file}:${records}`);
+        if (
+          !r.source ||
+          !Number.isSafeInteger(r.source.byteOffset) ||
+          r.source.byteOffset < 0 ||
+          !Number.isSafeInteger(r.source.byteLength) ||
+          r.source.byteLength <= 0
+        )
+          throw Error("Source byte address missing: prepare again");
         await writer.write(
           copyRow([
             records,
@@ -289,6 +304,8 @@ export async function prepareCopy(
             r.leader,
             r.format,
             JSON.stringify(r.fields),
+            r.source.byteOffset,
+            r.source.byteLength,
           ]),
         );
         await ids.write(Number(r.recordId) + "\n");
@@ -327,8 +344,17 @@ export async function prepareCopy(
     sample: !complete,
     archiveSha256: source.archiveSha256,
     sourceDirectory: resolve(input),
+    sourceInput: source.input,
     format: "COPY CSV TSV; quoted values; UTF-8; NULL \\N",
-    columns: ["line", "system_number", "leader", "format", "fields"],
+    columns: [
+      "line",
+      "system_number",
+      "leader",
+      "format",
+      "fields",
+      "byte_offset",
+      "byte_length",
+    ],
     records: total,
     compressedBytes: batches.reduce((sum, b) => sum + b.bytes + b.idsBytes, 0),
     batches,

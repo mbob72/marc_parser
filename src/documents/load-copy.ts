@@ -22,11 +22,20 @@ export async function readCopyManifest(input: string): Promise<CopyManifest> {
     m.complete !== true ||
     m.sample !== false ||
     m.version !== 1 ||
+    typeof m.sourceInput !== "string" ||
     !/^[a-f0-9]{64}$/.test(m.archiveSha256) ||
     !Array.isArray(m.batches) ||
     m.batches.length === 0 ||
     JSON.stringify(m.columns) !==
-      JSON.stringify(["line", "system_number", "leader", "format", "fields"])
+      JSON.stringify([
+        "line",
+        "system_number",
+        "leader",
+        "format",
+        "fields",
+        "byte_offset",
+        "byte_length",
+      ])
   )
     throw Error("Complete non-sample COPY manifest required");
   const names = new Set<string>();
@@ -67,8 +76,12 @@ export interface LoadCopyOptions {
 
 /** Потоковый COPY в ту же БД: нет psql/tempfile; пакет и прежний document_batches фиксируются атомарно. */
 // DOC-PREVIEW:/docs/documents-import.md#load
+// DOC-PREVIEW:/docs/import-storage.md#code
 export async function loadCopy(options: LoadCopyOptions): Promise<void> {
   const m = await readCopyManifest(options.input);
+  const original = await fileDigest(m.sourceInput!);
+  if (original.sha256 !== m.archiveSha256)
+    throw Error("Original source SHA mismatch");
   const start = options.startBatch ?? 1;
   const max = options.maxBatches ?? Infinity;
   if (
@@ -103,7 +116,7 @@ export async function loadCopy(options: LoadCopyOptions): Promise<void> {
     });
     await client.connect();
     await client.query(
-      "SET lock_timeout='60s'; SELECT pg_advisory_lock_shared(hashtext('z103_import.pipeline')); SELECT pg_advisory_lock(hashtext('z103_import.documents.loader'));",
+      "SET lock_timeout='60s'; SELECT pg_advisory_lock_shared(hashtext('import.pipeline')); SELECT pg_advisory_lock(hashtext('import.documents.loader'));",
     );
     await requireDocuments(client);
     let inserted = 0,
@@ -122,7 +135,7 @@ export async function loadCopy(options: LoadCopyOptions): Promise<void> {
       await client.query("BEGIN");
       await initializeImport(client);
       const saved = await client.query(
-        "SELECT sha,report FROM z103_import.document_batches WHERE archive_sha=$1 AND file=$2",
+        "SELECT sha,report FROM import.bib_batches WHERE archive_sha=$1 AND file=$2",
         [m.archiveSha256, file],
       );
       if (saved.rowCount) {
@@ -144,7 +157,7 @@ export async function loadCopy(options: LoadCopyOptions): Promise<void> {
       if (digest.bytes !== batch.bytes || digest.sha256 !== batch.sha256)
         throw Error(`Gzip verification failed: ${batch.file}`);
       await client.query(
-        "CREATE TEMP TABLE document_incoming(line bigint,system_number integer PRIMARY KEY,leader text,format text,fields jsonb) ON COMMIT DROP",
+        "CREATE TEMP TABLE document_incoming(line bigint,system_number integer PRIMARY KEY,leader text,format text,fields jsonb,byte_offset bigint CHECK(byte_offset>=0),byte_length bigint CHECK(byte_length>0)) ON COMMIT DROP",
       );
       const hash = createHash("sha256");
       phase = "copy";

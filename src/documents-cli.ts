@@ -67,7 +67,7 @@ export async function documentsMain(args = process.argv.slice(2)) {
         JSON.stringify({
           ready: true,
           target: "public.documents",
-          identities: "z103_import.document_ids",
+          identities: "import.bib_ids",
         }),
       );
     } finally {

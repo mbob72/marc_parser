@@ -35,11 +35,14 @@ export interface PrepareOptions {
  * Новому запуску нужен новый каталог; полный manifest публикуется после EOF.
  * DOC-PREVIEW:/docs/documents-import.md#prepare
  */
+// DOC-PREVIEW:/docs/import-storage.md#code
 export async function prepareDocuments(options: PrepareOptions) {
   if (!/^[A-Z0-9]{1,6}$/.test(options.libraryCode))
     throw Error("Invalid library code");
   if (!Number.isSafeInteger(options.batchSize) || options.batchSize < 1)
     throw Error("Invalid batch size");
+  if (options.member)
+    throw Error("Extract the archive before preparing byte-addressed records");
   const input = resolve(options.input);
   const output = resolve(options.output);
   const before = await stat(input);
@@ -107,7 +110,7 @@ export async function prepareDocuments(options: PrepareOptions) {
             ...context,
             kind: "parse",
             message: String(error),
-            rawBase64: bytes.toString("base64"),
+            byteLength: bytes.length,
           }) + "\n",
         );
         return;
@@ -162,7 +165,11 @@ export async function prepareDocuments(options: PrepareOptions) {
       }
       // Контекст остаётся в подготовленных JSON; строка COPY связывает SQL с этим пакетом.
       await writer.write(
-        JSON.stringify({ ...json, recordId: identity, source: context }) + "\n",
+        JSON.stringify({
+          ...json,
+          recordId: identity,
+          source: { ...context, byteLength: bytes.length },
+        }) + "\n",
       );
       records++;
       counts.exported++;

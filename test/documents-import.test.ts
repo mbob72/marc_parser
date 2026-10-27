@@ -67,21 +67,14 @@ test("выбор archive member читает только нужный Z00; по
     join(fixture, ".."),
     "aleph-sequential-real.dat",
   ]);
-  const result = await prepareDocuments({
-    ...defaults,
-    input: archive,
-    output: join(work, "ok"),
-    member: "aleph-sequential-real.dat",
-  });
-  assert.equal(result.counts.exported, 3);
   await assert.rejects(
     prepareDocuments({
       ...defaults,
       input: archive,
-      output: join(work, "missing"),
-      member: "not-found.dat",
+      output: join(work, "ok"),
+      member: "aleph-sequential-real.dat",
     }),
-    /tar failed/,
+    /Extract the archive/,
   );
   const broken = join(work, "broken.dat");
   await writeFile(broken, "000000001\tbroken");
@@ -157,13 +150,13 @@ test(
       Object.assign(process.env, envBefore);
     });
     const reset = async () => {
-      await client.query(`DROP SCHEMA IF EXISTS z103_import CASCADE; DROP TABLE IF EXISTS public.documents;
+      await client.query(`DROP SCHEMA IF EXISTS import CASCADE; DROP TABLE IF EXISTS public.documents;
       CREATE TABLE public.documents(id uuid PRIMARY KEY DEFAULT gen_random_uuid(),library_code varchar(6),system_number serial NOT NULL,leader varchar(25) NOT NULL,format varchar(5) NOT NULL,fields jsonb NOT NULL,hidden boolean NOT NULL DEFAULT false,created_at timestamp NOT NULL DEFAULT current_timestamp)`);
     };
     await reset();
     t.after(async () => {
       await client.query(
-        "DROP SCHEMA IF EXISTS z103_import CASCADE; DROP TABLE IF EXISTS public.documents",
+        "DROP SCHEMA IF EXISTS import CASCADE; DROP TABLE IF EXISTS public.documents",
       );
       await client.end();
     });
@@ -188,11 +181,8 @@ test(
           0,
         );
         assert.equal(
-          (
-            await client.query(
-              "SELECT to_regclass('z103_import.document_ids') name",
-            )
-          ).rows[0].name,
+          (await client.query("SELECT to_regclass('import.bib_ids') name"))
+            .rows[0].name,
           null,
         );
       },
@@ -201,7 +191,7 @@ test(
       "готовый UUID справочника сохраняется, limited возобновляется",
       async () => {
         await client.query(
-          "CREATE SCHEMA z103_import; CREATE TABLE z103_import.document_ids(library_code text NOT NULL,system_number bigint NOT NULL,id uuid NOT NULL,PRIMARY KEY(library_code,system_number),UNIQUE(id)); INSERT INTO z103_import.document_ids VALUES('RSL01',1,'11111111-1111-4111-8111-111111111111')",
+          "CREATE SCHEMA import; CREATE TABLE import.bib_ids(library_code text NOT NULL,system_number bigint NOT NULL,id uuid NOT NULL,PRIMARY KEY(library_code,system_number),UNIQUE(id)); INSERT INTO import.bib_ids VALUES('RSL01',1,'11111111-1111-4111-8111-111111111111')",
         );
         await load("partial", { maxBatches: 1 });
         await assert.rejects(verifyReady(input), /Batch not ready/);
@@ -252,11 +242,8 @@ test(
         0,
       );
       assert.equal(
-        (
-          await client.query(
-            "SELECT to_regclass('z103_import.document_batches') name",
-          )
-        ).rows[0].name,
+        (await client.query("SELECT to_regclass('import.bib_batches') name"))
+          .rows[0].name,
         null,
       );
       await writeFile(manifestPath, original);
@@ -284,7 +271,7 @@ test(
         assert.equal(
           (
             await client.query(
-              "SELECT count(*)::int n FROM z103_import.document_issues WHERE code='existing_conflict'",
+              "SELECT count(*)::int n FROM import.bib_errors WHERE code='existing_conflict'",
             )
           ).rows[0].n,
           1,
@@ -316,7 +303,7 @@ test(
       async () => {
         await reset();
         await client.query(
-          "INSERT INTO public.documents(id,library_code,system_number,leader,format,fields) VALUES('11111111-1111-4111-8111-111111111111','RSL01',1,'a','BK','[]'); CREATE SCHEMA z103_import; CREATE TABLE z103_import.document_ids(library_code text NOT NULL,system_number bigint NOT NULL,id uuid NOT NULL,PRIMARY KEY(library_code,system_number),UNIQUE(id)); INSERT INTO z103_import.document_ids VALUES('RSL01',1,'22222222-2222-4222-8222-222222222222')",
+          "INSERT INTO public.documents(id,library_code,system_number,leader,format,fields) VALUES('11111111-1111-4111-8111-111111111111','RSL01',1,'a','BK','[]'); CREATE SCHEMA import; CREATE TABLE import.bib_ids(library_code text NOT NULL,system_number bigint NOT NULL,id uuid NOT NULL,PRIMARY KEY(library_code,system_number),UNIQUE(id)); INSERT INTO import.bib_ids VALUES('RSL01',1,'22222222-2222-4222-8222-222222222222')",
         );
         await assert.rejects(load("uuid-mismatch"), /Existing UUID mismatch/);
         assert.equal(

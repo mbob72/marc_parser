@@ -20,14 +20,14 @@ export async function verifyReady(input: string) {
   try {
     await client.connect();
     await client.query(
-      "BEGIN; SET LOCAL lock_timeout='60s'; LOCK TABLE z103_import.document_ids,public.documents IN SHARE MODE",
+      "BEGIN; SET LOCAL lock_timeout='60s'; LOCK TABLE import.bib_ids,public.documents IN SHARE MODE",
     );
     await requireDocuments(client);
     await requireIdentities(client);
     // Сравнение идёт пакетами: COPY удерживает только текущий gzip и временную SQL-таблицу.
     for (const batch of manifest.batches) {
       const journal = await client.query(
-        "SELECT sha,report FROM z103_import.document_batches WHERE archive_sha=$1 AND file=$2",
+        "SELECT sha,report FROM import.bib_batches WHERE archive_sha=$1 AND file=$2",
         [manifest.archiveSha256, batch.sourceFile],
       );
       const saved = journal.rows[0];
@@ -44,7 +44,7 @@ export async function verifyReady(input: string) {
       if (digest.sha256 !== batch.sha256 || digest.bytes !== batch.bytes)
         throw Error("Gzip verification failed: " + batch.file);
       await client.query(
-        "CREATE TEMP TABLE document_ready(line bigint,system_number integer PRIMARY KEY,leader text,format text,fields jsonb) ON COMMIT DROP",
+        "CREATE TEMP TABLE document_ready(line bigint,system_number integer PRIMARY KEY,leader text,format text,fields jsonb,byte_offset bigint,byte_length bigint) ON COMMIT DROP",
       );
       const hash = createHash("sha256");
       let bytes = 0;
@@ -69,7 +69,7 @@ export async function verifyReady(input: string) {
       const result = await client.query(
         `SELECT count(*)::int records,count(*) FILTER(WHERE matches<>1 OR total<>1)::int mismatches FROM (
         SELECT i.system_number,count(d.id) total,count(d.id) FILTER(WHERE d.id=x.id AND ROW(d.leader,d.format,d.fields) IS NOT DISTINCT FROM ROW(i.leader,i.format,i.fields)) matches FROM document_ready i
-        LEFT JOIN z103_import.document_ids x ON x.library_code=$1 AND x.system_number=i.system_number
+        LEFT JOIN import.bib_ids x ON x.library_code=$1 AND x.system_number=i.system_number
         LEFT JOIN public.documents d ON upper(d.library_code)=$1 AND d.system_number=i.system_number
         GROUP BY i.system_number) checks`,
         [manifest.libraryCode ?? "RSL01"],
