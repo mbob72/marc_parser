@@ -92,6 +92,14 @@ SQL нумерует вхождения номера внутри пакета, 
 помечает повтор `duplicate_identity`. Все вхождения сохраняются, первая принятая БЗ
 сохраняет UUID; причины повтора находятся в `rejection_reasons`, а не в полном JSON источника.
 
+Проверка существующей пары содержит `OFFSET 0`: это барьер оптимизации EXISTS,
+сохраняющий корреляцию по системному номеру. Без него при неточной статистике планировщик
+выбирал hash-subplan с чтением всей принятой библиотеки на каждом пакете: на сервере
+время merge выросло с 2 до 16 секунд уже к 2,15 млн строк. Исправленный EXPLAIN
+использует `Index Only Scan bib_records_identity` с обоими ключами — library_code
+и system_number. Это защита от повторного полного обхода растущей таблицы;
+семантика первого принятого вхождения и причин отказа не меняется.
+
 <a id="rejections"></a>
 
 ## Отказы и DEL
@@ -146,5 +154,5 @@ stdout дублирует этот журнал в `.log`; сообщения о
 - [stageRow](../src/documents/stage.ts#L109) → [COPY](#copy), вызывается генератором [rows](../src/documents/stage.ts#L399) и [rejectionRows](../src/documents/stage.ts#L224).
 - [rejectedBytes](../src/documents/stage.ts#L159) и [rejectionRows](../src/documents/stage.ts#L224) → [отказы](#rejections); первый возвращает байты одной записи, второй выдаёт COPY-строку потребителю rows.
 - [stageSource](../src/documents/stage.ts#L322) → [запуск и продолжение](#stage); полученный каталог обрабатывается пакет за пакетом, journal публикуется вместе со строками.
-- [stageBibRecords](../src/documents/stage.ts#L560) → [запуск](#stage), вызывается из [documentsMain](../src/documents-cli.ts#L91); управляет соединением и последовательным планом, закрывает ресурсы при ошибке. Вложенный `log` сохраняет JSONL и дублирует событие в stdout.
+- [stageBibRecords](../src/documents/stage.ts#L563) → [запуск](#stage), вызывается из [documentsMain](../src/documents-cli.ts#L91); управляет соединением и последовательным планом, закрывает ресурсы при ошибке. Вложенный `log` сохраняет JSONL и дублирует событие в stdout.
 - [CLI](../src/documents-cli.ts#L89), [worker](../src/runtime/worker.ts#L114), [интеграционные тесты](../test/documents-stage.test.ts#L13).
