@@ -66,6 +66,7 @@ run выполняет prepare → prepare-copy → load → ready.<br>
 | `check-db` | Для этой установки `--env /run/db.env` | Проверяет подключение, схему и права; JSON в stdout, записи не загружает |
 | `prepare` | `--input FILE --output NEW_DIR` | Создаёт gzip NDJSON, диагностику, progress и manifest; без БД |
 | `prepare-copy` | `--input SOURCE_DIR --output NEW_DIR` | Проверяет готовый NDJSON-набор и создаёт COPY-пакеты; без БД |
+| `stage` | `--input SOURCE_DIR_OR_PLAN_JSON --report NEW_FILE` | [Самостоятельная загрузка БЗ в import.bib_records](bib-staging.md), с fields и причинами отказов; без public и bib_ids |
 | `load` | `--input COPY_DIR --report NEW_FILE` | Транзакционная загрузка по пакетам, JSONL-отчёт и события stdout |
 | `ready` | `--input COPY_DIR` | Сверяет весь набор с БД, печатает JSON; целевые данные не меняет |
 | `run` | `--input FILE --output NEW_DIR` | Все этапы; source/, copy/, load.ndjson, при успехе реального импорта ready.json |

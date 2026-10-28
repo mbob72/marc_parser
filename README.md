@@ -2,6 +2,8 @@
 
 Новый цикл: [единая схема import, адреса исходников и порядок запуска](docs/import-storage.md). Старые пакеты/checkpoint несовместимы с новым хранением.
 
+Срез 26.10: [загрузка готовых БЗ в import.bib_records](docs/bib-staging.md) — полная структура documents, UUID, адреса и причины отказов; команда `stage`.
+
 # MARC Parser
 
 [Работа на сервере через Docker: полный сценарий](docs/documents-server-run.md) · [Команды контейнера](docs/container-commands.md).

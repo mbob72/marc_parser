@@ -126,6 +126,7 @@ export async function prepareDocuments(options: PrepareOptions) {
         await diagnostics.writeFile(
           JSON.stringify({
             ...context,
+            byteLength: bytes.length,
             recordId: json.recordId,
             kind: "validation",
             errors: validation.errors,
@@ -153,8 +154,12 @@ export async function prepareDocuments(options: PrepareOptions) {
       if (issue) {
         counts.rejected++;
         await diagnostics.writeFile(
-          JSON.stringify({ ...context, recordId: identity, kind: issue }) +
-            "\n",
+          JSON.stringify({
+            ...context,
+            byteLength: bytes.length,
+            recordId: identity,
+            kind: issue,
+          }) + "\n",
         );
         return;
       }

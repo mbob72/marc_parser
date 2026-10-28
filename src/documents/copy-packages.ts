@@ -108,7 +108,7 @@ export async function* uncompressed(path: string): AsyncGenerator<Buffer> {
 
 /** Выделяет JSONL без изменения исходных байтов для проверки SHA; ограничивает размер строки. */
 // DOC-PREVIEW:/docs/documents-code.md#source-lines
-async function* sourceLines(
+export async function* sourceLines(
   path: string,
   hash: ReturnType<typeof createHash>,
 ): AsyncGenerator<string> {

@@ -7,6 +7,7 @@ import { requireDocuments, requireIdentities } from "./documents/schema.js";
 import { prepareDocuments } from "./documents/prepare.js";
 import { prepareCopy } from "./documents/copy-packages.js";
 import { loadCopy } from "./documents/load-copy.js";
+import { stageBibRecords } from "./documents/stage.js";
 import { verifyReady } from "./documents/ready.js";
 import { saveJson } from "./runtime/control.js";
 
@@ -37,20 +38,28 @@ export async function documentsMain(args = process.argv.slice(2)) {
   });
   const command = positionals[0];
   if (positionals.length !== 1)
-    throw Error("documents help|check-db|prepare|prepare-copy|load|ready|run");
+    throw Error(
+      "documents help|check-db|prepare|prepare-copy|stage|load|ready|run",
+    );
   if (command === "help") {
     console.log(
-      "documents check-db | prepare --input Z00 --output DIR [--member rsl01_z00.dat] | prepare-copy --input NDJSON_DIR --output COPY_DIR | load --input COPY_DIR --report FILE [--dry-run] | ready --input COPY_DIR | run --input Z00 --output DIR [--member NAME] [--dry-run]\nDefaults: library=RSL01, format=aleph-sequential, encoding=utf-8, batch-size=50000, validation-policy=reject, env=.env",
+      "documents check-db | prepare --input Z00 --output DIR [--member rsl01_z00.dat] | stage --input NDJSON_DIR_OR_PLAN_JSON --report FILE [--dry-run] | prepare-copy --input NDJSON_DIR --output COPY_DIR | load --input COPY_DIR --report FILE [--dry-run] | ready --input COPY_DIR | run --input Z00 --output DIR [--member NAME] [--dry-run]\nDefaults: library=RSL01, format=aleph-sequential, encoding=utf-8, batch-size=50000, validation-policy=reject, env=.env",
     );
     return;
   }
   if (
-    !["check-db", "prepare", "prepare-copy", "load", "ready", "run"].includes(
-      command!,
-    )
+    ![
+      "check-db",
+      "prepare",
+      "prepare-copy",
+      "stage",
+      "load",
+      "ready",
+      "run",
+    ].includes(command!)
   )
     throw Error("Unknown documents command");
-  if (["check-db", "load", "ready", "run"].includes(command!)) {
+  if (["check-db", "stage", "load", "ready", "run"].includes(command!)) {
     // Только DB_*: остальные параметры .env не меняют окружение исполнителя.
     const env = parseEnv(await readFile(values.env, "utf8"));
     for (const [key, value] of Object.entries(env))
@@ -77,6 +86,15 @@ export async function documentsMain(args = process.argv.slice(2)) {
   }
   if (!values.input) throw Error("--input required");
   const input = resolve(values.input);
+  if (command === "stage") {
+    if (!values.report) throw Error("--report required");
+    await stageBibRecords({
+      input,
+      report: resolve(values.report),
+      dryRun: values["dry-run"],
+    });
+    return;
+  }
   if (command === "load") {
     if (!values.report) throw Error("--report required");
     await loadCopy({

@@ -110,15 +110,19 @@ export async function startWorker(options: WorkerOptions) {
       if (!accepting) throw Error("Worker is draining for deployment");
       if (child) throw Error("Worker already has an active task");
       const stage = message.stage ?? "run";
-      if (!["prepare", "load", "ready", "check-db", "run"].includes(stage))
+      if (
+        !["prepare", "stage", "load", "ready", "check-db", "run"].includes(
+          stage,
+        )
+      )
         throw Error("Invalid stage");
       if (message.dryRun !== undefined && typeof message.dryRun !== "boolean")
         throw Error("Invalid dryRun");
       let input: string | undefined;
-      if (["run", "prepare", "load", "ready"].includes(stage)) {
+      if (["run", "prepare", "stage", "load", "ready"].includes(stage)) {
         if (typeof message.input !== "string") throw Error("Input required");
         input = resolve(message.input);
-        const root = ["load", "ready"].includes(stage)
+        const root = ["stage", "load", "ready"].includes(stage)
           ? options.work
           : options.source;
         if (!input.startsWith(resolve(root) + "/"))
@@ -126,9 +130,12 @@ export async function startWorker(options: WorkerOptions) {
         const physical = await realpath(input);
         if (
           !physical.startsWith((await realpath(root)) + "/") ||
-          !(["load", "ready"].includes(stage)
-            ? (await stat(physical)).isDirectory()
-            : (await stat(physical)).isFile())
+          !(stage === "stage"
+            ? (await stat(physical)).isDirectory() ||
+              (await stat(physical)).isFile()
+            : ["load", "ready"].includes(stage)
+              ? (await stat(physical)).isDirectory()
+              : (await stat(physical)).isFile())
         )
           throw Error("Invalid input under selected mount");
       }
@@ -155,7 +162,8 @@ export async function startWorker(options: WorkerOptions) {
           }
         }
       }
-      if (stage === "load") args.push("--report", report + ".ndjson");
+      if (["stage", "load"].includes(stage))
+        args.push("--report", report + ".ndjson");
       task = {
         id,
         stage,
