@@ -25,7 +25,7 @@ check-db/loadCopy/verifyReady. Keepalive включён, application_name=marc-d
 Отсутствие параметров/неверный порт — синхронное исключение до сетевого доступа;
 ошибку connect принимает await вызывающего кода.
 
-[documentsMain](../src/documents-cli.ts#L17) принимает argv, parseArgs отвергает неизвестные
+[documentsMain](../src/documents-cli.ts#L83) принимает argv, parseArgs отвергает неизвестные
 опции; проверяет команду, обязательные пути и enum format/policy. Возвращает Promise<void>.
 check-db создаёт/закрывает Client; prepare/prepare-copy не читают .env;
 load/ready/run читают только DB_* через parseEnv. Run создаёт новый корневой output,
@@ -270,7 +270,7 @@ queue сериализует handle(message), ответ {ok,result} или {ok:
 Returned close ждёт server.close и удаляет socket. Это локальный доступ по правам файла,
 не сетевой HTTP API и не механизм авторизации PostgreSQL.
 
-[startWorker](../src/runtime/worker.ts#L32) принимает work/source/env/image/optional launch
+[startWorker](../src/runtime/worker.ts#L36) принимает work/source/env/image/optional launch
 (test dependency). mkdir control/reports, проверка активного socket, чтение предыдущего
 worker.json; running → interrupted с finishedAt. Task поля:
 id/stage/input/dryRun/image/startedAt/finishedAt/exitCode/signal/status/log/report.
@@ -286,7 +286,7 @@ Image записывается из настройки, фактический D
 Ошибка сохранения состояния запрещает новые задачи и выдаёт worker_state_error.
 Возвращаемый close прекращает приём, сигналит child, ждёт done и закрывает server.
 
-[worker CLI main](../src/documents-worker-cli.ts#L7) разбирает server/команду;
+[worker CLI main](../src/documents-worker-cli.ts#L8) разбирает server/команду;
 server ждёт startWorker, публикует worker_ready и регистрирует SIGTERM/SIGINT stop callback
 с защитой от повторного закрытия. Остальные команды ждут request и печатают JSON.
 Ошибки → stderr и exitCode1. Настройки CLI и операционный сценарий:

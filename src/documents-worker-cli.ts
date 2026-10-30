@@ -4,6 +4,7 @@ import { startWorker } from "./runtime/worker.js";
 
 /** server разворачивает исполнителя; остальные команды передают ему одну операцию. */
 // DOC-PREVIEW:/docs/documents-code.md#worker-cli · DOC-PREVIEW:/docs/container-commands.md#worker
+// Публикация из БД: DOC-PREVIEW:/docs/bib-publication.md#commands
 async function main() {
   const { positionals, values } = parseArgs({
     allowPositionals: true,
@@ -20,7 +21,9 @@ async function main() {
       format: { type: "string" },
       "validation-policy": { type: "string" },
       "batch-size": { type: "string" },
-      "dry-run": { type: "boolean", default: false },
+      "target-schema": { type: "string" },
+      "resume-publication": { type: "string" },
+      "dry-run": { type: "boolean" },
     },
   });
   const [command] = positionals;
@@ -66,6 +69,8 @@ async function main() {
           format: values.format,
           "validation-policy": values["validation-policy"],
           "batch-size": values["batch-size"],
+          targetSchema: values["target-schema"],
+          resumePublication: values["resume-publication"],
         }),
       ),
     );

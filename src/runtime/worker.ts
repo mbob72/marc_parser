@@ -4,11 +4,15 @@ import { open, readFile, mkdir, realpath, stat } from "node:fs/promises";
 import { resolve, join } from "node:path";
 import { randomUUID } from "node:crypto";
 import { request, saveJson, serve } from "./control.js";
+import { validatePublicationOptions } from "../documents/publish.js";
 
 type Task = {
   id: string;
   stage: string;
   input?: string;
+  targetSchema?: string;
+  resumePublication?: string;
+  batchSize?: number;
   dryRun: boolean;
   image: string;
   startedAt: string;
@@ -111,13 +115,79 @@ export async function startWorker(options: WorkerOptions) {
       if (child) throw Error("Worker already has an active task");
       const stage = message.stage ?? "run";
       if (
-        !["prepare", "stage", "load", "ready", "check-db", "run"].includes(
-          stage,
-        )
+        ![
+          "prepare",
+          "stage",
+          "publish",
+          "load",
+          "ready",
+          "check-db",
+          "run",
+        ].includes(stage)
       )
         throw Error("Invalid stage");
       if (message.dryRun !== undefined && typeof message.dryRun !== "boolean")
         throw Error("Invalid dryRun");
+      let publication:
+        | {
+            targetSchema?: string;
+            resumePublication?: string;
+            batchSize?: number;
+          }
+        | undefined;
+      // Допуск публикации предшествует созданию задачи и файлов: источник уже в
+      // БД, образ берётся из конфигурации worker, а не из сообщения клиента.
+      // DOC-PREVIEW:/docs/bib-publication.md#commands
+      if (stage === "publish") {
+        for (const key of [
+          "input",
+          "output",
+          "member",
+          "library",
+          "encoding",
+          "format",
+          "validation-policy",
+          "dryRun",
+          "dry-run",
+          "start-batch",
+          "max-batches",
+          "reserve-bytes",
+        ])
+          if (message[key] !== undefined)
+            throw Error("publish does not accept " + key);
+        if (
+          message.batchSize !== undefined &&
+          message["batch-size"] !== undefined
+        )
+          throw Error("Specify batchSize only once");
+        const rawBatch = message.batchSize ?? message["batch-size"];
+        if (
+          rawBatch !== undefined &&
+          typeof rawBatch !== "number" &&
+          (typeof rawBatch !== "string" || !/^[1-9]\d*$/.test(rawBatch))
+        )
+          throw Error("Invalid batchSize");
+        publication = {
+          targetSchema: message.targetSchema,
+          resumePublication: message.resumePublication,
+          batchSize:
+            rawBatch === undefined
+              ? message.resumePublication === undefined
+                ? 100000
+                : undefined
+              : Number(rawBatch),
+        };
+        validatePublicationOptions({
+          ...publication,
+          image: options.image,
+          report: join(reports, "publication.ndjson"),
+        });
+      } else if (
+        message.targetSchema !== undefined ||
+        message.resumePublication !== undefined ||
+        message.batchSize !== undefined
+      )
+        throw Error("Publication options require publish stage");
       let input: string | undefined;
       if (["run", "prepare", "stage", "load", "ready"].includes(stage)) {
         if (typeof message.input !== "string") throw Error("Input required");
@@ -145,6 +215,15 @@ export async function startWorker(options: WorkerOptions) {
         randomUUID().slice(0, 8);
       const report = join(reports, id);
       const args = [stage, "--env", options.env];
+      if (publication) {
+        args.push("--image", options.image, "--report", report + ".ndjson");
+        if (publication.targetSchema !== undefined)
+          args.push("--target-schema", publication.targetSchema);
+        if (publication.resumePublication !== undefined)
+          args.push("--resume-publication", publication.resumePublication);
+        if (publication.batchSize !== undefined)
+          args.push("--batch-size", String(publication.batchSize));
+      }
       if (input) args.push("--input", input);
       if (["prepare", "run"].includes(stage)) {
         args.push("--output", report);
@@ -168,6 +247,7 @@ export async function startWorker(options: WorkerOptions) {
         id,
         stage,
         input,
+        ...publication,
         dryRun: message.dryRun ?? false,
         image: options.image,
         startedAt: new Date().toISOString(),

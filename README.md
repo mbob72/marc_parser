@@ -225,3 +225,5 @@ Releases этого репозитория и сверяйте их с `SHA256SU
 карта проверок со ссылками на строки и ограничения текущей реализации.
 
 [Та же статья в wiki](https://github.com/mbob72/marc_parser/wiki/Validation-migration).
+
+Публикация уже разобранных БЗ: [documents publish — import.bib_records → отдельная documents](docs/bib-publication.md).

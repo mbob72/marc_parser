@@ -52,12 +52,12 @@ docker ps -a --format 'table {{.Names}}\t{{.Status}}\t{{.Image}}'
 /source и /run/db.env подключены только для чтения; /work — для записи.<br>
 Промежуточные пакеты и отчёты сохраняются после удаления контейнера.</summary>
 
-| Назначение | На сервере | В контейнере |
-|---|---|---|
-| Выгрузка Z00 | `~/aleph-downloads-20261009/unpacked/rsl01_z00.dat` | `/source/unpacked/rsl01_z00.dat` |
-| Рабочие данные | `~/marc-documents-work` | `/work` |
-| Конфигурация PostgreSQL | `~/marc-documents-config/db.env` | `/run/db.env` |
-| Сокет PostgreSQL | `/var/run/postgresql` | `/var/run/postgresql` |
+| Назначение              | На сервере                                          | В контейнере                     |
+| ----------------------- | --------------------------------------------------- | -------------------------------- |
+| Выгрузка Z00            | `~/aleph-downloads-20261009/unpacked/rsl01_z00.dat` | `/source/unpacked/rsl01_z00.dat` |
+| Рабочие данные          | `~/marc-documents-work`                             | `/work`                          |
+| Конфигурация PostgreSQL | `~/marc-documents-config/db.env`                    | `/run/db.env`                    |
+| Сокет PostgreSQL        | `/var/run/postgresql`                               | `/var/run/postgresql`            |
 
 Дата в пути — конкретная имеющаяся выгрузка, а не автоматический выбор самой новой.
 При следующей выгрузке замените каталог в проверках и mount `/source` при запуске контейнера.
@@ -237,7 +237,7 @@ DOCUMENTS_TASK_ID='2026-10-12T14-29-53-668Z-45d44db6'
 дочерний CLI работает в контейнере независимо от терминала. После повторного входа
 восстановите переменную task.id. Повторный `start` при занятом worker отвергается.
 Поле `stage` останется `run` на всех внутренних этапах: это выбранная команда, не индикатор этапа.
-Последовательность реализована в [documentsMain](../src/documents-cli.ts#L117).
+Последовательность реализована в [documentsMain](../src/documents-cli.ts#L186).
 
 Альтернатива для архива — тот же `start --stage run`, но с
 `--input /source/rsl01_z00.dat.tar.gz --member rsl01_z00.dat` вместо пути распакованного файла.
@@ -291,14 +291,14 @@ docker exec marc-documents-worker node -e 'const fs=require("node:fs"); const p=
 du -ah "$HOME/marc-documents-work/reports/$DOCUMENTS_TASK_ID" | tail -n 20
 ```
 
-| След | Что происходит |
-|---|---|
-| `source/part-*.aleph.ndjson.gz.partial` | Записывается текущий пакет |
-| `source/part-*.aleph.ndjson.gz`, `source/progress.json` | Завершены пакеты подготовки |
-| `source/manifest.json` | Подготовка исходника завершена |
-| `copy/manifest.json` | Все COPY-пакеты готовы |
-| `load.ndjson`, события `batch_committed` | Пакеты фиксируются в БД; `batch_skipped` в логе — ранее загруженные |
-| `ready.json` | Полная сверка выгруженного набора с БД прошла |
+| След                                                    | Что происходит                                                      |
+| ------------------------------------------------------- | ------------------------------------------------------------------- |
+| `source/part-*.aleph.ndjson.gz.partial`                 | Записывается текущий пакет                                          |
+| `source/part-*.aleph.ndjson.gz`, `source/progress.json` | Завершены пакеты подготовки                                         |
+| `source/manifest.json`                                  | Подготовка исходника завершена                                      |
+| `copy/manifest.json`                                    | Все COPY-пакеты готовы                                              |
+| `load.ndjson`, события `batch_committed`                | Пакеты фиксируются в БД; `batch_skipped` в логе — ранее загруженные |
+| `ready.json`                                            | Полная сверка выгруженного набора с БД прошла                       |
 
 Наличие отдельного файла не заменяет итог задачи. Для реальной нагрузки:
 
@@ -386,13 +386,13 @@ docker inspect marc-documents-worker --format '{{json .State}}'
 ориентируйтесь также на task.signal и системную диагностику. Автоматического продолжения
 задачи после перезапуска worker нет. Сохранённое running становится interrupted.
 
-| Где остановились | Как продолжать после устранения причины |
-|---|---|
-| Нет полного `source/manifest.json` | Новый `worker start --stage run` с исходником; создаст новый каталог и разберёт файл заново |
-| Source готов, COPY не завершён | Синхронный `documents prepare-copy` в новый каталог, затем worker load и ready; [команды](container-commands.md#documents) |
-| Есть полный `copy/manifest.json`, сбой загрузки | Worker load на прежнем copy-каталоге; успешные COMMIT сохраняются |
-| Load завершён, сбой ready | После устранения причины отдельный worker ready на том же copy-каталоге |
-| Конфликт содержимого или UUID | Изучить лог и журнал; повтор не разрешает конфликт и не перезаписывает БЗ |
+| Где остановились                                | Как продолжать после устранения причины                                                                                    |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Нет полного `source/manifest.json`              | Новый `worker start --stage run` с исходником; создаст новый каталог и разберёт файл заново                                |
+| Source готов, COPY не завершён                  | Синхронный `documents prepare-copy` в новый каталог, затем worker load и ready; [команды](container-commands.md#documents) |
+| Есть полный `copy/manifest.json`, сбой загрузки | Worker load на прежнем copy-каталоге; успешные COMMIT сохраняются                                                          |
+| Load завершён, сбой ready                       | После устранения причины отдельный worker ready на том же copy-каталоге                                                    |
+| Конфликт содержимого или UUID                   | Изучить лог и журнал; повтор не разрешает конфликт и не перезаписывает БЗ                                                  |
 
 Продолжение загрузки (DOCUMENTS_TASK_ID — ID исходного run с готовым copy):
 
@@ -420,3 +420,5 @@ docker exec marc-documents-worker node /app/dist/documents-worker-cli.js start \
 об их хранении: они нужны для ready и восстановления.
 
 </details>
+
+Публикация уже разобранных БЗ: [documents publish — import.bib_records → отдельная documents](bib-publication.md).

@@ -10,12 +10,81 @@ import { loadCopy } from "./documents/load-copy.js";
 import { stageBibRecords } from "./documents/stage.js";
 import { verifyReady } from "./documents/ready.js";
 import { saveJson } from "./runtime/control.js";
+import {
+  publishBibliographicRecords,
+  validatePublicationOptions,
+} from "./documents/publish.js";
+
+/** Публикация берёт уже разобранные БЗ из БД; старые файловые опции здесь не
+ * принимаются. Исполнитель владеет журналом и подключениями, CLI — сигналами.
+ * DOC-PREVIEW:/docs/bib-publication.md#commands */
+export async function documentsPublishMain(
+  args: string[],
+  publish: typeof publishBibliographicRecords = publishBibliographicRecords,
+) {
+  const { values, positionals } = parseArgs({
+    args,
+    allowPositionals: true,
+    options: {
+      "target-schema": { type: "string" },
+      "resume-publication": { type: "string" },
+      "batch-size": { type: "string" },
+      image: {
+        type: "string",
+        default: process.env.DOCUMENTS_IMAGE ?? "unknown",
+      },
+      report: { type: "string" },
+      env: { type: "string", default: ".env" },
+    },
+  });
+  if (positionals.length || !values.report)
+    throw Error("documents publish requires --report");
+  if (
+    values["batch-size"] !== undefined &&
+    !/^[1-9]\d*$/.test(values["batch-size"])
+  )
+    throw Error("Invalid --batch-size");
+  const options = {
+    targetSchema: values["target-schema"],
+    resumePublication: values["resume-publication"],
+    batchSize:
+      values["batch-size"] === undefined
+        ? undefined
+        : Number(values["batch-size"]),
+    image: values.image,
+    report: resolve(values.report),
+  };
+  validatePublicationOptions(options);
+  // Только DB_*: прочие параметры файла не меняют окружение публикации.
+  const env = parseEnv(await readFile(values.env, "utf8"));
+  for (const [key, value] of Object.entries(env))
+    if (key.startsWith("DB_")) process.env[key] = value;
+  const controller = new AbortController();
+  const stop = () => controller.abort(Error("Publication stopped by signal"));
+  process.on("SIGTERM", stop);
+  process.on("SIGINT", stop);
+  try {
+    const result = await publish({
+      ...options,
+      signal: controller.signal,
+      progress: (event) => console.error(JSON.stringify(event)),
+    });
+    controller.signal.throwIfAborted();
+    if (result !== undefined) console.log(JSON.stringify(result));
+  } finally {
+    process.off("SIGTERM", stop);
+    process.off("SIGINT", stop);
+  }
+}
 
 /**
  * CLI связывает подготовку, COPY, загрузку и проверку; .env загружается только для БД.
  * DOC-PREVIEW:/docs/documents-import.md#commands · DOC-PREVIEW:/docs/container-commands.md#documents · DOC-PREVIEW:/docs/documents-server-run.md#run
  */
 export async function documentsMain(args = process.argv.slice(2)) {
+  // Отдельный parser запрещает случайное смешение публикации с повторным чтением DAT.
+  // DOC-PREVIEW:/docs/bib-publication.md#commands
+  if (args[0] === "publish") return documentsPublishMain(args.slice(1));
   const { positionals, values } = parseArgs({
     args,
     allowPositionals: true,
@@ -39,11 +108,11 @@ export async function documentsMain(args = process.argv.slice(2)) {
   const command = positionals[0];
   if (positionals.length !== 1)
     throw Error(
-      "documents help|check-db|prepare|prepare-copy|stage|load|ready|run",
+      "documents help|check-db|prepare|prepare-copy|stage|publish|load|ready|run",
     );
   if (command === "help") {
     console.log(
-      "documents check-db | prepare --input Z00 --output DIR [--member rsl01_z00.dat] | stage --input NDJSON_DIR_OR_PLAN_JSON --report FILE [--dry-run] | prepare-copy --input NDJSON_DIR --output COPY_DIR | load --input COPY_DIR --report FILE [--dry-run] | ready --input COPY_DIR | run --input Z00 --output DIR [--member NAME] [--dry-run]\nDefaults: library=RSL01, format=aleph-sequential, encoding=utf-8, batch-size=50000, validation-policy=reject, env=.env",
+      "documents check-db | prepare --input Z00 --output DIR [--member rsl01_z00.dat] | stage --input NDJSON_DIR_OR_PLAN_JSON --report FILE [--dry-run] | publish --target-schema SCHEMA --image PINNED --report FILE [--batch-size 1..100000] [--resume-publication UUID] | prepare-copy --input NDJSON_DIR --output COPY_DIR | load --input COPY_DIR --report FILE [--dry-run] | ready --input COPY_DIR | run --input Z00 --output DIR [--member NAME] [--dry-run]\nDefaults: library=RSL01, format=aleph-sequential, encoding=utf-8, batch-size=50000 (publish=100000), validation-policy=reject, env=.env",
     );
     return;
   }
