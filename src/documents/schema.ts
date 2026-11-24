@@ -132,6 +132,7 @@ export async function initializeImport(client: Client) {
     CREATE TABLE IF NOT EXISTS import.bib_batches(archive_sha text,file text,sha text,report jsonb,PRIMARY KEY(archive_sha,file));
     CREATE TABLE IF NOT EXISTS import.bib_errors(archive_sha text,file text,line bigint,code text,record text,PRIMARY KEY(archive_sha,file,line,code));`);
   await client.query(`CREATE TABLE IF NOT EXISTS import.bib_sources(sha256 text PRIMARY KEY,path text NOT NULL);
-    CREATE TABLE IF NOT EXISTS import.bib_records(source_sha256 text NOT NULL REFERENCES import.bib_sources(sha256),library_code text NOT NULL,system_number bigint NOT NULL,id uuid NOT NULL,leader text NOT NULL,format text NOT NULL,byte_offset bigint NOT NULL CHECK(byte_offset>=0),byte_length bigint NOT NULL CHECK(byte_length>0),PRIMARY KEY(source_sha256,library_code,system_number));`);
+    CREATE TABLE IF NOT EXISTS import.bib_records(source_sha256 text NOT NULL REFERENCES import.bib_sources(sha256),library_code text NOT NULL,system_number bigint NOT NULL,id uuid NOT NULL,leader text NOT NULL,format text NOT NULL,byte_offset bigint NOT NULL CHECK(byte_offset>=0),byte_length bigint NOT NULL CHECK(byte_length>0),PRIMARY KEY(source_sha256,library_code,system_number));
+    ALTER TABLE import.bib_records ADD COLUMN IF NOT EXISTS content_hash_v1 bytea;`);
   await requireIdentities(client);
 }

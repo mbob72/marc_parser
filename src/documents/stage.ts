@@ -89,6 +89,7 @@ export async function initializeBibRecords(client: Client) {
       CHECK(accepted=(rejection_code IS NULL)),
       CHECK(NOT accepted OR system_number>0),
       CHECK(NOT accepted OR system_number IS NOT NULL));
+    ALTER TABLE import.bib_records ADD COLUMN IF NOT EXISTS content_hash_v1 bytea;
     CREATE UNIQUE INDEX IF NOT EXISTS bib_records_identity ON import.bib_records(library_code,system_number) WHERE accepted;
     CREATE TABLE IF NOT EXISTS import.bib_record_batches(
       source_sha256 text NOT NULL REFERENCES import.bib_sources(sha256),
@@ -139,6 +140,10 @@ function stageRow(
     throw Error(
       "Rejected BZ contains PostgreSQL NUL: manual recovery required",
     );
+  if (rejectionCode === null && record.fields.length === 0) {
+    rejectionCode = "empty_fields";
+    reasons = ["После исключения служебных полей массив MARC fields пуст"];
+  }
   return copyRow([
     source.recordIndex,
     number,
@@ -455,11 +460,12 @@ async function stageSource(
       // Членство проверяется через индекс пары; число строк библиотеки не сканируется.
       const result = await client.query(
         `WITH ranked AS (
-        SELECT i.*,row_number() OVER(PARTITION BY system_number ORDER BY source_record_index) occurrence FROM bib_incoming i),
+        SELECT i.*,row_number() OVER(PARTITION BY system_number,(rejection_code IS NULL) ORDER BY source_record_index) occurrence FROM bib_incoming i),
         classified AS (SELECT i.*,CASE WHEN i.rejection_code IS NOT NULL THEN i.rejection_code WHEN i.occurrence>1 OR EXISTS(SELECT 1 FROM import.bib_records b WHERE b.accepted AND b.library_code=$1 AND b.system_number=i.system_number OFFSET 0) THEN 'duplicate_identity' ELSE NULL END code FROM ranked i),
-        added AS (INSERT INTO import.bib_records(library_code,system_number,leader,format,fields,source_sha256,source_record_index,byte_offset,byte_length,accepted,rejection_code,rejection_reasons)
+        added AS (INSERT INTO import.bib_records(library_code,system_number,leader,format,fields,source_sha256,source_record_index,byte_offset,byte_length,accepted,rejection_code,rejection_reasons,content_hash_v1)
         SELECT $1,system_number,leader,format,fields,$2,source_record_index,byte_offset,byte_length,code IS NULL,code,
-        CASE WHEN code='duplicate_identity' THEN ARRAY['Повтор библиотеки и системного номера; первое принятое вхождение сохранено'] ELSE ARRAY(SELECT jsonb_array_elements_text(reasons_json)) END FROM classified RETURNING accepted)
+        CASE WHEN code='duplicate_identity' THEN ARRAY['Повтор библиотеки и системного номера; первое принятое вхождение сохранено'] ELSE ARRAY(SELECT jsonb_array_elements_text(reasons_json)) END,
+        sha256(convert_to(jsonb_build_array('bib:v1',leader,format,fields)::text,'UTF8')) FROM classified RETURNING accepted)
         SELECT count(*)::int records,count(*) FILTER(WHERE accepted)::int accepted,count(*) FILTER(WHERE NOT accepted)::int rejected FROM added`,
         [library, manifest.archiveSha256],
       );

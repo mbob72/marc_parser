@@ -55,8 +55,9 @@ WITH added AS (
  WHERE NOT EXISTS(SELECT 1 FROM public.documents d WHERE upper(d.library_code)=(SELECT library FROM import_context) AND d.system_number=i.system_number)
  RETURNING 1
 ) UPDATE batch_result SET inserted=(SELECT count(*) FROM added);
-INSERT INTO import.bib_records(source_sha256,library_code,system_number,id,leader,format,byte_offset,byte_length)
- SELECT (SELECT archive FROM import_context),(SELECT library FROM import_context),i.system_number,x.id,i.leader,i.format,i.byte_offset,i.byte_length
+INSERT INTO import.bib_records(source_sha256,library_code,system_number,id,leader,format,byte_offset,byte_length,content_hash_v1)
+ SELECT (SELECT archive FROM import_context),(SELECT library FROM import_context),i.system_number,x.id,i.leader,i.format,i.byte_offset,i.byte_length,
+ sha256(convert_to(jsonb_build_array('bib:v1',i.leader,i.format,i.fields)::text,'UTF8'))
  FROM document_incoming i JOIN import.bib_ids x ON x.library_code=(SELECT library FROM import_context) AND x.system_number=i.system_number
  ON CONFLICT(source_sha256,library_code,system_number) DO NOTHING;
 INSERT INTO import.bib_batches

@@ -172,7 +172,7 @@ worker start по умолчанию stage=run; одновременно одн�
 start возвращает task.id и report, завершение проверяется отдельным status.<br>
 После сбоя load получает прежний copy-каталог и новый отчёт.</summary>
 
-[worker CLI](../src/documents-worker-cli.ts#L7) связывается с `/work/control/worker.sock`:
+[worker CLI](../src/documents-worker-cli.ts#L8) связывается с `/work/control/worker.sock`:
 server/start/status/stop/drain/resume. Настройки сервера: work=/work, source=/source,
 env=/run/db.env, image=unknown. start принимает stage=prepare/load/ready/check-db/run,
 input, dry-run и для prepare/run — member/library/encoding/format/validation-policy/batch-size.

@@ -122,6 +122,8 @@ test(
               Array.isArray(r.fields) &&
               r.fields.length > 0 &&
               r.byte_length > 0 &&
+              Buffer.isBuffer(r.content_hash_v1) &&
+              r.content_hash_v1.length === 32 &&
               r.meta === null &&
               r.updated_at === null &&
               r.hidden === false &&
@@ -311,6 +313,32 @@ test(
           [
             { accepted: true, rejection_code: null, n: 3 },
             { accepted: false, rejection_code: "duplicate_identity", n: 3 },
+          ],
+        );
+      },
+    );
+    await t.test(
+      "БЗ без MARC-полей отклоняется и не занимает ключ заполненной БЗ",
+      async () => {
+        await reset();
+        const input = join(work, "leader-only.dat");
+        const leaderOnly = Buffer.from(
+          "000000001\t0030LDR  L^^^^^nam^a22^^^^^^i^4500\n",
+        );
+        await writeFile(
+          input,
+          Buffer.concat([leaderOnly, await readFile(fixture)]),
+        );
+        await stage(await prepare("leader-only", input));
+        assert.deepEqual(
+          (
+            await client.query(
+              "SELECT accepted,rejection_code,jsonb_array_length(fields) = 0 AS empty FROM import.bib_records WHERE system_number=1 ORDER BY source_record_index",
+            )
+          ).rows,
+          [
+            { accepted: false, rejection_code: "empty_fields", empty: true },
+            { accepted: true, rejection_code: null, empty: false },
           ],
         );
       },
