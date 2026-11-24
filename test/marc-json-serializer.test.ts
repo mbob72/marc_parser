@@ -4,6 +4,7 @@ import test from "node:test";
 import {
   MarcJsonSerializer,
 } from "../src/marc-json-serializer.ts";
+import { AlephSequentialMarcParser } from "../src/aleph-sequential-parser.ts";
 import { Iso2709MarcParser } from "../src/marc-parser.ts";
 import type { MarcRecord } from "../src/marc-record.ts";
 import { MarcRecordValidator } from "../src/marc-validator.ts";
@@ -115,7 +116,8 @@ test("сохраняет некорректные значения без под
   );
 
   assert.equal(validation.valid, false);
-  assert.equal(json.leader, invalidRecord.leader.raw);
+  assert.equal(json.leader.slice(5, 12), invalidRecord.leader.raw.slice(5, 12));
+  assert.equal(json.leader.slice(17), invalidRecord.leader.raw.slice(17));
   assert.equal(json.fields[0]?.code, "A1b");
 
   const jsonDataField = json.fields[1];
@@ -160,4 +162,72 @@ test("сохраняет пустой список подполей", async () =
 
   assert.ok(jsonDataField && "subfields" in jsonDataField);
   assert.deepEqual(jsonDataField.subfields, []);
+});
+
+test("пересчитывает leader после переноса FMT в format", () => {
+  const sourceFields = [
+    ["LDR", "00000nam a2200000 i 4500"],
+    ["FMT", "BK"],
+    ["001", "000000042"],
+    ["OWN", "RSL"],
+  ];
+  const source = Buffer.concat([
+    Buffer.from("000000042\t"),
+    ...sourceFields.map(([tag, value]) => {
+      const body = Buffer.from(tag + "  L" + value, "utf8");
+      return Buffer.concat([
+        Buffer.from(String(body.length).padStart(4, "0")),
+        body,
+      ]);
+    }),
+  ]);
+  const parsed = new AlephSequentialMarcParser().parseForImport(source);
+  assert.ok(parsed);
+  assert.equal(parsed.leader.raw.slice(0, 5), "00063");
+  assert.equal(parsed.leader.raw.slice(12, 17), "00049");
+  const json = new MarcJsonSerializer("utf-8").serialize(parsed);
+  assert.equal(json.format, "BK");
+  assert.deepEqual(json.fields, [{ code: "001", value: "000000042" }]);
+  assert.equal(json.leader.slice(0, 5), "00048");
+  assert.equal(json.leader.slice(12, 17), "00037");
+  assert.equal(json.leader.slice(5, 12), parsed.leader.raw.slice(5, 12));
+  assert.equal(json.leader.slice(17), parsed.leader.raw.slice(17));
+});
+
+// 24 + 12 + 1 + («Я» = 2 байта, 0x1E = 1) + 0x1D = 41.
+test("считает UTF-8 после декодирования Windows-1251 даже без FMT", async () => {
+  const source = await readFile(marcRecordUrl);
+  const parsed = new Iso2709MarcParser().parse(source);
+  const record: MarcRecord = { ...parsed, fields: [{
+    kind: "control", tag: "001", value: Buffer.from([0xdf]),
+    raw: Buffer.from([0xdf, 0x1e]),
+  }] };
+  const json = new MarcJsonSerializer("windows-1251").serialize(record);
+  assert.deepEqual(json.fields, [{ code: "001", value: "Я" }]);
+  assert.equal(json.leader.slice(0, 5), "00041");
+  assert.equal(json.leader.slice(12, 17), "00037");
+});
+
+// Проверяем полный путь Aleph → итоговые поля, включая исключение FMT/OWN.
+test("миграция совпадает с расчётом АБИС v3: длина 75, базовый адрес 49", () => {
+  const sourceFields = [
+    ["LDR", "  ", "00000nam a2200000 i 4500"],
+    ["FMT", "  ", "BK"],
+    ["001", "  ", "000000042"],
+    ["245", "10", "$$aКнига"],
+    ["OWN", "  ", "RSL"],
+  ];
+  const source = Buffer.concat([
+    Buffer.from("000000042\t"),
+    ...sourceFields.map(([tag, indicators, value]) => {
+      const body = Buffer.from(tag + indicators + "L" + value, "utf8");
+      return Buffer.concat([Buffer.from(String(body.length).padStart(4, "0")), body]);
+    }),
+  ]);
+  const parsed = new AlephSequentialMarcParser().parseForImport(source);
+  assert.ok(parsed);
+  const json = new MarcJsonSerializer("utf-8").serialize(parsed);
+  assert.equal(json.leader, "00075nam a2200049 i 4500");
+  assert.equal(json.format, "BK");
+  assert.deepEqual(json.fields.map(field => field.code), ["001", "245"]);
 });

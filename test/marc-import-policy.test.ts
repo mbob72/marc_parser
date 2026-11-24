@@ -103,9 +103,9 @@ for (const format of ["iso2709", "aleph-sequential"] as const) {
     const fields = [fmt, { tag: "008", value: "^ru^^" },
       { tag: "OWN", value: "$$aowner" }, { ...title, value: "$$aТекст^" }];
     const { rows } = await convert(t, build(fields), format);
-    const expected = iso(fields.filter(f => f.tag !== "OWN"));
+    const expected = iso(fields.filter(f => f.tag !== "OWN" && f.tag !== "FMT"));
     assert.equal(rows[0].leader.slice(0, 5), String(expected.length).padStart(5, "0"));
-    assert.equal(rows[0].leader.slice(12, 17), "00061");
+    assert.equal(rows[0].leader.slice(12, 17), "00049");
     assert.equal(rows[0].fields[0].value, " ru  ");
     assert.equal(rows[0].fields[1].subfields[0].value, "Текст^");
   });

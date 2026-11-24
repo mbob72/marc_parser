@@ -53,15 +53,30 @@ export class MarcJsonSerializer implements MarcRecordSerializer<MarcJsonRecord> 
     this.decoder = new TextDecoder(encoding);
   }
 
+  // DOC-PREVIEW:/docs/RSL-import-policy.md#output-leader
   serialize(record: MarcRecord): MarcJsonRecord {
+    const retained = record.fields.filter(({ tag }) => !isAlphabeticTag(tag));
+    const fields = retained.map((field) => this.serializeField(field));
+    // Размеры относятся к итоговым MARC-полям в UTF-8, а не к исходному DAT
+    // или тексту JSON. FMT уже исключён; каждый повтор поля учитывается отдельно.
+    const baseAddress = 24 + 12 * fields.length + 1;
+    const recordLength = baseAddress + fields.reduce((size, field) => {
+      const contentLength = "value" in field
+        ? Buffer.byteLength(field.value, "utf8")
+        : 2 + // Как в АБИС v3: два индикатора по одному байту.
+          field.subfields.reduce((length, subfield) =>
+            length + 2 + Buffer.byteLength(subfield.value, "utf8"), 0);
+      return size + contentLength + 1; // Завершение каждого поля 0x1E.
+    }, 0) + 1; // Завершение записи 0x1D.
+    const leader = String(recordLength).padStart(5, "0") +
+      record.leader.raw.slice(5, 12) + String(baseAddress).padStart(5, "0") +
+      record.leader.raw.slice(17);
     const format = record.fields.find(({ tag }) => tag.toUpperCase() === "FMT");
     return {
       ...(record.sourceRecordId === undefined ? {} : { recordId: record.sourceRecordId }),
-      leader: record.leader.raw,
+      leader,
       format: format ? this.decoder.decode(format.raw.subarray(0, -1)) : "",
-      fields: record.fields
-        .filter(({ tag }) => !isAlphabeticTag(tag))
-        .map((field) => this.serializeField(field)),
+      fields,
     };
   }
 
